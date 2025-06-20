@@ -1,9 +1,9 @@
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-const ProjectPage = ({ params }: Props) => {
-  const { slug } = params;
+const ProjectPage = async ({ params }: Props) => {
+  const { slug } = await params;
 
   return (
     <main className="p-4 md:p-8 pt-24">

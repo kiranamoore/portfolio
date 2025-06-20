@@ -26,7 +26,7 @@ export default function Home() {
               <TextScramble text="About Me" />
             </h2>
             <p className="text-lg md:text-xl leading-relaxed">
-              I'm a passionate designer focused on creating beautiful and
+              I&apos;m a passionate designer focused on creating beautiful and
               engaging digital experiences. With a background in visual design
               and interactive development, I strive to build products that are
               not only aesthetically pleasing but also intuitive and joyful to

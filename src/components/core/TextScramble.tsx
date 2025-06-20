@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { useInView } from "framer-motion";
-import { motion } from "framer-motion";
 
 interface ScrambleTextProps {
   text: string;
@@ -16,11 +14,26 @@ const TextScramble: React.FC<ScrambleTextProps> = ({
   className,
 }) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const [isInView, setIsInView] = useState(false);
 
   const [currentText, setCurrentText] = useState(text);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const chars = "!<>-_\\/[]{}—=+*^?#________";
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   const scramble = () => {
     let counter = 0;
@@ -55,7 +68,7 @@ const TextScramble: React.FC<ScrambleTextProps> = ({
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isInView, text]);
+  }, [isInView, text]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <Component ref={ref} className={className}>

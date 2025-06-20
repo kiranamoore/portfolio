@@ -15,7 +15,7 @@ export default function Footer() {
     <footer className="bg-black text-white p-8 md:p-16">
       <div className="max-w-7xl mx-auto">
         <div className="text-2xl md:text-4xl font-bold mb-12">
-          <p>We're open to possibilities—</p>
+          <p>We&apos;re open to possibilities—</p>
           <p>feel free to reach out anytime</p>
         </div>
 
