@@ -76,39 +76,40 @@ export default function WorkPage() {
       : projectsData.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="relative">
-      {/* Fixed Navigation Bar with inverted colors */}
-      <div className="fixed top-0 left-0 w-full z-50 pt-[200px] pb-8 px-4 md:px-8 mix-blend-difference">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl md:text-5xl font-bold mb-2 flex flex-wrap items-baseline text-white">
-            <span className="mr-4">Work</span>
-            {categories.map((cat, index) => (
-              <Fragment key={cat}>
-                {index > 0 && <span className="mx-2 select-none">-</span>}
-                <button
-                  onClick={() => setActiveCategory(cat)}
-                  className={`${
-                    activeCategory === cat ? "text-red-500" : "text-white"
-                  }`}
-                >
-                  <TextScramble
-                    as="span"
-                    text={`(${cat})`}
-                    className="hover:text-red-500 transition-colors"
-                  />
-                </button>
-              </Fragment>
-            ))}
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300">
-            We make art & design, blending aesthetics and technology in our works.
-          </p>
+    <main className="bg-black text-white pt-[36rem]">
+      <div className="relative">
+        <div className="sticky top-24 z-40 mix-blend-difference pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 pb-8 pointer-events-auto">
+            <h1 className="text-3xl md:text-5xl font-bold mb-2 flex flex-wrap items-baseline">
+              <span className="mr-4">Work</span>
+              {categories.map((cat, index) => (
+                <Fragment key={cat}>
+                  {index > 0 && <span className="mx-2 select-none">-</span>}
+                  <button
+                    onClick={() => setActiveCategory(cat)}
+                    className={`${
+                      activeCategory === cat
+                        ? "text-red-500"
+                        : "text-white"
+                    }`}
+                  >
+                    <TextScramble
+                      as="span"
+                      text={`(${cat})`}
+                      className="hover:text-red-500 transition-colors"
+                    />
+                  </button>
+                </Fragment>
+              ))}
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300">
+              We make art & design, blending aesthetics and technology in our
+              works.
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* Main Content with top padding to account for fixed nav */}
-      <div className="pt-[400px] pb-20 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <ProjectGrid projects={filteredProjects} />
         </div>
       </div>
