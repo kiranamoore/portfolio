@@ -76,8 +76,9 @@ export default function WorkPage() {
       : projectsData.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="bg-black text-white pt-[36rem]">
-      <div className="relative">
+    <main className="bg-black text-white">
+      {/* Container for the sticky nav */}
+      <div className="pt-48">
         <div className="sticky top-24 z-40 mix-blend-difference pointer-events-none">
           <div className="max-w-7xl mx-auto px-4 md:px-8 pb-8 pointer-events-auto">
             <h1 className="text-3xl md:text-5xl font-bold mb-2 flex flex-wrap items-baseline">
@@ -88,9 +89,7 @@ export default function WorkPage() {
                   <button
                     onClick={() => setActiveCategory(cat)}
                     className={`${
-                      activeCategory === cat
-                        ? "text-red-500"
-                        : "text-white"
+                      activeCategory === cat ? "text-red-500" : "text-white"
                     }`}
                   >
                     <TextScramble
@@ -109,7 +108,8 @@ export default function WorkPage() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
+        {/* Adds empty space above the grid */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-32">
           <ProjectGrid projects={filteredProjects} />
         </div>
       </div>

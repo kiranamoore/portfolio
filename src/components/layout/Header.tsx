@@ -22,7 +22,7 @@ export default function Header() {
           <TextScramble text="Kirana" />
         </h1>
       </Link>
-      <nav className="flex items-center space-x-4 md:space-x-8">
+      <nav className="flex items-center space-x-8 md:space-x-12">
         <Link href="/work" {...linkProps}>
           Work
         </Link>

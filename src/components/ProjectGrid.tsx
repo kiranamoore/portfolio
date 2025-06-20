@@ -28,7 +28,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
       {projects.map((project, index) => (
         <Link href={`/work/${project.slug}`} key={project.slug} {...linkProps}>
           <div className="group">
