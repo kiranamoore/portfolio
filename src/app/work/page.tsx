@@ -58,6 +58,13 @@ const projectsData = [
     category: "Visual Narrative Art",
     slug: "the-alchemists-study",
   },
+  {
+    title: "The Painter of Light",
+    year: 2025,
+    category: "Immersive Experiences",
+    slug: "with-the-mountains-the-clouds-and-us",
+    thumbnail: "/hero%20render_ps.png",
+  },
 ];
 
 const categories = [

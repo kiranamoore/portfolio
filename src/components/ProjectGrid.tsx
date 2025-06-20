@@ -8,6 +8,7 @@ interface Project {
   year: number;
   slug: string;
   category: string;
+  thumbnail?: string;
 }
 
 const colors = [
@@ -29,24 +30,35 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
 
   return (
     <div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
       style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+        justifyContent: "center",
+        justifyItems: "center",
         maxWidth: "1200px",
         margin: "0 auto",
         padding: "0 24px",
       }}
     >
       {projects.map((project, index) => (
-        <div key={project.slug} style={{ padding: "32px" }}>
+        <div key={project.slug} style={{ padding: "32px", width: "320px" }}>
           <Link href={`/work/${project.slug}`} {...linkProps}>
             <div className="group">
-              <div
-                className={`relative aspect-square w-full overflow-hidden ${
-                  colors[index % colors.length]
-                }`}
-              >
-                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+              {project.thumbnail ? (
+                <img
+                  src={project.thumbnail}
+                  alt={project.title}
+                  style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: "12px" }}
+                />
+              ) : (
+                <div
+                  className={`relative aspect-square w-full overflow-hidden ${
+                    colors[index % colors.length]
+                  }`}
+                >
+                  <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+              )}
               <div className="mt-4">
                 <h2 className="font-bold text-lg">{project.title}</h2>
                 <p className="text-gray-400">
