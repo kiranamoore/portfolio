@@ -8,12 +8,14 @@ export default function Home() {
       <main>
         <InteractiveBackground>
           <section className="h-screen flex flex-col justify-center items-center relative text-center">
-            <h1 className="text-6xl md:text-9xl font-bold tracking-tighter">
-              <TextScramble text="Kirana" />
-            </h1>
-            <p className="text-xl md:text-2xl mt-4">
-              <TextScramble text="Digital Interaction & Visual Designer" />
-            </p>
+            <div className="mix-blend-difference">
+              <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white">
+                <TextScramble text="Kirana" />
+              </h1>
+              <p className="text-xl md:text-2xl mt-4 text-white">
+                <TextScramble text="Digital Interaction & Visual Designer" />
+              </p>
+            </div>
           </section>
         </InteractiveBackground>
 
