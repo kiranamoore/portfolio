@@ -10,10 +10,10 @@ interface ScrambleTextProps {
 
 const TextScramble: React.FC<ScrambleTextProps> = ({
   text,
-  as: Component = "div",
+  as: Component = "span",
   className,
 }) => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLSpanElement>(null);
   const [isInView, setIsInView] = useState(false);
 
   const [currentText, setCurrentText] = useState(text);

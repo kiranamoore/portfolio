@@ -78,7 +78,7 @@ export default function WorkPage() {
   return (
     <main className="bg-black text-white">
       {/* 1. This div creates the empty black space at the top */}
-      <div className="h-96" />
+      <div className="h-32" />
 
       {/* 2. Container for the sticky nav and the grid */}
       <div className="relative">

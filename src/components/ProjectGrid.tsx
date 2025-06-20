@@ -28,25 +28,34 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+    <div
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "0 24px",
+      }}
+    >
       {projects.map((project, index) => (
-        <Link href={`/work/${project.slug}`} key={project.slug} {...linkProps}>
-          <div className="group">
-            <div
-              className={`relative aspect-square w-full overflow-hidden ${
-                colors[index % colors.length]
-              }`}
-            >
-              <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div key={project.slug} style={{ padding: "32px" }}>
+          <Link href={`/work/${project.slug}`} {...linkProps}>
+            <div className="group">
+              <div
+                className={`relative aspect-square w-full overflow-hidden ${
+                  colors[index % colors.length]
+                }`}
+              >
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-repeat opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="mt-4">
+                <h2 className="font-bold text-lg">{project.title}</h2>
+                <p className="text-gray-400">
+                  :: {project.category} / {project.year}
+                </p>
+              </div>
             </div>
-            <div className="mt-4">
-              <h2 className="font-bold text-lg">{project.title}</h2>
-              <p className="text-gray-400">
-                :: {project.category} / {project.year}
-              </p>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       ))}
     </div>
   );
