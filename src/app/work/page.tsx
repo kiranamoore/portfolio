@@ -77,10 +77,14 @@ export default function WorkPage() {
 
   return (
     <main className="bg-black text-white">
-      {/* Container for the sticky nav */}
-      <div className="pt-48">
+      {/* 1. This div creates the empty black space at the top */}
+      <div className="h-96" />
+
+      {/* 2. Container for the sticky nav and the grid */}
+      <div className="relative">
+        {/* 3. The sticky navigation */}
         <div className="sticky top-24 z-40 mix-blend-difference pointer-events-none">
-          <div className="max-w-7xl mx-auto px-4 md:px-8 pb-8 pointer-events-auto">
+          <div className="max-w-7xl mx-auto px-4 md:px-8 pb-12 pointer-events-auto">
             <h1 className="text-3xl md:text-5xl font-bold mb-2 flex flex-wrap items-baseline">
               <span className="mr-4">Work</span>
               {categories.map((cat, index) => (
@@ -108,8 +112,8 @@ export default function WorkPage() {
           </div>
         </div>
 
-        {/* Adds empty space above the grid */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8 pt-32">
+        {/* 4. The project grid */}
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
           <ProjectGrid projects={filteredProjects} />
         </div>
       </div>
