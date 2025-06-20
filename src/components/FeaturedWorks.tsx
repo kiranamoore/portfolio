@@ -69,18 +69,20 @@ export default function FeaturedWorks() {
             </p>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="text-center">
-              <Image
-                src="/immersive-1.jpg"
-                alt="Immersive Project 1"
-                width={600}
-                height={400}
-                className="rounded-lg"
-              />
-              <p className="mt-2">
-                <TextScramble text="Project Name :: Installation, Interactive / 2024" />
-              </p>
-            </div>
+            <Link href="/work/with-the-mountains-the-clouds-and-us">
+              <div className="text-center group">
+                <Image
+                  src="/hero%20render_ps.png"
+                  alt="The Painter of Light"
+                  width={600}
+                  height={400}
+                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+                <p className="mt-2">
+                  <TextScramble text="The Painter of Light :: Immersive Experience / 2025" />
+                </p>
+              </div>
+            </Link>
           </div>
         </div>
 
