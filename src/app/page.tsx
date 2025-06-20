@@ -30,7 +30,7 @@ export default function Home() {
               engaging digital experiences. With a background in visual design
               and interactive development, I strive to build products that are
               not only aesthetically pleasing but also intuitive and joyful to
-              use. This portfolio is a collection of my favorite projects.
+              use. This portfolio is a collection of my favorite projects!
             </p>
           </div>
         </section>
