@@ -23,14 +23,14 @@ export default function Header() {
         </h1>
       </Link>
       <nav className="flex items-center">
+        <Link href="/" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
+          Home
+        </Link>
         <Link href="/work" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
           Work
         </Link>
-        <Link href="/about" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-          About
-        </Link>
-        <Link href="/contact" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-          Contact
+        <Link href="/resume" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
+          Resume
         </Link>
       </nav>
     </header>

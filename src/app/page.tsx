@@ -1,8 +1,29 @@
+"use client";
 import InteractiveBackground from "@/components/core/InteractiveBackground";
 import TextScramble from "@/components/core/TextScramble";
 import FeaturedWorks from "@/components/FeaturedWorks";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [californiaTime, setCaliforniaTime] = useState("");
+
+  useEffect(() => {
+    const getCaliforniaTime = () => {
+      const time = new Date().toLocaleTimeString("en-US", {
+        timeZone: "America/Los_Angeles",
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
+      setCaliforniaTime(time.replace(" ", ""));
+    };
+
+    getCaliforniaTime();
+    const interval = setInterval(getCaliforniaTime, 1000 * 60);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <main>
@@ -15,6 +36,9 @@ export default function Home() {
               <p className="text-xl md:text-2xl mt-4 text-white">
                 <TextScramble text="Digital Interaction & Visual Designer" />
               </p>
+            </div>
+            <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm">
+              <p>San Francisco / Los Angeles, CA &gt; {californiaTime}</p>
             </div>
           </section>
         </InteractiveBackground>

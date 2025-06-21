@@ -4,11 +4,11 @@ import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent } from "react";
 
 const colors = [
-  "rgba(255, 89, 94, 0.8)",
-  "rgba(255, 202, 58, 0.7)",
-  "rgba(138, 201, 38, 0.6)",
-  "rgba(25, 130, 196, 0.6)",
-  "rgba(106, 76, 147, 0.6)",
+  "rgba(255, 89, 94, 0.3)",
+  "rgba(255, 202, 58, 0.3)",
+  "rgba(138, 201, 38, 0.3)",
+  "rgba(25, 130, 196, 0.3)",
+  "rgba(106, 76, 147, 0.3)",
 ];
 
 export default function InteractiveBackground({
@@ -41,7 +41,7 @@ export default function InteractiveBackground({
       </video>
 
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 z-20 mix-blend-overlay"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-100 z-10 mix-blend-color-dodge"
         style={{
           background: useMotionTemplate`radial-gradient(650px circle at ${mouseX}px ${mouseY}px, var(--color1), var(--color2), var(--color3), transparent 80%)`,
         }}
