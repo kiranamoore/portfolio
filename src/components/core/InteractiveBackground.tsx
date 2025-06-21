@@ -3,6 +3,14 @@
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import { MouseEvent } from "react";
 
+const colors = [
+  "rgba(255, 89, 94, 0.8)",
+  "rgba(255, 202, 58, 0.7)",
+  "rgba(138, 201, 38, 0.6)",
+  "rgba(25, 130, 196, 0.6)",
+  "rgba(106, 76, 147, 0.6)",
+];
+
 export default function InteractiveBackground({
   children,
 }: {
@@ -31,21 +39,21 @@ export default function InteractiveBackground({
       >
         <source src="/Landing%20Page%20video.mov" type="video/mp4" />
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-10" />
+
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 z-20"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100 z-20 mix-blend-overlay"
         style={{
-          background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(255, 89, 94, 0.5),
-              rgba(255, 202, 58, 0.4),
-              rgba(138, 201, 38, 0.3),
-              rgba(25, 130, 196, 0.3),
-              rgba(106, 76, 147, 0.3),
-              transparent 80%
-            )
-          `,
+          background: useMotionTemplate`radial-gradient(650px circle at ${mouseX}px ${mouseY}px, var(--color1), var(--color2), var(--color3), transparent 80%)`,
+        }}
+        animate={{
+          "--color1": colors,
+          "--color2": [...colors.slice(1), colors[0]],
+          "--color3": [...colors.slice(2), ...colors.slice(0, 2)],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          repeatType: "mirror",
         }}
       />
       <div className="relative z-30">{children}</div>
