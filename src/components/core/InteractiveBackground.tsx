@@ -41,7 +41,7 @@ export default function InteractiveBackground({
       </video>
 
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-100 z-10 mix-blend-color-dodge"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-100 z-10"
         style={{
           background: useMotionTemplate`radial-gradient(650px circle at ${mouseX}px ${mouseY}px, var(--color1), var(--color2), var(--color3), transparent 80%)`,
         }}
