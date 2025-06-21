@@ -31,9 +31,15 @@ export default function FeaturedWorks() {
       id="featured-work"
       style={{ backgroundColor }}
     >
-      <motion.div style={{ color }}>
+      <motion.div
+        style={{
+          color,
+          paddingLeft: "32px",
+          paddingRight: "32px",
+        }}
+      >
         {/* Extended Reality Design */}
-        <div className="min-h-screen flex items-center py-20 px-4 md:px-8">
+        <div className="min-h-screen flex items-center py-20">
           <div className="flex-1">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
               Featured &gt; <br /> Extended Reality
@@ -59,7 +65,7 @@ export default function FeaturedWorks() {
         </div>
 
         {/* Immersive Experience Design */}
-        <div className="min-h-screen flex items-center py-20 px-4 md:px-8">
+        <div className="min-h-screen flex items-center py-20">
           <div className="flex-1">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
               Featured &gt; <br /> Immersive Experiences
@@ -87,7 +93,7 @@ export default function FeaturedWorks() {
         </div>
 
         {/* Visual Narrative Art */}
-        <div className="min-h-screen flex items-center py-20 px-4 md:px-8">
+        <div className="min-h-screen flex items-center py-20">
           <div className="flex-1">
             <h2 className="text-4xl md:text-6xl font-bold mb-4">
               Featured &gt; <br /> Visual Narratives

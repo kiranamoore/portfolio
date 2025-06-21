@@ -23,11 +23,14 @@ export default function Home() {
           id="about"
           className="py-20 md:py-32 bg-black text-white text-center"
         >
-          <div className="max-w-4xl mx-auto px-4">
+          <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-8">
               <TextScramble text="About Me" />
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed">
+            <p
+              className="text-lg md:text-xl leading-relaxed px-4"
+              style={{ maxWidth: "42rem", margin: "0 auto" }}
+            >
               I&apos;m a passionate designer focused on creating beautiful and
               engaging digital experiences. With a background in visual design
               and interactive development, I strive to build products that are
