@@ -10,18 +10,18 @@ export default function FeaturedWorks() {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start end", "end start"],
+    offset: ["start 25%", "end 75%"],
   });
 
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0.1, 0.5, 0.9],
+    [0, 0.5, 1],
     ["#FFFFFF", "#000000", "#FFFFFF"]
   );
 
   const color = useTransform(
     scrollYProgress,
-    [0.1, 0.5, 0.9],
+    [0, 0.5, 1],
     ["#000000", "#FFFFFF", "#000000"]
   );
 
