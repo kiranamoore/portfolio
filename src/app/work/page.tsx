@@ -111,6 +111,9 @@ export default function WorkPage() {
 
   // Determine which company is being previewed (hovered or selected)
   const effectiveCompany = hoverCompany || activeCompany;
+  if (typeof window !== 'undefined') {
+    console.log('activeCategory:', activeCategory, 'activeCompany:', activeCompany, 'hoverCompany:', hoverCompany, 'effectiveCompany:', effectiveCompany);
+  }
 
   return (
     <main className="bg-black text-white">
@@ -148,7 +151,7 @@ export default function WorkPage() {
                         {companies.map((company) => (
                           <button
                             key={company}
-                            onClick={() => { setActiveCompany(company); setDropdownOpen(false); setHoverCompany(null); }}
+                            onClick={() => { setActiveCompany(company); setActiveCategory('Extended Reality'); setDropdownOpen(false); setHoverCompany(null); }}
                             onMouseEnter={() => setHoverCompany(company)}
                             onMouseLeave={() => setHoverCompany(null)}
                             className={`w-72 text-center px-4 py-2 rounded-lg transition-colors duration-150 ${((hoverCompany ?? activeCompany) === company) ? "bg-red-500 text-white" : "text-white hover:bg-gray-900 hover:text-red-400"}`}
