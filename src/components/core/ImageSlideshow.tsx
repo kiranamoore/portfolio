@@ -11,6 +11,7 @@ interface ImageSlideshowProps {
 
 export default function ImageSlideshow({ images, altPrefix = "Project image" }: ImageSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -24,10 +25,13 @@ export default function ImageSlideshow({ images, altPrefix = "Project image" }: 
     setCurrentIndex(index);
   };
 
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
   return (
     <div className="relative w-full max-w-4xl mx-auto">
       {/* Main Image Display */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-900">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-900 cursor-pointer" onClick={openModal}>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -47,6 +51,27 @@ export default function ImageSlideshow({ images, altPrefix = "Project image" }: 
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* Modal for Enlarged Image */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={closeModal}>
+          <div className="relative w-full h-full flex items-center justify-center" onClick={e => e.stopPropagation()}>
+            <img
+              src={images[currentIndex]}
+              alt={`${altPrefix} enlarged ${currentIndex + 1}`}
+              className="max-w-[90vw] max-h-[90vh] rounded-lg shadow-2xl"
+              style={{ objectFit: 'contain' }}
+            />
+            <button
+              onClick={closeModal}
+              className="absolute top-6 right-6 bg-gray-900/80 hover:bg-gray-700 text-white rounded-full p-2 text-3xl z-10"
+              aria-label="Close enlarged image"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Navigation Arrows */}
       <button

@@ -65,8 +65,43 @@ export default function FeaturedWorks() {
                   <p className="text-sm">
                     <TextScramble text="Extended Reality / Summer 2025" />
                   </p>
+                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">
+                    Hewlett-Packard / HyperX
+                  </span>
                   <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">
                     In Development
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Second row: HyperX Cloud 3 3D Customizer */}
+        <div className="min-h-[40vh] flex items-center py-10">
+          <div className="flex-1" />
+          <div className="flex-1 flex justify-center">
+            <Link href="/work/hyperx-cloud-3-3d-customizer">
+              <div className="text-center group">
+                <Image
+                  src="/purchase.png"
+                  alt="HyperX Cloud 3 3D Customizer thumbnail"
+                  width={400}
+                  height={600}
+                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="mt-2">
+                  <p className="font-semibold">
+                    <TextScramble text="HyperX Cloud 3 3D Customizer" />
+                  </p>
+                  <p className="text-sm">
+                    <TextScramble text="Extended Reality / Spring 2025" />
+                  </p>
+                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">
+                    Hewlett-Packard / HyperX
+                  </span>
+                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">
+                    Completed
                   </span>
                 </div>
               </div>

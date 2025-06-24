@@ -8,14 +8,17 @@ export default function Cloud3DConnectPage() {
   return (
     <>
       <div className="h-32" />
-      <div className="min-h-screen bg-black text-white px-6 py-12 flex justify-center mt-16 md:mt-24">
-        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12">
+      <div
+        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
+        style={{ marginLeft: '5px', marginRight: '5px' }}
+      >
+        <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
           {/* Left column: Image + stage info */}
           <div className="flex flex-col items-start">
             <img
               src="/18k tris.png"
               alt="Cloud 3D Connect 18k tris thumbnail"
-              className="w-full max-w-xs object-contain rounded-lg border border-gray-700 shadow-lg"
+              className="w-full max-w-3xl object-contain rounded-lg border border-gray-700 shadow-lg"
             />
             <p className="text-sm text-gray-400 mt-4">
               current stage of development: <br />

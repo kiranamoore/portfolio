@@ -9,6 +9,7 @@ interface Project {
   slug: string;
   category: string;
   thumbnail?: string;
+  company?: string;
 }
 
 const colors = [
@@ -60,6 +61,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 </div>
               )}
               <div className="mt-4">
+                {project.company && (
+                  <span className="inline-block mb-2 px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full">
+                    {project.company}
+                  </span>
+                )}
                 <h2 className="font-bold text-lg">{project.title}</h2>
                 <p className="text-gray-400">
                   :: {project.category} / {project.year}
