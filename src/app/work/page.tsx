@@ -5,6 +5,13 @@ import { useState, Fragment } from "react";
 
 const projectsData = [
   {
+    title: "Cloud 3D Connect",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "cloud-3d-connect",
+    thumbnail: "/18k tris.png",
+  },
+  {
     title: "Quantum Leap",
     year: 2024,
     category: "Extended Reality",

@@ -49,18 +49,28 @@ export default function FeaturedWorks() {
             </p>
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="text-center">
-              <Image
-                src="/xr-1.jpg"
-                alt="XR Project 1"
-                width={400}
-                height={600}
-                className="rounded-lg"
-              />
-              <p className="mt-2">
-                <TextScramble text="Project Name :: Artwork, XR / 2025" />
-              </p>
-            </div>
+            <Link href="/work/cloud-3d-connect">
+              <div className="text-center group">
+                <Image
+                  src="/18k tris.png"
+                  alt="Cloud 3D Connect 18k tris thumbnail"
+                  width={400}
+                  height={600}
+                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="mt-2">
+                  <p className="font-semibold">
+                    <TextScramble text="Cloud 3D Connect" />
+                  </p>
+                  <p className="text-sm">
+                    <TextScramble text="Extended Reality / Summer 2025" />
+                  </p>
+                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">
+                    In Development
+                  </span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
 
