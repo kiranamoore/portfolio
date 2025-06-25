@@ -30,6 +30,31 @@ export default function ProjectClient() {
                 muted
                 className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
               />
+              <div className="mt-6 space-y-4">
+                <div className="text-center">
+                  <img
+                    src="/hx3d_snapcode.png"
+                    alt="HX3D Snapcode"
+                    className="w-full max-w-md mx-auto rounded-lg border border-gray-700 shadow-lg"
+                  />
+                  <p className="text-sm text-gray-400 mt-2">
+                    Scan the snapcode in the Snapchat app to try the lens
+                  </p>
+                </div>
+                <div className="text-center">
+                  <a
+                    href="https://lens.snap.com/experience/40c4a227-6b11-4635-80c8-2ca9686659e5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-medium"
+                  >
+                    Try WebAR Lens (mobile only)
+                  </a>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Click to experience via web browser
+                  </p>
+                </div>
+              </div>
             </div>
             {/* Right column: Centered content */}
             <div className="flex flex-col items-center text-center space-y-6">
@@ -121,7 +146,7 @@ export default function ProjectClient() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Painter of Light</h1>
             </div>
-            <div className="space-y-4 text-left w-full">
+            <div className="space-y-4 text-left w-full max-w-2xl mx-auto px-4">
               <p className="text-base md:text-lg text-gray-200 leading-relaxed mb-8">
                 As an innovative designer with a passion for creating immersive, narrative-driven experiences, I specialize in crafting environments that blend art, storytelling, and audience engagement to provoke thought and evoke emotion. My recent research project, "The Painter of Light," exemplifies my ability to design compelling, multi-sensory experiences that resonate with diverse audiences. This project explored the dichotomy between Thomas Kinkade's idyllic, Christian-themed artwork and his complex personal struggles, culminating in a conceptual immersive exhibit. By juxtaposing Kinkade's luminous aesthetic with symbolic elements reflecting his challenges, the exhibit invites viewers to engage with the interplay of light and shadow, both visually and thematically, fostering a deeper understanding of his work.
                 <br /><br />
@@ -129,6 +154,21 @@ export default function ProjectClient() {
               </p>
             </div>
           </div>
+        </div>
+      </div>
+      {/* Dual slideshows below the main content, full width */}
+      <div className="w-full flex flex-col md:flex-row gap-8 justify-center mt-12">
+        <div className="flex-1 w-full">
+          <ImageSlideshow
+            images={Array.from({length: 8}, (_,i) => `/${21 + i}.png`)}
+            altPrefix="Painter of Light detail image set 1"
+          />
+        </div>
+        <div className="flex-1 w-full">
+          <ImageSlideshow
+            images={["/31.png", "/32.png", "/30.png", "/15.png"]}
+            altPrefix="Painter of Light detail image set 2"
+          />
         </div>
       </div>
     </>
