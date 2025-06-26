@@ -101,7 +101,34 @@ const projectsData = [
     thumbnail: "/tryon_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
   },
+  {
+    title: "Castle Chambers",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "castle-chambers",
+    thumbnail: "/castle chambers.png",
+    company: undefined,
+  },
+  {
+    title: "TRAINAR",
+    year: 2024,
+    category: "Extended Reality",
+    slug: "trainar",
+    thumbnail: "/trainar/trainar.png",
+    company: undefined,
+  },
+  {
+    title: "Pixel Headphones",
+    year: 2024,
+    category: "Extended Reality",
+    slug: "pixel-headphones",
+    thumbnail: "/pixel headphones.png",
+    company: undefined,
+  },
 ];
+
+// Sort projects newest to oldest
+const sortedProjectsData = [...projectsData].sort((a, b) => b.year - a.year);
 
 const categories = [
   "All",
@@ -119,7 +146,7 @@ export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [showHyperXBio, setShowHyperXBio] = useState(false);
 
-  const filteredProjects = projectsData.filter((p) => {
+  const filteredProjects = sortedProjectsData.filter((p) => {
     const categoryMatch = activeCategory === "All" || p.category === activeCategory;
     // Only filter by company if HyperX is selected in second nav
     const companyMatch = !(activeCategory === "Extended Reality" && showHyperXBio) || (p.company && p.company === "Hewlett-Packard / HyperX");

@@ -122,6 +122,183 @@ export default function ProjectClient() {
       </>
     );
   }
+  if (slug === 'trainar') {
+    const trainarImages = [
+      '/trainar/8.png',
+      '/trainar/9.png',
+      '/trainar/10.png',
+      '/trainar/11.png',
+      '/trainar/13.png',
+      '/trainar/14.png',
+      '/trainar/15.png',
+      '/trainar/16.png',
+      '/trainar/17.png',
+    ];
+    return (
+      <>
+        <div className="h-32" />
+        <div
+          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
+          style={{ marginLeft: '100px', marginRight: '100px' }}
+        >
+          <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+            {/* Left column: Video on top, slideshow below */}
+            <div className="flex flex-col items-start w-full">
+              <video
+                src="/trainar/12.mp4"
+                controls
+                autoPlay
+                loop
+                muted
+                className="w-full max-w-4xl aspect-[4/3] object-contain rounded-lg border border-gray-700 shadow-lg mb-6"
+              />
+              <div className="w-full">
+                <ImageSlideshow
+                  images={trainarImages}
+                  altPrefix="TRAINAR project image"
+                />
+              </div>
+            </div>
+            {/* Right column: Centered content */}
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-300">Spring 2024</p>
+                <h1 className="text-4xl md:text-6xl font-bold">TRAINAR</h1>
+              </div>
+              <p className="text-lg font-medium">
+                TrainAR – AR Gym Training App<br />
+                Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an augmented reality fitness concept pitched to Snapchat, designed to integrate gym training guidance into their AR platform.
+              </p>
+              <div className="space-y-4 text-left max-w-2xl w-full">
+                <section>
+                  <h2 className="text-xl font-semibold">Goal</h2>
+                  <p>
+                    Enhance workout safety and form correction by using augmented reality to place a digital trainer in the user's gym space, providing real-time visual demonstrations of proper exercise techniques.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><b>Lens Studio</b> – built the interactive AR lens demo</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Interface Design</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><b>AR Trainer Overlay</b> – positions a digital trainer in the user's environment to demonstrate correct form and movement</li>
+                    <li><b>Real-Time Visual Guidance</b> – helps users perform exercises safely and correctly</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Business Impact</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Promotes safer, more effective workouts by reducing the risk of injury through real-time form correction</li>
+                    <li>Introduces AR as a valuable tool for fitness and personal training</li>
+                    <li>Explores new use cases for Snapchat's AR capabilities in health and wellness sectors</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Build Context</h2>
+                  <p>
+                    Developed an interactive lens prototype as part of the pitch to Snapchat<br />
+                    Collaborated with a multidisciplinary student team to ideate, design, and develop the experience
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Project Status</h2>
+                  <p>
+                    Lens demo completed and functional in Lens Studio. Ready for further development and refinement based on user testing and platform integration opportunities.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+  if (slug === 'pixel-headphones') {
+    return (
+      <>
+        <div className="h-32" />
+        <div
+          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
+          style={{ marginLeft: '100px', marginRight: '100px' }}
+        >
+          <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+            {/* Left column: Video */}
+            <div className="flex flex-col items-start">
+              <video
+                src="/Pixel Headphones Demo.mp4"
+                controls
+                autoPlay
+                loop
+                muted
+                className="w-full max-w-4xl aspect-[4/3] object-contain rounded-lg border border-gray-700 shadow-lg"
+              />
+            </div>
+            {/* Right column: Centered content */}
+            <div className="flex flex-col items-center text-center space-y-6">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-300">Spring 2024</p>
+                <h1 className="text-4xl md:text-6xl font-bold">Pixel Headphones</h1>
+              </div>
+              <p className="text-lg font-medium">
+                Pixel Headphone – Fashion AR Lens<br />
+                Developed a fashion-focused augmented reality lens for Snapchat that integrates pixel art aesthetics into an interactive, face-anchored AR experience.
+              </p>
+              <div className="space-y-4 text-left max-w-2xl w-full">
+                <section>
+                  <h2 className="text-xl font-semibold">Goal</h2>
+                  <p>
+                    Create an immersive AR lens with a cohesive pixelated game aesthetic, blending 3D and 2D elements to deliver a playful, fashion-forward experience.
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><b>Lens Studio</b> – built the interactive AR lens</li>
+                    <li><b>Procreate</b> – designed 2D UI, stickers, and backgrounds</li>
+                    <li><b>Rhinoceros 3D</b> – modeled 3D pixelated headphones</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Interface Design</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li><b>Pixelated Start UI</b> – custom-designed 2D pixel art start screen</li>
+                    <li><b>3D Pixel Headphone</b> – face-anchored, pixel-styled headphone model</li>
+                    <li><b>Animated Cheek Stickers</b> – 2D face-anchored pixel animations</li>
+                    <li><b>Dynamic Backgrounds</b> – two 2D animated pixel-art environments to enhance immersion</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Creative Impact</h2>
+                  <ul className="list-disc list-inside space-y-1">
+                    <li>Explores the fusion of pixel art and fashion in AR</li>
+                    <li>Showcases full-cycle asset development—from concept to production—executed independently</li>
+                    <li>Demonstrates how AR can be used as a self-expression and style tool within Snapchat's platform</li>
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Build Context</h2>
+                  <p>
+                    Independently produced all 3D models, 2D assets, and animations<br />
+                    Designed and developed the lens to achieve a unified pixel art aesthetic across all visual layers
+                  </p>
+                </section>
+                <section>
+                  <h2 className="text-xl font-semibold mt-4">Project Status</h2>
+                  <p>
+                    Lens published and fully functional on Snapchat. Available for public use via Snapcode.
+                  </p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
   // Default: Painter of Light
   return (
     <>
