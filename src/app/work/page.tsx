@@ -93,6 +93,14 @@ const projectsData = [
     slug: "cops-and-robbers",
     thumbnail: "/cops_robbers.png",
   },
+  {
+    title: "Cloud 3 Try-On Experience",
+    year: 2024,
+    category: "Extended Reality",
+    slug: "cloud-3-try-on-experience",
+    thumbnail: "/tryon_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
 ];
 
 const categories = [

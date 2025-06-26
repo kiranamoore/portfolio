@@ -23,7 +23,7 @@ export default function Cloud3DConnectPage() {
             <p className="text-sm text-gray-400 mt-4">
               current stage of development: <br />
               optimizing the original manufacturing model by reducing triangle count <br />
-              current triangle count: <span className="font-mono">40,000 triangles</span>
+              current triangle count: <span className="font-mono">20,000 triangles</span>
             </p>
           </div>
 

@@ -79,7 +79,7 @@ export default function ProjectClient() {
                 <section>
                   <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
                   <ul className="list-disc list-inside space-y-1">
-                    <li><b>Blender</b> – reduced original models from 3–10M to &lt;10,000 triangles using BlenderKit</li>
+                    <li><b>Blender</b> – reduced original models from 3–10M to 20,000 triangles using BlenderKit</li>
                     <li><b>Substance Painter</b> – applied detailed textures optimized for mobile</li>
                     <li><b>Unity (C#)</b> – built the AR interface with interactive UI components and rendering</li>
                     <li><b>AR Integration</b> – real-time model visualization and dynamic interaction support</li>
