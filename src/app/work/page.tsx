@@ -116,7 +116,7 @@ const projectsData = [
     year: 2025,
     category: "Extended Reality",
     slug: "castle-chambers",
-    thumbnail: "/castle chambers.png",
+    thumbnail: "/castle-chambers.png",
     company: undefined,
   },
   {
