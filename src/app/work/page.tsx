@@ -146,6 +146,15 @@ const projectsData = [
     thumbnail: "/beast of burden/beast of burden.png",
     company: undefined,
   },
+  {
+    title: "Mosaic – Future Car Concept for Honda",
+    year: 2025,
+    season: "Spring",
+    category: "Extended Reality",
+    slug: "mosaic",
+    thumbnail: "/mosaic thumbnail.png",
+    company: "Honda",
+  },
 ];
 
 // Helper to extract season and year
