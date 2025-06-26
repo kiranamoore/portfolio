@@ -3,6 +3,16 @@ import ProjectGrid from "@/components/ProjectGrid";
 import TextScramble from "@/components/core/TextScramble";
 import { useState, Fragment } from "react";
 
+type Project = {
+  title: string;
+  year: number;
+  category: string;
+  slug: string;
+  thumbnail?: string;
+  company?: string;
+  season?: string;
+};
+
 const projectsData = [
   {
     title: "Quick Start Guide Augmented Reality Manual",
@@ -139,7 +149,7 @@ const projectsData = [
 ];
 
 // Helper to extract season and year
-function getSeasonAndYear(project: any) {
+function getSeasonAndYear(project: Project) {
   // Try to extract from title/description if not present, but default to Spring if not found
   const seasonRegex = /(Spring|Summer|Fall|Winter)\s*(\d{4})/i;
   let season = null, year = null;
@@ -148,8 +158,10 @@ function getSeasonAndYear(project: any) {
     year = project.year;
   } else if (project.title && seasonRegex.test(project.title)) {
     const match = project.title.match(seasonRegex);
-    season = match[1];
-    year = parseInt(match[2]);
+    if (match) {
+      season = match[1];
+      year = parseInt(match[2]);
+    }
   } else if (project.year) {
     // Default to Spring if not specified
     season = project.season || 'Spring';
@@ -163,7 +175,7 @@ const seasonOrder: Record<string, number> = { 'Summer': 3, 'Fall': 2, 'Spring': 
 const sortedProjectsData = [...projectsData].sort((a, b) => {
   const aInfo = getSeasonAndYear(a);
   const bInfo = getSeasonAndYear(b);
-  if (aInfo.year !== bInfo.year) {
+  if (aInfo.year != null && bInfo.year != null && aInfo.year !== bInfo.year) {
     return bInfo.year - aInfo.year; // Descending by year
   }
   // Descending by season order
