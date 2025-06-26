@@ -201,6 +201,7 @@ const categories = [
 const companies = [
   "All",
   "Hewlett-Packard / HyperX",
+  "Honda",
 ];
 
 export default function WorkPage() {
