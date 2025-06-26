@@ -112,6 +112,7 @@ const projectsData = [
   {
     title: "TRAINAR",
     year: 2024,
+    season: "Spring",
     category: "Extended Reality",
     slug: "trainar",
     thumbnail: "/trainar/trainar.png",
@@ -120,15 +121,54 @@ const projectsData = [
   {
     title: "Pixel Headphones",
     year: 2024,
+    season: "Spring",
     category: "Extended Reality",
     slug: "pixel-headphones",
     thumbnail: "/pixel headphones.png",
     company: undefined,
   },
+  {
+    title: "Beast of Burden",
+    year: 2024,
+    season: "Fall",
+    category: "Visual Narrative Art",
+    slug: "beast-of-burden",
+    thumbnail: "/beast of burden/beast of burden.png",
+    company: undefined,
+  },
 ];
 
-// Sort projects newest to oldest
-const sortedProjectsData = [...projectsData].sort((a, b) => b.year - a.year);
+// Helper to extract season and year
+function getSeasonAndYear(project: any) {
+  // Try to extract from title/description if not present, but default to Spring if not found
+  const seasonRegex = /(Spring|Summer|Fall|Winter)\s*(\d{4})/i;
+  let season = null, year = null;
+  if (project.season && project.year) {
+    season = project.season;
+    year = project.year;
+  } else if (project.title && seasonRegex.test(project.title)) {
+    const match = project.title.match(seasonRegex);
+    season = match[1];
+    year = parseInt(match[2]);
+  } else if (project.year) {
+    // Default to Spring if not specified
+    season = project.season || 'Spring';
+    year = project.year;
+  }
+  return { season: season as string, year };
+}
+
+const seasonOrder: Record<string, number> = { 'Summer': 3, 'Fall': 2, 'Spring': 1, 'Winter': 0 };
+
+const sortedProjectsData = [...projectsData].sort((a, b) => {
+  const aInfo = getSeasonAndYear(a);
+  const bInfo = getSeasonAndYear(b);
+  if (aInfo.year !== bInfo.year) {
+    return bInfo.year - aInfo.year; // Descending by year
+  }
+  // Descending by season order
+  return (seasonOrder[String(bInfo.season)] || 0) - (seasonOrder[String(aInfo.season)] || 0);
+});
 
 const categories = [
   "All",
