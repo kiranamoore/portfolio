@@ -7,7 +7,7 @@ export default function MetaAlchemyPage() {
   return (
     <>
       <div className="h-32" />
-      <div className="min-h-screen bg-black text-white py-12 flex justify-center" style={{ marginLeft: '5px', marginRight: '5px' }}>
+      <div className="min-h-screen bg-black text-white py-12 flex justify-center mb-12" style={{ marginLeft: '5px', marginRight: '5px', marginBottom: '50px' }}>
         <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
           {/* Left: Slideshow */}
           <div className="flex flex-col items-start w-full">

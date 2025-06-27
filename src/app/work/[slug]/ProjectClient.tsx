@@ -16,8 +16,8 @@ export default function ProjectClient() {
       <>
         <div className="h-32" />
         <div
-          className="min-h-screen bg-black text-white py-12 flex justify-center"
-          style={{ marginLeft: '5px', marginRight: '5px' }}
+          className="min-h-screen bg-black text-white py-12 flex justify-center mb-12"
+          style={{ marginLeft: '5px', marginRight: '5px', marginBottom: '50px' }}
         >
           <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
             {/* Left column: Video */}
@@ -138,8 +138,8 @@ export default function ProjectClient() {
       <>
         <div className="h-32" />
         <div
-          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
-          style={{ marginLeft: '100px', marginRight: '100px' }}
+          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
         >
           <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
             {/* Left column: Video on top, slideshow below */}
@@ -222,8 +222,8 @@ export default function ProjectClient() {
       <>
         <div className="h-32" />
         <div
-          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
-          style={{ marginLeft: '100px', marginRight: '100px' }}
+          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
         >
           <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
             {/* Left column: Video */}
@@ -304,8 +304,8 @@ export default function ProjectClient() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center"
-        style={{ marginLeft: '5px', marginRight: '5px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center mb-12"
+        style={{ marginLeft: '5px', marginRight: '5px', marginBottom: '50px' }}
       >
         <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
           {/* Left column: Large Slideshow */}

@@ -7,8 +7,8 @@ export default function InteractivePackagingProductFeaturesPage() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24"
-        style={{ marginLeft: '5px', marginRight: '5px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
+        style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
       >
         <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[1fr_900px] gap-16">
           {/* Left column: Description and details */}
