@@ -155,6 +155,14 @@ const projectsData = [
     thumbnail: "/mosaic thumbnail.png",
     company: "Honda",
   },
+  {
+    title: "The Traveler",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "the-traveler",
+    thumbnail: "/traveler/traveler.png",
+  },
 ];
 
 // Helper to extract season and year
