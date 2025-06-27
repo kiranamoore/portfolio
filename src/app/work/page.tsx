@@ -193,7 +193,7 @@ const projectsData = [
     season: "Spring",
     category: "Visual Narrative Art",
     slug: "magical-girl-vs-zombies",
-    thumbnail: "/magical-girl-vs-zombies-thumbnail.PNG",
+    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
   },
 ];
 
