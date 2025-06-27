@@ -3,19 +3,19 @@
 import ImageSlideshow from "@/components/core/ImageSlideshow";
 
 const images = [
-  "/helper/1.png",
-  "/helper/2.png",
-  "/helper/3.png",
-  "/helper/4.png",
-  "/helper/5.png",
-  "/helper/6.png",
-  "/helper/7.png",
-  "/helper/8.png",
-  "/helper/9.png",
-  "/helper/10.png",
-  "/helper/11.png",
-  "/helper/12.png",
-  "/helper/13.png",
+  "/helper/1.PNG",
+  "/helper/2.PNG",
+  "/helper/3.PNG",
+  "/helper/4.PNG",
+  "/helper/5.PNG",
+  "/helper/6.PNG",
+  "/helper/7.PNG",
+  "/helper/8.PNG",
+  "/helper/9.PNG",
+  "/helper/10.PNG",
+  "/helper/11.PNG",
+  "/helper/12.PNG",
+  "/helper/13.PNG",
 ];
 
 const artboards = [
@@ -24,12 +24,12 @@ const artboards = [
     caption: "Waiting Room Floor Plan",
   },
   {
-    src: "/helper/sensory room.png",
+    src: "/helper/sensory-room.png",
     caption: "Sensory Room Section",
   },
   {
-    src: "/helper/reading nook.png",
-    caption: "Reading Room Elevation",
+    src: "/helper/reading-nook.png",
+    caption: "Reading Nook Elevation",
   },
 ];
 
