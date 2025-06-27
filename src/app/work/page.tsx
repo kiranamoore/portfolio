@@ -163,6 +163,38 @@ const projectsData = [
     slug: "the-traveler",
     thumbnail: "/traveler/traveler.png",
   },
+  {
+    title: "The Helper",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "the-helper",
+    thumbnail: "/helper/thumbnail.png",
+  },
+  {
+    title: "Eclipse",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "eclipse",
+    thumbnail: "/eclipse/thumbnail.png",
+  },
+  {
+    title: "Fading Memories",
+    year: 2024,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "fading-memories",
+    thumbnail: "/fading memories/thumbnail.png",
+  },
+  {
+    title: "Magical Girl VS. Corporate Zombies",
+    year: 2025,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "magical-girl-vs-zombies",
+    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
+  },
 ];
 
 // Helper to extract season and year
