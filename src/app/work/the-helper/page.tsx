@@ -20,7 +20,7 @@ const images = [
 
 const artboards = [
   {
-    src: "/helper/Artboard 1.png",
+    src: "/helper/plan.png",
     caption: "Waiting Room Floor Plan",
   },
   {
