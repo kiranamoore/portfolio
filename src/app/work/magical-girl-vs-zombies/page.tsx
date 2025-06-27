@@ -12,7 +12,7 @@ export default function MagicalGirlVsZombiesPage() {
           {/* Left column: Main Image */}
           <div className="flex flex-col items-start w-full">
             <img
-              src="/magical-girl-vs-zombies.png"
+              src="/magical-girl-vs-zombies.PNG"
               alt="Magical Girl VS. Corporate Zombies illustration"
               className="w-full object-contain rounded-lg border border-gray-700 shadow-lg bg-white"
               style={{ maxHeight: 700 }}

@@ -3,13 +3,13 @@
 import ImageSlideshow from "@/components/core/ImageSlideshow";
 
 const images = [
-  "/fading memories/1.jpg",
-  "/fading memories/1.5.jpg",
-  "/fading memories/2.jpg",
-  "/fading memories/3.jpg",
-  "/fading memories/4.jpg",
-  "/fading memories/5.jpg",
-  "/fading memories/6.jpg",
+  "/fading-memories/1.JPG",
+  "/fading-memories/1.5.JPG",
+  "/fading-memories/2.JPG",
+  "/fading-memories/3.JPG",
+  "/fading-memories/4.JPG",
+  "/fading-memories/5.JPG",
+  "/fading-memories/6.JPG",
 ];
 
 export default function FadingMemoriesPage() {
@@ -77,8 +77,8 @@ export default function FadingMemoriesPage() {
       {/* Two videos side by side */}
       <div className="w-full flex flex-col items-center justify-center mt-8 mb-8">
         <div className="w-full flex flex-col md:flex-row gap-8 items-start justify-center" style={{ maxWidth: '1200px' }}>
-          <video src="/fading memories/video1.mov" controls className="w-full md:w-1/2 object-contain rounded-lg border border-gray-700 shadow-lg" />
-          <video src="/fading memories/video2.mov" controls className="w-full md:w-1/2 object-contain rounded-lg border border-gray-700 shadow-lg" />
+          <video src="/fading-memories/video1.mov" controls className="w-full md:w-1/2 object-contain rounded-lg border border-gray-700 shadow-lg" />
+          <video src="/fading-memories/video2.mov" controls className="w-full md:w-1/2 object-contain rounded-lg border border-gray-700 shadow-lg" />
         </div>
         <span className="text-base md:text-lg text-gray-400 mt-2 mb-4" style={{ fontFamily: 'monospace', letterSpacing: 1 }}>
           videos from the built experience
@@ -89,9 +89,9 @@ export default function FadingMemoriesPage() {
       {/* Three OPEX clips in a row */}
       <div className="w-full flex flex-col items-center justify-center mt-4 mb-12">
         <div className="w-full flex flex-col md:flex-row gap-8 items-start justify-center" style={{ maxWidth: '1400px' }}>
-          <video src="/fading memories/OPEX CLIP1.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
-          <video src="/fading memories/OPEX CLIP2.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
-          <video src="/fading memories/OPEX CLIP3.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
+          <video src="/fading-memories/OPEX CLIP1.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
+          <video src="/fading-memories/OPEX CLIP2.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
+          <video src="/fading-memories/OPEX CLIP3.mp4" controls className="w-full md:w-1/3 object-contain rounded-lg border border-gray-700 shadow-lg" />
         </div>
         <span className="text-base md:text-lg text-gray-400 mt-2 mb-4" style={{ fontFamily: 'monospace', letterSpacing: 1 }}>
           projected looping visuals

@@ -185,7 +185,7 @@ const projectsData = [
     season: "Spring",
     category: "Immersive Experiences",
     slug: "fading-memories",
-    thumbnail: "/fading memories/thumbnail.png",
+    thumbnail: "/fading-memories/thumbnail.png",
   },
   {
     title: "Magical Girl VS. Corporate Zombies",
@@ -193,7 +193,7 @@ const projectsData = [
     season: "Spring",
     category: "Visual Narrative Art",
     slug: "magical-girl-vs-zombies",
-    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
+    thumbnail: "/magical-girl-vs-zombies-thumbnail.PNG",
   },
 ];
 
