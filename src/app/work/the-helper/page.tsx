@@ -3,32 +3,32 @@
 import ImageSlideshow from "@/components/core/ImageSlideshow";
 
 const images = [
-  "/helper/helper1.png",
-  "/helper/helper2.png",
-  "/helper/helper3.png",
-  "/helper/helper4.png",
-  "/helper/helper5.png",
-  "/helper/helper6.png",
-  "/helper/helper7.png",
-  "/helper/helper8.png",
-  "/helper/helper9.png",
-  "/helper/helper10.png",
-  "/helper/helper11.png",
-  "/helper/helper12.png",
-  "/helper/helper13.png",
+  "/helper1.png",
+  "/helper2.png",
+  "/helper3.png",
+  "/helper4.png",
+  "/helper5.png",
+  "/helper6.png",
+  "/helper7.png",
+  "/helper8.png",
+  "/helper9.png",
+  "/helper10.png",
+  "/helper11.png",
+  "/helper12.png",
+  "/helper13.png",
 ];
 
 const artboards = [
   {
-    src: "/helper/plan-helper.png",
+    src: "/plan-helper.png",
     caption: "Waiting Room Floor Plan",
   },
   {
-    src: "/helper/sensory-room.png",
+    src: "/sensory-room.png",
     caption: "Sensory Room Section",
   },
   {
-    src: "/helper/reading-nook.png",
+    src: "/reading-nook.png",
     caption: "Reading Room Elevation",
   },
 ];
