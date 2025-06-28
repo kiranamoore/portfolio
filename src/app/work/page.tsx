@@ -195,6 +195,22 @@ const projectsData = [
     slug: "magical-girl-vs-zombies",
     thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
   },
+  {
+    title: "The Great Cow Invasion of Los Angeles!",
+    year: 2024,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "the-great-cow-invasion-of-los-angeles",
+    thumbnail: "/cow-invasion-thumbnail.png",
+  },
+  {
+    title: "Nike x League of Legends Skin Collaboration: Zeri",
+    year: 2024,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "nike-league-of-legends-zeri",
+    thumbnail: "/zeri-thumbnail.png",
+  },
 ];
 
 // Helper to extract season and year
