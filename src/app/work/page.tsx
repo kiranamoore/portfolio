@@ -169,7 +169,7 @@ const projectsData = [
     season: "Spring",
     category: "Immersive Experiences",
     slug: "the-helper",
-    thumbnail: "/helper/thumbnail.png",
+    thumbnail: "/thumbnail-helper.png",
   },
   {
     title: "Eclipse",
