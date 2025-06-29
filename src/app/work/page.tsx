@@ -2,6 +2,7 @@
 import ProjectGrid from "@/components/ProjectGrid";
 import TextScramble from "@/components/core/TextScramble";
 import { useState, Fragment } from "react";
+import ImageSlideshow from "@/components/core/ImageSlideshow";
 
 type Project = {
   title: string;
@@ -45,42 +46,6 @@ const projectsData = [
     slug: "interactive-packaging-product-features",
     thumbnail: "/packaging_effect_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "The Silent Forest",
-    year: 2023,
-    category: "Immersive Experiences",
-    slug: "the-silent-forest",
-  },
-  {
-    title: "Oceanic Depths",
-    year: 2023,
-    category: "Immersive Experiences",
-    slug: "oceanic-depths",
-  },
-  {
-    title: "City of Light",
-    year: 2023,
-    category: "Immersive Experiences",
-    slug: "city-of-light",
-  },
-  {
-    title: "Starlit Painter",
-    year: 2022,
-    category: "Visual Narrative Art",
-    slug: "starlit-painter",
-  },
-  {
-    title: "Forgotten Fables",
-    year: 2022,
-    category: "Visual Narrative Art",
-    slug: "forgotten-fables",
-  },
-  {
-    title: "The Alchemist's Study",
-    year: 2022,
-    category: "Visual Narrative Art",
-    slug: "the-alchemists-study",
   },
   {
     title: "The Painter of Light",
@@ -211,6 +176,20 @@ const projectsData = [
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
   },
+  {
+    title: "Arts District Library",
+    year: 2023,
+    category: "Immersive Experiences",
+    slug: "arts-district-library",
+    thumbnail: "/skate.png",
+  },
+  {
+    title: "Weaving Spaces",
+    year: 2022,
+    category: "Immersive Experiences",
+    slug: "weaving-spaces",
+    thumbnail: "/weaving/project-4-06.png",
+  },
 ];
 
 // Helper to extract season and year
@@ -259,6 +238,50 @@ const companies = [
   "Hewlett-Packard / HyperX",
   "Honda",
 ];
+
+const archImages = Array.from({ length: 19 }, (_, i) => `/arch/${i}.jpg`);
+
+function ArtsDistrictLibrary() {
+  return (
+    <section className="my-24">
+      <div className="max-w-4xl mx-auto">
+        <ImageSlideshow images={archImages} altPrefix="Arts District Library" />
+        <div className="mt-10 text-center">
+          <p className="text-sm text-gray-400">Spring 2023</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Arts District Library</h2>
+          <p className="text-lg font-medium mb-6">
+            Library x Skatepark – Hybrid Urban Space Design<br/>
+            For this design challenge, we were tasked with creating a library for an empty lot in Downtown Los Angeles' Arts District, combining it with an unconventional secondary program.
+          </p>
+          <section className="mb-6 text-left max-w-2xl mx-auto">
+            <h3 className="text-2xl font-semibold mb-2 text-red-400">Key Features</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li><strong>Contextual Urban Analysis:</strong> Conducted thorough site research, including color-coded diagrams mapping surrounding neighborhood programs to inform spatial relationships.</li>
+              <li><strong>Circulation-Driven Design:</strong> Initially envisioned the project to be surrounded by a playground, which became the foundation for early circulation studies.</li>
+              <li><strong>Evolving Concept:</strong> Transformed the surrounding playground into a "play-ground" skate park, introducing a more dynamic, youth-oriented public space.</li>
+              <li><strong>Form Development:</strong> Shaped the library by extruding the site and carving out large circular forms to create distinct masses, open-air courtyards, and interconnected walkways.</li>
+              <li><strong>Multi-Level Spatial Flow:</strong> Divided the building into upper and ground floor zones to encourage exploration and layered movement through the space.</li>
+            </ul>
+          </section>
+          <section className="mb-6 text-left max-w-2xl mx-auto">
+            <h3 className="text-2xl font-semibold mb-2 text-red-400">Design Focus</h3>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Integrating play, learning, and community into a cohesive spatial experience</li>
+              <li>Designing movement pathways inspired by playground circulation</li>
+              <li>Blurring boundaries between traditional educational spaces and recreational environments</li>
+            </ul>
+          </section>
+          <section className="text-left max-w-2xl mx-auto">
+            <h3 className="text-2xl font-semibold mb-2 text-red-400">Project Impact</h3>
+            <p>
+              This project showcases my ability to evolve design concepts through iterative research, circulation studies, and playful form-making, resulting in a vibrant, community-centered space that challenges conventional library design.
+            </p>
+          </section>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");

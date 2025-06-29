@@ -77,27 +77,31 @@ export default function NikeLeagueOfLegendsZeriPage() {
         </div>
       </div>
       {/* Videos Section at the bottom */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 mb-16 text-center">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div>
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-4 text-white">Animation</h3>
             <video
               controls
-              className="w-full rounded-lg"
-              poster="/zeri-thumbnail.png"
+              autoPlay
+              loop
+              muted
+              className="max-w-xl rounded-lg mx-auto"
             >
               <source src="/zeri-animation.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-          <div>
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-semibold mb-4 text-white">Animatic</h3>
             <video
               controls
-              className="w-full rounded-lg"
-              poster="/zeri-thumbnail.png"
+              autoPlay
+              loop
+              muted
+              className="max-w-xl rounded-lg mx-auto"
             >
-              <source src="/animatic.MOV" type="video/quicktime" />
+              <source src="/animatic.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
