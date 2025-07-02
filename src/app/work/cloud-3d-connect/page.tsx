@@ -9,16 +9,17 @@ export default function Cloud3DConnectPage() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
-        <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+        <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
           {/* Left column: Image + stage info */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-center justify-center flex-1 h-full">
             <img
               src="/18k tris.png"
               alt="Cloud 3D Connect 18k tris thumbnail"
-              className="w-full max-w-3xl object-contain rounded-lg border border-gray-700 shadow-lg"
+              className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+              style={{ minHeight: '320px' }}
             />
             <p className="text-sm text-gray-400 mt-4">
               current stage of development: <br />
@@ -27,56 +28,53 @@ export default function Cloud3DConnectPage() {
             </p>
           </div>
 
-          {/* Right column: Centered content */}
-          <div className="flex flex-col items-center text-center space-y-6">
+          {/* Right column: Content */}
+          <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">May 2025 – August 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Cloud 3D Connect</h1>
             </div>
-
-            <p className="text-lg font-medium">
-              Developing an interactive 3D customization experience for HyperX's Cloud 3 S headset that merges in-store interaction with online accessory personalization.
-            </p>
-
-            <div className="space-y-4 text-left max-w-2xl w-full">
+            <div className="space-y-10 text-left max-w-2xl w-full">
+              {/* Role & Objective */}
               <section>
-                <h2 className="text-xl font-semibold">Goal</h2>
-                <p>
-                  Solve the disconnect between headset purchases and HX3D accessory sales by letting users customize and order accessories before buying the headset.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><b>Blender</b> – reduced triangle count for optimized models</li>
-                  <li><b>Substance Painter</b> – applied performant textures</li>
-                  <li><b>Unity (C#)</b> – interactive experience with real-time rendering</li>
-                  <li><b>AR Integration</b> – view live customizations across devices</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead 3D Developer</span> to develop an interactive 3D customization experience for HyperX's Cloud 3 S headset.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to merge in-store interaction with online accessory personalization for seamless customer experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted solving the disconnect between headset purchases and HX3D accessory sales by enabling pre-purchase customization.</span></li>
                 </ul>
               </section>
-
+              <div className="border-t border-gray-700 my-6" />
+              {/* Actions Taken */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Business Impact</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Drives accessory sales and headset engagement</li>
-                  <li>Encourages real-time customization and online checkout</li>
-                  <li>Deployable retail solution with measurable value</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Reduced triangle count for optimized models using <span className="font-bold">Blender</span> for mobile performance.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Applied performant textures using <span className="font-bold">Substance Painter</span> for high-quality visual output.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built interactive experience with real-time rendering using <span className="font-bold">Unity (C#)</span>.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">AR Integration</span> to view live customizations across devices.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Leveraged experience from past interactive demos, now taken to full production-grade deployment.</span></li>
                 </ul>
               </section>
-
+              <div className="border-t border-gray-700 my-6" />
+              {/* Results & Impact */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Builds on Past Work</h2>
-                <p>
-                  Leverages experience from past interactive demos, now taken to full production-grade deployment.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Project Status</h2>
-                <p>
-                  Currently in active development phase. Represents a significant evolution from previous interactive demos to production-ready deployment.
-                </p>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully drives accessory sales and headset engagement through interactive customization.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Encourages real-time customization and online checkout for improved customer experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Creates a deployable retail solution with measurable value for HyperX.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Represents a significant evolution from previous interactive demos to production-ready deployment.</span></li>
+                </ul>
               </section>
             </div>
           </div>

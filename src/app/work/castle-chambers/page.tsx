@@ -9,24 +9,25 @@ export default function CastleChambersPage() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1600px' }}
       >
-        <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
-          {/* Left column: Video only, no thumbnail */}
-          <div className="flex flex-col items-start">
+        <div className="w-full flex flex-col lg:flex-row gap-12 items-center justify-center" style={{maxWidth: '1400px'}}>
+          {/* Left column: Video */}
+          <div className="flex flex-col items-center justify-center flex-1 h-full" style={{ maxWidth: '80%' }}>
             <video
               src="/castle chambers.mp4"
               controls
               autoPlay
               loop
               muted
-              className="w-full max-w-2xl h-[900px] object-contain rounded-lg border border-gray-700 shadow-lg"
+              className="w-full object-contain rounded-lg border border-gray-700 shadow-lg"
+              style={{ minHeight: '400px', maxWidth: '700px' }}
             />
           </div>
 
-          {/* Right column: Centered content */}
-          <div className="flex flex-col items-center text-center space-y-6">
+          {/* Right column: Content */}
+          <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[350px]">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Castle Chambers</h1>
@@ -34,52 +35,47 @@ export default function CastleChambersPage() {
                 Extended Reality
               </span>
             </div>
-            <p className="text-lg font-medium">
-              Castle Chambers – VR Escape Room Puzzle Game<br />
-              Developed a multi-room, atmospheric escape room puzzle game set within a medieval castle, where players solve puzzles to descend deeper into ancient chambers.
-            </p>
-            <div className="space-y-4 text-left max-w-2xl w-full">
+            <div className="space-y-10 text-left max-w-2xl w-full">
+              {/* Role & Objective */}
               <section>
-                <h2 className="text-xl font-semibold">Goal</h2>
-                <p>
-                  Create an immersive puzzle-solving experience that combines environmental storytelling with logic-based challenges, drawing players deeper into the castle's secrets as they progress.
-                </p>
-              </section>
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><b>Unity</b> – built the core gameplay mechanics and room transitions</li>
-                  <li><b>C#</b> – scripted puzzle logic and room-specific interactions</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead VR Developer and Game Designer</span> to create a multi-room, atmospheric escape room puzzle game.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create an immersive puzzle-solving experience that combines environmental storytelling with logic-based challenges.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted drawing players deeper into the castle's secrets as they progress through increasingly complex chambers.</span></li>
                 </ul>
               </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Actions Taken */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Gameplay Design</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><b>Four-Chamber Progression</b> – each completed puzzle unlocks a new room, guiding players deeper into the castle</li>
-                  <li><b>Environmental Storytelling</b> – gradual reveal of castle lore and hidden secrets through visual cues and spatial design</li>
-                  <li><b>Puzzle Diversity</b> – each room features unique logic-based challenges to maintain variety and engagement</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built core gameplay mechanics and room transitions using <span className="font-bold">Unity</span> and <span className="font-bold">C#</span> scripting.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a four-chamber progression system where each completed puzzle unlocks a new room.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented environmental storytelling through visual cues and spatial design to gradually reveal castle lore.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created unique logic-based challenges for each room to maintain variety and engagement.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Prioritized rapid prototyping and flexibility over fully modular architecture to enable quick iteration.</span></li>
                 </ul>
               </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Results & Impact */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Development Approach</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Prioritized rapid prototyping and flexibility over fully modular architecture to enable quick iteration and real-time design adjustments</li>
-                  <li>Used some duplicated scripts and loosely coupled systems to accelerate puzzle development without breaking game flow</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a fully playable prototype featuring four chambers with interactive puzzles and room-to-room progression.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created an immersive medieval atmosphere that enhances the puzzle-solving experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to balance technical constraints with creative design in VR development.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a foundation for future VR puzzle games with potential for modular expansion and enhanced atmospheric detail.</span></li>
                 </ul>
-              </section>
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Future Considerations</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li>Introduce more scalable, modular systems for puzzle and room management to support future content expansion</li>
-                  <li>Enhance atmospheric detail with richer environmental storytelling and tactile VR interactions</li>
-                  <li>Improve code reusability and performance to maintain scalability in larger builds</li>
-                </ul>
-              </section>
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Project Status</h2>
-                <p>
-                  Prototype completed and fully playable, featuring four chambers with interactive puzzles and room-to-room progression. Future updates could further refine modularity and aesthetic depth for expanded gameplay.
-                </p>
               </section>
             </div>
           </div>

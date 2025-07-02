@@ -16,12 +16,12 @@ export default function ProjectClient() {
       <>
         <div className="h-32" />
         <div
-          className="min-h-screen bg-black text-white py-12 flex justify-center mb-12"
-          style={{ marginLeft: '5px', marginRight: '5px', marginBottom: '50px' }}
+          className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
         >
-          <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+          <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
             {/* Left column: Video */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center justify-center flex-1 h-full">
               <video
                 src="/My face demo.mp4"
                 controls
@@ -29,6 +29,7 @@ export default function ProjectClient() {
                 loop
                 muted
                 className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+                style={{ minHeight: '320px' }}
               />
               <div className="mt-6 space-y-4">
                 <div className="text-center">
@@ -57,7 +58,7 @@ export default function ProjectClient() {
               </div>
             </div>
             {/* Right column: Centered content */}
-            <div className="flex flex-col items-center text-center space-y-6">
+            <div className="flex flex-col items-center text-center space-y-6 flex-1">
               <div className="space-y-1">
                 <p className="text-sm text-gray-300">Spring 2025</p>
                 <h1 className="text-4xl md:text-6xl font-bold">HyperX Cloud 3 3D Customizer</h1>
@@ -69,51 +70,47 @@ export default function ProjectClient() {
                 HX3D AR Customization Tool<br />
                 Developed an augmented reality customization interface for HX3D's 3D-printed headphone accessories, enabling users to personalize designs with curated color palettes and patterns.
               </p>
-              <div className="space-y-4 text-left max-w-2xl w-full">
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
                 <section>
-                  <h2 className="text-xl font-semibold">Goal</h2>
-                  <p>
-                    Empower customers to creatively customize accessories in real-time while streamlining the purchase process through an interactive, mobile-ready AR experience.
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>Blender</b> – reduced original models from 3–10M to 20,000 triangles using BlenderKit</li>
-                    <li><b>Substance Painter</b> – applied detailed textures optimized for mobile</li>
-                    <li><b>Unity (C#)</b> – built the AR interface with interactive UI components and rendering</li>
-                    <li><b>AR Integration</b> – real-time model visualization and dynamic interaction support</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality customization interface for HX3D's 3D-printed headphone accessories.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to empower customers to creatively customize accessories in real-time while streamlining the purchase process.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted delivering an interactive, mobile-ready AR experience for personalized product customization.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Interface Design</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>Top Row</b> – scrollable carousel for selecting 3D accessory models</li>
-                    <li><b>Middle Row</b> – interactive color palette with fine-grained shade selection</li>
-                    <li><b>Bottom Row</b> – pattern customization with procedurally generated textures</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Reduced original models from 3–10M to 20,000 triangles using <span className="font-bold">Blender</span> and BlenderKit for mobile optimization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Applied detailed textures optimized for mobile using <span className="font-bold">Substance Painter</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the AR interface with interactive UI components and rendering using <span className="font-bold">Unity (C#)</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented real-time model visualization and dynamic interaction support through <span className="font-bold">AR Integration</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed scrollable carousel for selecting 3D accessory models and interactive color palette with fine-grained shade selection.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Business Impact</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Simplifies and accelerates the made-to-order customization pipeline</li>
-                    <li>Increases accessory engagement through creative user interaction</li>
-                    <li>Supports future integration with e-commerce systems for fulfillment</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully simplifies and accelerates the made-to-order customization pipeline for HX3D accessories.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Increases accessory engagement through creative user interaction and real-time customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Supports future integration with e-commerce systems for seamless fulfillment.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Advances previous AR projects with fully textured, optimized models and complex UI logic.</span></li>
                   </ul>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Builds on Past Work</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Advances previous AR projects with fully textured, optimized models</li>
-                    <li>Introduces more complex UI logic, such as scrollable galleries and dynamic button states</li>
-                    <li>Lays groundwork for integration into the upcoming Cloud 3D Connect experience</li>
-                  </ul>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Project Status</h2>
-                  <p>
-                    Completed prototype demonstrating full customization workflow and optimized mobile performance. Features will be integrated into the next iteration of Cloud 3D Connect.
-                  </p>
                 </section>
               </div>
             </div>
@@ -169,46 +166,47 @@ export default function ProjectClient() {
                 TrainAR – AR Gym Training App<br />
                 Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an augmented reality fitness concept pitched to Snapchat, designed to integrate gym training guidance into their AR platform.
               </p>
-              <div className="space-y-4 text-left max-w-2xl w-full">
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
                 <section>
-                  <h2 className="text-xl font-semibold">Goal</h2>
-                  <p>
-                    Enhance workout safety and form correction by using augmented reality to place a digital trainer in the user's gym space, providing real-time visual demonstrations of proper exercise techniques.
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>Lens Studio</b> – built the interactive AR lens demo</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to develop an augmented reality fitness concept for Snapchat's AR platform.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to enhance workout safety and form correction by using AR to place a digital trainer in the user's gym space.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted providing real-time visual demonstrations of proper exercise techniques for safer, more effective workouts.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Interface Design</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>AR Trainer Overlay</b> – positions a digital trainer in the user's environment to demonstrate correct form and movement</li>
-                    <li><b>Real-Time Visual Guidance</b> – helps users perform exercises safely and correctly</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the interactive AR lens demo using <span className="font-bold">Lens Studio</span> for Snapchat integration.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed AR trainer overlay that positions a digital trainer in the user's environment to demonstrate correct form and movement.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented real-time visual guidance to help users perform exercises safely and correctly.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with a multidisciplinary student team to ideate, design, and develop the experience.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed an interactive lens prototype as part of the pitch to Snapchat.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Business Impact</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Promotes safer, more effective workouts by reducing the risk of injury through real-time form correction</li>
-                    <li>Introduces AR as a valuable tool for fitness and personal training</li>
-                    <li>Explores new use cases for Snapchat's AR capabilities in health and wellness sectors</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully promotes safer, more effective workouts by reducing the risk of injury through real-time form correction.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Introduces AR as a valuable tool for fitness and personal training in health and wellness sectors.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Explores new use cases for Snapchat's AR capabilities beyond entertainment and social media.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a lens demo completed and functional in Lens Studio, ready for further development and refinement.</span></li>
                   </ul>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Build Context</h2>
-                  <p>
-                    Developed an interactive lens prototype as part of the pitch to Snapchat<br />
-                    Collaborated with a multidisciplinary student team to ideate, design, and develop the experience
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Project Status</h2>
-                  <p>
-                    Lens demo completed and functional in Lens Studio. Ready for further development and refinement based on user testing and platform integration opportunities.
-                  </p>
                 </section>
               </div>
             </div>
@@ -244,53 +242,50 @@ export default function ProjectClient() {
                 <h1 className="text-4xl md:text-6xl font-bold">Pixel Headphones</h1>
               </div>
               <p className="text-lg font-medium">
-                Pixel Headphone – Fashion AR Lens<br />
-                Developed a fashion-focused augmented reality lens for Snapchat that integrates pixel art aesthetics into an interactive, face-anchored AR experience.
+                Pixel Headphones – AR Customization Demo<br />
+                Developed an augmented reality demo showcasing real-time headphone customization with dynamic color changes and interactive 3D model manipulation, demonstrating the potential for AR in product personalization.
               </p>
-              <div className="space-y-4 text-left max-w-2xl w-full">
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
                 <section>
-                  <h2 className="text-xl font-semibold">Goal</h2>
-                  <p>
-                    Create an immersive AR lens with a cohesive pixelated game aesthetic, blending 3D and 2D elements to deliver a playful, fashion-forward experience.
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Tech Stack</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>Lens Studio</b> – built the interactive AR lens</li>
-                    <li><b>Procreate</b> – designed 2D UI, stickers, and backgrounds</li>
-                    <li><b>Rhinoceros 3D</b> – modeled 3D pixelated headphones</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality demo for real-time headphone customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to demonstrate the potential of AR in product personalization through dynamic color changes and interactive 3D model manipulation.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted showcasing real-time customization capabilities that could enhance the shopping experience for consumers.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Interface Design</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li><b>Pixelated Start UI</b> – custom-designed 2D pixel art start screen</li>
-                    <li><b>3D Pixel Headphone</b> – face-anchored, pixel-styled headphone model</li>
-                    <li><b>Animated Cheek Stickers</b> – 2D face-anchored pixel animations</li>
-                    <li><b>Dynamic Backgrounds</b> – two 2D animated pixel-art environments to enhance immersion</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the AR experience using <span className="font-bold">Lens Studio</span> for real-time headphone customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented dynamic color changes that respond instantly to user interaction.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created interactive 3D model manipulation for immersive product exploration.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed intuitive user interface for seamless color selection and customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed a proof-of-concept that demonstrates AR's potential in retail and e-commerce applications.</span></li>
                   </ul>
                 </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
                 <section>
-                  <h2 className="text-xl font-semibold mt-4">Creative Impact</h2>
-                  <ul className="list-disc list-inside space-y-1">
-                    <li>Explores the fusion of pixel art and fashion in AR</li>
-                    <li>Showcases full-cycle asset development—from concept to production—executed independently</li>
-                    <li>Demonstrates how AR can be used as a self-expression and style tool within Snapchat's platform</li>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully demonstrates AR's potential for enhancing product personalization in retail environments.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Provides a foundation for future AR customization tools in e-commerce and retail applications.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Shows how real-time customization can improve customer engagement and decision-making.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Establishes technical capabilities for interactive 3D product visualization in AR environments.</span></li>
                   </ul>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Build Context</h2>
-                  <p>
-                    Independently produced all 3D models, 2D assets, and animations<br />
-                    Designed and developed the lens to achieve a unified pixel art aesthetic across all visual layers
-                  </p>
-                </section>
-                <section>
-                  <h2 className="text-xl font-semibold mt-4">Project Status</h2>
-                  <p>
-                    Lens published and fully functional on Snapchat. Available for public use via Snapcode.
-                  </p>
                 </section>
               </div>
             </div>
@@ -304,31 +299,65 @@ export default function ProjectClient() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center mb-12"
-        style={{ marginLeft: '5px', marginRight: '5px', marginBottom: '50px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
-        <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+        <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
           {/* Left column: Large Slideshow */}
-          <div className="flex flex-col items-start w-full">
-            <div className="w-full">
-              <ImageSlideshow
-                images={projectImages}
-                altPrefix="Painter of Light project image"
-              />
-            </div>
+          <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[400px] max-w-[700px]">
+            <ImageSlideshow
+              images={projectImages}
+              altPrefix="Painter of Light project image"
+            />
           </div>
           {/* Right column: Centered content */}
-          <div className="flex flex-col items-center text-center space-y-6 justify-center">
+          <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Painter of Light</h1>
             </div>
-            <div className="space-y-4 text-left w-full max-w-2xl mx-auto px-4">
-              <p className="text-base md:text-lg text-gray-200 leading-relaxed mb-8">
-                As an innovative designer with a passion for creating immersive, narrative-driven experiences, I specialize in crafting environments that blend art, storytelling, and audience engagement to provoke thought and evoke emotion. My recent research project, "The Painter of Light," exemplifies my ability to design compelling, multi-sensory experiences that resonate with diverse audiences. This project explored the dichotomy between Thomas Kinkade's idyllic, Christian-themed artwork and his complex personal struggles, culminating in a conceptual immersive exhibit. By juxtaposing Kinkade's luminous aesthetic with symbolic elements reflecting his challenges, the exhibit invites viewers to engage with the interplay of light and shadow, both visually and thematically, fostering a deeper understanding of his work.
-                <br /><br />
-                Drawing on insights from art history, theology, and the growing trend of experiential art, I designed this exhibit to transform perceptions of Kinkade's art, appealing to both art critics and the general public. My approach integrates spatial design, atmospheric lighting, and carefully curated props to guide participants through a narrative journey, aligning with the success of immersive experiences like Meow Wolf and Van Gogh: The Immersive Experience. This project demonstrates my ability to conceptualize and execute designs that balance aesthetic appeal with intellectual depth, creating inclusive and impactful experiences.
-              </p>
+            <div className="space-y-10 text-left max-w-full w-full">
+              {/* Role & Objective */}
+              <section>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Experience Designer</span> to create a conceptual immersive exhibit exploring Thomas Kinkade's artistic legacy.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to transform perceptions of Kinkade's art by juxtaposing his luminous aesthetic with symbolic elements reflecting his personal struggles.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted creating an inclusive, multi-sensory experience that appeals to both art critics and the general public.</span></li>
+                </ul>
+              </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Actions Taken */}
+              <section>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Conducted extensive research in art history, theology, and experiential art trends to inform the exhibit design.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed spatial layout and atmospheric lighting to guide participants through a narrative journey.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated props and symbolic elements that reflect the interplay of light and shadow in Kinkade's life and work.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Integrated insights from successful immersive experiences like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced aesthetic appeal with intellectual depth to create meaningful, thought-provoking experiences.</span></li>
+                </ul>
+              </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Results & Impact */}
+              <section>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created a conceptual framework for transforming perceptions of Kinkade's art through immersive storytelling.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to design compelling, multi-sensory experiences that resonate with diverse audiences.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established approach for blending art, storytelling, and audience engagement to provoke thought and evoke emotion.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created inclusive and impactful experiences that balance aesthetic appeal with intellectual depth.</span></li>
+                </ul>
+              </section>
             </div>
           </div>
         </div>

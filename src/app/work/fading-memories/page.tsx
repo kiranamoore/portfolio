@@ -17,57 +17,60 @@ export default function FadingMemoriesPage() {
     <>
       <div className="h-32" />
       <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
+        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '40px', maxWidth: '1500px' }}
       >
-        <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
+        <div className="w-full flex flex-col lg:flex-row gap-10 items-start justify-center" style={{maxWidth: '1400px'}}>
           {/* Left column: Slideshow */}
-          <div className="flex flex-col items-start w-full">
-            <div className="w-full">
-              <ImageSlideshow
-                images={images}
-                altPrefix="Fading Memories project image"
-              />
-            </div>
+          <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[400px] max-w-[700px]">
+            <ImageSlideshow images={images} altPrefix="Fading Memories project image" />
           </div>
           {/* Right column: Centered content */}
-          <div className="flex flex-col items-center text-center space-y-6 justify-center">
+          <div className="flex flex-col items-start text-left space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Spring 2024</p>
               <h1 className="text-4xl md:text-6xl font-bold">Fading Memories</h1>
             </div>
-            <div className="space-y-4 text-left max-w-2xl w-full">
-              <p className="text-lg font-medium">
-                <em>Fading Memories</em> – Cinematic Immersive Installation<br />
-                A multi-sensory immersive experience exploring the distortion of memories over time, featuring collaborative works from University of Southern California students.
-              </p>
+            <div className="space-y-10 max-w-full w-full">
+              {/* Role & Objective */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Concept</h2>
-                <p>
-                  Fading Memories examines how memories fragment and warp through recollection. Three synchronized video clips are projected onto draped fabric sheets, creating layered visuals that distort naturally with the fabric's organic folds.
-                </p>
-              </section>
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Spatial Design</h2>
-                <p>
-                  The enclosed space of suspended fabrics allows the audience to move freely, experiencing shifting perspectives as they walk through. The same video clip plays on all surfaces but appears increasingly warped, echoing how memories change as time passes.
-                </p>
-              </section>
-              <section>
-                <h2 className="text-xl font-semibold mt-4">Key Features</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><b>Fabric Projections:</b> Organic fabric shapes create visual distortions that reflect the fluid nature of memory.</li>
-                  <li><b>Layered Synchronization:</b> Three synchronized clips played across varying surfaces.</li>
-                  <li><b>Audience Movement:</b> Spatial interaction changes how the videos are perceived, making each experience unique.</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Project Lead and Lead Designer</span> for a multi-sensory immersive installation.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create an experience exploring the distortion of memories over time through collaborative works.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted examining how memories fragment and warp through recollection in an immersive spatial environment.</span></li>
                 </ul>
               </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Actions Taken */}
               <section>
-                <h2 className="text-xl font-semibold mt-4">Project Team</h2>
-                <ul className="list-disc list-inside space-y-1">
-                  <li><b>Project Lead:</b> Kirana Moore</li>
-                  <li><b>Artists:</b> Amy Pan, Eileen Chen, Kirana Moore</li>
-                  <li><b>Architectural Designers:</b> Kirana Moore, Max Huerta, Raziel Caro Ramirez</li>
-                  <li><b>Video Editor:</b> Dalton Flynn</li>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed three synchronized video clips projected onto draped fabric sheets, creating layered visuals that distort naturally.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created an enclosed space of suspended fabrics allowing audience movement and shifting perspectives.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented organic fabric shapes that create visual distortions reflecting the fluid nature of memory.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with a team of artists, architectural designers, and video editors to bring the concept to life.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed spatial interaction that changes how videos are perceived, making each experience unique.</span></li>
+                </ul>
+              </section>
+              <div className="border-t border-gray-700 my-6" />
+              {/* Results & Impact */}
+              <section>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                </div>
+                <ul className="space-y-2 pl-6 list-none">
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created a cinematic immersive installation that explores memory distortion through multi-sensory experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to lead collaborative projects involving artists, designers, and technical specialists.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a model for spatial design that allows audience movement to change perception of synchronized content.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a foundation for future immersive installations that explore psychological themes through physical space.</span></li>
                 </ul>
               </section>
             </div>

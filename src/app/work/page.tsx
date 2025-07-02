@@ -190,6 +190,13 @@ const projectsData = [
     slug: "weaving-spaces",
     thumbnail: "/weaving/project-4-06.png",
   },
+  {
+    title: "Catatonia",
+    year: 2023,
+    category: "Extended Reality",
+    slug: "catatonia",
+    thumbnail: "/catatoniathumbnail.png",
+  },
 ];
 
 // Helper to extract season and year
