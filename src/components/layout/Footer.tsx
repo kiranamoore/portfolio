@@ -68,32 +68,6 @@ export default function Footer() {
               <li><a href="tel:4086799484" className="hover:underline">408-679-9484</a></li>
             </ul>
           </div>
-
-          <div>
-            <h3 className="font-bold mb-4">GET IN TOUCH</h3>
-            <form>
-              <div className="flex flex-col">
-                <input
-                  type="text"
-                  placeholder="name"
-                  className="bg-transparent border-b border-gray-500 py-2 mb-4 focus:outline-none"
-                />
-                <input
-                  type="email"
-                  placeholder="email"
-                  className="bg-transparent border-b border-gray-500 py-2 mb-4 focus:outline-none"
-                />
-                <textarea
-                  placeholder="message"
-                  className="bg-transparent border-b border-gray-500 py-2 mb-4 focus:outline-none"
-                  rows={3}
-                />
-                <button type="submit" className="hover:underline text-left">
-                  (Send)
-                </button>
-              </div>
-            </form>
-          </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-gray-800 text-gray-500 flex justify-between">

@@ -33,8 +33,8 @@ export default function Home() {
               <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white">
                 <TextScramble text="Kirana" />
               </h1>
-              <p className="text-xl md:text-2xl mt-4 text-white">
-                <TextScramble text="Digital Interaction & Visual Designer" />
+              <p className="text-xl md:text-2xl mt-4 text-white whitespace-pre-line">
+                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\n\nAn Extended Reality Designer, \n\nExperience Designer,\n\nand Visual Storyteller"} />
               </p>
             </div>
             <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm">
@@ -55,11 +55,7 @@ export default function Home() {
               className="text-lg md:text-xl leading-relaxed px-4"
               style={{ maxWidth: "42rem", margin: "0 auto" }}
             >
-              I&apos;m a passionate designer focused on creating beautiful and
-              engaging digital experiences. With a background in visual design
-              and interactive development, I strive to build products that are
-              not only aesthetically pleasing but also intuitive and joyful to
-              use. This portfolio is a collection of my favorite projects!
+              I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences that blend art, technology, and storytelling. Skilled in Unity, 3D modeling, and spatial design, I create user-centered, innovative environments that captivate and connect. Whether coding interactive AR showcases or designing empathetic spaces, I thrive on transforming ideas into impactful realities. Let's build something extraordinary together!
             </p>
           </div>
         </section>

@@ -332,7 +332,7 @@ export default function WorkPage() {
                   onClick={() => {
                     setShowHyperXBio(false);
                   }}
-                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${!showHyperXBio ? "bg-red-500 text-white" : "bg-gray-800 text-white"}`}
+                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${!showHyperXBio ? "bg-red-500 text-white" : "text-white"}`}
                 >
                   All
                 </button>
@@ -341,7 +341,7 @@ export default function WorkPage() {
                   onClick={() => {
                     setShowHyperXBio(true);
                   }}
-                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${showHyperXBio ? "bg-red-500 text-white" : "bg-gray-800 text-white"}`}
+                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${showHyperXBio ? "bg-red-500 text-white" : "text-white"}`}
                 >
                   Hewlett-Packard/HyperX (Professional Projects)
                 </button>
@@ -350,7 +350,7 @@ export default function WorkPage() {
             {/* Show custom HyperX bio if selected */}
             {activeCategory === "Extended Reality" && showHyperXBio && (
               <div className="flex justify-center">
-                <div className="text-center text-lg font-semibold text-white bg-gray-800 rounded px-6 py-2 mt-2 mb-4">
+                <div className="text-center text-lg font-semibold text-white rounded px-6 py-2 mt-2 mb-4">
                   As the sole Augmented and Virtual Reality Developer at HyperX, a leading brand under HP Inc., I have the privilege of spearheading the company's exploration into extended reality (XR) during my internship from May 2024 to August 2025. Tasked with demonstrating the transformative potential of AR/VR, I focused on creating innovative solutions to address key company needs, from cost-saving digital manuals to immersive customer experiences. Collaborating closely with HyperX's 3D and CGI teams, I developed engaging AR experiences that enhanced product interaction, streamlined operations, and showcased the brand's commitment to cutting-edge technology. My work aimed to prove XR's value as a worthwhile investment, paving the way for HyperX to redefine user engagement in the gaming and tech industries.
                 </div>
               </div>

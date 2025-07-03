@@ -1,8 +1,8 @@
 @import "tailwindcss";
+@import url('https://rsms.me/inter/inter.css');
 
 @theme {
-  --font-geist-sans: "Geist Sans", sans-serif;
-  --font-geist-mono: "Geist Mono", monospace;
+  --font-inter: 'Inter', sans-serif;
 }
 
 *,
@@ -24,7 +24,7 @@ html {
 body {
   background-color: #111;
   color: #eee;
-  font-family: var(--font-geist-sans);
+  font-family: var(--font-inter);
 }
 
 a {

@@ -6,6 +6,204 @@ import Image from "next/image";
 import Link from "next/link";
 import TextScramble from "@/components/core/TextScramble";
 
+type Project = {
+  title: string;
+  year: number;
+  category: string;
+  slug: string;
+  thumbnail?: string;
+  company?: string;
+  season?: string;
+};
+
+const projectsData: Project[] = [
+  {
+    title: "Quick Start Guide Augmented Reality Manual",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "quick-start-guide-ar-manual",
+    thumbnail: "/quick_start_guide_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "Cloud 3D Connect",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "cloud-3d-connect",
+    thumbnail: "/18k tris.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "HyperX Cloud 3 3D Customizer",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "hyperx-cloud-3-3d-customizer",
+    thumbnail: "/HX3D_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "Interactive Packaging with Product Features",
+    year: 2024,
+    category: "Extended Reality",
+    slug: "interactive-packaging-product-features",
+    thumbnail: "/packaging_effect_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "The Painter of Light",
+    year: 2025,
+    category: "Immersive Experiences",
+    slug: "with-the-mountains-the-clouds-and-us",
+    thumbnail: "/hero%20render_ps.png",
+  },
+  {
+    title: "Meta Alchemy",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "meta-alchemy",
+    thumbnail: "/meta_alchemy.png",
+  },
+  {
+    title: "Cops and Robbers",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "cops-and-robbers",
+    thumbnail: "/cops_robbers.png",
+  },
+  {
+    title: "Cloud 3 Try-On Experience",
+    year: 2024,
+    category: "Extended Reality",
+    slug: "cloud-3-try-on-experience",
+    thumbnail: "/tryon_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "Castle Chambers",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "castle-chambers",
+    thumbnail: "/castle-chambers.png",
+    company: undefined,
+  },
+  {
+    title: "TRAINAR",
+    year: 2024,
+    season: "Spring",
+    category: "Extended Reality",
+    slug: "trainar",
+    thumbnail: "/trainar/trainar.png",
+    company: undefined,
+  },
+  {
+    title: "Pixel Headphones",
+    year: 2024,
+    season: "Spring",
+    category: "Extended Reality",
+    slug: "pixel-headphones",
+    thumbnail: "/pixel headphones.png",
+    company: undefined,
+  },
+  {
+    title: "Beast of Burden",
+    year: 2024,
+    season: "Fall",
+    category: "Visual Narrative Art",
+    slug: "beast-of-burden",
+    thumbnail: "/beast of burden/beast of burden.png",
+    company: undefined,
+  },
+  {
+    title: "Mosaic – Future Car Concept for Honda",
+    year: 2025,
+    season: "Spring",
+    category: "Extended Reality",
+    slug: "mosaic",
+    thumbnail: "/mosaic thumbnail.png",
+    company: "Honda",
+  },
+  {
+    title: "The Traveler",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "the-traveler",
+    thumbnail: "/traveler/traveler.png",
+  },
+  {
+    title: "The Helper",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "the-helper",
+    thumbnail: "/thumbnail-helper.png",
+  },
+  {
+    title: "Eclipse",
+    year: 2025,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "eclipse",
+    thumbnail: "/eclipse/thumbnail.png",
+  },
+  {
+    title: "Fading Memories",
+    year: 2024,
+    season: "Spring",
+    category: "Immersive Experiences",
+    slug: "fading-memories",
+    thumbnail: "/fading-memories/thumbnail.png",
+  },
+  {
+    title: "Magical Girl VS. Corporate Zombies",
+    year: 2025,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "magical-girl-vs-zombies",
+    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
+    company: undefined,
+  },
+  {
+    title: "The Great Cow Invasion of Los Angeles!",
+    year: 2024,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "the-great-cow-invasion-of-los-angeles",
+    thumbnail: "/cow-invasion-thumbnail.png",
+    company: undefined,
+  },
+  {
+    title: "Nike x League of Legends Skin Collaboration: Zeri",
+    year: 2024,
+    season: "Spring",
+    category: "Visual Narrative Art",
+    slug: "nike-league-of-legends-zeri",
+    thumbnail: "/zeri-thumbnail.png",
+    company: undefined,
+  },
+  {
+    title: "Arts District Library",
+    year: 2023,
+    category: "Immersive Experiences",
+    slug: "arts-district-library",
+    thumbnail: "/skate.png",
+  },
+  {
+    title: "Weaving Spaces",
+    year: 2022,
+    category: "Immersive Experiences",
+    slug: "weaving-spaces",
+    thumbnail: "/weaving/project-4-06.png",
+  },
+  {
+    title: "Catatonia",
+    year: 2023,
+    category: "Extended Reality",
+    slug: "catatonia",
+    thumbnail: "/catatoniathumbnail.png",
+  },
+];
+
 export default function FeaturedWorks() {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -21,131 +219,79 @@ export default function FeaturedWorks() {
     ["#000000", "#FFFFFF", "#000000"]
   );
 
+  // Helper to get first 3 projects by category
+  const getFeaturedProjects = (category: string): Project[] => {
+    if (category === "Immersive Experiences") {
+      // Manually select the first two, then Fading Memories
+      const first = projectsData.find((p) => p.slug === "with-the-mountains-the-clouds-and-us");
+      const second = projectsData.find((p) => p.slug === "the-traveler");
+      const third = projectsData.find((p) => p.slug === "fading-memories");
+      return [first, second, third].filter(Boolean) as Project[];
+    }
+    return projectsData.filter((p: Project) => p.category === category).slice(0, 3);
+  };
+
+  const featuredSections = [
+    {
+      title: "Extended Reality",
+      description: "Exploring new dimensions of interaction and perception through AR and VR.",
+      category: "Extended Reality",
+      bg: "#fff",
+      color: "#000",
+    },
+    {
+      title: "Immersive Experiences",
+      description: "Crafting engaging and memorable experiences that captivate and inspire.",
+      category: "Immersive Experiences",
+      bg: "#000",
+      color: "#fff",
+    },
+    {
+      title: "Visual Narratives",
+      description: "Telling stories through visuals, motion, and interactive media.",
+      category: "Visual Narrative Art",
+      bg: "#fff",
+      color: "#000",
+    },
+  ];
+
   return (
-    <section id="featured-work">
-      {/* Featured Extended Reality Section (white bg, black text) */}
-      <div style={{ background: '#fff', color: '#000' }}>
-        {/* Extended Reality Design */}
-        <div className="min-h-screen flex items-center py-20">
-          <div className="flex-1">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> Extended Reality</h2>
-            <p className="text-lg max-w-md">
-              <TextScramble text="Exploring new dimensions of interaction and perception through AR and VR." />
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <Link href="/work/quick-start-guide-ar-manual">
-              <div className="text-center group">
-                <Image
-                  src="/quick_start_guide_thumbnail.png"
-                  alt="Quick Start Guide AR Manual thumbnail"
-                  width={400}
-                  height={600}
-                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="mt-2">
-                  <p className="font-semibold">Quick Start Guide AR Manual</p>
-                  <p className="text-sm">Extended Reality / Spring 2025</p>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">Hewlett-Packard / HyperX</span>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">Completed</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className="min-h-screen flex items-center py-20">
-          <div className="flex-1" />
-          <div className="flex-1 flex justify-center">
-            <Link href="/work/cloud-3d-connect">
-              <div className="text-center group">
-                <Image
-                  src="/18k tris.png"
-                  alt="Cloud 3D Connect 18k tris thumbnail"
-                  width={400}
-                  height={600}
-                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="mt-2">
-                  <p className="font-semibold">Cloud 3D Connect</p>
-                  <p className="text-sm">Extended Reality / Summer 2025</p>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">Hewlett-Packard / HyperX</span>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">In Development</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-        <div className="min-h-screen flex items-center py-20">
-          <div className="flex-1" />
-          <div className="flex-1 flex justify-center">
-            <Link href="/work/hyperx-cloud-3-3d-customizer">
-              <div className="text-center group">
-                <Image
-                  src="/HX3D_thumbnail.png"
-                  alt="HyperX Cloud 3 3D Customizer thumbnail"
-                  width={400}
-                  height={600}
-                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="mt-2">
-                  <p className="font-semibold">HyperX Cloud 3 3D Customizer</p>
-                  <p className="text-sm">Extended Reality / Spring 2025</p>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">Hewlett-Packard / HyperX</span>
-                  <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1">Completed</span>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-      {/* Immersive Experience Section (black bg, white text) */}
-      <div style={{ background: '#000', color: '#fff' }}>
-        <div className="min-h-screen flex items-center py-20">
-          <div className="flex-1">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> Immersive Experiences</h2>
-            <p className="text-lg max-w-md">
-              <TextScramble text="Crafting engaging and memorable experiences that captivate and inspire." />
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <Link href="/work/with-the-mountains-the-clouds-and-us">
-              <div className="text-center group">
-                <Image
-                  src="/hero%20render_ps.png"
-                  alt="The Painter of Light"
-                  width={600}
-                  height={400}
-                  className="rounded-lg group-hover:scale-105 transition-transform duration-300"
-                />
-                <p className="mt-2">The Painter of Light :: Immersive Experience / 2025</p>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-      {/* Visual Narrative Art Section (white bg, black text) */}
-      <div style={{ background: '#fff', color: '#000' }}>
-        <div className="min-h-screen flex items-center py-20">
-          <div className="flex-1">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> Visual Narratives</h2>
-            <p className="text-lg max-w-md">
-              <TextScramble text="Telling stories through visuals, motion, and interactive media." />
-            </p>
-          </div>
-          <div className="flex-1 flex justify-center">
-            <div className="text-center">
-              <Image
-                src="/visual-1.jpg"
-                alt="Visual Art 1"
-                width={400}
-                height={600}
-                className="rounded-lg"
-              />
-              <p className="mt-2">Project Name :: Artwork, Generative Art / 2023</p>
+    <section id="featured-work" className="mx-5">
+      {featuredSections.map((section) => (
+        <div key={section.title} style={{ background: section.bg, color: section.color }} className="mx-5">
+          <div className="min-h-screen flex items-center py-20">
+            <div className="flex-[1.2] min-w-[320px]">
+              <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> {section.title}</h2>
+              <p className="text-lg max-w-md">
+                <TextScramble text={section.description} />
+              </p>
+            </div>
+            <div className="flex-[1.8] flex flex-row gap-8 justify-center">
+              {getFeaturedProjects(section.category).map((project: Project) => (
+                <Link key={project.slug} href={`/work/${project.slug}`}>
+                  <div className="text-center group">
+                    <Image
+                      src={project.thumbnail || "/file.svg"}
+                      alt={project.title + " thumbnail"}
+                      width={320}
+                      height={320}
+                      className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
+                    />
+                    <div className="mt-2">
+                      <p className="font-semibold">{project.title}</p>
+                      <p className="text-sm">{project.category} / {project.year}</p>
+                      {project.company && (
+                        <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">{project.company}</span>
+                      )}
+                      {/* Add status badge if available */}
+                    </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
-      </div>
+      ))}
       <div className="text-center py-20 bg-white">
         <Link href="/work" className="text-xl hover:underline text-black">
           View all work
