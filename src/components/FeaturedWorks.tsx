@@ -234,21 +234,21 @@ export default function FeaturedWorks() {
   const featuredSections = [
     {
       title: "Extended Reality",
-      description: "Exploring new dimensions of interaction and perception through AR and VR.",
+      description: "Crafting immersive AR and VR experiences that elevate retail engagement and showcase products in innovative, interactive ways.",
       category: "Extended Reality",
       bg: "#fff",
       color: "#000",
     },
     {
       title: "Immersive Experiences",
-      description: "Crafting engaging and memorable experiences that captivate and inspire.",
+      description: "Designing spatial environments and immersive narratives that transform spaces into captivating, story-driven experiences.",
       category: "Immersive Experiences",
       bg: "#000",
       color: "#fff",
     },
     {
       title: "Visual Narratives",
-      description: "Telling stories through visuals, motion, and interactive media.",
+      description: " Weaving compelling narratives through captivating illustrations and immersive storytelling.",
       category: "Visual Narrative Art",
       bg: "#fff",
       color: "#000",
