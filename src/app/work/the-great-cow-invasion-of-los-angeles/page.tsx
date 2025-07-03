@@ -3,9 +3,9 @@
 import ImageSlideshow from "@/components/core/ImageSlideshow";
 
 const images = [
-  "/cow invasion1.jpg",
-  "/cow invasion 2.jpg",
-  "/cow invasion 3.jpg",
+  "/cow1.JPG",
+  "/cow2.JPG",
+  "/cow3.JPG",
 ];
 
 export default function TheGreatCowInvasionPage() {

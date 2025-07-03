@@ -12,7 +12,7 @@ export default function CopsAndRobbersPage() {
           {/* Left column: Video */}
           <div className="flex flex-col items-center justify-center flex-1 h-full" style={{ maxWidth: '80%' }}>
             <video
-              src="/cops and robbers gameplay.mp4"
+              src="/cops-robbers-gameplay.mp4"
               controls
               muted
               className="w-full object-contain rounded-lg border border-gray-700 shadow-lg"

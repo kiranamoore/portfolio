@@ -34,7 +34,7 @@ export default function ProjectClient() {
               <div className="mt-6 space-y-4">
                 <div className="text-center">
                   <img
-                    src="/hx3d_snapcode.png"
+                    src="/hx3d-snapcode.png"
                     alt="HX3D Snapcode"
                     className="w-full max-w-md mx-auto rounded-lg border border-gray-700 shadow-lg"
                   />
@@ -234,6 +234,18 @@ export default function ProjectClient() {
                 muted
                 className="w-full max-w-4xl aspect-[4/3] object-contain rounded-lg border border-gray-700 shadow-lg"
               />
+              <div className="mt-6 space-y-4">
+                <div className="text-center">
+                  <img
+                    src="/pixel-snapcode.png"
+                    alt="Pixel Headphones Snapcode"
+                    className="w-full max-w-xs mx-auto rounded-lg border border-gray-700 shadow-lg"
+                  />
+                  <p className="text-sm text-gray-400 mt-2">
+                    scan in snapchat to try
+                  </p>
+                </div>
+              </div>
             </div>
             {/* Right column: Centered content */}
             <div className="flex flex-col items-center text-center space-y-6">

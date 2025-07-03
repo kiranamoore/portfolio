@@ -21,7 +21,7 @@ export default function MetaAlchemyPage() {
               />
             </div>
             <video
-              src="/little alchemy.mp4"
+              src="/little-alchemy-demo.mp4"
               controls
               muted
               className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg mt-6"
