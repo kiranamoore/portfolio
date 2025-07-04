@@ -36,6 +36,9 @@ export default function MetaAlchemyPage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Meta Alchemy</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Meta Alchemy is a mixed reality prototype for Meta Quest 3 that empowers users to creatively combine virtual elements in a 3D space, blending combinatorial gameplay with intuitive spatial interactions.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -45,7 +48,7 @@ export default function MetaAlchemyPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Mixed Reality Developer</span> to design and develop a prototype for Meta Quest 3.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to enable users to combine virtual elements in an interactive 3D space, inspired by Little Alchemy's creativity-driven gameplay.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to enable users to <span className="font-bold">combine virtual elements in an interactive 3D space</span>, inspired by Little Alchemy's creativity-driven gameplay.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted fostering user creativity and exploration through combinatorial play in mixed reality.</span></li>
                 </ul>
               </section>
@@ -58,9 +61,9 @@ export default function MetaAlchemyPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed for spatial computing using <span className="font-bold">Unity</span> with high-performance rendering and <span className="font-bold">C#</span> for interaction logic.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Utilized <span className="font-bold">Meta Quest 3 SDK</span> for spatial tracking, controller input, and passthrough functionality.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Utilized <span className="font-bold">Meta Quest 3 SDK</span> for <span className="font-bold">spatial tracking, controller input, and passthrough functionality.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created and optimized 3D assets using <span className="font-bold">Blender</span> for interactive use in mixed reality.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a 3D sandbox-style environment with drag-and-drop virtual elements and real-time feedback.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a <span className="font-bold">3D sandbox-style environment with drag-and-drop virtual elements</span> and real-time feedback.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized spatial interactions based on headset and controller tracking for intuitive user experience.</span></li>
                 </ul>
               </section>
@@ -72,7 +75,7 @@ export default function MetaAlchemyPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a functional prototype deployed on Meta Quest 3 hardware with responsive interactions and platform-optimized assets.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a <span className="font-bold">functional prototype deployed on Meta Quest 3 hardware</span> with responsive interactions and platform-optimized assets.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully demonstrated the potential for educational or game-like MR applications on next-gen headsets.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a foundation for future combinatorial AR/VR content with modular design for extensibility.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased system-level performance optimization and intuitive MR design thinking for spatial computing.</span></li>

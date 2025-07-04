@@ -20,6 +20,9 @@ export default function CopsAndRobbersPage() {
             >
               Your browser does not support the video tag.
             </video>
+            <div className="mt-2 text-center">
+              <a href="https://jelly-shroom.itch.io/robber-shooter-web-demo" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">click to play on web</a>
+            </div>
           </div>
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[350px]">
@@ -27,6 +30,9 @@ export default function CopsAndRobbersPage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Cops and Robbers (VR)</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Cops and Robbers (VR) is a fast-paced, first-person VR heist experience where players must efficiently loot stores under time pressure, blending urgency, exploration, and moral choice in an immersive, hand-tracked environment.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -36,7 +42,7 @@ export default function CopsAndRobbersPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead VR Developer and Game Designer</span> to create a first-person VR heist experience.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to deliver a tense and fast-paced gameplay loop that challenges players to loot efficiently under pressure.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to deliver a <span className="font-bold">fast-paced gameplay loop that challenges players to loot efficiently under pressure.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted blending urgency, exploration, and moral ambiguity in an immersive VR environment.</span></li>
                 </ul>
               </section>
@@ -49,7 +55,7 @@ export default function CopsAndRobbersPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built core environment and interaction logic using <span className="font-bold">Unity</span> and <span className="font-bold">C#</span> scripting.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">Unity XR Toolkit</span> for VR hand tracking, object grabbing, and immersive input.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">VR hand tracking, object grabbing, and immersive input.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed gameplay mechanics where players loot stores by grabbing high-value items in limited time.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Evolved raycasting mechanics from traditional FPS to VR hand-based interactions.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created building state displays via black-and-white overlay to show robbery progress.</span></li>
@@ -63,7 +69,7 @@ export default function CopsAndRobbersPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a fully playable prototype for Meta Quest 3 with core mechanics fully functional and tested.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a <span className="font-bold">fully playable prototype for Meta Quest 3 with core mechanics fully functional and tested.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully expanded VR experience design beyond passive viewing or simple UI interactions.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to emphasize polish and core loop clarity under real-world time and tech constraints.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established foundation for future iterations with potential for patrolling NPCs, dynamic AI, and enhanced environmental storytelling.</span></li>

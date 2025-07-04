@@ -34,42 +34,38 @@ export default function TheTravelerPage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Traveler</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Designed a 3D digital model in Rhinoceros 3D for The Traveler, a whimsical, light-filled living space concept that balances social connection and personal retreat through thoughtful layouts, natural illumination, and emotionally resonant design.
+            </p>
             <div className="space-y-8 max-w-full w-full">
+              {/* Role & Objective */}
               <section>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Project Overview</h2>
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><em>The Traveler</em> – Digital Living Space Design</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>The Traveler is a 3D digital model created in Rhinoceros 3D as part of my Constructing Experiences class. This project reimagines my ideal living space as a whimsical, sunlight-filled environment designed to inspire creativity and comfort.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Designed and modeled The Traveler, a 3D digital living space concept, as part of my Constructing Experiences class, aiming to translate personal ideals of creativity and comfort into spatial form.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on creating a whimsical, sunlight-filled environment that balances social connection and private retreat.</span></li>
                 </ul>
               </section>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                <h3 className="text-xl font-bold text-blue-300 tracking-tight">Key Design Elements</h3>
+                <h3 className="text-xl font-bold text-blue-300 tracking-tight">Actions Taken</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>First Floor – Social Hub:</b> Open layout with a lowered kitchen connected by a window to a conversation pit, encouraging natural flow and connection.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>Second Floor – Private Loft:</b> Quiet retreat with large windows framing nature and curtains for optional privacy.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>Basement – Creative Studio:</b> A painting space with curved, organic walls and a large daylight window to enhance focus and calmness.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>Restroom – Restorative Space:</b> Custom bathtub with a high window to create a peaceful, light-filled sanctuary.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built a detailed 3D model in <span className="font-bold">Rhinoceros 3D,</span> designing distinct zones including a social hub, private loft, creative studio, and restorative restroom.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Used organic forms, open layouts, and strategic window placement to optimize natural light and enhance mood.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Prioritized <span className="font-bold">seamless transitions between social and private areas</span> to support multiple modes of living and creating.</span></li>
               </ul>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                <h3 className="text-xl font-bold text-green-300 tracking-tight">Design Focus</h3>
+                <h3 className="text-xl font-bold text-green-300 tracking-tight">Results & Impact</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Balancing functionality with personal, emotional spaces</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Seamless transitions between social and private zones</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Using natural light as a core design material to elevate mood and creativity</span></li>
-              </ul>
-              <div className="flex items-center gap-3 mb-2 mt-6">
-                <span className="h-6 w-1 rounded bg-gradient-to-b from-yellow-400 to-orange-400" />
-                <h3 className="text-xl font-bold text-yellow-300 tracking-tight">Project Impact</h3>
-              </div>
-              <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-yellow-300">•</span><span>The Traveler reflects my ability to design spaces that feel both purposeful and emotionally resonant—spaces that support living, hosting, and creating in equal measure.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a digital space that reflects my ability to design environments blending functionality with emotional resonance.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated skills in <span className="font-bold">spatial design, 3D modeling, and crafting experiences</span> that support living, hosting, and creative pursuits.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased a personal design philosophy centered on light, comfort, and emotional well-being in physical spaces.</span></li>
               </ul>
             </div>
           </div>

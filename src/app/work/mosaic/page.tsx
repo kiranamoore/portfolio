@@ -50,8 +50,11 @@ export default function MosaicPage() {
           <div className="flex flex-col items-center text-center space-y-6 justify-center">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Spring 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">MOSAĪC: A Future Car Concept for Honda Motor Company</h1>
+              <h1 className="text-4xl md:text-6xl font-bold">MOSAIC: A Future Car Concept for Honda Motor Company</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Developed an interactive Unity prototype for MOSAIC, a concept car for Honda that reimagines the vehicle as an emotionally responsive third space, blending immersive digital panels, adaptive environments, and communal features.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -60,7 +63,7 @@ export default function MosaicPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Unity Developer</span> and prototyper for a Gen Z-driven car concept focused on emotional well-being, community, and immersive digital experiences.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Unity Developer</span> and prototyper for a Gen Z-driven <span className="font-bold">car concept focused on emotional well-being, community, and immersive digital experiences</span>.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to reimagine the car as a dynamic third space that adapts to the rider's emotional and social needs.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted balancing solitude and connection through flexible seating, customizable environments, and seamless transitions between individual and communal modes.</span></li>
                 </ul>
@@ -74,7 +77,7 @@ export default function MosaicPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with a cross-disciplinary team to design Mosaic, a visionary car concept for Honda.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Prototyped interactive elements and environment transitions in Unity, focusing on seamless UI responsiveness and immersive digital panel behaviors.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Prototyped interactive elements and environment transitions in Unity,</span> focusing on seamless UI responsiveness and immersive digital panel behaviors.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed features such as Community Mode, Privacy Mode, Immersive Digital Panels, and Floating UI for adaptive in-car experiences.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Worked closely with UI/UX, 3D design, and strategy teammates to ensure cohesive vision and technical feasibility.</span></li>
                 </ul>
@@ -87,8 +90,8 @@ export default function MosaicPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully delivered a future car concept that addresses the modern need for flexible, emotionally intelligent spaces.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to prototype and iterate on immersive digital experiences for automotive innovation.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully delivered a <span className="font-bold">future car concept that addresses the modern need for flexible, emotionally intelligent spaces.</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to <span className="font-bold">prototype and iterate on immersive digital experiences</span> for automotive innovation.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a model for adaptive, user-centric vehicle design that prioritizes both individual comfort and group engagement.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased the potential of cross-disciplinary collaboration in future mobility solutions.</span></li>
                 </ul>

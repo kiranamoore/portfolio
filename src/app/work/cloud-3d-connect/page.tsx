@@ -34,6 +34,9 @@ export default function Cloud3DConnectPage() {
               <p className="text-sm text-gray-300">May 2025 – August 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Cloud 3D Connect</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Developed an interactive 3D experience that showcases key product highlights and allows in-store customers to customize HyperX's Cloud 3 S headset in real time. The solution helps sway purchase decisions by visually demonstrating HyperX's advantages over competitors.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -42,24 +45,23 @@ export default function Cloud3DConnectPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead 3D Developer</span> to develop an interactive 3D customization experience for HyperX's Cloud 3 S headset.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to merge in-store interaction with online accessory personalization for seamless customer experience.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted solving the disconnect between headset purchases and HX3D accessory sales by enabling pre-purchase customization.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Worked as the sole <span className="font-bold">Augmented Reality Developer</span> to create an <span className="font-bold">in-store and mobile-friendly customization tool</span> to drive HX3D accessory sales and in-store purchases.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Highlighted unique product features to support customer decision-making at the point of sale.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><span className="font-bold">Bridged the gap between headset purchases and accessory personalization.</span></span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
-              {/* Actions Taken */}
+              {/* Key Contributions */}
               <section>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Key Contributions</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Reduced triangle count for optimized models using <span className="font-bold">Blender</span> for mobile performance.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Applied performant textures using <span className="font-bold">Substance Painter</span> for high-quality visual output.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built interactive experience with real-time rendering using <span className="font-bold">Unity (C#)</span>.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">AR Integration</span> to view live customizations across devices.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Leveraged experience from past interactive demos, now taken to full production-grade deployment.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized 3D models <span className="font-bold">(Blender)</span> and textures <span className="font-bold">(Blender &amp; Substance Painter)</span> for mobile performance.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the interactive experience in Unity with real-time rendering and AR integration.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Developed feature callouts, animations, and clickable hotspots</span> to showcase benefits like comfort, sound quality, and HX3D compatibility.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Delivered a production-ready solution for retail deployment.</span></span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -70,10 +72,9 @@ export default function Cloud3DConnectPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully drives accessory sales and headset engagement through interactive customization.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Encourages real-time customization and online checkout for improved customer experience.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Creates a deployable retail solution with measurable value for HyperX.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Represents a significant evolution from previous interactive demos to production-ready deployment.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Helped customers understand HyperX advantages over competitors directly in-store.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Increased headset engagement and HX3D accessory sales.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Provided a scalable, interactive retail tool that enhances the buying experience.</span></li>
                 </ul>
               </section>
             </div>

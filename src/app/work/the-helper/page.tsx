@@ -52,6 +52,9 @@ export default function TheHelperPage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Helper</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Designed a trauma-informed care center for young children in the foster system, creating a safe and supportive spatial concept that balances California courthouse requirements with emotional well-being through empathetic, user-centered design.
+            </p>
             <div className="space-y-8 max-w-full w-full">
               <section>
                 <div className="flex items-center gap-3 mb-2">

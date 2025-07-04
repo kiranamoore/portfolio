@@ -24,6 +24,9 @@ export default function CastleChambersPage() {
               className="w-full object-contain rounded-lg border border-gray-700 shadow-lg"
               style={{ minHeight: '400px', maxWidth: '700px' }}
             />
+            <div className="mt-2 text-center">
+              <a href="https://jelly-shroom.itch.io/medieval-escape-room" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">click to play on web</a>
+            </div>
           </div>
 
           {/* Right column: Content */}
@@ -31,10 +34,10 @@ export default function CastleChambersPage() {
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Castle Chambers</h1>
-              <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-2">
-                Extended Reality
-              </span>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Castle Chambers is a multi-room VR escape puzzle game where players explore atmospheric castle environments, solving logic-based challenges that progressively reveal hidden stories and unlock new chambers.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -43,7 +46,7 @@ export default function CastleChambersPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead VR Developer and Game Designer</span> to create a multi-room, atmospheric escape room puzzle game.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead VR Developer and Game Designer</span> to create a <span className="font-bold">multi-room, atmospheric escape room puzzle game.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create an immersive puzzle-solving experience that combines environmental storytelling with logic-based challenges.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted drawing players deeper into the castle's secrets as they progress through increasingly complex chambers.</span></li>
                 </ul>
@@ -57,9 +60,9 @@ export default function CastleChambersPage() {
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built core gameplay mechanics and room transitions using <span className="font-bold">Unity</span> and <span className="font-bold">C#</span> scripting.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a four-chamber progression system where each completed puzzle unlocks a new room.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a <span className="font-bold">four-chamber progression system where each completed puzzle unlocks a new room.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented environmental storytelling through visual cues and spatial design to gradually reveal castle lore.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created unique logic-based challenges for each room to maintain variety and engagement.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created <span className="font-bold">unique logic-based challenges for each room to maintain variety</span> and engagement.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Prioritized rapid prototyping and flexibility over fully modular architecture to enable quick iteration.</span></li>
                 </ul>
               </section>
@@ -71,7 +74,7 @@ export default function CastleChambersPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a fully playable prototype featuring four chambers with interactive puzzles and room-to-room progression.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a <span className="font-bold">fully playable prototype featuring four chambers with interactive puzzles and room-to-room progression.</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created an immersive medieval atmosphere that enhances the puzzle-solving experience.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to balance technical constraints with creative design in VR development.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a foundation for future VR puzzle games with potential for modular expansion and enhanced atmospheric detail.</span></li>

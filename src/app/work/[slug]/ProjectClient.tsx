@@ -62,13 +62,9 @@ export default function ProjectClient() {
               <div className="space-y-1">
                 <p className="text-sm text-gray-300">Spring 2025</p>
                 <h1 className="text-4xl md:text-6xl font-bold">HyperX Cloud 3 3D Customizer</h1>
-                <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-2">
-                  Hewlett-Packard / HyperX
-                </span>
               </div>
               <p className="text-lg font-medium">
-                HX3D AR Customization Tool<br />
-                Developed an augmented reality customization interface for HX3D's 3D-printed headphone accessories, enabling users to personalize designs with curated color palettes and patterns.
+                Developed an augmented reality customization interface for HX3D's 3D-printed headphone accessories, enabling users to creatively customize accessories with curated color palettes and patterns while streamlining the purchase process.
               </p>
               <div className="space-y-10 text-left max-w-2xl w-full">
                 {/* Role & Objective */}
@@ -78,9 +74,9 @@ export default function ProjectClient() {
                     <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                   </div>
                   <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality customization interface for HX3D's 3D-printed headphone accessories.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to empower customers to creatively customize accessories in real-time while streamlining the purchase process.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted delivering an interactive, mobile-ready AR experience for personalized product customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an <span className="font-bold">augmented reality customization interface</span> for HX3D's 3D-printed headphone accessories.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to <span className="font-bold">creatively customize accessories</span> in real-time while <span className="font-bold">streamlining the purchase process.</span></span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted delivering an <span className="font-bold">interactive, mobile-ready AR experience for personalized product customization.</span></span></li>
                   </ul>
                 </section>
                 <div className="border-t border-gray-700 my-6" />
@@ -106,9 +102,9 @@ export default function ProjectClient() {
                     <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                   </div>
                   <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully simplifies and accelerates the made-to-order customization pipeline for HX3D accessories.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><span className="font-bold">Successfully simplifies and accelerates the made-to-order customization pipeline</span> for HX3D accessories.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Increases accessory engagement through creative user interaction and real-time customization.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Supports future integration with e-commerce systems for seamless fulfillment.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><span className="font-bold">Supports future integration with e-commerce systems</span> for seamless fulfillment.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Advances previous AR projects with fully textured, optimized models and complex UI logic.</span></li>
                   </ul>
                 </section>
@@ -306,6 +302,80 @@ export default function ProjectClient() {
       </>
     );
   }
+  if (slug === 'meta-alchemy') {
+    return (
+      <>
+        <div className="h-32" />
+        <div
+          className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
+        >
+          <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
+            {/* Left column: Slideshow */}
+            <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[400px] max-w-[700px]">
+              <ImageSlideshow
+                images={projectImages}
+                altPrefix="Meta Alchemy project image"
+              />
+            </div>
+            {/* Right column: Centered content */}
+            <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-300">Spring 2025</p>
+                <h1 className="text-4xl md:text-6xl font-bold">Meta Alchemy</h1>
+              </div>
+              <p className="text-lg text-gray-200 mt-2">
+                Meta Alchemy is a mixed reality prototype for Meta Quest 3 that empowers users to creatively combine virtual elements in a 3D space, blending combinatorial gameplay with intuitive spatial interactions.
+              </p>
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Mixed Reality Developer</span> to design and develop a prototype for Meta Quest 3.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to enable users to combine virtual elements in an interactive 3D space, inspired by Little Alchemy's creativity-driven gameplay.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted fostering user creativity and exploration through combinatorial play in mixed reality.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed for spatial computing using <span className="font-bold">Unity</span> with high-performance rendering and C# for interaction logic.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Utilized <span className="font-bold">Meta Quest 3 SDK</span> for spatial tracking, controller input, and passthrough functionality.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created and optimized 3D assets using <span className="font-bold">Blender</span> for interactive use in mixed reality.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a 3D sandbox-style environment with drag-and-drop virtual elements and real-time feedback.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized spatial interactions based on headset and controller tracking for intuitive user experience.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a functional prototype deployed on Meta Quest 3 hardware with responsive interactions and platform-optimized assets.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully demonstrated the potential for educational or game-like MR applications on next-gen headsets.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a foundation for future combinatorial AR/VR content with modular design for extensibility.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased system-level performance optimization and intuitive MR design thinking for spatial computing.</span></li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
   // Default: Painter of Light
   return (
     <>
@@ -328,6 +398,9 @@ export default function ProjectClient() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Painter of Light</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Led the design of an immersive exhibit reimagining Thomas Kinkade's legacy by blending his luminous style with symbolic elements reflecting his personal struggles. The multi-sensory experience invites deeper reflection and challenges public perceptions, appealing to both art critics and casual audiences.
+            </p>
             <div className="space-y-10 text-left max-w-full w-full">
               {/* Role & Objective */}
               <section>
@@ -336,24 +409,24 @@ export default function ProjectClient() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Experience Designer</span> to create a conceptual immersive exhibit exploring Thomas Kinkade's artistic legacy.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to transform perceptions of Kinkade's art by juxtaposing his luminous aesthetic with symbolic elements reflecting his personal struggles.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted creating an inclusive, multi-sensory experience that appeals to both art critics and the general public.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Lead Experience Designer for a <span className="font-bold">conceptual exhibit exploring Kinkade's life and work.</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to shift perceptions by contrasting his light-filled aesthetic with personal symbolism.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Created an inclusive, thought-provoking, multi-sensory journey.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
-              {/* Actions Taken */}
+              {/* Key Actions */}
               <section>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Key Actions</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Conducted extensive research in art history, theology, and experiential art trends to inform the exhibit design.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed spatial layout and atmospheric lighting to guide participants through a narrative journey.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated props and symbolic elements that reflect the interplay of light and shadow in Kinkade's life and work.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Integrated insights from successful immersive experiences like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced aesthetic appeal with intellectual depth to create meaningful, thought-provoking experiences.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Researched art history, theology, and immersive exhibit trends.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">narrative-driven spaces</span> using atmospheric lighting and spatial flow.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated symbolic props to explore the interplay of light and shadow in Kinkade's story.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced visual appeal with emotional and intellectual depth.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -364,10 +437,9 @@ export default function ProjectClient() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created a conceptual framework for transforming perceptions of Kinkade's art through immersive storytelling.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to design compelling, multi-sensory experiences that resonate with diverse audiences.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established approach for blending art, storytelling, and audience engagement to provoke thought and evoke emotion.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created inclusive and impactful experiences that balance aesthetic appeal with intellectual depth.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Developed a <span className="font-bold">conceptual framework for immersive storytelling that repositions Kinkade's work.</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a scalable, multi-sensory exhibit model that resonates with diverse audiences.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to <span className="font-bold">blend art, narrative, and audience engagement to provoke meaningful reflection.</span></span></li>
                 </ul>
               </section>
             </div>
