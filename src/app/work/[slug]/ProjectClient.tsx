@@ -159,8 +159,7 @@ export default function ProjectClient() {
                 <h1 className="text-4xl md:text-6xl font-bold">TRAINAR</h1>
               </div>
               <p className="text-lg font-medium">
-                TrainAR – AR Gym Training App<br />
-                Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an augmented reality fitness concept pitched to Snapchat, designed to integrate gym training guidance into their AR platform.
+                Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an <b>augmented reality fitness concept for Snapchat's AR platform.</b> designed to integrate gym training guidance into their AR platform.
               </p>
               <div className="space-y-10 text-left max-w-2xl w-full">
                 {/* Role & Objective */}
@@ -185,7 +184,7 @@ export default function ProjectClient() {
                   <ul className="space-y-2 pl-6 list-none">
                     <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the interactive AR lens demo using <span className="font-bold">Lens Studio</span> for Snapchat integration.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed AR trainer overlay that positions a digital trainer in the user's environment to demonstrate correct form and movement.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented real-time visual guidance to help users perform exercises safely and correctly.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <b>real-time visual guidance to help users perform exercises safely</b> and correctly.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with a multidisciplinary student team to ideate, design, and develop the experience.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed an interactive lens prototype as part of the pitch to Snapchat.</span></li>
                   </ul>
@@ -198,101 +197,10 @@ export default function ProjectClient() {
                     <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                   </div>
                   <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully promotes safer, more effective workouts by reducing the risk of injury through real-time form correction.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Introduces AR as a valuable tool for fitness and personal training in health and wellness sectors.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully <b>promotes safer, more effective workouts</b> by reducing the risk of injury through real-time form correction.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Introduces <b>AR as a valuable tool for fitness</b> and personal training in health and wellness sectors.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Explores new use cases for Snapchat's AR capabilities beyond entertainment and social media.</span></li>
                     <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a lens demo completed and functional in Lens Studio, ready for further development and refinement.</span></li>
-                  </ul>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </>
-    );
-  }
-  if (slug === 'pixel-headphones') {
-    return (
-      <>
-        <div className="h-32" />
-        <div
-          className="min-h-screen bg-black text-white py-12 flex justify-center mt-16 md:mt-24 mb-12"
-          style={{ marginLeft: '100px', marginRight: '100px', marginBottom: '50px' }}
-        >
-          <div className="max-w-full w-full grid grid-cols-1 lg:grid-cols-[900px_1fr] gap-16">
-            {/* Left column: Video */}
-            <div className="flex flex-col items-start">
-              <video
-                src="/Pixel Headphones Demo.mp4"
-                controls
-                autoPlay
-                loop
-                muted
-                className="w-full max-w-4xl aspect-[4/3] object-contain rounded-lg border border-gray-700 shadow-lg"
-              />
-              <div className="mt-6 space-y-4">
-                <div className="text-center">
-                  <img
-                    src="/pixel-snapcode.png"
-                    alt="Pixel Headphones Snapcode"
-                    className="w-full max-w-xs mx-auto rounded-lg border border-gray-700 shadow-lg"
-                  />
-                  <p className="text-sm text-gray-400 mt-2">
-                    scan in snapchat to try
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* Right column: Centered content */}
-            <div className="flex flex-col items-center text-center space-y-6">
-              <div className="space-y-1">
-                <p className="text-sm text-gray-300">Spring 2024</p>
-                <h1 className="text-4xl md:text-6xl font-bold">Pixel Headphones</h1>
-              </div>
-              <p className="text-lg font-medium">
-                Pixel Headphones – AR Customization Demo<br />
-                Developed an augmented reality demo showcasing real-time headphone customization with dynamic color changes and interactive 3D model manipulation, demonstrating the potential for AR in product personalization.
-              </p>
-              <div className="space-y-10 text-left max-w-2xl w-full">
-                {/* Role & Objective */}
-                <section>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
-                  </div>
-                  <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality demo for real-time headphone customization.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to demonstrate the potential of AR in product personalization through dynamic color changes and interactive 3D model manipulation.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted showcasing real-time customization capabilities that could enhance the shopping experience for consumers.</span></li>
-                  </ul>
-                </section>
-                <div className="border-t border-gray-700 my-6" />
-                {/* Actions Taken */}
-                <section>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
-                  </div>
-                  <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the AR experience using <span className="font-bold">Lens Studio</span> for real-time headphone customization.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented dynamic color changes that respond instantly to user interaction.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created interactive 3D model manipulation for immersive product exploration.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed intuitive user interface for seamless color selection and customization.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed a proof-of-concept that demonstrates AR's potential in retail and e-commerce applications.</span></li>
-                  </ul>
-                </section>
-                <div className="border-t border-gray-700 my-6" />
-                {/* Results & Impact */}
-                <section>
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
-                  </div>
-                  <ul className="space-y-2 pl-6 list-none">
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully demonstrates AR's potential for enhancing product personalization in retail environments.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Provides a foundation for future AR customization tools in e-commerce and retail applications.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Shows how real-time customization can improve customer engagement and decision-making.</span></li>
-                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Establishes technical capabilities for interactive 3D product visualization in AR environments.</span></li>
                   </ul>
                 </section>
               </div>

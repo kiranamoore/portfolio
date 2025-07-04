@@ -51,6 +51,9 @@ export default function NikeLeagueOfLegendsZeriPage() {
               <p className="text-sm text-gray-300">Spring 2024</p>
               <h1 className="text-4xl md:text-6xl font-bold">Nike x League of Legends Skin Collaboration: Zeri</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Led concept development and visual design for a Nike x League of Legends collaboration, creating a dynamic digital fashion skin for Zeri that fuses Nike's athletic brand identity with gaming aesthetics through splash art, 3D modeling, animation, and in-game integrations.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -59,9 +62,8 @@ export default function NikeLeagueOfLegendsZeriPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Concept & Visual Development Lead</span> for a cross-industry collaboration between Nike and Riot Games' League of Legends.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create a digital fashion collaboration that bridges gaming, fashion, and urban culture through visual storytelling.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted fusing Nike's active brand identity with Zeri's electric, fast-paced gameplay in an immersive cross-platform experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <b>Concept & Visual Development Lead</b> for a cross-industry project between Nike and Riot Games' League of Legends, focused on bridging fashion, gaming, and urban culture.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to design a <b>digital fashion skin</b> that fuses Nike's energetic style with Zeri's fast-paced gameplay, crafting an immersive visual identity across platforms.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -72,11 +74,11 @@ export default function NikeLeagueOfLegendsZeriPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed custom <span className="font-bold">Character Splash Art</span> showcasing the Nike-inspired skin, emphasizing energy, motion, and electricity.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created detailed <span className="font-bold">3D Fashion Modeling</span> in Marvelous Designer, aligning Nike's athletic aesthetic with in-game styling.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Produced <span className="font-bold">Mixed Media Animation</span> featuring real-life footage shot in Downtown Los Angeles, blending digital and physical worlds.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <span className="font-bold">In-Game Store Integration</span> mock-up demonstrating how the skin would appear within League of Legends' store.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with Nike .SWOOSH Digital Branding Team and Riot Games League of Legends for authentic brand integration.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed custom <b>Character Splash Art</b> to showcase the Nike-inspired skin, emphasizing motion, energy, and electric visuals.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created <b>3D fashion models</b> in Marvelous Designer to integrate Nike's performance aesthetic with in-game costume design.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Produced a <b>mixed media animation</b> blending real-life footage shot in Downtown Los Angeles with digital overlays to connect physical and virtual worlds.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <b>in-game store mock-ups</b> to visualize the skin within the League of Legends ecosystem.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with the <b>Nike .SWOOSH Digital Branding Team</b> and <b>Riot Games</b> to ensure cohesive brand storytelling and authentic integration.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -87,10 +89,9 @@ export default function NikeLeagueOfLegendsZeriPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created an immersive, cross-industry experience that combines fashion, gaming, and digital storytelling.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to effectively collaborate with real-world brands to create consumer-driven, co-creative opportunities.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established visual storytelling through movement, color, and energy that bridges multiple platforms and audiences.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a complete concept package including splash art, 3D modeling, animation, and store integration mock-ups.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a compelling <b>cross-industry concept</b> that merges fashion, gaming, and storytelling into an engaging consumer experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated expertise in <b>collaborating with major brands</b> to develop co-branded visual narratives and innovative digital experiences.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Produced a full suite of deliverables—splash art, 3D assets, animation, and mock-ups—that lays a <b>foundation for future digital fashion collaborations</b>.</span></li>
                 </ul>
               </section>
             </div>

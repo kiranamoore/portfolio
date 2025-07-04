@@ -56,6 +56,9 @@ export default function EclipsePage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Eclipse</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Developed the spatial layout, architectural drawings, and visual renders for Eclipse, a futuristic café and bar concept that fuses holographic storytelling, multi-sensory experiences, and adaptive design to create an immersive, narrative-driven environment.
+            </p>
             <div className="space-y-10 max-w-full w-full">
               {/* Role & Objective */}
               <section>
@@ -64,9 +67,9 @@ export default function EclipsePage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Designer</span> for this futuristic café and bar concept, developing spatial layout, elevations, and all visual renders.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create an experiential café & bar with immersive concept design that pushes creative and technical boundaries.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted the design of transformative spaces that immerse users in narrative-driven, unforgettable environments.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-bold">Lead Designer</span> for Eclipse, a futuristic café and bar concept focused on creating immersive, narrative-driven environments.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to develop an experiential space that pushes creative and technical boundaries through innovative design and advanced technology integration.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on crafting transformative spaces that engage multiple senses and immerse users in unforgettable, story-driven experiences.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -77,11 +80,11 @@ export default function EclipsePage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Integrated cutting-edge holographic displays for dynamic, culture-driven narratives and storytelling experiences.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Crafted a multi-sensory environment that blends sound, visuals, and taste, including transforming tea-to-cocktail beverages.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed intuitive access points for personalized, AI-driven user interactions throughout the space.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created adaptable spaces that shift to support different times of day and user needs through morphing architecture.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed seamless fusion of thematic ambiance and functional flow throughout the design.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed the <span className="font-bold">floor plan</span>, <span className="font-bold">spatial layout</span>, <span className="font-bold">elevation drawings</span>, and produced all <span className="font-bold">visual renders</span> to communicate the concept's aesthetic and functional vision.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created a <span className="font-bold">multi-sensory environment</span> blending soundscapes, immersive visuals, and innovative beverage experiences, including transforming tea-to-cocktail drinks.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <span className="font-bold">intuitive access points</span> for personalized, AI-driven user interactions to enhance engagement throughout the space.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">adaptable spaces</span> capable of shifting atmospheres and configurations to support different times of day and diverse user needs, utilizing morphing architectural elements.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Ensured a <span className="font-bold">seamless fusion of thematic ambiance and functional flow</span>, maintaining user comfort while heightening immersive impact.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -92,10 +95,9 @@ export default function EclipsePage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created story-driven, sensory-rich experiences that enhance user engagement and immersion.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to push creative and technical boundaries in experiential design.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established advanced technology integration methods that enhance user engagement in physical spaces.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a foundation for future immersive space design with proven success in narrative-driven environments.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully delivered a <span className="font-bold">story-driven, sensory-rich concept</span> that elevates user engagement and immersion in hospitality environments.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated the ability to <span className="font-bold">push creative and technical boundaries</span> in experiential spatial design.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a strong <span className="font-bold">foundation for future immersive space design</span>, showcasing the power of narrative-driven architecture and multi-sensory environments.</span></li>
                 </ul>
               </section>
             </div>

@@ -57,7 +57,7 @@ const TextScramble: React.FC<ScrambleTextProps> = ({
         if (intervalRef.current) clearInterval(intervalRef.current);
       }
       counter += 1; // Faster scramble speed
-    }, 30);
+    }, 15);
   };
 
   useEffect(() => {

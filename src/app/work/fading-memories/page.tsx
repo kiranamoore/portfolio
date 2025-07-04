@@ -31,6 +31,9 @@ export default function FadingMemoriesPage() {
               <p className="text-sm text-gray-300">Spring 2024</p>
               <h1 className="text-4xl md:text-6xl font-bold">Fading Memories</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Led the design and development of <b>Fading Memories</b>, a multi-sensory immersive installation that explores how memories fragment and distort over time through layered projections, organic materials, and interactive spatial design.
+            </p>
             <div className="space-y-10 max-w-full w-full">
               {/* Role & Objective */}
               <section>
@@ -39,9 +42,9 @@ export default function FadingMemoriesPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Project Lead and Lead Designer</span> for a multi-sensory immersive installation.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create an experience exploring the distortion of memories over time through collaborative works.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted examining how memories fragment and warp through recollection in an immersive spatial environment.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <b>Project Lead</b> and <b>Lead Designer</b> for Fading Memories, an immersive installation blending visual art and spatial design to examine the distortion of memories over time.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to create a <b>multi-sensory experience</b> that engages viewers emotionally and intellectually by visualizing how recollection alters and fragments memory.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on translating abstract psychological concepts into a <b>tangible, immersive environment</b>.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -52,11 +55,11 @@ export default function FadingMemoriesPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed three synchronized video clips projected onto draped fabric sheets, creating layered visuals that distort naturally.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created an enclosed space of suspended fabrics allowing audience movement and shifting perspectives.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented organic fabric shapes that create visual distortions reflecting the fluid nature of memory.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with a team of artists, architectural designers, and video editors to bring the concept to life.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed spatial interaction that changes how videos are perceived, making each experience unique.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed and produced <b>three synchronized video projections</b> displayed on draped fabric sheets to generate layered, organically distorted visuals.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created an <b>enclosed spatial layout</b> of suspended fabric panels that allows visitors to move through the space, altering their perspectives and experience of the visuals.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Utilized <b>organic fabric forms</b> to produce shifting, fluid surfaces that symbolize the instability and fluidity of memory.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Led collaboration with a team of <b>artists, architectural designers, and video editors</b> to integrate visual media and spatial design into a cohesive whole.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed an <b>interactive spatial concept</b> where audience movement directly influences the visual and emotional experience of the installation.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -67,10 +70,10 @@ export default function FadingMemoriesPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created a cinematic immersive installation that explores memory distortion through multi-sensory experience.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to lead collaborative projects involving artists, designers, and technical specialists.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a model for spatial design that allows audience movement to change perception of synchronized content.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a foundation for future immersive installations that explore psychological themes through physical space.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully delivered a <b>cinematic immersive installation</b> that engages audiences in reflecting on the nature of memory through shifting visuals and spatial perception.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated the ability to <b>lead multidisciplinary creative teams</b> and translate conceptual ideas into physical installations.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established an <b>innovative spatial model</b> where physical movement transforms the interpretation of synchronized media content.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a <b>foundation for future immersive works</b> that explore psychological and emotional themes through dynamic, interactive environments.</span></li>
                 </ul>
               </section>
             </div>

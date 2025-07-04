@@ -34,7 +34,7 @@ export default function TheGreatCowInvasionPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Project Overview</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Storytelling through art has always been a passion of mine. I wanted to be able to tell a sequence of events through a single image, Using the reflections in the glass of the Los Angeles Metro, the story of the Great Cow Invasion plays out.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Storytelling through art has always been a passion of mine. I wanted to be able to tell <b>a sequence of events through a single image , Using the reflections in the glass of the Los Angeles Metro,</b> the story of the Great Cow Invasion plays out.</span></li>
                 </ul>
               </section>
               <div className="flex items-center gap-3 mb-2 mt-6">
@@ -42,14 +42,14 @@ export default function TheGreatCowInvasionPage() {
                 <h3 className="text-xl font-bold text-blue-300 tracking-tight">Narrative Details</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Just by looking at the reflections in the first piece, the viewer can see the sequence of events. Following the story of the man in the foreground, in the reflection on the left, you can see his first encounter with the cows. In the reflection on the right, you can see his head getting cut off by the same cow. The story ending with the cows being revealed to by human-killing aliens is shown as a small window into the final piece through the reflections in the first image. As the viewer moves from piece to piece in the series, the sequence of events is revealed.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Just by looking at the reflections in the first piece, the viewer can see the sequence of events. Following the story of the man in the foreground, <b>in the reflection on the left, you can see his first encounter with the cows. In the reflection on the right, you can see his head getting cut off by the same cow. </b>The story ending with the <b>cows being revealed to by human-killing aliens</b> is shown as a small window into the final piece through the reflections in the first image. As the viewer moves from piece to piece in the series, the sequence of events is revealed.</span></li>
               </ul>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
                 <h3 className="text-xl font-bold text-green-300 tracking-tight">Color & Atmosphere</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>The colors in the piece are used to emphasize the absurdity of the story. The first piece's bright blue and green color scheme portrays the scene as calm and sterile. The green intensifies in the second piece as the absurdity of the story increases with the cows invading the metro car. Lastly, the orange color scheme in the final piece is a twist from the blues and greens seen before, paralleling the twist in the story.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><b>The colors in the piece are used to emphasize the absurdity of the story.</b> The first piece's bright blue and green color scheme portrays the scene as calm and sterile. The green intensifies in the second piece as the absurdity of the story increases with the cows invading the metro car. Lastly, the orange color scheme in the final piece is a twist from the blues and greens seen before, paralleling the twist in the story.</span></li>
               </ul>
             </div>
           </div>

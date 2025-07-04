@@ -39,6 +39,9 @@ export default function CatatoniaPage() {
               <p className="text-sm text-gray-300">Fall 2023</p>
               <h1 className="text-4xl md:text-6xl font-bold">Catatonia</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Led visual concept development and art direction for a neo-noir short film set in an apocalyptic city, blending 2D illustration and 3D environments to craft a cinematic narrative about a detective entangled in an off-world conspiracy.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
@@ -47,9 +50,9 @@ export default function CatatoniaPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Visual Artist and Concept Designer</span> to create a narrative-driven short film set in a neo-noir, apocalyptic city.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to craft a cinematic storyworld following a detective uncovering murders tied to an off-world conspiracy.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted the fusion of 2D illustration and 3D environments to push boundaries in visual storytelling for a compelling short film.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <b>Lead Visual Artist</b> and <b>Concept Designer</b> for a narrative-driven short film exploring a gritty, futuristic cityscape.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to build a <b>cinematic storyworld</b> where a detective unravels a murder mystery connected to an off-world conspiracy.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on merging <b>2D illustration</b> and <b>3D environments</b> to create an innovative visual language for the film.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -60,12 +63,11 @@ export default function CatatoniaPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed a comprehensive suite of concept art to establish the cinematic neo-noir tone and guide visual direction.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed 2D illustrations in Adobe Photoshop and Procreate, capturing the gritty aesthetic with moody lighting and textured details.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with 3D animators to integrate concept art into Blender for dynamic film environments.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Crafted a layered visual language, blending 2D illustrations with 3D scenes to enhance the film's atmospheric narrative.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Incorporated animation and post-production effects using After Effects to create seamless, cinematic transitions.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Overcame challenges in aligning 2D and 3D aesthetics by iterating on visual pipelines to ensure a cohesive look.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Produced extensive <b>concept art</b> to establish the neo-noir tone, using moody lighting and textured details in Adobe Photoshop and Procreate.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with <b>3D animators</b> to translate 2D artwork into dynamic scenes in Blender, ensuring visual consistency.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed a <b>layered visual language</b> that seamlessly blends illustrated and 3D elements for atmospheric storytelling.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Applied <b>animation and post-production effects</b> in After Effects to enhance transitions and cinematic impact.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Refined visual pipelines to <b>integrate 2D and 3D aesthetics</b>, overcoming challenges to achieve a cohesive film look.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -76,10 +78,10 @@ export default function CatatoniaPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a visually striking short film that received positive feedback in screenings: <span className="italic text-green-100">"The neo-noir city felt alive and cinematic."</span></span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully blended 2D and 3D elements, creating a distinctive visual style that enhanced the narrative's emotional depth.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Deepened expertise in cinematic storytelling, strengthening skills in merging illustration and 3D animation for film.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a reusable workflow for integrating 2D and 3D assets, now applied to future short film projects.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a <b>visually compelling short film</b> praised for bringing the neo-noir city to life with cinematic detail.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully merged 2D and 3D media, creating a <b>distinctive visual style</b> that amplifies narrative depth.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Strengthened skills in <b>cinematic storytelling</b> and pipeline development for hybrid visual projects.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a reusable <b>workflow for integrating 2D and 3D assets</b> now applied to future filmmaking projects.</span></li>
                 </ul>
               </section>
             </div>

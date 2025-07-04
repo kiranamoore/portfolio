@@ -56,49 +56,36 @@ export default function TheHelperPage() {
               Designed a trauma-informed care center for young children in the foster system, creating a safe and supportive spatial concept that balances California courthouse requirements with emotional well-being through empathetic, user-centered design.
             </p>
             <div className="space-y-8 max-w-full w-full">
+              {/* Role & Objective */}
               <section>
                 <div className="flex items-center gap-3 mb-2">
                   <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Project Overview</h2>
+                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><em>The Helper</em> – Trauma-Informed Care Center Design</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>As part of a collaborative project, I designed the spatial layout for The Helper, a trauma-informed temporary care center for young children in the foster system. The space was built to meet California courthouse requirements while prioritizing child safety, comfort, and emotional support.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><span className="font-bold">Led spatial design</span> for The Helper, a trauma-informed temporary care center created to support young children in the foster system within the constraints of California courthouse regulations.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Tasked with developing a functional and emotionally supportive environment that prioritizes child safety, comfort, and well-being through user-centered, trauma-informed design principles.</span></li>
                 </ul>
               </section>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                <h3 className="text-xl font-bold text-blue-300 tracking-tight">My Contributions</h3>
+                <h3 className="text-xl font-bold text-blue-300 tracking-tight">Actions Taken</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>Spatial Planning & Architectural Drawings:</b> Created the floor plan, section, and elevation using Rhinoceros 3D.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>User-Centered Design:</b> Integrated direct feedback from team interviews with former foster parent Lindsay Goodwin.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Designed the full spatial layout of the care center, including floor plan, section, and elevation drawings</span> using <span className="font-bold">Rhinoceros 3D</span>.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Created detailed architectural drawings and renderings</span> to visualize the design intent and communicate key programmatic zones.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Defined distinct spaces within the layout—including a play area, sensory room, reading nook, bonding room, and restorative restroom—each tailored to specific emotional and developmental needs.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Integrated trauma-informed elements such as curved, multipurpose furniture with no sharp edges, carpeted wooden floors for comfort and safety, and child-friendly aesthetics with privacy-aware window placements.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with teammates to incorporate direct insights from interviews with former foster parent Lindsay Goodwin, ensuring that user needs directly shaped spatial and sensory decisions.</span></li>
               </ul>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                <h3 className="text-xl font-bold text-green-300 tracking-tight">Trauma-Informed Features</h3>
+                <h3 className="text-xl font-bold text-green-300 tracking-tight">Results & Impact</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Play area, sensory room, reading nook, and bonding spaces</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Multipurpose furniture with no sharp edges</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Carpeted wooden flooring for comfort and safety</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Child-friendly aesthetics with privacy-conscious window placements</span></li>
-              </ul>
-              <div className="flex items-center gap-3 mb-2 mt-6">
-                <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                <h3 className="text-xl font-bold text-blue-300 tracking-tight">Design Focus</h3>
-              </div>
-              <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Safe, supportive environments for toddler development</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Facilitating meaningful interactions between children and caregivers</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Translating trauma-informed principles into functional design</span></li>
-              </ul>
-              <div className="flex items-center gap-3 mb-2 mt-6">
-                <span className="h-6 w-1 rounded bg-gradient-to-b from-yellow-400 to-orange-400" />
-                <h3 className="text-xl font-bold text-yellow-300 tracking-tight">Project Impact</h3>
-              </div>
-              <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-yellow-300">•</span><span>This project demonstrates my ability to design empathetic, user-driven spaces that balance regulatory constraints with the emotional and developmental needs of vulnerable children.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a comprehensive <span className="font-bold">spatial concept</span> that demonstrates the ability to balance strict regulatory requirements with the emotional, developmental, and safety needs of young children in foster care.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><span className="font-bold">Showcased strong architectural design skills through technical drawings and environmental renderings</span> that support healing, play, and caregiver-child connection.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Reinforced a trauma-informed design approach that transforms temporary institutional care into a space of comfort, agency, and emotional support.</span></li>
               </ul>
             </div>
           </div>

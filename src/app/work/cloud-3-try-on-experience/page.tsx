@@ -31,10 +31,10 @@ export default function Cloud3TryOnExperiencePage() {
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Summer 2024</p>
               <h1 className="text-4xl md:text-6xl font-bold">Cloud 3 Try-On Experience</h1>
-              <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-2">
-                Hewlett-Packard / HyperX
-              </span>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Created an AR Try-On experience that lets customers virtually wear HyperX Cloud 3 headsets in real time, featuring accurate 3D models, seamless face tracking, and interactive toggles to explore different styles and improve purchase confidence.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>

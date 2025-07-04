@@ -31,7 +31,7 @@ export default function MagicalGirlVsZombiesPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Project Overview</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><em>Magical Girl VS. Corporate Zombies</em> – Digital Self Portrait created in my junior year for Art-417: Digital Illustration Studio. This piece explores the tension between my dual identities: a vibrant, expressive artist and a disciplined office worker.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><em>Magical Girl VS. Corporate Zombies</em> – Digital Self Portrait created in my junior year for Art-417: Digital Illustration Studio. <span className="font-bold">This piece explores the tension between my dual identities: a vibrant, expressive artist and a disciplined office worker.</span></span></li>
                 </ul>
               </section>
               <div className="flex items-center gap-3 mb-2 mt-6">
@@ -39,14 +39,14 @@ export default function MagicalGirlVsZombiesPage() {
                 <h3 className="text-xl font-bold text-blue-300 tracking-tight">Narrative Details</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>The illustration portrays a magical battle between a radiant Magical Girl and a horde of Corporate Zombies. The Magical Girl symbolizes my creative, self-expressive side, while the Corporate Zombies embody the structured, relentless demands of work, school, and professional ambition.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>The illustration portrays a magical battle between a radiant Magical Girl and a horde of Corporate Zombies. <span className="font-bold">The Magical Girl symbolizes my creative, self-expressive side, while the Corporate Zombies embody the structured, relentless demands of work, school, and professional ambition.</span></span></li>
               </ul>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
                 <h3 className="text-xl font-bold text-green-300 tracking-tight">Color & Atmosphere</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Through bold colors, dynamic composition, and playful symbolism, this illustration captures how my creative energy fuels resilience, even within rigid systems. It serves as both a personal reflection and a celebration of navigating dual worlds.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Through bold colors, dynamic composition, and playful symbolism, this illustration captures how my <span className="font-bold">creative energy fuels resilience, even within rigid systems.</span> It serves as both a personal reflection and a celebration of navigating dual worlds.</span></li>
               </ul>
             </div>
           </div>

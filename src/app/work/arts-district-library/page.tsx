@@ -23,6 +23,9 @@ export default function ArtsDistrictLibraryPage() {
               <p className="text-sm text-gray-300">Spring 2023</p>
               <h1 className="text-4xl md:text-6xl font-bold">Arts District Library</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Designed the spatial layout, architectural concept, and site integration for a hybrid library and skatepark in Downtown LA, blending play, learning, and community into a unified public space.
+            </p>
             <div className="space-y-10 max-w-full w-full">
               {/* Role & Objective */}
               <section>
@@ -31,9 +34,8 @@ export default function ArtsDistrictLibraryPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead Architectural Designer</span> to create a hybrid urban space combining library and skatepark functions.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to design a library for an empty lot in Downtown LA's Arts District with an unconventional secondary program.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted the integration of play, learning, and community into a cohesive spatial experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Designed a speculative library concept in LA's Arts District that reimagines how youth and communities engage with public space.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to develop a <b>hybrid urban space</b> that combines the functions of a library and a skatepark to support education, recreation, and neighborhood culture.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -44,11 +46,10 @@ export default function ArtsDistrictLibraryPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Conducted thorough site research with color-coded diagrams mapping surrounding neighborhood programs to inform spatial relationships.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Initially envisioned the project surrounded by a playground, which became the foundation for early circulation studies.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Transformed the surrounding playground into a "play-ground" skate park, introducing a more dynamic, youth-oriented public space.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Shaped the library by extruding the site and carving out large circular forms to create distinct masses, open-air courtyards, and interconnected walkways.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Divided the building into upper and ground floor zones to encourage exploration and layered movement through the space.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Conducted <b>site research and analysis</b> using color-coded diagrams to map adjacent programs and inform spatial organization.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Evolved early playground-inspired circulation studies into a dynamic "<b>play-ground skatepark</b>" concept that surrounds and interacts with the library.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Used <b>site extrusion and circular subtractions</b> to shape the building form, creating courtyards, open-air walkways, and massing contrasts.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <b>layered circulation paths</b> by dividing the structure into upper and lower zones that promote movement and discovery throughout the space.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -59,10 +60,9 @@ export default function ArtsDistrictLibraryPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully created a vibrant, community-centered space that challenges conventional library design.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to evolve design concepts through iterative research, circulation studies, and playful form-making.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a model for integrating play, learning, and community into cohesive spatial experiences.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Blurred boundaries between traditional educational spaces and recreational environments effectively.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a <b>youth-oriented, community-centered design</b> that challenges traditional expectations of public libraries.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated ability to <b>translate iterative research into spatial form-making</b> and integrate unconventional programs cohesively.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a model for <b>blurring educational and recreational functions</b> to foster inclusive, flexible public environments.</span></li>
                 </ul>
               </section>
             </div>
