@@ -17,6 +17,9 @@ export default function QuickStartGuideARManualPage() {
               <p className="text-sm text-gray-300">Spring 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Quick Start Guide Augmented Reality Manual</h1>
             </div>
+            <p className="text-lg text-gray-200 mt-2">
+              Developed an interactive AR onboarding experience for HyperX products, designing a mobile solution that replaces paper manuals with intuitive, step-by-step guidance to reduce production costs and support sustainability goals.
+            </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
