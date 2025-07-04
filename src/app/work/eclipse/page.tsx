@@ -24,15 +24,15 @@ const images = [
 
 const renders = [
   {
-    src: "/eclipse/day_render.jpg",
+    src: "/day_render.JPG",
     caption: "Day Cafe Render",
   },
   {
-    src: "/eclipse/night_render.jpg",
+    src: "/night_render.JPG",
     caption: "Night Cafe/Bar Render",
   },
   {
-    src: "/eclipse/SPEAKEASY.jpg",
+    src: "/SPEAKEASY.JPG",
     caption: "Speakeasy Render",
   },
 ];

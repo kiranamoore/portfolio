@@ -159,7 +159,7 @@ export default function ProjectClient() {
                 <h1 className="text-4xl md:text-6xl font-bold">TRAINAR</h1>
               </div>
               <p className="text-lg font-medium">
-                Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an <b>augmented reality fitness concept for Snapchat's AR platform.</b> designed to integrate gym training guidance into their AR platform.
+                Collaborated with a team of USC Iovine and Young Academy students to develop TrainAR, an augmented reality fitness concept for Snapchat's AR platform. designed to integrate gym training guidance into their AR platform.
               </p>
               <div className="space-y-10 text-left max-w-2xl w-full">
                 {/* Role & Objective */}
