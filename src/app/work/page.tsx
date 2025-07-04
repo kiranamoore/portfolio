@@ -16,19 +16,19 @@ type Project = {
 
 const projectsData = [
   {
-    title: "Quick Start Guide Augmented Reality Manual",
-    year: 2025,
-    category: "Extended Reality",
-    slug: "quick-start-guide-ar-manual",
-    thumbnail: "/quick_start_guide_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
     title: "Cloud 3D Connect",
     year: 2025,
     category: "Extended Reality",
     slug: "cloud-3d-connect",
     thumbnail: "/18k tris.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
+    title: "Quick Start Guide Augmented Reality Manual",
+    year: 2025,
+    category: "Extended Reality",
+    slug: "quick-start-guide-ar-manual",
+    thumbnail: "/quick_start_guide_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
   },
   {

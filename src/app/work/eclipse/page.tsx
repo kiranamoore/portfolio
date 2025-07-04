@@ -32,7 +32,7 @@ const renders = [
     caption: "Night Cafe/Bar Render",
   },
   {
-    src: "/SPEAKEASY.JPG",
+    src: "/speakeasy.JPG",
     caption: "Speakeasy Render",
   },
 ];
