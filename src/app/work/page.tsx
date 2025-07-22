@@ -198,7 +198,7 @@ const projectsData = [
     thumbnail: "/catatoniathumbnail.png",
   },
   {
-    title: "HyperX Cloud 3: 3D Model Optimization for XR",
+    title: "3D Model Optimization for XR",
     year: 2025,
     season: "Summer",
     category: "Extended Reality",
