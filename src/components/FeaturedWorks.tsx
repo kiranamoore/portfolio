@@ -18,11 +18,12 @@ type Project = {
 
 const projectsData: Project[] = [
   {
-    title: "Quick Start Guide Augmented Reality Manual",
+    title: "Marker-Based Augmented Reality Development",
     year: 2025,
+    season: "Summer",
     category: "Extended Reality",
-    slug: "quick-start-guide-ar-manual",
-    thumbnail: "/quick_start_guide_thumbnail.png",
+    slug: "hyperx-unity-web-ar",
+    thumbnail: "/hiro-marker-thumb.png",
     company: "Hewlett-Packard / HyperX",
   },
   {

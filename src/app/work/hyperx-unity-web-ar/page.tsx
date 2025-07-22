@@ -22,7 +22,7 @@ export default function HyperXUnityWebARPage() {
               className="w-full max-w-4xl aspect-[4/3] object-contain rounded-lg border border-gray-700 shadow-lg"
               style={{ minHeight: '400px' }}
             />
-            <p className="text-xs text-gray-400 mt-2">Unity Web AR with marker-based tracking demonstration</p>
+            <p className="text-xs text-gray-400 mt-2">JavaScript Web AR with marker-based tracking demonstration</p>
           </div>
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
@@ -31,7 +31,7 @@ export default function HyperXUnityWebARPage() {
               <h1 className="text-4xl md:text-6xl font-bold">Marker-Based Augmented Reality Development</h1>
             </div>
             <p className="text-lg font-medium">
-              Developed a Web AR solution using Unity and JavaScript for marker-based augmented reality, demonstrating computer vision integration and real-time 3D rendering for cross-platform deployment.
+              Developed a Web AR solution using JavaScript for marker-based augmented reality, demonstrating computer vision integration and real-time 3D rendering for cross-platform deployment.
             </p>
             <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
@@ -41,9 +41,9 @@ export default function HyperXUnityWebARPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>reate a <span className="font-bold">marker-based AR system</span> using Unity and JavaScript.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Developed <span className="font-bold">real-time computer vision algorithms</span> for precise marker detection and 3D positioning.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Created a <span className="font-bold">scalable AR framework</span> deployable across multiple devices without native apps.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Created a <span className="font-bold">marker-based AR system</span> using pure JavaScript and web technologies.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Developed <span className="font-bold">real-time computer vision algorithms</span> for precise marker detection and 3D positioning in browsers.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Created a <span className="font-bold">scalable AR framework</span> deployable across multiple devices without native apps or Unity dependencies.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -54,10 +54,10 @@ export default function HyperXUnityWebARPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">marker detection algorithms</span> using computer vision for real-time tracking.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <span className="font-bold">JavaScript integration</span> between Unity WebGL and browser APIs.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created <span className="font-bold">3D object positioning systems</span> with sub-pixel precision.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized <span className="font-bold">rendering performance</span> for mobile devices.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented <span className="font-bold">marker detection algorithms</span> using JavaScript computer vision libraries for real-time tracking.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <span className="font-bold">JavaScript integration</span> with browser APIs for camera access and device orientation.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created <span className="font-bold">3D object positioning systems</span> with sub-pixel precision using WebGL and Three.js.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized <span className="font-bold">rendering performance</span> for mobile devices using efficient JavaScript shaders.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
