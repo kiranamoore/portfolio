@@ -25,7 +25,7 @@ const ModelViewer3D = ({
 
   return (
     <div ref={ref} style={style}>
-      {/* @ts-expect-error */}
+      {/* @ts-expect-error - model-viewer is a custom element that TypeScript doesn't recognize */}
       <model-viewer
         src={src}
         alt={alt || "3D model"}
