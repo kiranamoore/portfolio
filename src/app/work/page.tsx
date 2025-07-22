@@ -206,6 +206,15 @@ const projectsData = [
     thumbnail: "/3d-viewer-thumbnail.png",
     company: "Hewlett-Packard / HyperX",
   },
+  {
+    title: "Marker-Based Augmented Reality Development",
+    year: 2025,
+    season: "Summer",
+    category: "Extended Reality",
+    slug: "hyperx-unity-web-ar",
+    thumbnail: "/HX3D_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
 ];
 
 // Helper to extract season and year
