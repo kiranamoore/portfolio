@@ -25,7 +25,7 @@ const ModelViewer3D = ({
 
   return (
     <div ref={ref} style={style}>
-      {/* @ts-ignore */}
+      {/* @ts-expect-error */}
       <model-viewer
         src={src}
         alt={alt || "3D model"}
