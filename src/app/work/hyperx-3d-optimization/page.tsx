@@ -33,7 +33,7 @@ export default function HyperX3DOptimizationPage() {
           <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Summer 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">HyperX Cloud 3: 3D Model Optimization for XR</h1>
+              <h1 className="text-4xl md:text-6xl font-bold">3D Model Optimization for XR</h1>
             </div>
             <p className="text-lg font-medium">
               Developed a comprehensive guide and demonstration of 3D model optimization techniques for mobile, web, and AR/VR applications, using the HyperX Cloud 3 headset as a case study to show how complex 3D models can be made accessible across all devices.
@@ -46,7 +46,7 @@ export default function HyperX3DOptimizationPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as the<span className="font-semibold text-white">Augmented Reality Developer</span> to create a <span className="font-bold">streamlined pipeline for converting CAD product models to Web, mobile, VR, AR, and Gaming ready models</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as the<span className="font-semibold text-white">Augmented Reality Developer</span> to create a <span className="font-bold">streamlined pipeline for converting CAD product models to Web, mobile, VR, AR, and Game ready models</span></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to <span className="font-bold">simplify complex 3D models</span> so they load quickly and run smoothly on phones, tablets, and computers.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted creating a <span className="font-bold">universal 3D model format</span> that works across all devices and platforms.</span></li>
                 </ul>
