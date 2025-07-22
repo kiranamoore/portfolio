@@ -212,7 +212,7 @@ const projectsData = [
     season: "Summer",
     category: "Extended Reality",
     slug: "hyperx-unity-web-ar",
-    thumbnail: "/HX3D_thumbnail.png",
+    thumbnail: "/hiro-marker-thumb.png",
     company: "Hewlett-Packard / HyperX",
   },
 ];

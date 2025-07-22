@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import TextScramble from "@/components/core/TextScramble";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const ModelViewer = dynamic(
+  () => import("@/components/ModelViewer3D"),
+  { ssr: false }
+);
 
 export default function Cloud3DConnectPage() {
   return (
@@ -13,18 +19,20 @@ export default function Cloud3DConnectPage() {
         style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
-          {/* Left column: Image + stage info */}
+          {/* Left column: 3D Model Viewer + stage info */}
           <div className="flex flex-col items-center justify-center flex-1 h-full">
-            <img
-              src="/18k tris.png"
-              alt="Cloud 3D Connect 18k tris thumbnail"
-              className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
-              style={{ minHeight: '320px' }}
+            <ModelViewer
+              src="/Cloud-3-S-7-17.glb"
+              alt="Cloud 3D Connect 3D Model"
+              ar
+              autoRotate
+              cameraControls
+              style={{ width: "100%", height: "400px", background: "#222", borderRadius: "1rem" }}
             />
             <p className="text-sm text-gray-400 mt-4">
               current stage of development: <br />
-              optimizing the original manufacturing model by reducing triangle count <br />
-              current triangle count: <span className="font-mono">20,000 triangles</span>
+              Finished texturing and reducing 3D model with 28,000 total triangle meshes. <br />
+              Currently developing AR experience with the model.
             </p>
           </div>
 
