@@ -197,6 +197,15 @@ const projectsData = [
     slug: "catatonia",
     thumbnail: "/catatoniathumbnail.png",
   },
+  {
+    title: "HyperX Cloud 3: 3D Model Optimization for XR",
+    year: 2025,
+    season: "Summer",
+    category: "Extended Reality",
+    slug: "hyperx-3d-optimization",
+    thumbnail: "/3d-viewer-thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
 ];
 
 // Helper to extract season and year

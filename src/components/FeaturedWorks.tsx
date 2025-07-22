@@ -26,11 +26,12 @@ const projectsData: Project[] = [
     company: "Hewlett-Packard / HyperX",
   },
   {
-    title: "Cloud 3D Connect",
+    title: "HyperX Cloud 3: 3D Model Optimization for XR",
     year: 2025,
+    season: "Summer",
     category: "Extended Reality",
-    slug: "cloud-3d-connect",
-    thumbnail: "/18k tris.png",
+    slug: "hyperx-3d-optimization",
+    thumbnail: "/3d-viewer-thumbnail.png",
     company: "Hewlett-Packard / HyperX",
   },
   {
