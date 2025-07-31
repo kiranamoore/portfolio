@@ -378,7 +378,7 @@ export default function WorkPage() {
             {/* Default description if not showing HyperX bio */}
             {!(activeCategory === "Extended Reality" && showHyperXBio) && (
               <p className="text-lg md:text-xl text-gray-300 text-center max-w-3xl mx-auto">
-                We make art & design, blending aesthetics and technology in our works.
+                
               </p>
             )}
           </div>
