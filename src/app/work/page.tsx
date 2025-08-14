@@ -7,7 +7,7 @@ import ImageSlideshow from "@/components/core/ImageSlideshow";
 type Project = {
   title: string;
   year: number;
-  category: string;
+  category: string[];
   slug: string;
   thumbnail?: string;
   company?: string;
@@ -18,7 +18,7 @@ const projectsData = [
   {
     title: "Cloud 3D Connect",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "cloud-3d-connect",
     thumbnail: "/18k tris.png",
     company: "Hewlett-Packard / HyperX",
@@ -26,7 +26,7 @@ const projectsData = [
   {
     title: "Quick Start Guide Augmented Reality Manual",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "quick-start-guide-ar-manual",
     thumbnail: "/quick_start_guide_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -34,7 +34,7 @@ const projectsData = [
   {
     title: "HyperX Cloud 3 3D Customizer",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "hyperx-cloud-3-3d-customizer",
     thumbnail: "/HX3D_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -42,7 +42,7 @@ const projectsData = [
   {
     title: "Interactive Packaging with Product Features",
     year: 2024,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "interactive-packaging-product-features",
     thumbnail: "/packaging_effect_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -50,28 +50,28 @@ const projectsData = [
   {
     title: "The Painter of Light",
     year: 2025,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "with-the-mountains-the-clouds-and-us",
     thumbnail: "/hero%20render_ps.png",
   },
   {
     title: "Meta Alchemy",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "meta-alchemy",
     thumbnail: "/meta_alchemy.png",
   },
   {
     title: "Cops and Robbers",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "cops-and-robbers",
     thumbnail: "/cops_robbers.png",
   },
   {
     title: "Cloud 3 Try-On Experience",
     year: 2024,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "cloud-3-try-on-experience",
     thumbnail: "/tryon_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -79,7 +79,7 @@ const projectsData = [
   {
     title: "Castle Chambers",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "castle-chambers",
     thumbnail: "/castle-chambers.png",
     company: undefined,
@@ -88,7 +88,7 @@ const projectsData = [
     title: "TRAINAR",
     year: 2024,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "trainar",
     thumbnail: "/trainar/trainar.png",
     company: undefined,
@@ -97,7 +97,7 @@ const projectsData = [
     title: "Pixel Headphones",
     year: 2024,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "pixel-headphones",
     thumbnail: "/pixel headphones.png",
     company: undefined,
@@ -106,7 +106,7 @@ const projectsData = [
     title: "Beast of Burden",
     year: 2024,
     season: "Fall",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "beast-of-burden",
     thumbnail: "/beast of burden/beast of burden.png",
     company: undefined,
@@ -115,7 +115,7 @@ const projectsData = [
     title: "Mosaic – Future Car Concept for Honda",
     year: 2025,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "mosaic",
     thumbnail: "/mosaic thumbnail.png",
     company: "Honda",
@@ -124,7 +124,7 @@ const projectsData = [
     title: "The Traveler",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "the-traveler",
     thumbnail: "/traveler/traveler.png",
   },
@@ -132,7 +132,7 @@ const projectsData = [
     title: "The Helper",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "the-helper",
     thumbnail: "/thumbnail-helper.png",
   },
@@ -140,7 +140,7 @@ const projectsData = [
     title: "Eclipse",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "eclipse",
     thumbnail: "/eclipse/thumbnail.png",
   },
@@ -148,7 +148,7 @@ const projectsData = [
     title: "Fading Memories",
     year: 2024,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences"],
     slug: "fading-memories",
     thumbnail: "/fading-memories/thumbnail.png",
   },
@@ -156,7 +156,7 @@ const projectsData = [
     title: "Magical Girl VS. Corporate Zombies",
     year: 2025,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "magical-girl-vs-zombies",
     thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
   },
@@ -164,7 +164,7 @@ const projectsData = [
     title: "The Great Cow Invasion of Los Angeles!",
     year: 2024,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "the-great-cow-invasion-of-los-angeles",
     thumbnail: "/cow-invasion-thumbnail.png",
   },
@@ -172,28 +172,28 @@ const projectsData = [
     title: "Nike x League of Legends Skin Collaboration: Zeri",
     year: 2024,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
   },
   {
     title: "Arts District Library",
     year: 2023,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "arts-district-library",
     thumbnail: "/skate.png",
   },
   {
     title: "Weaving Spaces",
     year: 2022,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "weaving-spaces",
     thumbnail: "/weaving/project-4-06.png",
   },
   {
     title: "Catatonia",
     year: 2023,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "catatonia",
     thumbnail: "/catatoniathumbnail.png",
   },
@@ -201,7 +201,7 @@ const projectsData = [
     title: "3D Model Optimization for XR",
     year: 2025,
     season: "Summer",
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "hyperx-3d-optimization",
     thumbnail: "/3d-viewer-thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -210,7 +210,7 @@ const projectsData = [
     title: "Marker-Based Augmented Reality Development",
     year: 2025,
     season: "Summer",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "hyperx-unity-web-ar",
     thumbnail: "/hiro-marker-thumb.png",
     company: "Hewlett-Packard / HyperX",
@@ -256,6 +256,7 @@ const categories = [
   "Extended Reality",
   "Immersive Experiences",
   "Visual Narrative Art",
+  "3D Design",
 ];
 
 const companies = [
@@ -313,7 +314,7 @@ export default function WorkPage() {
   const [showHyperXBio, setShowHyperXBio] = useState(false);
 
   const filteredProjects = sortedProjectsData.filter((p) => {
-    const categoryMatch = activeCategory === "All" || p.category === activeCategory;
+    const categoryMatch = activeCategory === "All" || p.category.includes(activeCategory);
     // Only filter by company if HyperX is selected in second nav
     const companyMatch = !(activeCategory === "Extended Reality" && showHyperXBio) || (p.company && p.company === "Hewlett-Packard / HyperX");
     return categoryMatch && companyMatch;

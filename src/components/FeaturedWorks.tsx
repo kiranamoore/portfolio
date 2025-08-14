@@ -9,7 +9,7 @@ import TextScramble from "@/components/core/TextScramble";
 type Project = {
   title: string;
   year: number;
-  category: string;
+  category: string | string[];
   slug: string;
   thumbnail?: string;
   company?: string;
@@ -21,7 +21,7 @@ const projectsData: Project[] = [
     title: "Marker-Based Augmented Reality Development",
     year: 2025,
     season: "Summer",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "hyperx-unity-web-ar",
     thumbnail: "/hiro-marker-thumb.png",
     company: "Hewlett-Packard / HyperX",
@@ -30,7 +30,7 @@ const projectsData: Project[] = [
     title: "3D Model Optimization for XR",
     year: 2025,
     season: "Summer",
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "hyperx-3d-optimization",
     thumbnail: "/3d-viewer-thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -38,7 +38,7 @@ const projectsData: Project[] = [
   {
     title: "HyperX Cloud 3 3D Customizer",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "hyperx-cloud-3-3d-customizer",
     thumbnail: "/HX3D_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -46,7 +46,7 @@ const projectsData: Project[] = [
   {
     title: "Interactive Packaging with Product Features",
     year: 2024,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "interactive-packaging-product-features",
     thumbnail: "/packaging_effect_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -54,28 +54,28 @@ const projectsData: Project[] = [
   {
     title: "The Painter of Light",
     year: 2025,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "with-the-mountains-the-clouds-and-us",
     thumbnail: "/hero%20render_ps.png",
   },
   {
     title: "Meta Alchemy",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "meta-alchemy",
     thumbnail: "/meta_alchemy.png",
   },
   {
     title: "Cops and Robbers",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "cops-and-robbers",
     thumbnail: "/cops_robbers.png",
   },
   {
     title: "Cloud 3 Try-On Experience",
     year: 2024,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "cloud-3-try-on-experience",
     thumbnail: "/tryon_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
@@ -83,7 +83,7 @@ const projectsData: Project[] = [
   {
     title: "Castle Chambers",
     year: 2025,
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "castle-chambers",
     thumbnail: "/castle-chambers.png",
     company: undefined,
@@ -92,7 +92,7 @@ const projectsData: Project[] = [
     title: "TRAINAR",
     year: 2024,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "trainar",
     thumbnail: "/trainar/trainar.png",
     company: undefined,
@@ -101,7 +101,7 @@ const projectsData: Project[] = [
     title: "Pixel Headphones",
     year: 2024,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "pixel-headphones",
     thumbnail: "/pixel headphones.png",
     company: undefined,
@@ -110,7 +110,7 @@ const projectsData: Project[] = [
     title: "Beast of Burden",
     year: 2024,
     season: "Fall",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "beast-of-burden",
     thumbnail: "/beast of burden/beast of burden.png",
     company: undefined,
@@ -119,7 +119,7 @@ const projectsData: Project[] = [
     title: "Mosaic – Future Car Concept for Honda",
     year: 2025,
     season: "Spring",
-    category: "Extended Reality",
+    category: ["Extended Reality"],
     slug: "mosaic",
     thumbnail: "/mosaic thumbnail.png",
     company: "Honda",
@@ -128,7 +128,7 @@ const projectsData: Project[] = [
     title: "The Traveler",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "the-traveler",
     thumbnail: "/traveler/traveler.png",
   },
@@ -136,7 +136,7 @@ const projectsData: Project[] = [
     title: "The Helper",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "the-helper",
     thumbnail: "/thumbnail-helper.png",
   },
@@ -144,7 +144,7 @@ const projectsData: Project[] = [
     title: "Eclipse",
     year: 2025,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "eclipse",
     thumbnail: "/eclipse/thumbnail.png",
   },
@@ -152,7 +152,7 @@ const projectsData: Project[] = [
     title: "Fading Memories",
     year: 2024,
     season: "Spring",
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences"],
     slug: "fading-memories",
     thumbnail: "/fading-memories/thumbnail.png",
   },
@@ -160,7 +160,7 @@ const projectsData: Project[] = [
     title: "Magical Girl VS. Corporate Zombies",
     year: 2025,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "magical-girl-vs-zombies",
     thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
     company: undefined,
@@ -169,7 +169,7 @@ const projectsData: Project[] = [
     title: "The Great Cow Invasion of Los Angeles!",
     year: 2024,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art"],
     slug: "the-great-cow-invasion-of-los-angeles",
     thumbnail: "/cow-invasion-thumbnail.png",
     company: undefined,
@@ -178,7 +178,7 @@ const projectsData: Project[] = [
     title: "Nike x League of Legends Skin Collaboration: Zeri",
     year: 2024,
     season: "Spring",
-    category: "Visual Narrative Art",
+    category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
     company: undefined,
@@ -186,21 +186,21 @@ const projectsData: Project[] = [
   {
     title: "Arts District Library",
     year: 2023,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "arts-district-library",
     thumbnail: "/skate.png",
   },
   {
     title: "Weaving Spaces",
     year: 2022,
-    category: "Immersive Experiences",
+    category: ["Immersive Experiences", "3D Design"],
     slug: "weaving-spaces",
     thumbnail: "/weaving/project-4-06.png",
   },
   {
     title: "Catatonia",
     year: 2023,
-    category: "Extended Reality",
+    category: ["Extended Reality", "3D Design"],
     slug: "catatonia",
     thumbnail: "/catatoniathumbnail.png",
   },
@@ -230,7 +230,16 @@ export default function FeaturedWorks() {
       const third = projectsData.find((p) => p.slug === "fading-memories");
       return [first, second, third].filter(Boolean) as Project[];
     }
-    return projectsData.filter((p: Project) => p.category === category).slice(0, 3);
+    if (category === "3D Design") {
+      // Manually select the three specified 3D Design projects
+      const first = projectsData.find((p) => p.slug === "hyperx-3d-optimization");
+      const second = projectsData.find((p) => p.slug === "nike-league-of-legends-zeri");
+      const third = projectsData.find((p) => p.slug === "the-traveler");
+      return [first, second, third].filter(Boolean) as Project[];
+    }
+    return projectsData.filter((p: Project) => 
+      Array.isArray(p.category) ? p.category.includes(category) : p.category === category
+    ).slice(0, 3);
   };
 
   const featuredSections = [
@@ -249,11 +258,18 @@ export default function FeaturedWorks() {
       color: "#fff",
     },
     {
+      title: "3D Design",
+      description: "Optimizing and customizing 3D models for XR applications to enhance visual fidelity and performance.",
+      category: "3D Design",
+      bg: "#fff",
+      color: "#000",
+    },
+    {
       title: "Visual Narratives",
       description: " Weaving compelling narratives through captivating illustrations and immersive storytelling.",
       category: "Visual Narrative Art",
-      bg: "#fff",
-      color: "#000",
+      bg: "#000",
+      color: "#fff",
     },
   ];
 

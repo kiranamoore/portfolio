@@ -6,7 +6,7 @@ export default function NikeLeagueOfLegendsZeriPage() {
       <div className="h-32" />
       <div
         className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
+        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px', paddingTop: '60px' }}
       >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
           {/* Left column: Hero image and videos */}
@@ -17,6 +17,19 @@ export default function NikeLeagueOfLegendsZeriPage() {
               className="rounded-lg w-full object-cover max-w-[500px]"
             />
             <div className="flex flex-col items-center w-full gap-6">
+              <div className="flex flex-col items-center w-full">
+                <h3 className="text-xl font-semibold mb-4 text-white">Recall</h3>
+                <video
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  className="max-w-[500px] rounded-lg mx-auto"
+                >
+                  <source src="/recall.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
               <div className="flex flex-col items-center w-full">
                 <h3 className="text-xl font-semibold mb-4 text-white">Animation</h3>
                 <video

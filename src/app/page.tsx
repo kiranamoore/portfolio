@@ -34,7 +34,7 @@ export default function Home() {
                 <TextScramble text="Kirana" />
               </h1>
               <p className="text-xl md:text-2xl mt-4 text-white whitespace-pre-line">
-                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\n\nAn Extended Reality Designer, \n\nExperience Designer,\n\nand Visual Storyteller"} />
+                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\n\nAn Extended Reality Designer,\n\n3D Artist,\n\nExperience Designer,\n\nand Visual Storyteller"} />
               </p>
             </div>
             <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm">
