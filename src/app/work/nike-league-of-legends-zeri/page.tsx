@@ -61,7 +61,7 @@ export default function NikeLeagueOfLegendsZeriPage() {
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2024</p>
+              <p className="text-sm text-gray-300">Winter 2021</p>
               <h1 className="text-4xl md:text-6xl font-bold">Nike x League of Legends Skin Collaboration: Zeri</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
