@@ -29,18 +29,6 @@ const projectsData: Project[] = [
   {
     title: "3D Model Optimization for XR",
     year: 2025,
-    season: "Summer",
-    category: ["Extended Reality", "3D Design"],
-    slug: "hyperx-3d-optimization",
-    thumbnail: "/3d-viewer-thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "HyperX Cloud 3 3D Customizer",
-    year: 2025,
-    category: ["Extended Reality", "3D Design"],
-    slug: "hyperx-cloud-3-3d-customizer",
-    thumbnail: "/HX3D_thumbnail.png",
     company: "Hewlett-Packard / HyperX",
   },
   {
@@ -127,7 +115,7 @@ const projectsData: Project[] = [
   {
     title: "The Traveler",
     year: 2025,
-    season: "Spring",
+    season: "Fall",
     category: ["Immersive Experiences", "3D Design"],
     slug: "the-traveler",
     thumbnail: "/traveler/traveler.png",
@@ -176,8 +164,8 @@ const projectsData: Project[] = [
   },
   {
     title: "Nike x League of Legends Skin Collaboration: Zeri",
-    year: 2024,
-    season: "Spring",
+    year: 2021,
+    season: "Winter",
     category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
@@ -199,7 +187,8 @@ const projectsData: Project[] = [
   },
   {
     title: "Catatonia",
-    year: 2023,
+    year: 2020,
+    season: "Spring",
     category: ["Extended Reality", "3D Design"],
     slug: "catatonia",
     thumbnail: "/catatoniathumbnail.png",

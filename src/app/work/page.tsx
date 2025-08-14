@@ -123,7 +123,7 @@ const projectsData = [
   {
     title: "The Traveler",
     year: 2025,
-    season: "Spring",
+    season: "Fall",
     category: ["Immersive Experiences", "3D Design"],
     slug: "the-traveler",
     thumbnail: "/traveler/traveler.png",
@@ -170,8 +170,8 @@ const projectsData = [
   },
   {
     title: "Nike x League of Legends Skin Collaboration: Zeri",
-    year: 2024,
-    season: "Spring",
+    year: 2021,
+    season: "Winter",
     category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
@@ -192,7 +192,8 @@ const projectsData = [
   },
   {
     title: "Catatonia",
-    year: 2023,
+    year: 2020,
+    season: "Spring",
     category: ["Extended Reality", "3D Design"],
     slug: "catatonia",
     thumbnail: "/catatoniathumbnail.png",

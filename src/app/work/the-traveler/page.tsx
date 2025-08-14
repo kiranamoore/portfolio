@@ -31,7 +31,7 @@ export default function TheTravelerPage() {
           {/* Right column: Centered content */}
           <div className="flex flex-col items-start text-left space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2025</p>
+              <p className="text-sm text-gray-300">Fall 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">The Traveler</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
@@ -45,7 +45,7 @@ export default function TheTravelerPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Designed and modeled The Traveler, a 3D digital living space concept, as part of my Constructing Experiences class, aiming to translate personal ideals of creativity and comfort into spatial form.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Designed and modeled The Traveler, a 3D digital living space concept, aiming to translate personal ideals of creativity and comfort into spatial form.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on creating a whimsical, sunlight-filled environment that balances social connection and private retreat.</span></li>
                 </ul>
               </section>
