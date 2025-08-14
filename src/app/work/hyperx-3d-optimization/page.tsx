@@ -28,6 +28,12 @@ export default function HyperX3DOptimizationPage() {
               style={{ width: "100%", height: "500px", background: "#222", borderRadius: "1rem" }}
             />
             <p className="text-xs text-gray-400 mt-2">Interact with the 3D model above. Pinch/drag/zoom on mobile and desktop.</p>
+            <button
+              onClick={() => window.open('/work/hyperx-3d-optimization/viewer', '_blank')}
+              className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
+            >
+              Open Full-Screen Viewer
+            </button>
           </div>
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
