@@ -7,7 +7,7 @@ interface Project {
   title: string;
   year: number;
   slug: string;
-  category: string;
+  category: string | string[];
   thumbnail?: string;
   company?: string;
 }
@@ -68,7 +68,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 )}
                 <h2 className="font-bold text-lg">{project.title}</h2>
                 <p className="text-gray-400">
-                  :: {project.category} / {project.year}
+                  :: {Array.isArray(project.category) ? project.category.join(", ") : project.category} / {project.year}
                 </p>
               </div>
             </div>
