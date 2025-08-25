@@ -112,7 +112,7 @@ export default function HyperX3DOptimizationPage() {
               />
               <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
               <button
-                onClick={() => window.open('/hx3d/beast.glb', '_blank')}
+                onClick={() => window.open('/work/hyperx-3d-optimization/beast-viewer', '_blank')}
                 className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
                 Open Full-Screen Viewer
@@ -131,7 +131,7 @@ export default function HyperX3DOptimizationPage() {
               />
               <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
               <button
-                onClick={() => window.open('/hx3d/nature.glb', '_blank')}
+                onClick={() => window.open('/work/hyperx-3d-optimization/nature-viewer', '_blank')}
                 className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
                 Open Full-Screen Viewer
@@ -150,7 +150,7 @@ export default function HyperX3DOptimizationPage() {
               />
               <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
               <button
-                onClick={() => window.open('/hx3d/valkyrie.glb', '_blank')}
+                onClick={() => window.open('/work/hyperx-3d-optimization/valkyrie-viewer', '_blank')}
                 className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
               >
                 Open Full-Screen Viewer
