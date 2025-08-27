@@ -36,7 +36,7 @@ export default function CatatoniaPage() {
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2020</p>
+              <p className="text-sm text-gray-300">Spring 2024</p>
               <h1 className="text-4xl md:text-6xl font-bold">Catatonia</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">

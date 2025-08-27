@@ -332,6 +332,7 @@ export default function ProjectClient() {
                 <ul className="space-y-2 pl-6 list-none">
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Researched art history, theology, and immersive exhibit trends.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">narrative-driven spaces</span> using atmospheric lighting and spatial flow.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Modeled spaces in Rhino and textured, used shaders, and rendered in Blender using the Cycles engine. </span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated symbolic props to explore the interplay of light and shadow in Kinkade's story.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced visual appeal with emotional and intellectual depth.</span></li>

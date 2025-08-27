@@ -51,7 +51,7 @@ const projectsData = [
     title: "The Painter of Light",
     year: 2025,
     category: ["Immersive Experiences", "3D Design"],
-    slug: "with-the-mountains-the-clouds-and-us",
+    slug: "painter-of-light",
     thumbnail: "/hero%20render_ps.png",
   },
   {
@@ -192,7 +192,7 @@ const projectsData = [
   },
   {
     title: "Catatonia",
-    year: 2020,
+    year: 2024,
     season: "Spring",
     category: ["Extended Reality", "3D Design"],
     slug: "catatonia",

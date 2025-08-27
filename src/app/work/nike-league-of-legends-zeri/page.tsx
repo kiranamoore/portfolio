@@ -90,7 +90,7 @@ export default function NikeLeagueOfLegendsZeriPage() {
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed custom <b>Character Splash Art</b> to showcase the Nike-inspired skin, emphasizing motion, energy, and electric visuals.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created <b>3D fashion models</b> in Marvelous Designer to integrate Nike's performance aesthetic with in-game costume design.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Produced a <b>mixed media animation</b> blending real-life footage shot in Downtown Los Angeles with digital overlays to connect physical and virtual worlds.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <b>in-game store mock-ups</b> to visualize the skin within the League of Legends ecosystem.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Modeled <b>Body and Helmet of Zeri in Rhino and rigged and animated the skin in Blender. </b></span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with the <b>Nike .SWOOSH Digital Branding Team</b> to ensure cohesive brand storytelling and authentic integration.</span></li>
                 </ul>
               </section>

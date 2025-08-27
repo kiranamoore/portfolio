@@ -64,6 +64,7 @@ export default function TheTravelerPage() {
               </div>
               <ul className="space-y-2 pl-6 list-none">
                 <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a digital space that reflects my ability to design environments blending functionality with emotional resonance.</span></li>
+            
                 <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated skills in <span className="font-bold">spatial design, 3D modeling, and crafting experiences</span> that support living, hosting, and creative pursuits.</span></li>
                 <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased a personal design philosophy centered on light, comfort, and emotional well-being in physical spaces.</span></li>
               </ul>
