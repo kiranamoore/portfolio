@@ -284,6 +284,85 @@ export default function ProjectClient() {
       </>
     );
   }
+  if (slug === 'animated-keyboard-packaging') {
+    return (
+      <>
+        <div className="h-32" />
+        <div
+          className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
+        >
+          <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
+            {/* Left column: Content */}
+            <div className="flex flex-col items-center text-center space-y-6 flex-1">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-300">Fall 2024</p>
+                <h1 className="text-4xl md:text-6xl font-bold">Animated Keyboard Packaging</h1>
+              </div>
+              <p className="text-lg text-gray-200 mt-2">
+                Developed an augmented reality experience for keyboard packaging that showcases interactive 3D models with rigged and animated components, allowing customers to explore product features through dynamic demonstrations of key functionality.
+              </p>
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality experience for keyboard product packaging.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to transform <b>product packaging into an interactive showcase featuring rigged and animated 3D keyboard models</b>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted demonstrating keyboard functionality through dynamic animations of separate model components in AR.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed the AR experience with real-time interaction using <span className="font-bold">Lens Studio</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created detailed 3D keyboard models using <span className="font-bold">Blender</span> with separate component parts for animation.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><b>Rigged and animated separate parts of the keyboard model</b> to demonstrate key functionality and make them interactive.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed UI overlays and visual elements using <span className="font-bold">Adobe Photoshop</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented interactive controls that trigger specific animations for different keyboard features and components.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully <b>demonstrates keyboard functionality through dynamic animations of separate model components</b> in AR.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Enables customers to interact with individual keyboard parts and see animated demonstrations of key features.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Advances beyond static 3D models by incorporating rigging and animation for more engaging product demonstrations.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Establishes a foundation for future interactive packaging with animated product demonstrations across different product categories.</span></li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+            {/* Right column: Video */}
+            <div className="flex flex-col items-center justify-center flex-1 h-full">
+              <video
+                src="/keyboard_packaging_demo.MP4"
+                controls
+                muted
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+                style={{ minHeight: '320px' }}
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
   // Default: Painter of Light
   return (
     <>
@@ -334,7 +413,7 @@ export default function ProjectClient() {
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">narrative-driven spaces</span> using atmospheric lighting and spatial flow.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Modeled spaces in Rhino and textured, used shaders, and rendered in Blender using the Cycles engine. </span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated symbolic props to explore the interplay of light and shadow in Kinkade's story.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>git 
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced visual appeal with emotional and intellectual depth.</span></li>
                 </ul>
               </section>

@@ -48,6 +48,15 @@ const projectsData = [
     company: "Hewlett-Packard / HyperX",
   },
   {
+    title: "Animated Keyboard Packaging",
+    year: 2024,
+    season: "Fall",
+    category: ["Extended Reality", "3D Design"],
+    slug: "animated-keyboard-packaging",
+    thumbnail: "/keyboard_thumbnail.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
     title: "The Painter of Light",
     year: 2025,
     category: ["Immersive Experiences", "3D Design"],
