@@ -28,34 +28,39 @@ export default function Home() {
     <>
       <main>
         <InteractiveBackground>
-          <section className="h-screen flex flex-col justify-center items-center relative text-center">
-            <div className="mix-blend-difference">
-              <h1 className="text-6xl md:text-9xl font-bold tracking-tighter text-white">
-                <TextScramble text="Kirana" />
-              </h1>
-              <p className="text-xl md:text-2xl mt-4 text-white whitespace-pre-line">
+          <section className="h-[70vh] flex flex-col justify-center items-center relative text-center">
+            <div className="mix-blend-difference relative z-40">
+              <div className="flex justify-center">
+                <img 
+                  src="/animated_logo.png" 
+                  alt="Kirana" 
+                  className="h-28 md:h-40 w-auto"
+                />
+              </div>
+              <div className="h-8"></div>
+              <p className="text-xl md:text-2xl text-white whitespace-pre-line leading-tight font-bold" style={{ fontFamily: 'var(--font-lekton)' }}>
                 <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\n\nAn Extended Reality Designer,\n\n3D Artist,\n\nExperience Designer,\n\nand Visual Storyteller"} />
               </p>
             </div>
-            <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm">
-              <p>San Francisco / Los Angeles, CA &gt; {californiaTime}</p>
+            <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
+              <p style={{ fontFamily: 'var(--font-lekton)' }}>San Francisco / Los Angeles, CA &gt; {californiaTime}</p>
             </div>
           </section>
         </InteractiveBackground>
 
         <section
           id="about"
-          className="py-20 md:py-32 bg-black text-white text-center"
+          className="py-12 md:py-20 bg-black text-white text-center"
         >
           <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
               <TextScramble text="About Me" />
             </h2>
             <p
-              className="text-lg md:text-xl leading-relaxed px-4"
-              style={{ maxWidth: "42rem", margin: "0 auto" }}
+              className="text-lg md:text-xl leading-relaxed px-8"
+              style={{ maxWidth: "50rem", margin: "0 auto", fontFamily: 'var(--font-lekton)' }}
             >
-              I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences that blend art, technology, and storytelling. Skilled in Unity, 3D modeling, and spatial design, I create user-centered, innovative environments that captivate and connect. Whether coding interactive AR showcases or designing empathetic spaces, I thrive on transforming ideas into impactful realities. Let's build something extraordinary together!
+              I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences. Skilled in Unity, 3D modeling, and spatial design, I create user-centered environments that captivate and connect. Let's build something extraordinary together!
             </p>
           </div>
         </section>

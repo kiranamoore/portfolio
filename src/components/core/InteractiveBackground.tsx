@@ -27,7 +27,7 @@ export default function InteractiveBackground({
 
   return (
     <div
-      className="group relative h-screen w-full overflow-hidden"
+      className="group relative h-[75vh] w-full overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       <video
@@ -41,7 +41,7 @@ export default function InteractiveBackground({
       </video>
 
       <motion.div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-100 z-10"
+        className="pointer-events-none absolute -inset-px rounded-xl opacity-100 z-20"
         style={{
           background: useMotionTemplate`radial-gradient(650px circle at ${mouseX}px ${mouseY}px, var(--color1), var(--color2), var(--color3), transparent 80%)`,
         }}

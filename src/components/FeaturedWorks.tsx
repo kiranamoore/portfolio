@@ -273,7 +273,7 @@ export default function FeaturedWorks() {
           <div className="min-h-screen flex items-center py-20">
             <div className="flex-[1.2] min-w-[320px]">
               <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> {section.title}</h2>
-              <p className="text-lg max-w-md">
+              <p className="text-lg max-w-md" style={{ fontFamily: 'var(--font-lekton)' }}>
                 <TextScramble text={section.description} />
               </p>
             </div>
@@ -289,8 +289,8 @@ export default function FeaturedWorks() {
                       className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
                     />
                     <div className="mt-2">
-                      <p className="font-semibold">{project.title}</p>
-                      <p className="text-sm">{project.category} / {project.year}</p>
+                      <p className="font-semibold" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
+                      <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>{project.category} / {project.year}</p>
                       {project.company && (
                         <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">{project.company}</span>
                       )}
