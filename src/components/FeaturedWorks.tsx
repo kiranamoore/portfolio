@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -214,17 +214,14 @@ export default function FeaturedWorks() {
     ["#000000", "#FFFFFF", "#000000"]
   );
 
-  // Helper to get first 3 projects by category
   const getFeaturedProjects = (category: string): Project[] => {
     if (category === "Immersive Experiences") {
-      // Manually select the first two, then Fading Memories
       const first = projectsData.find((p) => p.slug === "with-the-mountains-the-clouds-and-us");
       const second = projectsData.find((p) => p.slug === "the-traveler");
       const third = projectsData.find((p) => p.slug === "fading-memories");
       return [first, second, third].filter(Boolean) as Project[];
     }
     if (category === "3D Design") {
-      // Manually select the three specified 3D Design projects
       const first = projectsData.find((p) => p.slug === "hyperx-3d-optimization");
       const second = projectsData.find((p) => p.slug === "nike-league-of-legends-zeri");
       const third = projectsData.find((p) => p.slug === "the-traveler");
@@ -259,48 +256,75 @@ export default function FeaturedWorks() {
     },
     {
       title: "Visual Narratives",
-      description: " Weaving compelling narratives through captivating illustrations and immersive storytelling.",
+      description: "Weaving compelling narratives through captivating illustrations and immersive storytelling.",
       category: "Visual Narrative Art",
       bg: "#000",
       color: "#fff",
     },
   ];
 
+  const scrollToNextSection = (index: number) => {
+    const sections = Array.from(document.querySelectorAll("#featured-work > div"));
+    if (index < sections.length - 1) {
+      sections[index + 1].scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section id="featured-work" className="mx-5">
-      {featuredSections.map((section) => (
-        <div key={section.title} style={{ background: section.bg, color: section.color }} className="mx-5">
-          <div className="min-h-screen flex items-center py-20">
-            <div className="flex-[1.2] min-w-[320px]">
-              <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> {section.title}</h2>
-              <p className="text-lg max-w-md" style={{ fontFamily: 'var(--font-lekton)' }}>
-                <TextScramble text={section.description} />
-              </p>
-            </div>
-            <div className="flex-[1.8] flex flex-row gap-8 justify-center">
-              {getFeaturedProjects(section.category).map((project: Project) => (
-                <Link key={project.slug} href={`/work/${project.slug}`}>
-                  <div className="text-center group">
+    <section id="featured-work" className="w-full px-6">
+      {featuredSections.map((section, index) => (
+        <div key={section.title} style={{ background: section.bg, color: section.color }} className="w-full min-h-[85vh] flex flex-col items-center py-10">
+          <div className="flex-1"></div>
+          <div className="flex-[1.8] flex flex-row justify-evenly w-full">
+            {getFeaturedProjects(section.category).map((project: Project) => (
+              <Link key={project.slug} href={`/work/${project.slug}`}>
+                <div className="text-center" style={{ transform: 'scale(0.9)' }}> {/* 10% smaller scale */}
+                  {project.slug === "nike-league-of-legends-zeri" ? (
+                    <div className="flex justify-center">
+                      <Image
+                        src={project.thumbnail || "/file.svg"}
+                        alt={project.title + " thumbnail"}
+                        width={480}
+                        height={480}
+                        className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
+                      />
+                    </div>
+                  ) : (
                     <Image
                       src={project.thumbnail || "/file.svg"}
                       alt={project.title + " thumbnail"}
-                      width={320}
-                      height={320}
+                      width={480}
+                      height={480}
                       className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
                     />
-                    <div className="mt-2">
-                      <p className="font-semibold" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
-                      <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>{project.category} / {project.year}</p>
-                      {project.company && (
-                        <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">{project.company}</span>
-                      )}
-                      {/* Add status badge if available */}
-                    </div>
+                  )}
+                  <div style={{ marginTop: '24px' }} className="max-w-sm">
+                    <p className="font-semibold" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
+                    <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>{project.category} / {project.year}</p>
+                    {project.company && (
+                      <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">{project.company}</span>
+                    )}
                   </div>
-                </Link>
-              ))}
-            </div>
+                </div>
+              </Link>
+            ))}
           </div>
+          <div className="flex-[1.2] min-w-[320px] text-center mt-5">
+            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> {section.title}</h2>
+            <p className="text-lg text-center" style={{ fontFamily: 'var(--font-lekton)' }}>
+              <TextScramble text={section.description} />
+            </p>
+          </div>
+          {(section.category !== "Visual Narrative Art" && index < featuredSections.length - 1) && (
+            <button
+              onClick={() => scrollToNextSection(index)}
+              className="mt-4 text-2xl"
+              style={{ color: section.color }}
+              aria-label="Scroll to next section"
+            >
+              ▼
+            </button>
+          )}
         </div>
       ))}
       <div className="text-center py-20 bg-white">
