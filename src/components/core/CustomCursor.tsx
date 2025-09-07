@@ -43,7 +43,7 @@ const CustomCursor = () => {
     <motion.div
       className="fixed top-0 left-0 rounded-full pointer-events-none z-50"
       variants={variants}
-      animate={variant}
+      animate={variant || "default"} // Fallback to "default" if variant is undefined
       transition={{ type: "spring", stiffness: 500, damping: 30 }}
     />
   );

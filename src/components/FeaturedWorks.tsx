@@ -273,58 +273,56 @@ export default function FeaturedWorks() {
   return (
     <section id="featured-work" className="w-full px-6">
       {featuredSections.map((section, index) => (
-        <div key={section.title} style={{ background: section.bg, color: section.color }} className="w-full min-h-[85vh] flex flex-col items-center py-10">
-          <div className="flex-1"></div>
-          <div className="flex-[1.8] flex flex-row justify-evenly w-full">
-            {getFeaturedProjects(section.category).map((project: Project) => (
-              <Link key={project.slug} href={`/work/${project.slug}`}>
-                <div className="text-center" style={{ transform: 'scale(0.9)' }}> {/* 10% smaller scale */}
-                  {project.slug === "nike-league-of-legends-zeri" ? (
-                    <div className="flex justify-center">
+        <div key={section.title} style={{ background: section.bg, color: section.color }} className="w-full min-h-[85vh] flex justify-center items-center">
+          <div className="flex flex-col items-center w-full max-w-6xl px-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+              {getFeaturedProjects(section.category).map((project) => (
+                <Link key={project.slug} href={`/work/${project.slug}`} className="block group">
+                  <div className="relative">
+                    {project.thumbnail && (
                       <Image
                         src={project.thumbnail || "/file.svg"}
                         alt={project.title + " thumbnail"}
-                        width={480}
-                        height={480}
-                        className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
+                        width={300}
+                        height={300}
+                        className="object-cover w-full h-[300px] rounded-lg transition-transform duration-300 group-hover:scale-105"
                       />
-                    </div>
-                  ) : (
-                    <Image
-                      src={project.thumbnail || "/file.svg"}
-                      alt={project.title + " thumbnail"}
-                      width={480}
-                      height={480}
-                      className="rounded-lg group-hover:scale-105 transition-transform duration-300 object-cover aspect-square"
-                    />
-                  )}
-                  <div style={{ marginTop: '24px' }} className="max-w-sm">
-                    <p className="font-semibold" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
-                    <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>{project.category} / {project.year}</p>
+                    )}
+                  </div>
+                  <div className="text-center mt-4">
+                    <p className="font-semibold text-lg" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
+                    <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>
+                      {Array.isArray(project.category) ? project.category.join(", ") : project.category} / {project.year}
+                    </p>
                     {project.company && (
                       <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-1 mr-2">{project.company}</span>
                     )}
                   </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-          <div className="flex-[1.2] min-w-[320px] text-center mt-5">
-            <h2 className="text-4xl md:text-6xl font-bold mb-4">Featured &gt; <br /> {section.title}</h2>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-[100px]"></div> {/* 100px spacing after projects */}
+            <motion.div className="text-center" style={{ color: color }}>
+              <h2 className="text-4xl md:text-6xl font-bold">Featured &gt; <br /> {section.title}</h2>
+            </motion.div>
+            <div className="mt-[50px]"></div> {/* 50px spacing after title */}
             <p className="text-lg text-center" style={{ fontFamily: 'var(--font-lekton)' }}>
               <TextScramble text={section.description} />
             </p>
+            <div className="mt-[100px]"></div> {/* 100px spacing after description */}
+            {(section.category !== "Visual Narrative Art" && index < featuredSections.length - 1) && (
+              <div className="flex justify-center">
+                <button
+                  onClick={() => scrollToNextSection(index)}
+                  className="px-4 py-2 focus:outline-none"
+                  aria-label="Scroll to next section"
+                >
+                  ▼
+                </button>
+              </div>
+            )}
+            <div className="mt-[50px]"></div> {/* 50px spacing after button */}
           </div>
-          {(section.category !== "Visual Narrative Art" && index < featuredSections.length - 1) && (
-            <button
-              onClick={() => scrollToNextSection(index)}
-              className="mt-4 text-2xl"
-              style={{ color: section.color }}
-              aria-label="Scroll to next section"
-            >
-              ▼
-            </button>
-          )}
         </div>
       ))}
       <div className="text-center py-20 bg-white">

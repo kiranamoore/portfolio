@@ -28,7 +28,10 @@ export default function Home() {
     <>
       <main>
         <InteractiveBackground>
-          <section className="h-[70vh] flex flex-col justify-center items-center relative text-center">
+          <section 
+            className="h-[60vh] flex flex-col justify-center items-center relative text-center" 
+            style={{ height: 'calc(60vh - 100px)' }} // Matches the reduced outer height
+          >
             <div className="mix-blend-difference relative z-40">
               <div className="flex justify-center">
                 <img 
@@ -37,9 +40,15 @@ export default function Home() {
                   className="h-28 md:h-40 w-auto"
                 />
               </div>
-              <div className="h-8"></div>
-              <p className="text-xl md:text-2xl text-white whitespace-pre-line leading-tight font-bold" style={{ fontFamily: 'var(--font-lekton)' }}>
-                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\n\nAn Extended Reality Designer,\n\n3D Artist,\n\nExperience Designer,\n\nand Visual Storyteller"} />
+              <div className="h-2"></div> {/* Reduced from h-8 to h-2 (8px) */}
+              <p 
+                className="text-xl md:text-2xl text-white whitespace-pre-line font-bold" 
+                style={{ 
+                  fontFamily: 'var(--font-lekton)', 
+                  lineHeight: '30px' /* Maintains 15px gap between lines */
+                }}
+              >
+                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\nAn Extended Reality Designer,\n3D Artist,\nExperience Designer,\nand Visual Storyteller"} />
               </p>
             </div>
             <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
@@ -50,7 +59,8 @@ export default function Home() {
 
         <section
           id="about"
-          className="py-12 md:py-20 bg-black text-white text-center"
+          className="py-5 bg-black text-white text-center"
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
         >
           <div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6">

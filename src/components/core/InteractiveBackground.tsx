@@ -27,7 +27,8 @@ export default function InteractiveBackground({
 
   return (
     <div
-      className="group relative h-[75vh] w-full overflow-hidden"
+      className="group relative h-[65vh] w-full overflow-hidden"
+      style={{ height: 'calc(65vh - 100px)' }} // Reduced height by 100px
       onMouseMove={handleMouseMove}
     >
       <video
