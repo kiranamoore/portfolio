@@ -229,7 +229,6 @@ const projectsData = [
 
 // Helper to extract season and year
 function getSeasonAndYear(project: Project) {
-  // Try to extract from title/description if not present, but default to Spring if not found
   const seasonRegex = /(Spring|Summer|Fall|Winter)\s*(\d{4})/i;
   let season = null, year = null;
   if (project.season && project.year) {
@@ -242,7 +241,6 @@ function getSeasonAndYear(project: Project) {
       year = parseInt(match[2]);
     }
   } else if (project.year) {
-    // Default to Spring if not specified
     season = project.season || 'Spring';
     year = project.year;
   }
@@ -255,9 +253,8 @@ const sortedProjectsData = [...projectsData].sort((a, b) => {
   const aInfo = getSeasonAndYear(a);
   const bInfo = getSeasonAndYear(b);
   if (aInfo.year != null && bInfo.year != null && aInfo.year !== bInfo.year) {
-    return bInfo.year - aInfo.year; // Descending by year
+    return bInfo.year - aInfo.year;
   }
-  // Descending by season order
   return (seasonOrder[String(bInfo.season)] || 0) - (seasonOrder[String(aInfo.season)] || 0);
 });
 
@@ -283,15 +280,15 @@ function ArtsDistrictLibrary() {
       <div className="max-w-4xl mx-auto">
         <ImageSlideshow images={archImages} altPrefix="Arts District Library" />
         <div className="mt-10 text-center">
-          <p className="text-sm text-gray-400">Spring 2023</p>
+          <p className="text-sm text-gray-400 font-lekton">Spring 2023</p>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Arts District Library</h2>
-          <p className="text-lg font-medium mb-6">
+          <p className="text-lg font-medium mb-6 font-lekton">
             Library x Skatepark – Hybrid Urban Space Design<br/>
             For this design challenge, we were tasked with creating a library for an empty lot in Downtown Los Angeles' Arts District, combining it with an unconventional secondary program.
           </p>
           <section className="mb-6 text-left max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-2 text-red-400">Key Features</h3>
-            <ul className="list-disc pl-5 space-y-2">
+            <ul className="list-disc pl-5 space-y-2 font-lekton">
               <li><strong>Contextual Urban Analysis:</strong> Conducted thorough site research, including color-coded diagrams mapping surrounding neighborhood programs to inform spatial relationships.</li>
               <li><strong>Circulation-Driven Design:</strong> Initially envisioned the project to be surrounded by a playground, which became the foundation for early circulation studies.</li>
               <li><strong>Evolving Concept:</strong> Transformed the surrounding playground into a "play-ground" skate park, introducing a more dynamic, youth-oriented public space.</li>
@@ -301,7 +298,7 @@ function ArtsDistrictLibrary() {
           </section>
           <section className="mb-6 text-left max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-2 text-red-400">Design Focus</h3>
-            <ul className="list-disc pl-5 space-y-2">
+            <ul className="list-disc pl-5 space-y-2 font-lekton">
               <li>Integrating play, learning, and community into a cohesive spatial experience</li>
               <li>Designing movement pathways inspired by playground circulation</li>
               <li>Blurring boundaries between traditional educational spaces and recreational environments</li>
@@ -309,7 +306,7 @@ function ArtsDistrictLibrary() {
           </section>
           <section className="text-left max-w-2xl mx-auto">
             <h3 className="text-2xl font-semibold mb-2 text-red-400">Project Impact</h3>
-            <p>
+            <p className="font-lekton">
               This project showcases my ability to evolve design concepts through iterative research, circulation studies, and playful form-making, resulting in a vibrant, community-centered space that challenges conventional library design.
             </p>
           </section>
@@ -321,81 +318,87 @@ function ArtsDistrictLibrary() {
 
 export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
-  const [showHyperXBio, setShowHyperXBio] = useState(false);
+  const [activeCompany, setActiveCompany] = useState("All");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const filteredProjects = sortedProjectsData.filter((p) => {
     const categoryMatch = activeCategory === "All" || p.category.includes(activeCategory);
-    // Only filter by company if HyperX is selected in second nav
-    const companyMatch = !(activeCategory === "Extended Reality" && showHyperXBio) || (p.company && p.company === "Hewlett-Packard / HyperX");
+    const companyMatch = activeCategory === "Extended Reality" && activeCompany !== "All" ? p.company === activeCompany : true;
     return categoryMatch && companyMatch;
   });
 
   return (
-    <main className="bg-black text-white">
-      <div className="h-32" />
+    <main className="bg-black text-white min-h-screen">
+      <style jsx global>{`
+        @font-face {
+          font-family: 'Lekton';
+          src: url('/fonts/Lekton-Regular.ttf') format('truetype');
+          font-weight: normal;
+          font-style: normal;
+        }
+        .font-lekton {
+          font-family: 'Lekton', sans-serif;
+        }
+      `}</style>
+      <div className="h-16" />
       <div className="relative flex flex-col items-center justify-center">
         {/* Main Nav */}
-        <div className="w-full flex flex-col items-center pt-8 pb-6">
-          <div className="max-w-7xl w-full px-4 md:px-8 pointer-events-auto flex flex-col items-center">
-            <h1 className="text-3xl md:text-5xl font-bold mb-2 flex flex-wrap items-baseline justify-center text-center w-full">
-              <span className="mr-4">Work</span>
-              {categories.map((cat, index) => (
-                <Fragment key={cat}>
-                  {index > 0 && <span className="mx-2 select-none">-</span>}
-                  <button
-                    onClick={() => {
-                      setActiveCategory(cat);
-                      setShowHyperXBio(false);
-                    }}
-                    className={`transition-colors duration-200 ${activeCategory === cat ? "text-red-500" : "text-white"} font-bold uppercase text-3xl md:text-5xl tracking-tight px-2 py-1 rounded focus:outline-none`}
-                  >
-                    {cat}
-                  </button>
-                </Fragment>
-              ))}
-            </h1>
-            {/* Second Nav Bar for Extended Reality */}
-            {activeCategory === "Extended Reality" && (
-              <div className="flex flex-row items-center justify-center w-full mt-2 mb-2">
-                <button
-                  onClick={() => {
-                    setShowHyperXBio(false);
-                  }}
-                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${!showHyperXBio ? "bg-red-500 text-white" : "text-white"}`}
-                >
-                  All
-                </button>
-                <span className="mx-2 text-base md:text-lg font-bold">-</span>
-                <button
-                  onClick={() => {
-                    setShowHyperXBio(true);
-                  }}
-                  className={`mx-2 px-4 py-1 rounded text-base md:text-lg font-bold uppercase ${showHyperXBio ? "bg-red-500 text-white" : "text-white"}`}
-                >
-                  Hewlett-Packard/HyperX (Professional Projects)
-                </button>
-              </div>
-            )}
-            {/* Show custom HyperX bio if selected */}
-            {activeCategory === "Extended Reality" && showHyperXBio && (
-              <div className="flex justify-center">
-                <div className="text-center text-lg font-semibold text-white rounded px-6 py-2 mt-2 mb-4">
-                  As the sole Augmented and Virtual Reality Developer at HyperX, a leading brand under HP Inc., I have the privilege of spearheading the company's exploration into extended reality (XR) during my internship from May 2024 to August 2025. Tasked with demonstrating the transformative potential of AR/VR, I focused on creating innovative solutions to address key company needs, from cost-saving digital manuals to immersive customer experiences. Collaborating closely with HyperX's 3D and CGI teams, I developed engaging AR experiences that enhanced product interaction, streamlined operations, and showcased the brand's commitment to cutting-edge technology. My work aimed to prove XR's value as a worthwhile investment, paving the way for HyperX to redefine user engagement in the gaming and tech industries.
-                </div>
-              </div>
-            )}
-            {/* Add a gap between the title row and the next line */}
-            <div className="h-4" />
-            {/* Default description if not showing HyperX bio */}
-            {!(activeCategory === "Extended Reality" && showHyperXBio) && (
-              <p className="text-lg md:text-xl text-gray-300 text-center max-w-3xl mx-auto">
-                
-              </p>
-            )}
+        <nav className="w-full py-4">
+          <div className="max-w-7xl mx-auto px-4 flex justify-center items-center gap-4">
+            <h1 className="text-xl md:text-2xl font-bold">Work</h1>
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => {
+                  setActiveCategory(cat);
+                  if (cat !== "Extended Reality") setActiveCompany("All");
+                }}
+                className={`text-sm md:text-base font-semibold uppercase px-4 py-2 rounded transition-colors duration-200 ${activeCategory === cat ? "text-red-500 border-b-2 border-red-500" : "text-white hover:text-red-500 hover:border-b-2 hover:border-red-500"}`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-        </div>
-        {/* 4. The project grid */}
-        <div className="max-w-7xl w-full px-4 md:px-8 flex justify-center">
+        </nav>
+        {/* Custom Dropdown for Extended Reality */}
+        {activeCategory === "Extended Reality" && (
+          <div className="max-w-7xl w-full px-4 md:px-8 py-4 flex justify-center">
+            <div className="relative">
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="bg-gray-800 text-white font-semibold uppercase px-6 py-3 rounded-lg border border-gray-700 hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 flex items-center gap-2"
+              >
+                {activeCompany}
+                <svg
+                  className={`w-4 h-4 transform transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {isDropdownOpen && (
+                <ul className="absolute z-10 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-lg shadow-lg overflow-hidden">
+                  {companies.map((company) => (
+                    <li
+                      key={company}
+                      onClick={() => {
+                        setActiveCompany(company);
+                        setIsDropdownOpen(false);
+                      }}
+                      className="px-4 py-2 text-white hover:bg-red-500 hover:text-white cursor-pointer transition-colors duration-200"
+                    >
+                      {company}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
+        )}
+        {/* Project Grid */}
+        <div className="max-w-7xl w-full px-4 md:px-8 py-8 flex justify-center">
           <ProjectGrid projects={filteredProjects} />
         </div>
       </div>

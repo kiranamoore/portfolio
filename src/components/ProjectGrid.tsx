@@ -67,7 +67,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                   </span>
                 )}
                 <h2 className="font-bold text-lg">{project.title}</h2>
-                <p className="text-gray-400">
+                <p className="text-gray-400 font-lekton">
                   :: {Array.isArray(project.category) ? project.category.join(", ") : project.category} / {project.year}
                 </p>
               </div>
