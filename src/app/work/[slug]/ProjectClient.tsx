@@ -5,7 +5,7 @@ import ImageSlideshow from "@/components/core/ImageSlideshow";
 // Generate array of image paths from 1.png to 45.png, excluding 6.png
 const projectImages = [
   ...Array.from({ length: 5 }, (_, i) => `/${i + 1}.png`), // 1.png to 5.png
-  ...Array.from({ length: 39 }, (_, i) => `/${i + 7}.png"), // 7.png to 45.png
+  ...Array.from({ length: 39 }, (_, i) => `/${i + 7}.png`), // 7.png to 45.png
 ];
 
 export default function ProjectClient() {
