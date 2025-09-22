@@ -9,7 +9,7 @@ const ResumePage = () => {
         }}
       >
         <iframe
-          src="/Kirana_Moore_Resume_2025_Apple.pdf"
+          src="/hand-drawn-resume.pdf"
           className="w-full h-full"
           title="Kirana Moore Resume"
           style={{ border: "none" }}

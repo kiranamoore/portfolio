@@ -5,12 +5,89 @@ import ImageSlideshow from "@/components/core/ImageSlideshow";
 // Generate array of image paths from 1.png to 45.png, excluding 6.png
 const projectImages = [
   ...Array.from({ length: 5 }, (_, i) => `/${i + 1}.png`), // 1.png to 5.png
-  ...Array.from({ length: 39 }, (_, i) => `/${i + 7}.png`), // 7.png to 45.png
+  ...Array.from({ length: 39 }, (_, i) => `/${i + 7}.png"), // 7.png to 45.png
 ];
 
 export default function ProjectClient() {
   const params = useParams();
   const slug = params?.slug;
+
+  if (slug === 'angel-gundam') {
+    return (
+      <>
+        <div className="h-32" />
+        <div
+          className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
+          style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
+        >
+          <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
+            {/* Left column: Video */}
+            <div className="flex flex-col items-center justify-center flex-1 h-full">
+              <video
+                src="/angel-gundam-headset-demo.mp4"
+                controls
+                autoPlay
+                loop
+                muted
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+                style={{ minHeight: '320px' }}
+              />
+            </div>
+            {/* Right column: Centered content */}
+            <div className="flex flex-col items-center text-center space-y-6 flex-1">
+              <div className="space-y-1">
+                <p className="text-sm text-gray-300">Fall 2025</p>
+                <h1 className="text-4xl md:text-6xl font-bold">Angel Gundam Headset</h1>
+              </div>
+              <p className="text-lg font-medium">
+                Designed an innovative AR-enhanced gaming headset inspired by the Angel Gundam, featuring customizable LED lighting and real-time AR overlays for an immersive gaming experience.
+              </p>
+              <div className="space-y-10 text-left max-w-2xl w-full">
+                {/* Role & Objective */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
+                    <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to design an AR-enhanced gaming headset.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to integrate customizable LED lighting with real-time AR overlays for gaming.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted enhancing immersion and personalization for gamers.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Actions Taken */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
+                    <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed headset model with customizable LED integration using <span className="font-bold">Blender</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed AR overlay system using <span className="font-bold">Unity (C#)</span>.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented real-time lighting control via AR interface.</span></li>
+                  </ul>
+                </section>
+                <div className="border-t border-gray-700 my-6" />
+                {/* Results & Impact */}
+                <section>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
+                    <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
+                  </div>
+                  <ul className="space-y-2 pl-6 list-none">
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a prototype with functional AR overlays and LED customization.</span></li>
+                    <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Enhanced gaming immersion with personalized visual effects.</span></li>
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   if (slug === 'hyperx-cloud-3-3d-customizer') {
     return (
       <>
@@ -115,6 +192,7 @@ export default function ProjectClient() {
       </>
     );
   }
+
   if (slug === 'trainar') {
     const trainarImages = [
       '/trainar/8.png',
@@ -210,6 +288,7 @@ export default function ProjectClient() {
       </>
     );
   }
+
   if (slug === 'meta-alchemy') {
     return (
       <>
@@ -284,6 +363,7 @@ export default function ProjectClient() {
       </>
     );
   }
+
   if (slug === 'animated-keyboard-packaging') {
     return (
       <>
@@ -363,6 +443,7 @@ export default function ProjectClient() {
       </>
     );
   }
+
   // Default: Painter of Light
   return (
     <>
@@ -413,7 +494,7 @@ export default function ProjectClient() {
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">narrative-driven spaces</span> using atmospheric lighting and spatial flow.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Modeled spaces in Rhino and textured, used shaders, and rendered in Blender using the Cycles engine. </span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Curated symbolic props to explore the interplay of light and shadow in Kinkade's story.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>git 
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Drew from immersive benchmarks like Meow Wolf and Van Gogh: The Immersive Experience.</span></li>
                   <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Balanced visual appeal with emotional and intellectual depth.</span></li>
                 </ul>
               </section>
@@ -433,22 +514,22 @@ export default function ProjectClient() {
             </div>
           </div>
         </div>
-      </div>
-      {/* Dual slideshows below the main content, full width */}
-      <div className="w-full flex flex-col md:flex-row gap-8 justify-center mt-12">
-        <div className="flex-1 w-full">
-          <ImageSlideshow
-            images={Array.from({length: 8}, (_,i) => `/${21 + i}.png`)}
-            altPrefix="Painter of Light detail image set 1"
-          />
+        {/* Dual slideshows below the main content, full width */}
+        <div className="w-full flex flex-col md:flex-row gap-8 justify-center mt-12">
+          <div className="flex-1 w-full">
+            <ImageSlideshow
+              images={Array.from({length: 8}, (_,i) => `/${21 + i}.png`)}
+              altPrefix="Painter of Light detail image set 1"
+            />
+          </div>
+          <div className="flex-1 w-full">
+            <ImageSlideshow
+              images={["/31.png", "/32.png", "/30.png", "/15.png"]}
+              altPrefix="Painter of Light detail image set 2"
+            />
+          </div>
         </div>
-        <div className="flex-1 w-full">
-          <ImageSlideshow
-            images={["/31.png", "/32.png", "/30.png", "/15.png"]}
-            altPrefix="Painter of Light detail image set 2"
-          />
-        </div>
-      </div>
-    </>
-  );
-} 
+      </>
+    );
+  }
+}

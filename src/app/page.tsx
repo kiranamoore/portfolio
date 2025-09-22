@@ -30,29 +30,31 @@ export default function Home() {
         <InteractiveBackground>
           <section 
             className="h-[60vh] flex flex-col justify-center items-center relative text-center" 
-            style={{ height: 'calc(60vh - 100px)' }} // Matches the reduced outer height
+            style={{ height: 'calc(60vh - 100px)' }}
           >
             <div className="mix-blend-difference relative z-40">
               <div className="flex justify-center">
                 <img 
-                  src="/animated_logo.png" 
-                  alt="Kirana" 
+                  src="/k-moore-logo.png" 
+                  alt="K Moore Logo" 
                   className="h-28 md:h-40 w-auto"
                 />
               </div>
-              <div className="h-2"></div> {/* Reduced from h-8 to h-2 (8px) */}
+              <div className="h-2"></div>
               <p 
                 className="text-xl md:text-2xl text-white whitespace-pre-line font-bold" 
                 style={{ 
                   fontFamily: 'var(--font-lekton)', 
-                  lineHeight: '30px' /* Maintains 15px gap between lines */
+                  lineHeight: '30px'
                 }}
               >
                 <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\nAn Extended Reality Designer,\n3D Artist,\nExperience Designer,\nand Visual Storyteller"} />
               </p>
             </div>
             <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
-              <p style={{ fontFamily: 'var(--font-lekton)' }}>San Francisco / Los Angeles, CA &gt; {californiaTime}</p>
+              <p style={{ fontFamily: 'var(--font-lekton)' }}>
+                San Francisco / Los Angeles, CA &gt; {californiaTime}
+              </p>
             </div>
           </section>
         </InteractiveBackground>
@@ -68,7 +70,11 @@ export default function Home() {
             </h2>
             <p
               className="text-lg md:text-xl leading-relaxed px-8"
-              style={{ maxWidth: "50rem", margin: "0 auto", fontFamily: 'var(--font-lekton)' }}
+              style={{ 
+                maxWidth: "50rem", 
+                margin: "0 auto", 
+                fontFamily: 'var(--font-lekton)' 
+              }}
             >
               I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences. Skilled in Unity, 3D modeling, and spatial design, I create user-centered environments that captivate and connect. Let's build something extraordinary together!
             </p>
