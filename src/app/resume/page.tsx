@@ -5,7 +5,7 @@ import { useState } from "react";
 const ResumePage = () => {
   const [activeTab, setActiveTab] = useState<"creative" | "industry">("creative");
 
-  const pdfSrc = activeTab === "creative" ? "/DRAWN.pdf" : "/INDUSTRY.pdf";
+  const pdfSrc = activeTab === "creative" ? "/drawn.pdf" : "/INDUSTRY.pdf";
 
   return (
     <main className="w-full h-screen">
