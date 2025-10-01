@@ -16,6 +16,14 @@ type Project = {
 
 const projectsData = [
   {
+    title: "Angel Gundam Headset",
+    year: 2025,
+    season: "Fall",
+    category: ["3D Design"],
+    slug: "Angel-gundam",
+    thumbnail: "/gundam/gundam.PNG",
+  },
+  {
     title: "Cloud 3D Connect",
     year: 2025,
     category: ["Extended Reality"],

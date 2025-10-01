@@ -18,6 +18,14 @@ type Project = {
 
 const projectsData: Project[] = [
   {
+    title: "Angel Gundam Headset",
+    year: 2025,
+    season: "Fall",
+    category: ["3D Design"],
+    slug: "Angel-gundam",
+    thumbnail: "/gundam/gundam.PNG",
+  },
+  {
     title: "Marker-Based Augmented Reality Development",
     year: 2025,
     season: "Summer",
