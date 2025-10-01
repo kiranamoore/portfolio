@@ -15,7 +15,7 @@ export default function ProjectClient() {
 
   if (slug === 'angel-gundam') {
     return (
-      <React.Fragment>
+      <>
         <div className="h-32" />
         <div
           className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
@@ -85,7 +85,7 @@ export default function ProjectClient() {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 
@@ -447,7 +447,7 @@ export default function ProjectClient() {
 
   // Default: Painter of Light
   return (
-    <React.Fragment>
+    <>
       <div className="h-32" />
       <div
         className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
@@ -530,7 +530,7 @@ export default function ProjectClient() {
             />
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }
