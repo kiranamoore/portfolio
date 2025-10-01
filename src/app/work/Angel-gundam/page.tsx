@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function AngelGundamHeadsetPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,48 +16,37 @@ export default function AngelGundamHeadsetPage() {
   return (
     <>
       <div className="h-32" />
-      <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginBottom: "50px",
-          maxWidth: "1400px",
-          paddingTop: "60px",
-        }}
-      >
-        <div
-          className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center"
-          style={{ maxWidth: "1200px" }}
-        >
-          {/* Left column: Slideshow */}
-          <div className="relative flex flex-col items-center justify-center flex-1 w-full gap-6 max-w-[520px]">
-            <img
-              src={images[currentIndex]}
-              alt={`Slideshow image ${currentIndex + 2}`}
-              className="rounded-lg w-full object-cover max-w-[500px]"
-            />
-            {/* Overlay image */}
-            <img
-              src="/gundam/gundam.png"
-              alt="Gundam Overlay"
-              className="absolute top-0 left-0 w-full h-full object-contain pointer-events-none"
-            />
-          </div>
-
-          {/* Right column: Content */}
-          <div className="flex flex-col items-center text-center space-y-6 flex-1">
+      <div className="min-h-screen bg-black text-white py-12 mt-16 md:mt-24 mb-12">
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left column: slideshow stacked above image */}
+            <div>
+              <div className="flex flex-col items-center">
+                <img
+                  src={images[currentIndex]}
+                  alt={`Slideshow image ${currentIndex + 2}`}
+                  className="rounded-lg w-full max-w-[520px] object-cover"
+                />
+              </div>
+              <div className="py-6" />
+              <div className="flex justify-center">
+                <img
+                  src="/gundam/gundam.png"
+                  alt="Gundam"
+                  className="w-full max-w-[520px] object-contain"
+                />
+              </div>
+            </div>
+            {/* Right column: Content */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Fall 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">
-                Angel Gundam Headset
-              </h1>
+              <h1 className="text-4xl md:text-6xl font-bold">Angel Gundam Headset</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
-              Project description placeholder. Replace with actual copy for the
-              Angel Gundam Headset.
+              Project description placeholder. Replace with actual copy for the Angel Gundam Headset.
             </p>
-            <div className="space-y-10 text-left max-w-2xl w-full">
+              <div className="space-y-10 text-left max-w-2xl w-full">
               {/* Role & Objective */}
               <section>
                 <div className="flex items-center gap-3 mb-2">
@@ -110,6 +99,7 @@ export default function AngelGundamHeadsetPage() {
                   </li>
                 </ul>
               </section>
+              </div>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
+import React from 'react';
 import { useParams } from 'next/navigation';
-import ImageSlideshow from "@/components/core/ImageSlideshow";
+import ImageSlideshow from "../../../components/core/ImageSlideshow";
 
 // Generate array of image paths from 1.png to 45.png, excluding 6.png
 const projectImages = [
@@ -14,7 +15,7 @@ export default function ProjectClient() {
 
   if (slug === 'angel-gundam') {
     return (
-      <>
+      <React.Fragment>
         <div className="h-32" />
         <div
           className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
@@ -84,7 +85,7 @@ export default function ProjectClient() {
             </div>
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 
@@ -446,7 +447,7 @@ export default function ProjectClient() {
 
   // Default: Painter of Light
   return (
-    <>
+    <React.Fragment>
       <div className="h-32" />
       <div
         className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
@@ -529,7 +530,7 @@ export default function ProjectClient() {
             />
           </div>
         </div>
-      </>
+      </React.Fragment>
     );
   }
 }
