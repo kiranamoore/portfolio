@@ -1,5 +1,11 @@
 import ProjectClient from "./ProjectClient";
 
-export default function ProjectPage() {
-  return <ProjectClient />;
+interface ProjectPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ProjectPage({ params }: ProjectPageProps) {
+  return <ProjectClient slug={params.slug} />;
 }
