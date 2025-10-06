@@ -256,6 +256,10 @@ function getSeasonAndYear(project: Project) {
 const seasonOrder: Record<string, number> = { 'Summer': 3, 'Fall': 2, 'Spring': 1, 'Winter': 0 };
 
 const sortedProjectsData = [...projectsData].sort((a, b) => {
+  // Ensure Angel Gundam Headset always appears first
+  if (a.slug === "Angel-gundam") return -1;
+  if (b.slug === "Angel-gundam") return 1;
+  
   const aInfo = getSeasonAndYear(a);
   const bInfo = getSeasonAndYear(b);
   if (aInfo.year != null && bInfo.year != null && aInfo.year !== bInfo.year) {
