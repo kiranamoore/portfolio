@@ -19,7 +19,7 @@ const projectsData = [
     season: "Fall",
     category: ["3D Design"],
     slug: "Angel-gundam",
-    thumbnail: "/gundam/gundam.PNG",
+    thumbnail: "/gundam/gundam.png",
   },
   {
     title: "Cloud 3D Connect",
