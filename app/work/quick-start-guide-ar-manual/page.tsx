@@ -14,7 +14,7 @@ export default function QuickStartGuideARManualPage() {
           {/* Left column: Description and details */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2025</p>
+              <p className="text-sm text-gray-300">Summer 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">Quick Start Guide Augmented Reality Manual</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
@@ -66,20 +66,44 @@ export default function QuickStartGuideARManualPage() {
               </section>
             </div>
           </div>
-          {/* Right column: Video */}
-          <div className="flex flex-col items-center justify-center flex-1 h-full">
-            <video
-              src="/Quick Start Manual.mp4"
-              controls
-              muted
-              className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
-              style={{ minHeight: '320px' }}
-            >
-              Your browser does not support the video tag.
-            </video>
-            <p className="text-sm text-gray-400 mt-4 text-center">
-              AR Quick Start Manual demonstration video showing the interactive onboarding experience
-            </p>
+          {/* Right column: Videos and Images */}
+          <div className="flex flex-col items-center justify-center flex-1 h-full space-y-6">
+            <div className="flex flex-col items-center">
+              <video
+                src="/QSG_demo.MP4"
+                controls
+                muted
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+                style={{ minHeight: '320px' }}
+              >
+                Your browser does not support the video tag.
+              </video>
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                Live AR Demo
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <img
+                src="/QSG_web.png"
+                alt="Web version interface mockup"
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+              />
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                Web version interface mockup
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center">
+              <img
+                src="/QSG_onbox.png"
+                alt="Users scan QR code here to access guide"
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+              />
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                Users scan QR code here to access guide
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function HyperX3DOptimizationPage() {
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Summer 2025</p>
+              <p className="text-sm text-gray-300">Fall 2025</p>
               <h1 className="text-4xl md:text-6xl font-bold">3D Model Optimization for XR</h1>
             </div>
             <p className="text-lg font-medium">

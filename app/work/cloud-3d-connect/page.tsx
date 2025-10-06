@@ -19,17 +19,44 @@ export default function Cloud3DConnectPage() {
         style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
-          {/* Left column: 3D Model Viewer + stage info */}
-          <div className="flex flex-col items-center justify-center flex-1 h-full">
+          {/* Left column: Demo Video, 3D Model Viewer, and QR Code */}
+          <div className="flex flex-col items-center justify-center flex-1 h-full space-y-6">
+            <div className="flex flex-col items-center">
+              <video
+                src="/Customizer_demo.MOV"
+                controls
+                muted
+                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
+                style={{ minHeight: '320px' }}
+              >
+                Your browser does not support the video tag.
+              </video>
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                Live AR Demo
+              </p>
+            </div>
+            
             <ModelViewer
               src="/Cloud-3-S-7-17.glb"
-              alt="Cloud 3D Connect 3D Model"
+              alt="AR Product Customizer 3D Model"
               ar
               autoRotate
               cameraControls
               style={{ width: "100%", height: "400px", background: "#222", borderRadius: "1rem" }}
             />
-            <p className="text-sm text-gray-400 mt-4">
+            
+            <div className="flex flex-col items-center">
+              <img
+                src="/customizer_qr_code.png"
+                alt="Scan to try!"
+                className="w-full max-w-xs object-contain rounded-lg border border-gray-700 shadow-lg"
+              />
+              <p className="text-sm text-gray-400 mt-2 text-center">
+                Scan to try!
+              </p>
+            </div>
+            
+            <p className="text-sm text-gray-400 mt-4 text-center">
               current stage of development: <br />
               Finished texturing and reducing 3D model with 28,000 total triangle meshes. <br />
               Currently developing AR experience with the model.
@@ -39,8 +66,8 @@ export default function Cloud3DConnectPage() {
           {/* Right column: Content */}
           <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">May 2025 – August 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">Cloud 3D Connect</h1>
+              <p className="text-sm text-gray-300">Summer 2025</p>
+              <h1 className="text-4xl md:text-6xl font-bold">AR Product Customizer</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
               Developed an interactive 3D experience that showcases key product highlights and allows in-store customers to customize HyperX's Cloud 3 S headset in real time. The solution helps sway purchase decisions by visually demonstrating HyperX's advantages over competitors.
