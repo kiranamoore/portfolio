@@ -32,7 +32,7 @@ export default function TheTravelerPage() {
           <div className="flex flex-col items-start text-left space-y-6 flex-1 min-w-[320px] max-w-[520px]">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Fall 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">The Traveler</h1>
+              <h1 className="text-4xl md:text-6xl font-bold text-white">The Traveler</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
               Designed a 3D digital model in Rhinoceros 3D for The Traveler, a whimsical, light-filled living space concept that balances social connection and personal retreat through thoughtful layouts, natural illumination, and emotionally resonant design.
@@ -45,8 +45,8 @@ export default function TheTravelerPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Designed and modeled The Traveler, a 3D digital living space concept, aiming to translate personal ideals of creativity and comfort into spatial form.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on creating a whimsical, sunlight-filled environment that balances social connection and private retreat.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Designed and modeled The Traveler, a 3D digital living space concept, aiming to translate personal ideals of creativity and comfort into spatial form.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Focused on creating a whimsical, sunlight-filled environment that balances social connection and private retreat.</span></li>
                 </ul>
               </section>
               <div className="flex items-center gap-3 mb-2 mt-6">
@@ -54,19 +54,19 @@ export default function TheTravelerPage() {
                 <h3 className="text-xl font-bold text-blue-300 tracking-tight">Actions Taken</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built a detailed 3D model in <span className="font-bold">Rhinoceros 3D,</span> designing distinct zones including a social hub, private loft, creative studio, and restorative restroom.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Used organic forms, open layouts, and strategic window placement to optimize natural light and enhance mood.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Prioritized <span className="font-bold">seamless transitions between social and private areas</span> to support multiple modes of living and creating.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Built a detailed 3D model in <span className="font-bold">Rhinoceros 3D,</span> designing distinct zones including a social hub, private loft, creative studio, and restorative restroom.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Used organic forms, open layouts, and strategic window placement to optimize natural light and enhance mood.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Prioritized <span className="font-bold">seamless transitions between social and private areas</span> to support multiple modes of living and creating.</span></li>
               </ul>
               <div className="flex items-center gap-3 mb-2 mt-6">
                 <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
                 <h3 className="text-xl font-bold text-green-300 tracking-tight">Results & Impact</h3>
               </div>
               <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a digital space that reflects my ability to design environments blending functionality with emotional resonance.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Delivered a digital space that reflects my ability to design environments blending functionality with emotional resonance.</span></li>
             
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated skills in <span className="font-bold">spatial design, 3D modeling, and crafting experiences</span> that support living, hosting, and creative pursuits.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Showcased a personal design philosophy centered on light, comfort, and emotional well-being in physical spaces.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Demonstrated skills in <span className="font-bold">spatial design, 3D modeling, and crafting experiences</span> that support living, hosting, and creative pursuits.</span></li>
+                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Showcased a personal design philosophy centered on light, comfort, and emotional well-being in physical spaces.</span></li>
               </ul>
             </div>
           </div>

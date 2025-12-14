@@ -43,7 +43,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
     >
       {projects.map((project, index) => (
         <div key={project.slug} style={{ padding: "32px", width: "320px" }}>
-          <Link href={`/work/${project.slug}`} {...linkProps}>
+          <Link 
+            href={`/work/${project.slug}`} 
+            {...linkProps}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <div className="group">
               {project.thumbnail ? (
                 <img
@@ -66,8 +70,8 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                     {project.company}
                   </span>
                 )}
-                <h2 className="font-bold text-lg">{project.title}</h2>
-                <p className="text-gray-400 font-lekton">
+                <h2 className="font-bold text-lg text-white">{project.title}</h2>
+                <p className="text-gray-400 font-lekton" style={{ fontFamily: 'var(--font-lekton)' }}>
                   :: {Array.isArray(project.category) ? project.category.join(", ") : project.category} / {project.year}
                 </p>
               </div>

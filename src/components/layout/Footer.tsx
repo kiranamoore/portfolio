@@ -1,10 +1,7 @@
 "use client";
-import Link from "next/link";
-import { useCursor } from "@/context/CursorContext";
 import { useEffect, useState } from "react";
 
 export default function Footer() {
-  const { setVariant } = useCursor();
   const [californiaTime, setCaliforniaTime] = useState("");
 
   useEffect(() => {
@@ -24,31 +21,15 @@ export default function Footer() {
     return () => clearInterval(interval);
   }, []);
 
-  const linkProps = {
-    onMouseEnter: () => setVariant("hover"),
-    onMouseLeave: () => setVariant("default"),
-    className: "hover:underline",
-  };
-
   return (
     <footer className="bg-black text-white p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-8 items-center">
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <div className="text-2xl md:text-4xl font-bold mb-12">
               <p>I&apos;m open to possibilities—</p>
               <p>feel free to reach out anytime</p>
             </div>
-          </div>
-
-          <div>
-            <h3 className="font-bold mb-4">MENU</h3>
-            <ul className="space-y-2">
-              <li><Link href="/" className="hover:underline">(Home)</Link></li>
-              <li><Link href="/resume" className="hover:underline">(Resume)</Link></li>
-              <li><Link href="/work" className="hover:underline">(Work)</Link></li>
-              <li><Link href="/contact" className="hover:underline">(Contact)</Link></li>
-            </ul>
           </div>
 
           <div>

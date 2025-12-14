@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,7 +55,7 @@ const projectsData: Project[] = [
     title: "The Painter of Light",
     year: 2025,
     category: ["Immersive Experiences", "3D Design"],
-    slug: "with-the-mountains-the-clouds-and-us",
+    slug: "painter-of-light",
     thumbnail: "/hero%20render_ps.png",
   },
   {
@@ -86,7 +86,6 @@ const projectsData: Project[] = [
     category: ["Extended Reality"],
     slug: "castle-chambers",
     thumbnail: "/castle-chambers.png",
-    company: undefined,
   },
   {
     title: "TRAINAR",
@@ -95,7 +94,6 @@ const projectsData: Project[] = [
     category: ["Extended Reality"],
     slug: "trainar",
     thumbnail: "/trainar/trainar.png",
-    company: undefined,
   },
   {
     title: "Pixel Headphones",
@@ -104,7 +102,6 @@ const projectsData: Project[] = [
     category: ["Extended Reality", "3D Design"],
     slug: "pixel-headphones",
     thumbnail: "/pixel headphones.png",
-    company: undefined,
   },
   {
     title: "Beast of Burden",
@@ -113,7 +110,6 @@ const projectsData: Project[] = [
     category: ["Visual Narrative Art"],
     slug: "beast-of-burden",
     thumbnail: "/beast of burden/beast of burden.png",
-    company: undefined,
   },
   {
     title: "Mosaic – Future Car Concept for Honda",
@@ -163,7 +159,6 @@ const projectsData: Project[] = [
     category: ["Visual Narrative Art"],
     slug: "magical-girl-vs-zombies",
     thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
-    company: undefined,
   },
   {
     title: "The Great Cow Invasion of Los Angeles!",
@@ -172,7 +167,6 @@ const projectsData: Project[] = [
     category: ["Visual Narrative Art"],
     slug: "the-great-cow-invasion-of-los-angeles",
     thumbnail: "/cow-invasion-thumbnail.png",
-    company: undefined,
   },
   {
     title: "Nike x League of Legends Skin Collaboration: Zeri",
@@ -181,7 +175,6 @@ const projectsData: Project[] = [
     category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
-    company: undefined,
   },
   {
     title: "Arts District Library",
@@ -208,13 +201,11 @@ const projectsData: Project[] = [
 ];
 
 export default function FeaturedWorks() {
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start 25%", "end 75%"],
   });
-
-  const backgroundColor = "#FFFFFF";
 
   const color = useTransform(
     scrollYProgress,
@@ -224,16 +215,16 @@ export default function FeaturedWorks() {
 
   const getFeaturedProjects = (category: string): Project[] => {
     if (category === "Immersive Experiences") {
-      const first = projectsData.find((p) => p.slug === "with-the-mountains-the-clouds-and-us");
+      const first = projectsData.find((p) => p.slug === "painter-of-light");
       const second = projectsData.find((p) => p.slug === "the-traveler");
       const third = projectsData.find((p) => p.slug === "fading-memories");
-      return [first, second, third].filter(Boolean) as Project[];
+      return [first, second, third].filter((p): p is Project => p !== undefined);
     }
     if (category === "3D Design") {
       const first = projectsData.find((p) => p.slug === "hyperx-3d-optimization");
       const second = projectsData.find((p) => p.slug === "nike-league-of-legends-zeri");
       const third = projectsData.find((p) => p.slug === "the-traveler");
-      return [first, second, third].filter(Boolean) as Project[];
+      return [first, second, third].filter((p): p is Project => p !== undefined);
     }
     return projectsData.filter((p: Project) => 
       Array.isArray(p.category) ? p.category.includes(category) : p.category === category
@@ -283,28 +274,33 @@ export default function FeaturedWorks() {
       {featuredSections.map((section, index) => (
         <div key={section.title} style={{ background: section.bg, color: section.color }} className="w-full min-h-[85vh] flex justify-center items-center">
           <div className="flex flex-col items-center w-full max-w-6xl px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl mx-auto">
               {getFeaturedProjects(section.category).map((project) => (
-                <Link key={project.slug} href={`/work/${project.slug}`} className="block group">
-                  <div className="relative">
+                <Link 
+                  key={project.slug} 
+                  href={`/work/${project.slug}`} 
+                  className="block group"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <div className="relative w-full max-w-sm mx-auto" style={{ paddingBottom: '100%', overflow: 'hidden', borderRadius: '8px' }}>
                     {project.thumbnail && (
                       <Image
                         src={project.thumbnail || "/file.svg"}
                         alt={project.title + " thumbnail"}
-                        width={300}
-                        height={300}
-                        className="object-cover w-full h-[300px] rounded-lg transition-transform duration-300 group-hover:scale-105"
+                        width={400}
+                        height={400}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     )}
                   </div>
-                  <div className="text-center mt-8"> {/* Increased margin to accommodate thumbnail height */}
-                    <p className="font-semibold text-lg" style={{ fontFamily: 'var(--font-lekton)' }}>{project.title}</p>
-                    <p className="text-sm" style={{ fontFamily: 'var(--font-lekton)' }}>
+                  <div className="text-center" style={{ marginTop: '20px' }}>
+                    {project.company && (
+                      <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mb-2">{project.company}</span>
+                    )}
+                    <p className="font-semibold text-sm md:text-base mt-2" style={{ fontFamily: 'var(--font-lekton)', color: 'inherit' }}>{project.title}</p>
+                    <p className="text-xs mt-1" style={{ fontFamily: 'var(--font-lekton)', color: 'inherit' }}>
                       {Array.isArray(project.category) ? project.category.join(", ") : project.category} / {project.year}
                     </p>
-                    {project.company && (
-                      <span className="inline-block px-2 py-1 bg-yellow-500 text-black text-xs font-semibold rounded-full mt-2 mr-2">{project.company}</span>
-                    )}
                   </div>
                 </Link>
               ))}
@@ -340,4 +336,4 @@ export default function FeaturedWorks() {
       </div>
     </section>
   );
-}
+} 

@@ -1,6 +1,6 @@
 "use client";
 import ProjectGrid from "@/components/ProjectGrid";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type Project = {
   title: string;
@@ -13,6 +13,16 @@ type Project = {
 };
 
 const projectsData = [
+  // Add this object to the projectsData array (before the closing ])
+{
+  title: "Enthusiastic Worker!", // Display title
+  year: 2025, // Year (number)
+  season: "Spring", // Optional: "Spring", "Summer", "Fall", "Winter"
+  category: ["Visual Narrative Art"], // Array of categories from your list (e.g., "Immersive Experiences")
+  slug: "enthusiastic-worker", // Unique slug for the URL (/work/my-new-project)
+  thumbnail: "/path/to/thumbnail.png", // Image path in /public (e.g., "/new-project-thumbnail.png")
+  // Optional: Company (e.g., "Hewlett-Packard / HyperX")
+},
   {
     title: "Angel Gundam Headset",
     year: 2025,
@@ -294,6 +304,23 @@ export default function WorkPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeCompany, setActiveCompany] = useState("All");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   const filteredProjects = sortedProjectsData.filter((p) => {
     const categoryMatch = activeCategory === "All" || p.category.includes(activeCategory);
@@ -319,17 +346,29 @@ export default function WorkPage() {
       <div className="h-16" />
       <div className="relative flex flex-col items-center justify-center">
         {/* Main Nav */}
-        <nav className="w-full py-4">
-          <div className="max-w-7xl mx-auto px-4 flex justify-center items-center gap-4">
-            <h1 className="text-xl md:text-2xl font-bold">Work</h1>
-            {categories.map((cat) => (
+        <nav className="w-full py-8">
+          <div className="max-w-7xl mx-auto px-4 flex justify-center items-center gap-8 flex-wrap">
+            <h1 className="text-xl md:text-2xl font-bold text-white mr-4">Work</h1>
+            {categories.map((cat, index) => (
               <button
                 key={cat}
                 onClick={() => {
                   setActiveCategory(cat);
                   if (cat !== "Extended Reality") setActiveCompany("All");
                 }}
-                className={`text-sm md:text-base font-semibold uppercase px-4 py-2 rounded transition-colors duration-200 ${activeCategory === cat ? "text-red-500 border-b-2 border-red-500" : "text-white hover:text-red-500 hover:border-b-2 hover:border-red-500"}`}
+                className={`text-sm md:text-base font-medium uppercase tracking-wide transition-colors duration-200 ${
+                  activeCategory === cat 
+                    ? "text-white border-b-2 border-white pb-1" 
+                    : "text-gray-400 hover:text-white"
+                }`}
+                style={{ 
+                  background: 'transparent', 
+                  border: 'none', 
+                  borderBottom: activeCategory === cat ? '2px solid white' : 'none',
+                  cursor: 'pointer',
+                  paddingBottom: activeCategory === cat ? '4px' : '4px',
+                  marginRight: index < categories.length - 1 ? '0' : '0'
+                }}
               >
                 {cat}
               </button>
@@ -338,32 +377,43 @@ export default function WorkPage() {
         </nav>
         {/* Custom Dropdown for Extended Reality */}
         {activeCategory === "Extended Reality" && (
-          <div className="max-w-7xl w-full px-4 md:px-8 py-4 flex justify-center">
-            <div className="relative">
+          <div className="max-w-7xl w-full px-4 md:px-8 py-6 flex justify-center">
+            <div className="relative" ref={dropdownRef}>
               <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="bg-gray-800 text-white font-semibold uppercase px-6 py-3 rounded-lg border border-gray-700 hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 flex items-center gap-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsDropdownOpen(!isDropdownOpen);
+                }}
+                className="bg-white text-black font-medium text-sm px-6 py-2.5 border border-gray-300 hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 transition-all duration-200 flex items-center gap-3 min-w-[220px] justify-between"
+                style={{ fontFamily: 'var(--font-lekton)' }}
               >
-                {activeCompany}
+                <span>{activeCompany}</span>
                 <svg
                   className={`w-4 h-4 transform transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
+                  strokeWidth="2"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               {isDropdownOpen && (
-                <ul className="absolute z-10 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-lg shadow-lg overflow-hidden">
+                <ul className="absolute z-50 mt-1 w-full bg-white border border-gray-300 shadow-lg overflow-hidden rounded-md">
                   {companies.map((company) => (
                     <li
                       key={company}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         setActiveCompany(company);
                         setIsDropdownOpen(false);
                       }}
-                      className="px-4 py-2 text-white hover:bg-red-500 hover:text-white cursor-pointer transition-colors duration-200"
+                      className={`px-6 py-2.5 text-sm cursor-pointer transition-colors duration-150 ${
+                        activeCompany === company
+                          ? "bg-black text-white"
+                          : "text-black hover:bg-gray-100"
+                      }`}
+                      style={{ fontFamily: 'var(--font-lekton)' }}
                     >
                       {company}
                     </li>

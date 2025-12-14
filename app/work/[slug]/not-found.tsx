@@ -1,12 +1,4 @@
-import React from "react";
-
-interface ProjectClientProps {
-  slug: string;
-}
-
-const ProjectClient: React.FC<ProjectClientProps> = ({ slug }) => {
-  // This component is a fallback for dynamic routes that don't have dedicated pages
-  // Since we've created dedicated pages for all projects, this should rarely be hit
+export default function NotFound() {
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center">
       <div className="text-center">
@@ -18,6 +10,5 @@ const ProjectClient: React.FC<ProjectClientProps> = ({ slug }) => {
       </div>
     </div>
   );
-};
+}
 
-export default ProjectClient;

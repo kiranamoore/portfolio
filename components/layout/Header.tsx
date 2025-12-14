@@ -5,31 +5,35 @@ import { usePathname } from "next/navigation";
 import { useCursor } from "@/context/CursorContext";
 
 export default function Header() {
-  const { setVariant } = useCursor();
   const pathname = usePathname();
+  const { setVariant } = useCursor();
+
+  const navItems = [
+    { href: "/work", label: "Work" },
+    { href: "/resume", label: "Resume" },
+  ];
 
   const linkProps = {
     onMouseEnter: () => setVariant("hover"),
     onMouseLeave: () => setVariant("default"),
-    className: "hover:underline",
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full p-4 md:p-8 flex justify-end items-center z-50 transition-all duration-300 mix-blend-difference text-white`}
-    >
-      <nav className="flex items-center">
-        {pathname !== "/" && (
-          <Link href="/" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-            Home
+    <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference py-4">
+      <nav className="container mx-auto flex justify-end items-center px-8 space-x-8">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            {...linkProps}
+            className={`transition-colors duration-300 text-base font-medium text-white hover:text-gray-300 ${
+              pathname === item.href ? "border-b-2 border-white" : ""
+            }`}
+            style={{ textDecoration: 'none', color: 'white' }}
+          >
+            {item.label}
           </Link>
-        )}
-        <Link href="/work" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-          Work
-        </Link>
-        <Link href="/resume" {...linkProps} style={{ paddingLeft: "24px", paddingRight: "24px" }}>
-          Resume
-        </Link>
+        ))}
       </nav>
     </header>
   );

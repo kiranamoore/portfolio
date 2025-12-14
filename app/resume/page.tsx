@@ -1,66 +1,88 @@
 "use client";
 
-import React, { useState } from "react";
+import InteractiveBackground from "@/components/core/InteractiveBackground";
+import FeaturedWorks from "@/components/FeaturedWorks";
+import { useLayoutEffect } from "react";
 
-const ResumePage = () => {
-  const [activeTab, setActiveTab] = useState<"creative" | "industry">("creative");
+export default function Home() {
+  // -----------------------------------------------------------------
+  // 1. Scramble animation for the hero text (runs once per session)
+  // -----------------------------------------------------------------
+  useLayoutEffect(() => {
+    if (sessionStorage.getItem("scrambled")) return;
+    sessionStorage.setItem("scrambled", "true");
 
-  const pdfSrc = activeTab === "creative" ? "/drawn.pdf" : "/INDUSTRY.pdf";
+    const timer = setTimeout(() => {
+      const animate = () => {
+        const els = document.querySelectorAll(
+          ".scramble-text:not([data-animated])"
+        );
+        els.forEach((el, i) => {
+          const delay = i * 150;
+          setTimeout(() => {
+            if ((el as HTMLElement).dataset.animated === "true") return;
+            (el as HTMLElement).dataset.animated = "true";
+
+            el.classList.remove("animate-text-scramble");
+            void (el as HTMLElement).offsetHeight; // reflow
+            el.classList.add("animate-text-scramble");
+          }, delay);
+        });
+      };
+      requestAnimationFrame(() => requestAnimationFrame(animate));
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const topTextLines = [
+    "Hello, I'm a senior at the USC Iovine and Young Academy,",
+    "An Extended Reality Designer,",
+    "3D Artist,",
+    "Experience Designer,",
+    "and Visual Storyteller",
+  ];
 
   return (
-    <main className="w-full h-screen">
-      <div className="h-32" />
-      <div className="w-full flex justify-center">
-        <div className="flex gap-2 mb-4 bg-black/70 p-1 rounded-full border border-gray-700" style={{ fontFamily: 'var(--font-lekton)' }}>
-          <button
-            onClick={() => setActiveTab("creative")}
-            className={`px-5 py-2 rounded-full transition-colors duration-200 ${
-              activeTab === "creative"
-                ? "bg-white text-black"
-                : "bg-transparent text-white hover:bg-white/10"
-            }`}
-            aria-pressed={activeTab === "creative"}
-          >
-            Creative Resume
-          </button>
-          <button
-            onClick={() => setActiveTab("industry")}
-            className={`px-5 py-2 rounded-full transition-colors duration-200 ${
-              activeTab === "industry"
-                ? "bg-white text-black"
-                : "bg-transparent text-white hover:bg-white/10"
-            }`}
-            aria-pressed={activeTab === "industry"}
-          >
-            Industry Resume
-          </button>
-        </div>
-      </div>
-      <div
-        className="w-full"
-        style={{
-          height: "calc(100% - 12rem)",
-        }}
-      >
-        <div className="w-full h-full flex justify-center items-center">
+    <>
+      {/* ======================= HERO ======================= */}
+      <InteractiveBackground>
+        <section className="min-h-screen flex flex-col justify-center items-center relative text-center">
           <div
-            style={{
-              width: activeTab === "creative" ? "60%" : "90%",
-              height: activeTab === "creative" ? "70%" : "95%",
-            }}
-            className="shadow-xl rounded-lg overflow-hidden border border-gray-700 bg-white"
+            className="mix-blend-difference relative z-40 w-full"
+            style={{ paddingLeft: "30px", paddingRight: "30px" }}
           >
-            <iframe
-              src={pdfSrc}
-              className="w-full h-full"
-              title={activeTab === "creative" ? "Creative Resume PDF" : "Industry Resume PDF"}
-              style={{ border: "none" }}
-            />
-          </div>
-        </div>
-      </div>
-    </main>
-  );
-};
+            {/* LOGO */}
+            <div className="flex justify-center mb-4">
+              <img
+                src="/k-moore-logo.png"
+                alt="K Moore Logo"
+                className="h-20 md:h-32 w-auto"
+                style={{ maxWidth: "calc(100% - 60px)" }}
+              />
+            </div>
 
-export default ResumePage; 
+            {/* SCRAMBLE BIO */}
+            <div
+              className="text-xl md:text-2xl text-white font-bold leading-relaxed scramble-container max-w-4xl mx-auto"
+              style={{ fontFamily: "var(--font-lekton)", lineHeight: "1.4" }}
+            >
+              {topTextLines.map((line, i) => (
+                <span
+                  key={i}
+                  className="scramble-text block mb-1"
+                  data-line={i}
+                >
+                  {line}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      </InteractiveBackground>
+
+      {/* ======================= FEATURED WORKS ======================= */}
+      <FeaturedWorks />
+    </>
+  );
+}
