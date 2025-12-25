@@ -45,9 +45,8 @@ export default function Footer() {
             <h3 className="font-bold mb-4">MENU</h3>
             <ul className="space-y-2">
               <li><Link href="/" className="hover:underline">(Home)</Link></li>
-              <li><Link href="/resume" className="hover:underline">(Resume)</Link></li>
               <li><Link href="/work" className="hover:underline">(Work)</Link></li>
-              <li><Link href="/contact" className="hover:underline">(Contact)</Link></li>
+              <li><Link href="/resume" className="hover:underline">(Resume)</Link></li>
             </ul>
           </div>
 

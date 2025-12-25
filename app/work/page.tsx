@@ -21,7 +21,7 @@ const projectsData = [
     season: "Fall",
     category: ["3D Design"],
     slug: "Angel-gundam",
-    thumbnail: "/gundam/gundam.PNG",
+    thumbnail: "/gundam/gundam.png",
   },
   {
     title: "Cloud 3D Connect",
@@ -337,17 +337,6 @@ export default function WorkPage() {
 
   return (
     <main className="bg-black text-white min-h-screen">
-      <style jsx global>{`
-        @font-face {
-          font-family: 'Lekton';
-          src: url('/fonts/Lekton-Regular.ttf') format('truetype');
-          font-weight: normal;
-          font-style: normal;
-        }
-        .font-lekton {
-          font-family: 'Lekton', sans-serif;
-        }
-      `}</style>
       <div className="h-16" />
       <div className="relative flex flex-col items-center justify-center">
         {/* Main Nav */}

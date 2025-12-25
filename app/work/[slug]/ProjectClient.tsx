@@ -515,21 +515,6 @@ export default function ProjectClient() {
             </div>
           </div>
         </div>
-        {/* Dual slideshows below the main content, full width */}
-        <div className="w-full flex flex-col md:flex-row gap-8 justify-center mt-12">
-          <div className="flex-1 w-full">
-            <ImageSlideshow
-              images={Array.from({length: 8}, (_,i) => `/${21 + i}.png`)}
-              altPrefix="Painter of Light detail image set 1"
-            />
-          </div>
-          <div className="flex-1 w-full">
-            <ImageSlideshow
-              images={["/31.png", "/32.png", "/30.png", "/15.png"]}
-              altPrefix="Painter of Light detail image set 2"
-            />
-          </div>
-        </div>
       </div>
       </React.Fragment>
     );
