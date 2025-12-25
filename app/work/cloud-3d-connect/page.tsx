@@ -29,11 +29,6 @@ export default function Cloud3DConnectPage() {
               cameraControls
               style={{ width: "100%", height: "400px", background: "#222", borderRadius: "1rem" }}
             />
-            <p className="text-sm text-gray-400 mt-4">
-              current stage of development: <br />
-              Finished texturing and reducing 3D model with 28,000 total triangle meshes. <br />
-              Currently developing AR experience with the model.
-            </p>
           </div>
 
           {/* Right column: Content */}

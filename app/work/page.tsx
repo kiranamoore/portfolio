@@ -16,6 +16,15 @@ type Project = {
 
 const projectsData = [
   {
+    title: "AR Product Customizer",
+    year: 2025,
+    season: "Summer",
+    category: ["Extended Reality", "3D Design"],
+    slug: "ar-product-customizer",
+    thumbnail: "/Customizer-thumb.png",
+    company: "Hewlett-Packard / HyperX",
+  },
+  {
     title: "Angel Gundam Headset",
     year: 2025,
     season: "Fall",
