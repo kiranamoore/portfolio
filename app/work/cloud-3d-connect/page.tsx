@@ -19,55 +19,28 @@ export default function Cloud3DConnectPage() {
         style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
-          {/* Left column: Demo Video, 3D Model Viewer, and QR Code - order-2 on mobile, order-1 on desktop */}
-          <div className="flex flex-col items-center justify-center flex-1 h-full space-y-6 order-2 lg:order-1">
-            <div className="flex flex-col items-center">
-              <video
-                src="/Customizer_demo.MOV"
-                controls
-                muted
-                className="w-full max-w-md object-contain rounded-lg border border-gray-700 shadow-lg"
-                style={{ minHeight: '320px' }}
-              >
-                Your browser does not support the video tag.
-              </video>
-              <p className="text-sm text-gray-400 mt-2 text-center">
-                Live AR Demo
-              </p>
-            </div>
-            
+          {/* Left column: 3D Model Viewer + stage info */}
+          <div className="flex flex-col items-center justify-center flex-1 h-full">
             <ModelViewer
               src="/Cloud-3-S-7-17.glb"
-              alt="AR Product Customizer 3D Model"
+              alt="Cloud 3D Connect 3D Model"
               ar
               autoRotate
               cameraControls
               style={{ width: "100%", height: "400px", background: "#222", borderRadius: "1rem" }}
             />
-            
-            <div className="flex flex-col items-center">
-              <img
-                src="/customizer_qr_code.png"
-                alt="Scan to try!"
-                className="w-full max-w-xs object-contain rounded-lg border border-gray-700 shadow-lg"
-              />
-              <p className="text-sm text-gray-400 mt-2 text-center">
-                Scan to try!
-              </p>
-            </div>
-            
-            <p className="text-sm text-gray-400 mt-4 text-center">
+            <p className="text-sm text-gray-400 mt-4">
               current stage of development: <br />
               Finished texturing and reducing 3D model with 28,000 total triangle meshes. <br />
               Currently developing AR experience with the model.
             </p>
           </div>
 
-          {/* Right column: Content - order-1 on mobile, order-2 on desktop */}
-          <div className="flex flex-col items-center text-center space-y-6 flex-1 order-1 lg:order-2">
+          {/* Right column: Content */}
+          <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
-              <p className="text-sm text-gray-300">Summer 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-white">AR Product Customizer</h1>
+              <p className="text-sm text-gray-300">May 2025 – August 2025</p>
+              <h1 className="text-4xl md:text-6xl font-bold">Cloud 3D Connect</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
               Developed an interactive 3D experience that showcases key product highlights and allows in-store customers to customize HyperX's Cloud 3 S headset in real time. The solution helps sway purchase decisions by visually demonstrating HyperX's advantages over competitors.
@@ -80,9 +53,9 @@ export default function Cloud3DConnectPage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Worked as the sole <span className="font-bold">Augmented Reality Developer</span> to create an <span className="font-bold">in-store and mobile-friendly customization tool</span> to drive HX3D accessory sales and in-store purchases.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Highlighted unique product features to support customer decision-making at the point of sale.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white"><span className="font-bold">Bridged the gap between headset purchases and accessory personalization.</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Worked as the sole <span className="font-bold">Augmented Reality Developer</span> to create an <span className="font-bold">in-store and mobile-friendly customization tool</span> to drive HX3D accessory sales and in-store purchases.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Highlighted unique product features to support customer decision-making at the point of sale.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><span className="font-bold">Bridged the gap between headset purchases and accessory personalization.</span></span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -93,10 +66,10 @@ export default function Cloud3DConnectPage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Key Contributions</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Optimized 3D models <span className="font-bold">(Blender)</span> and textures <span className="font-bold">(Blender &amp; Substance Painter)</span> for mobile performance.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Built the interactive experience in Unity with real-time rendering and AR integration.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white"><span className="font-bold">Developed feature callouts, animations, and clickable hotspots</span> to showcase benefits like comfort, sound quality, and HX3D compatibility.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white"><span className="font-bold">Delivered a production-ready solution for retail deployment.</span></span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized 3D models <span className="font-bold">(Blender)</span> and textures <span className="font-bold">(Blender &amp; Substance Painter)</span> for mobile performance.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the interactive experience in Unity with real-time rendering and AR integration.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Developed feature callouts, animations, and clickable hotspots</span> to showcase benefits like comfort, sound quality, and HX3D compatibility.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Delivered a production-ready solution for retail deployment.</span></span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -107,9 +80,9 @@ export default function Cloud3DConnectPage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Helped customers understand HyperX advantages over competitors directly in-store.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Increased headset engagement and HX3D accessory sales.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Provided a scalable, interactive retail tool that enhances the buying experience.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Helped customers understand HyperX advantages over competitors directly in-store.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Increased headset engagement and HX3D accessory sales.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Provided a scalable, interactive retail tool that enhances the buying experience.</span></li>
                 </ul>
               </section>
             </div>

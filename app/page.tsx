@@ -1,74 +1,88 @@
 "use client";
-
 import InteractiveBackground from "@/components/core/InteractiveBackground";
+import TextScramble from "@/components/core/TextScramble";
 import FeaturedWorks from "@/components/FeaturedWorks";
-import { useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  useLayoutEffect(() => {
-    if (sessionStorage.getItem("scrambled")) return;
-    sessionStorage.setItem("scrambled", "true");
+  const [californiaTime, setCaliforniaTime] = useState("");
 
-    const timer = setTimeout(() => {
-      const els = document.querySelectorAll(".scramble-text");
-      els.forEach((el, i) => {
-        setTimeout(() => {
-          el.classList.add("animate-text-scramble");
-        }, i * 150);
+  useEffect(() => {
+    const getCaliforniaTime = () => {
+      const time = new Date().toLocaleTimeString("en-US", {
+        timeZone: "America/Los_Angeles",
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
       });
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
+      setCaliforniaTime(time.replace(" ", ""));
+    };
 
-  const bioLines = [
-    "Hello, I'm a senior at the USC Iovine and Young Academy,",
-    "An Extended Reality Designer,",
-    "3D Artist,",
-    "Experience Designer,",
-    "and Visual Storyteller",
-  ];
+    getCaliforniaTime();
+    const interval = setInterval(getCaliforniaTime, 1000 * 60);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
-      <InteractiveBackground>
-        <section className="min-h-screen flex flex-col justify-center items-center relative text-center">
-          <div className="mix-blend-difference relative z-40 w-full px-8">
-            {/* LOGO */}
-            <div className="flex justify-center mb-6">
-              <img
-                src="/k-moore-logo.png"
-                alt="Kirana Moore"
-                className="h-24 md:h-32 w-auto"
-              />
+      <main>
+        <InteractiveBackground>
+          <section 
+            className="h-[60vh] flex flex-col justify-center items-center relative text-center" 
+            style={{ height: 'calc(60vh - 100px)' }}
+          >
+            <div className="mix-blend-difference relative z-40">
+              <div className="flex justify-center">
+                <img 
+                  src="/k-moore-logo.png" 
+                  alt="K Moore Logo" 
+                  className="h-28 md:h-40 w-auto"
+                />
+              </div>
+              <div className="h-2"></div>
+              <p 
+                className="text-xl md:text-2xl text-white whitespace-pre-line font-bold" 
+                style={{ 
+                  fontFamily: 'var(--font-lekton)', 
+                  lineHeight: '30px'
+                }}
+              >
+                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\nAn Extended Reality Designer,\n3D Artist,\nExperience Designer,\nand Visual Storyteller"} />
+              </p>
             </div>
+            <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
+              <p style={{ fontFamily: 'var(--font-lekton)' }}>
+                San Francisco / Los Angeles, CA &gt; {californiaTime}
+              </p>
+            </div>
+          </section>
+        </InteractiveBackground>
 
-            {/* SCRAMBLE BIO */}
-            <div
-              className="text-xl md:text-2xl text-white font-bold leading-relaxed max-w-4xl mx-auto"
-              style={{ fontFamily: "var(--font-lekton)", lineHeight: "1.5" }}
+        <section
+          id="about"
+          className="py-5 bg-black text-white text-center"
+          style={{ paddingTop: "20px", paddingBottom: "20px" }}
+        >
+          <div>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <TextScramble text="About Me" />
+            </h2>
+            <p
+              className="text-lg md:text-xl leading-relaxed px-8"
+              style={{ 
+                maxWidth: "50rem", 
+                margin: "0 auto", 
+                fontFamily: 'var(--font-lekton)' 
+              }}
             >
-              {bioLines.map((line, i) => (
-                <div
-                  key={i}
-                  className="scramble-text block mb-1 opacity-0"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                >
-                  {line}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* TIME/LOCATION */}
-          <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
-            <p style={{ fontFamily: "var(--font-lekton)" }}>
-              San Francisco / Los Angeles, CA &gt; 03:29PM
+              I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences. Skilled in Unity, 3D modeling, and spatial design, I create user-centered environments that captivate and connect. Let's build something extraordinary together!
             </p>
           </div>
         </section>
-      </InteractiveBackground>
 
-      <FeaturedWorks />
+        <FeaturedWorks />
+      </main>
     </>
   );
 }

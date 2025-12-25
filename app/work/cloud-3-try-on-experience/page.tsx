@@ -13,8 +13,8 @@ export default function Cloud3TryOnExperiencePage() {
         style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '50px', maxWidth: '1400px' }}
       >
         <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center" style={{maxWidth: '1200px'}}>
-          {/* Left column: Video - order-2 on mobile, order-1 on desktop */}
-          <div className="flex flex-col items-center justify-center flex-1 h-full order-2 lg:order-1">
+          {/* Left column: Video */}
+          <div className="flex flex-col items-center justify-center flex-1 h-full">
             <video
               src="/Headphone color swap.mov"
               controls
@@ -26,11 +26,11 @@ export default function Cloud3TryOnExperiencePage() {
             />
           </div>
 
-          {/* Right column: Content - order-1 on mobile, order-2 on desktop */}
-          <div className="flex flex-col items-center text-center space-y-6 flex-1 order-1 lg:order-2">
+          {/* Right column: Content */}
+          <div className="flex flex-col items-center text-center space-y-6 flex-1">
             <div className="space-y-1">
               <p className="text-sm text-gray-300">Summer 2024</p>
-              <h1 className="text-4xl md:text-6xl font-bold text-white">Cloud 3 Try-On Experience</h1>
+              <h1 className="text-4xl md:text-6xl font-bold">Cloud 3 Try-On Experience</h1>
             </div>
             <p className="text-lg text-gray-200 mt-2">
               Created an AR Try-On experience that lets customers virtually wear HyperX Cloud 3 headsets in real time, featuring accurate 3D models, seamless face tracking, and interactive toggles to explore different styles and improve purchase confidence.
@@ -43,9 +43,9 @@ export default function Cloud3TryOnExperiencePage() {
                   <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Served as <span className="font-semibold">Lead AR Developer</span> to create an augmented reality Try-On tool for HyperX customers.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Aimed to enable users to virtually try on HyperX headsets—specifically the Cloud 3 series—through AR technology.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span className="text-white">Targeted enhancing customer confidence in fit, style, and purchase decisions while reducing product returns.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-semibold text-white">Lead AR Developer</span> to create an augmented reality Try-On tool for HyperX customers.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to enable users to virtually try on HyperX headsets—specifically the Cloud 3 series—through AR technology.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted enhancing customer confidence in fit, style, and purchase decisions while reducing product returns.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -56,11 +56,11 @@ export default function Cloud3TryOnExperiencePage() {
                   <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Built the interactive AR experience using <span className="font-bold">Meta Spark Studio</span> for seamless mobile functionality.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Modeled 3D assets using <span className="font-bold">Rhinoceros 3D & Blender</span> and created textures with <span className="font-bold">Adobe Substance</span>.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Designed a single toggle button interface allowing users to switch between different Cloud 3 headset versions.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Implemented head-binded face tracking for accurate and intuitive headset visualization.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span className="text-white">Optimized AR performance across diverse mobile devices by refining 3D assets and streamlining interactions.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Built the interactive AR experience using <span className="font-bold">Meta Spark Studio</span> for seamless mobile functionality.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Modeled 3D assets using <span className="font-bold">Rhinoceros 3D & Blender</span> and created textures with <span className="font-bold">Adobe Substance</span>.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed a single toggle button interface allowing users to switch between different Cloud 3 headset versions.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Implemented head-binded face tracking for accurate and intuitive headset visualization.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized AR performance across diverse mobile devices by refining 3D assets and streamlining interactions.</span></li>
                 </ul>
               </section>
               <div className="border-t border-gray-700 my-6" />
@@ -71,10 +71,10 @@ export default function Cloud3TryOnExperiencePage() {
                   <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
                 </div>
                 <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Delivered a fully functional prototype that enables personalized, immersive product try-ons.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Successfully demonstrated the viability of scalable, user-centric AR shopping tools for e-commerce.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Potential to reduce product returns by helping customers assess fit and style before purchasing.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span className="text-white">Established a foundation for future customer-facing deployment with production-ready assets.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a fully functional prototype that enables personalized, immersive product try-ons.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully demonstrated the viability of scalable, user-centric AR shopping tools for e-commerce.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Potential to reduce product returns by helping customers assess fit and style before purchasing.</span></li>
+                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a foundation for future customer-facing deployment with production-ready assets.</span></li>
                 </ul>
               </section>
             </div>
