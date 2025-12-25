@@ -530,7 +530,7 @@ export default function ProjectClient() {
             />
           </div>
         </div>
+      </div>
       </React.Fragment>
     );
-  }
 }
