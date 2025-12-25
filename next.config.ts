@@ -1,13 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // Temporarily skip ESLint warnings in builds (revert after fixing)
-  },
-  typescript: {
-    ignoreBuildErrors: true, // Temporarily skip TS errors (use sparingly; revert after fixes)
-  },
-  // Add other options here if needed (e.g., images, env vars)
+  // Next.js 16+ handles linting and type-checking separately
+  // Use ESLint CLI or your IDE for linting during development
 };
 
 export default nextConfig;
