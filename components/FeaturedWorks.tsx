@@ -116,15 +116,6 @@ const projectsData: Project[] = [
     company: undefined,
   },
   {
-    title: "Mosaic – Future Car Concept for Honda",
-    year: 2025,
-    season: "Spring",
-    category: ["Extended Reality"],
-    slug: "mosaic",
-    thumbnail: "/mosaic thumbnail.png",
-    company: "Honda",
-  },
-  {
     title: "The Traveler",
     year: 2025,
     season: "Fall",

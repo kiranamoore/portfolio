@@ -138,15 +138,6 @@ const projectsData = [
     company: undefined,
   },
   {
-    title: "Mosaic – Future Car Concept for Honda",
-    year: 2025,
-    season: "Spring",
-    category: ["Extended Reality"],
-    slug: "mosaic",
-    thumbnail: "/mosaic thumbnail.png",
-    company: "Honda",
-  },
-  {
     title: "The Traveler",
     year: 2025,
     season: "Fall",
@@ -286,7 +277,6 @@ const categories = [
 const companies = [
   "All",
   "Hewlett-Packard / HyperX",
-  "Honda",
 ];
 
 const archImages = Array.from({ length: 19 }, (_, i) => `/arch/${i}.jpg`);
