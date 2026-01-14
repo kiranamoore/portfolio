@@ -1,36 +1,24 @@
-"use client";
-
-import React from "react";
-
-const ResumePage = () => {
+export default function ResumePage() {
   return (
-    <main className="w-full h-screen">
-      <div className="h-32" />
-      <div
-        className="w-full"
-        style={{
-          height: "calc(100% - 8rem)",
-        }}
-      >
-        <div className="w-full h-full flex justify-center items-center">
-          <div
-            style={{
-              width: "90%",
-              height: "95%",
-            }}
-            className="shadow-xl rounded-lg overflow-hidden border border-gray-700 bg-white"
-          >
-            <iframe
-              src="/INDUSTRY.pdf"
-              className="w-full h-full"
-              title="Resume PDF"
-              style={{ border: "none" }}
-            />
-          </div>
+    <div className="min-h-screen bg-[#FAFAFA]">
+      <section className="pt-24 pb-12 md:pt-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="text-[32px] font-semibold text-[#1D1D1F] tracking-tight mb-8">
+            Resume
+          </h1>
+        </div>
+      </section>
+
+      <div className="max-w-4xl mx-auto px-6 pb-16">
+        <div className="rounded-xl border border-[#E5E5E5] overflow-hidden bg-white shadow-sm">
+          <iframe
+            src="/INDUSTRY.pdf"
+            className="w-full"
+            style={{ height: "calc(100vh - 280px)", minHeight: "600px" }}
+            title="Resume PDF"
+          />
         </div>
       </div>
-    </main>
+    </div>
   );
-};
-
-export default ResumePage;
+}

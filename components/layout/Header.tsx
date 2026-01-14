@@ -2,143 +2,72 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useCursor } from "@/context/CursorContext";
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const { setVariant } = useCursor();
   const pathname = usePathname();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const linkProps = {
-    onMouseEnter: () => setVariant("hover"),
-    onMouseLeave: () => setVariant("default"),
-  };
-
-  // Close sidebar on route change
   useEffect(() => {
-    setSidebarOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when sidebar is open
-  useEffect(() => {
-    if (sidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
     };
-  }, [sidebarOpen]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      {/* Top Header Bar */}
-      <header
-        className="fixed top-0 left-0 w-full p-4 md:p-6 flex items-center z-50 mix-blend-difference text-white"
-      >
-        {/* Hamburger - Left */}
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="p-2 hover:opacity-70 transition-opacity"
-          aria-label="Open menu"
-          {...linkProps}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 backdrop-blur-xl border-b border-[#E5E5E5]/50 shadow-sm"
+          : "bg-white/90 backdrop-blur-md"
+      }`}
+    >
+      <div className="h-20 flex items-center justify-between w-full" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
+        {/* Logo / Name */}
+        <Link
+          href="/"
+          className="group flex items-center gap-3"
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="18" x2="21" y2="18" />
-          </svg>
-        </button>
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-lg shadow-[#667eea]/20 group-hover:shadow-[#667eea]/40 transition-shadow">
+            <span className="text-[15px] font-bold text-white">KM</span>
+          </div>
+          <span className="text-[15px] font-semibold text-[#1D1D1F] hidden sm:block">
+            Kirana Moore
+          </span>
+        </Link>
 
-        {/* Centered Logo */}
-        <div className="flex-1 flex justify-center">
+        {/* Navigation Links */}
+        <nav className="flex items-center gap-2">
           <Link
-            href="/"
-            className="text-xl md:text-2xl font-bold tracking-wider"
-            {...linkProps}
+            href="/work"
+            className={`px-4 py-2 text-[14px] font-medium rounded-full transition-all ${
+              pathname === "/work" || pathname.startsWith("/work/")
+                ? "bg-[#1D1D1F] text-white"
+                : "text-[#6E6E73] hover:text-[#1D1D1F] hover:bg-[#F5F5F7]"
+            }`}
           >
-            KIRANA
+            Work
           </Link>
-        </div>
-
-        {/* Spacer for balance */}
-        <div className="w-10" />
-      </header>
-
-      {/* Sidebar Overlay (for clicking outside to close) */}
-      {sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40"
-          onClick={() => setSidebarOpen(false)}
-        />
-      )}
-
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 h-full w-72 bg-black border-r border-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Sidebar Header */}
-        <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-800">
-          <span className="text-lg font-semibold text-white">Menu</span>
-          <button
-            onClick={() => setSidebarOpen(false)}
-            className="p-2 hover:opacity-70 transition-opacity text-white"
-            aria-label="Close menu"
-            {...linkProps}
+          <Link
+            href="/resume"
+            className={`px-4 py-2 text-[14px] font-medium rounded-full transition-all ${
+              pathname === "/resume"
+                ? "bg-[#1D1D1F] text-white"
+                : "text-[#6E6E73] hover:text-[#1D1D1F] hover:bg-[#F5F5F7]"
+            }`}
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Sidebar Navigation */}
-        <nav className="p-4 md:p-6">
-          <ul className="space-y-4">
-            <li>
-              <Link
-                href="/"
-                className={`block text-lg py-2 px-3 rounded transition-colors ${
-                  pathname === "/" ? "bg-white/10 text-white" : "text-gray-300 hover:text-white hover:bg-white/5"
-                }`}
-                onClick={() => setSidebarOpen(false)}
-                {...linkProps}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/work"
-                className={`block text-lg py-2 px-3 rounded transition-colors ${
-                  pathname.startsWith("/work") ? "bg-white/10 text-white" : "text-gray-300 hover:text-white hover:bg-white/5"
-                }`}
-                onClick={() => setSidebarOpen(false)}
-                {...linkProps}
-              >
-                Work
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/resume"
-                className={`block text-lg py-2 px-3 rounded transition-colors ${
-                  pathname === "/resume" ? "bg-white/10 text-white" : "text-gray-300 hover:text-white hover:bg-white/5"
-                }`}
-                onClick={() => setSidebarOpen(false)}
-                {...linkProps}
-              >
-                Resume
-              </Link>
-            </li>
-          </ul>
+            Resume
+          </Link>
+          <a
+            href="mailto:kiranaamoore@gmail.com"
+            className="ml-2 px-4 py-2 text-[14px] font-medium text-white bg-gradient-to-r from-[#667eea] to-[#764ba2] rounded-full hover:shadow-lg hover:shadow-[#667eea]/30 transition-all"
+          >
+            Contact
+          </a>
         </nav>
-      </aside>
-    </>
+      </div>
+    </header>
   );
 }

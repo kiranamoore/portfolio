@@ -1,403 +1,124 @@
-"use client";
-import ProjectGrid from "@/components/ProjectGrid";
-import TextScramble from "@/components/core/TextScramble";
-import { useState, Fragment } from "react";
-import ImageSlideshow from "@/components/core/ImageSlideshow";
+import Link from "next/link";
 
-type Project = {
-  title: string;
-  year: number;
-  category: string[];
-  slug: string;
-  thumbnail?: string;
-  company?: string;
-  season?: string;
-};
-
-const projectsData = [
+const featuredProjects = [
   {
     title: "AR Product Customizer",
+    company: "HP/HyperX",
     year: 2025,
-    season: "Summer",
-    category: ["Extended Reality", "3D Design"],
     slug: "ar-product-customizer",
-    thumbnail: "/Customizer-thumb.png",
-    company: "Hewlett-Packard / HyperX",
+    thumbnail: "/AR-PRODUCT-CUSTOMIZER-THUMBNAIL.png",
+    description: "Real-time 3D headset customization for retail",
+    tags: ["Unity", "AR", "3D"],
   },
   {
-    title: "Angel Gundam Headset",
+    title: "Quick Start Guide AR Manual",
+    company: "HP/HyperX",
     year: 2025,
-    season: "Fall",
-    category: ["3D Design"],
-    slug: "Angel-gundam",
-    thumbnail: "/gundam/gundam.png",
+    slug: "quick-start-guide-ar-manual",
+    thumbnail: "/quick_start_guide_thumbnail.png",
+    description: "Paperless AR onboarding experience",
+    tags: ["Lens Studio", "UX"],
   },
   {
     title: "Cloud 3D Connect",
+    company: "HP/HyperX",
     year: 2025,
-    category: ["Extended Reality"],
     slug: "cloud-3d-connect",
     thumbnail: "/18k tris.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "Quick Start Guide Augmented Reality Manual",
-    year: 2025,
-    category: ["Extended Reality"],
-    slug: "quick-start-guide-ar-manual",
-    thumbnail: "/quick_start_guide_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "HyperX Cloud 3 3D Customizer",
-    year: 2025,
-    category: ["Extended Reality", "3D Design"],
-    slug: "hyperx-cloud-3-3d-customizer",
-    thumbnail: "/HX3D_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "Interactive Packaging with Product Features",
-    year: 2024,
-    category: ["Extended Reality", "3D Design"],
-    slug: "interactive-packaging-product-features",
-    thumbnail: "/packaging_effect_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "Animated Keyboard Packaging",
-    year: 2024,
-    season: "Fall",
-    category: ["Extended Reality", "3D Design"],
-    slug: "animated-keyboard-packaging",
-    thumbnail: "/keyboard_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "The Painter of Light",
-    year: 2025,
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "painter-of-light",
-    thumbnail: "/hero%20render_ps.png",
+    description: "Interactive in-store product showcase",
+    tags: ["Unity", "WebGL", "3D"],
   },
   {
     title: "Meta Alchemy",
+    company: null,
     year: 2025,
-    category: ["Extended Reality", "3D Design"],
     slug: "meta-alchemy",
     thumbnail: "/meta_alchemy.png",
+    description: "Mixed reality creative sandbox for Quest 3",
+    tags: ["Unity", "MR", "Quest 3"],
   },
   {
-    title: "Cops and Robbers",
-    year: 2025,
-    category: ["Extended Reality"],
-    slug: "cops-and-robbers",
-    thumbnail: "/cops_robbers.png",
-  },
-  {
-    title: "Cloud 3 Try-On Experience",
-    year: 2024,
-    category: ["Extended Reality", "3D Design"],
-    slug: "cloud-3-try-on-experience",
-    thumbnail: "/tryon_thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "Castle Chambers",
-    year: 2025,
-    category: ["Extended Reality"],
-    slug: "castle-chambers",
-    thumbnail: "/castle-chambers.png",
-    company: undefined,
-  },
-  {
-    title: "TRAINAR",
-    year: 2024,
-    season: "Spring",
-    category: ["Extended Reality"],
-    slug: "trainar",
-    thumbnail: "/trainar/trainar.png",
-    company: undefined,
-  },
-  {
-    title: "Pixel Headphones",
-    year: 2024,
-    season: "Spring",
-    category: ["Extended Reality", "3D Design"],
-    slug: "pixel-headphones",
-    thumbnail: "/pixel headphones.png",
-    company: undefined,
-  },
-  {
-    title: "Beast of Burden",
-    year: 2024,
-    season: "Fall",
-    category: ["Visual Narrative Art"],
-    slug: "beast-of-burden",
-    thumbnail: "/beast of burden/beast of burden.png",
-    company: undefined,
-  },
-  {
-    title: "The Traveler",
-    year: 2025,
-    season: "Fall",
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "the-traveler",
-    thumbnail: "/traveler/traveler.png",
-  },
-  {
-    title: "The Helper",
-    year: 2025,
-    season: "Spring",
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "the-helper",
-    thumbnail: "/thumbnail-helper.png",
-  },
-  {
-    title: "Eclipse",
-    year: 2025,
-    season: "Spring",
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "eclipse",
-    thumbnail: "/eclipse/thumbnail.png",
-  },
-  {
-    title: "Fading Memories",
-    year: 2024,
-    season: "Spring",
-    category: ["Immersive Experiences"],
-    slug: "fading-memories",
-    thumbnail: "/fading-memories/thumbnail.png",
-  },
-  {
-    title: "Magical Girl VS. Corporate Zombies",
-    year: 2025,
-    season: "Spring",
-    category: ["Visual Narrative Art"],
-    slug: "magical-girl-vs-zombies",
-    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
-  },
-  {
-    title: "The Great Cow Invasion of Los Angeles!",
-    year: 2024,
-    season: "Spring",
-    category: ["Visual Narrative Art"],
-    slug: "the-great-cow-invasion-of-los-angeles",
-    thumbnail: "/cow-invasion-thumbnail.png",
-  },
-  {
-    title: "Nike x League of Legends Skin Collaboration: Zeri",
+    title: "Nike x LoL Zeri",
+    company: null,
     year: 2021,
-    season: "Winter",
-    category: ["Visual Narrative Art", "3D Design"],
     slug: "nike-league-of-legends-zeri",
     thumbnail: "/zeri-thumbnail.png",
-  },
-  {
-    title: "Arts District Library",
-    year: 2023,
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "arts-district-library",
-    thumbnail: "/skate.png",
-  },
-  {
-    title: "Weaving Spaces",
-    year: 2022,
-    category: ["Immersive Experiences", "3D Design"],
-    slug: "weaving-spaces",
-    thumbnail: "/weaving/project-4-06.png",
-  },
-  {
-    title: "Catatonia",
-    year: 2024,
-    season: "Spring",
-    category: ["Extended Reality", "3D Design"],
-    slug: "catatonia",
-    thumbnail: "/catatoniathumbnail.png",
-  },
-  {
-    title: "3D Model Optimization for XR",
-    year: 2025,
-    season: "Summer",
-    category: ["Extended Reality", "3D Design"],
-    slug: "hyperx-3d-optimization",
-    thumbnail: "/3d-viewer-thumbnail.png",
-    company: "Hewlett-Packard / HyperX",
-  },
-  {
-    title: "Marker-Based Augmented Reality Development",
-    year: 2025,
-    season: "Summer",
-    category: ["Extended Reality"],
-    slug: "hyperx-unity-web-ar",
-    thumbnail: "/hiro-marker-thumb.png",
-    company: "Hewlett-Packard / HyperX",
+    description: "Cross-industry fashion gaming collaboration",
+    tags: ["Blender", "Animation"],
   },
 ];
-
-// Helper to extract season and year
-function getSeasonAndYear(project: Project) {
-  const seasonRegex = /(Spring|Summer|Fall|Winter)\s*(\d{4})/i;
-  let season = null, year = null;
-  if (project.season && project.year) {
-    season = project.season;
-    year = project.year;
-  } else if (project.title && seasonRegex.test(project.title)) {
-    const match = project.title.match(seasonRegex);
-    if (match) {
-      season = match[1];
-      year = parseInt(match[2]);
-    }
-  } else if (project.year) {
-    season = project.season || 'Spring';
-    year = project.year;
-  }
-  return { season: season as string, year };
-}
-
-const seasonOrder: Record<string, number> = { 'Summer': 3, 'Fall': 2, 'Spring': 1, 'Winter': 0 };
-
-const sortedProjectsData = [...projectsData].sort((a, b) => {
-  const aInfo = getSeasonAndYear(a);
-  const bInfo = getSeasonAndYear(b);
-  if (aInfo.year != null && bInfo.year != null && aInfo.year !== bInfo.year) {
-    return bInfo.year - aInfo.year;
-  }
-  return (seasonOrder[String(bInfo.season)] || 0) - (seasonOrder[String(aInfo.season)] || 0);
-});
-
-const categories = [
-  "All",
-  "Extended Reality",
-  "Immersive Experiences",
-  "Visual Narrative Art",
-  "3D Design",
-];
-
-const companies = [
-  "All",
-  "Hewlett-Packard / HyperX",
-];
-
-const archImages = Array.from({ length: 19 }, (_, i) => `/arch/${i}.jpg`);
-
-function ArtsDistrictLibrary() {
-  return (
-    <section className="my-24">
-      <div className="max-w-4xl mx-auto">
-        <ImageSlideshow images={archImages} altPrefix="Arts District Library" />
-        <div className="mt-10 text-center">
-          <p className="text-sm text-gray-400 font-lekton">Spring 2023</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Arts District Library</h2>
-          <p className="text-lg font-medium mb-6 font-lekton">
-            Library x Skatepark – Hybrid Urban Space Design<br/>
-            For this design challenge, we were tasked with creating a library for an empty lot in Downtown Los Angeles' Arts District, combining it with an unconventional secondary program.
-          </p>
-          <section className="mb-6 text-left max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-2 text-red-400">Key Features</h3>
-            <ul className="list-disc pl-5 space-y-2 font-lekton">
-              <li><strong>Contextual Urban Analysis:</strong> Conducted thorough site research, including color-coded diagrams mapping surrounding neighborhood programs to inform spatial relationships.</li>
-              <li><strong>Circulation-Driven Design:</strong> Initially envisioned the project to be surrounded by a playground, which became the foundation for early circulation studies.</li>
-              <li><strong>Evolving Concept:</strong> Transformed the surrounding playground into a "play-ground" skate park, introducing a more dynamic, youth-oriented public space.</li>
-              <li><strong>Form Development:</strong> Shaped the library by extruding the site and carving out large circular forms to create distinct masses, open-air courtyards, and interconnected walkways.</li>
-              <li><strong>Multi-Level Spatial Flow:</strong> Divided the building into upper and ground floor zones to encourage exploration and layered movement through the space.</li>
-            </ul>
-          </section>
-          <section className="mb-6 text-left max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-2 text-red-400">Design Focus</h3>
-            <ul className="list-disc pl-5 space-y-2 font-lekton">
-              <li>Integrating play, learning, and community into a cohesive spatial experience</li>
-              <li>Designing movement pathways inspired by playground circulation</li>
-              <li>Blurring boundaries between traditional educational spaces and recreational environments</li>
-            </ul>
-          </section>
-          <section className="text-left max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-2 text-red-400">Project Impact</h3>
-            <p className="font-lekton">
-              This project showcases my ability to evolve design concepts through iterative research, circulation studies, and playful form-making, resulting in a vibrant, community-centered space that challenges conventional library design.
-            </p>
-          </section>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function WorkPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [activeCompany, setActiveCompany] = useState("All");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  const filteredProjects = sortedProjectsData.filter((p) => {
-    const categoryMatch = activeCategory === "All" || p.category.includes(activeCategory);
-    const companyMatch = activeCategory === "Extended Reality" && activeCompany !== "All" ? p.company === activeCompany : true;
-    return categoryMatch && companyMatch;
-  });
-
   return (
-    <main className="bg-black text-white min-h-screen">
-      <div className="h-16" />
-      <div className="relative flex flex-col items-center justify-center">
-        {/* Main Nav */}
-        <nav className="w-full py-4">
-          <div className="max-w-7xl mx-auto px-4 flex justify-center items-center gap-4">
-            <h1 className="text-xl md:text-2xl font-bold">Work</h1>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => {
-                  setActiveCategory(cat);
-                  if (cat !== "Extended Reality") setActiveCompany("All");
-                }}
-                className={`text-sm md:text-base font-semibold uppercase px-4 py-2 rounded transition-colors duration-200 ${activeCategory === cat ? "text-red-500 border-b-2 border-red-500" : "text-white hover:text-red-500 hover:border-b-2 hover:border-red-500"}`}
+    <div className="min-h-screen bg-[#FAFAFA]">
+      {/* Header Section */}
+      <section className="hero-gradient pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="max-w-6xl mx-auto px-8 md:px-12">
+          <p className="text-[13px] font-medium text-[#667eea] uppercase tracking-wider mb-3">Portfolio</p>
+          <h1 className="text-[40px] md:text-[48px] font-bold text-[#1D1D1F] tracking-tight mb-4">
+            Selected Work
+          </h1>
+          <p className="text-[17px] text-[#6E6E73] max-w-2xl">
+            A curated collection of projects showcasing my expertise in AR/VR development,
+            3D design, and product innovation.
+          </p>
+        </div>
+      </section>
+
+      {/* Projects Grid */}
+      <section className="py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-8 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {featuredProjects.map((project, index) => (
+              <Link
+                key={project.slug}
+                href={`/work/${project.slug}`}
+                className="group block"
               >
-                {cat}
-              </button>
+                <div className={`overflow-hidden rounded-2xl border border-[#E5E5E5]/50 bg-white card-hover h-full ${
+                  index === 0 ? 'md:col-span-2' : ''
+                }`}>
+                  <div className="aspect-[16/10] relative overflow-hidden">
+                    <img
+                      src={project.thumbnail}
+                      alt={project.title}
+                      className="w-full h-full object-cover zoom-image"
+                    />
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Arrow indicator */}
+                    <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                      <svg className="w-5 h-5 text-[#1D1D1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="p-8 md:p-10 text-center flex flex-col items-center">
+                    {/* Tags */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-5">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-4 py-1.5 text-[11px] font-medium text-[#667eea] bg-[#667eea]/10 rounded-md">{tag}</span>
+                      ))}
+                    </div>
+                    {/* Title */}
+                    <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-4 group-hover:text-[#667eea] transition-colors">
+                      {project.title}
+                    </h3>
+                    {/* Description */}
+                    <p className="text-[16px] text-[#6E6E73] mb-4">
+                      {project.description}
+                    </p>
+                    {/* Meta */}
+                    <p className="text-[14px] text-[#86868B]">
+                      {project.company ? `${project.company} · ` : ""}{project.year}
+                    </p>
+                  </div>
+                </div>
+              </Link>
             ))}
           </div>
-        </nav>
-        {/* Custom Dropdown for Extended Reality */}
-        {activeCategory === "Extended Reality" && (
-          <div className="max-w-7xl w-full px-4 md:px-8 py-4 flex justify-center">
-            <div className="relative">
-              <button
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="bg-gray-800 text-white font-semibold uppercase px-6 py-3 rounded-lg border border-gray-700 hover:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 flex items-center gap-2"
-              >
-                {activeCompany}
-                <svg
-                  className={`w-4 h-4 transform transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              {isDropdownOpen && (
-                <ul className="absolute z-10 mt-2 w-64 bg-gray-800 border border-gray-700 rounded-lg shadow-lg overflow-hidden">
-                  {companies.map((company) => (
-                    <li
-                      key={company}
-                      onClick={() => {
-                        setActiveCompany(company);
-                        setIsDropdownOpen(false);
-                      }}
-                      className="px-4 py-2 text-white hover:bg-red-500 hover:text-white cursor-pointer transition-colors duration-200"
-                    >
-                      {company}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
-        )}
-        {/* Project Grid */}
-        <div className="max-w-7xl w-full px-4 md:px-8 py-8 flex justify-center">
-          <ProjectGrid projects={filteredProjects} />
         </div>
-      </div>
-    </main>
+      </section>
+    </div>
   );
 }

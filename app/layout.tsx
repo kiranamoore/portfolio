@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScrolling from "@/components/core/SmoothScrolling";
 import Header from "@/components/layout/Header";
-import CustomCursor from "@/components/core/CustomCursor";
-import { CursorProvider } from "@/context/CursorContext";
-import Footer from "@/components/layout/Footer";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kirana - Creative Portfolio",
-  description: "A portfolio of creative work by Kirana.",
+  title: "Kirana Moore - Product Designer",
+  description: "Product designer portfolio showcasing UX/UI design, AR/VR experiences, and creative technology.",
 };
 
 export default function RootLayout({
@@ -22,15 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "bg-black text-white")}>
-        <CursorProvider>
-          <CustomCursor />
-          <SmoothScrolling>
-            <Header />
-            {children}
-            <Footer />
-          </SmoothScrolling>
-        </CursorProvider>
+      <body className={inter.className}>
+        <Header />
+        <main>{children}</main>
       </body>
     </html>
   );
