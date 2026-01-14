@@ -1,161 +1,265 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useState } from "react";
+import HeroBackground from "@/components/HeroBackground";
 
 export default function AngelGundamHeadsetPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const images = Array.from({ length: 9 }, (_, i) => `/gundam/${i + 2}.png`);
+  const [activeSlide, setActiveSlide] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, 2000); // change every 2 seconds
-    return () => clearInterval(interval);
-  }, [images.length]);
+  const slides = [
+    { type: "image", src: "/gundam/2.png", caption: "Angel Gundam Headset" },
+    { type: "image", src: "/gundam/3.png", caption: "Wing Detail" },
+    { type: "image", src: "/gundam/4.png", caption: "Chain Attachment System" },
+    { type: "image", src: "/gundam/5.png", caption: "Articulated Components" },
+    { type: "image", src: "/gundam/6.png", caption: "Side Profile" },
+    { type: "image", src: "/gundam/7.png", caption: "Wing Movement" },
+    { type: "image", src: "/gundam/8.png", caption: "Detail Shot" },
+    { type: "image", src: "/gundam/9.png", caption: "Full Assembly" },
+    { type: "image", src: "/gundam/10.png", caption: "Complete Build" },
+    { type: "image", src: "/gundam/gundam.png", caption: "Final Design" },
+  ];
 
   return (
-    <>
-      <div className="h-32" />
-      <div className="min-h-screen bg-black text-white py-12 mt-16 md:mt-24 mb-12">
-        <div className="max-w-[1200px] mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Left column: slideshow stacked above image */}
-            <div>
-              <div className="flex flex-col items-center">
-                <img
-                  src={images[currentIndex]}
-                  alt={`Slideshow image ${currentIndex + 2}`}
-                  className="rounded-lg w-full max-w-[520px] object-cover"
-                />
-              </div>
-              <div className="py-6" />
-              <div className="flex justify-center">
-                <img
-                  src="/gundam/gundam.png"
-                  alt="Gundam"
-                  className="w-full max-w-[520px] object-contain"
-                />
-              </div>
+    <div className="h-screen overflow-hidden hero-gradient relative">
+      <HeroBackground />
+
+      <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
+        {/* Main container */}
+        <div className="w-full max-w-7xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
+
+          {/* Left Navigation Arrow - Previous Project */}
+          <Link
+            href="/work/nike-league-of-legends-zeri"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Link>
+
+          {/* Left side - Media slideshow */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Main media display */}
+            <div className="flex-1 rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-[#E5E5E5]/50 shadow-xl relative">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  {slide.type === "image" && (
+                    <div className="w-full h-full flex items-center justify-center bg-white p-4">
+                      <img
+                        src={slide.src}
+                        alt={slide.caption}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
-            {/* Right column: Content */}
-            <div className="flex flex-col items-center text-center space-y-6">
-            <div className="space-y-1">
-              <p className="text-sm text-gray-300">Fall 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">Angel Gundam Headset</h1>
-            </div>
-            <p className="text-lg text-gray-200 mt-2">
-              An innovative iteration on my first Gundam headset accessories piece, featuring an elegant chain-based attachment system and articulated wing components that provide enhanced customization and movement.
+
+            {/* Caption */}
+            <p className="text-[13px] text-[#6E6E73] mt-3 text-center">
+              {slides[activeSlide].caption}
             </p>
-              <div className="space-y-10 text-left max-w-2xl w-full">
-              {/* Role & Objective */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">
-                    Role & Objective
-                  </h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-pink-400">•</span>
-                    <span>
-                      Served as <span className="font-semibold text-white">Lead Designer and Creator</span> to develop an improved iteration of my first Gundam headset accessories piece.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-pink-400">•</span>
-                    <span>
-                      Aimed to solve the <span className="font-bold">attachment and customization challenges</span> from the original design while adding enhanced articulation and movement.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-pink-400">•</span>
-                    <span>
-                      Targeted creating a more elegant and functional attachment system that eliminates the tedious velcro and wire wrapping method.
-                    </span>
-                  </li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
 
-              {/* Actions Taken */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">
-                    Actions Taken
-                  </h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-300">•</span>
-                    <span>
-                      Replaced the original velcro and wire attachment system with an <span className="font-bold">elegant chain and lobster claw clasp system</span> that strings through headset gaps.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-300">•</span>
-                    <span>
-                      Added <span className="font-bold">articulation and movement throughout the headset</span> by incorporating hinges throughout the wing components.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-300">•</span>
-                    <span>
-                      Ordered a Gundam kit and followed instructions to create the wing structures, then <span className="font-bold">customized and superglued parts together</span> for optimal headset fit.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-blue-300">•</span>
-                    <span>
-                      Designed the chain system to provide <span className="font-bold">additional attachment points for further customization</span> beyond the main wing accessories.
-                    </span>
-                  </li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
-
-              {/* Results & Impact */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">
-                    Results & Impact
-                  </h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-green-300">•</span>
-                    <span>
-                      Successfully created an <span className="font-bold">elegant and functional attachment system</span> that eliminates the mess and damage caused by velcro on the headset.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-green-300">•</span>
-                    <span>
-                      The chain-based system provides <span className="font-bold">versatile customization options</span> with additional hanging points for future accessories.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-green-300">•</span>
-                    <span>
-                      Achieved <span className="font-bold">enhanced articulation and movement</span> through strategic hinge placement, making the wings more dynamic and interactive.
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1 text-green-300">•</span>
-                    <span>
-                      Demonstrated iterative design thinking by identifying problems from the original piece and implementing creative solutions that improve both functionality and aesthetics.
-                    </span>
-                  </li>
-                </ul>
-              </section>
-              </div>
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "bg-[#667eea] w-6"
+                      : "bg-[#D1D1D6] hover:bg-[#A1A1A6]"
+                  }`}
+                />
+              ))}
             </div>
           </div>
+
+          {/* Right side - Text content */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0 mb-6">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Product Design</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Hardware</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>DIY</span>
+              </div>
+
+              {/* Header */}
+              <h1 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight leading-tight mb-2">
+                Angel Gundam Headset
+              </h1>
+              <p className="text-[14px] font-semibold text-[#667eea] mb-4">Fall 2025</p>
+
+              {/* Description */}
+              <p className="text-[15px] text-[#1D1D1F] leading-relaxed">
+                An innovative iteration on my first Gundam headset accessories piece, featuring an elegant chain-based attachment system and articulated wing components that provide enhanced customization and movement.
+              </p>
+            </div>
+
+            {/* Scrollable Highlights */}
+            <div className="flex-1 overflow-y-auto pr-2 space-y-1">
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </span>
+                  Role & Objective
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Served as <strong>Lead Designer and Creator</strong> to develop an improved iteration of my first Gundam headset accessories piece.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Aimed to solve the <strong>attachment and customization challenges</strong> from the original design while adding enhanced articulation and movement.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Targeted creating a more elegant and functional attachment system that eliminates the tedious velcro and wire wrapping method.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </span>
+                  Actions Taken
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Replaced the original velcro and wire attachment system with an <strong>elegant chain and lobster claw clasp system</strong> that strings through headset gaps.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Added <strong>articulation and movement throughout the headset</strong> by incorporating hinges throughout the wing components.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Ordered a Gundam kit and followed instructions to create the wing structures, then <strong>customized and superglued parts together</strong> for optimal headset fit.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Designed the chain system to provide <strong>additional attachment points for further customization</strong> beyond the main wing accessories.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4facfe] to-[#00f2fe] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </span>
+                  Results & Impact
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Successfully created an <strong>elegant and functional attachment system</strong> that eliminates the mess and damage caused by velcro on the headset.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>The chain-based system provides <strong>versatile customization options</strong> with additional hanging points for future accessories.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Achieved <strong>enhanced articulation and movement</strong> through strategic hinge placement, making the wings more dynamic and interactive.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Demonstrated iterative design thinking by identifying problems from the original piece and implementing creative solutions that improve both functionality and aesthetics.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Navigation Arrow - Next Project */}
+          <Link
+            href="/work/pixel-headphones"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
-    </>
+
+      <style jsx global>{`
+        @keyframes bounce-right {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(4px);
+          }
+        }
+        .animate-bounce-right {
+          animation: bounce-right 1s ease-in-out infinite;
+        }
+        @keyframes bounce-left {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-4px);
+          }
+        }
+        .animate-bounce-left {
+          animation: bounce-left 1s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
 }
-  

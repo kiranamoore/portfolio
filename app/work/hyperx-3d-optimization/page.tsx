@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
+import { useState } from "react";
 import dynamic from "next/dynamic";
-import React from "react";
+import HeroBackground from "@/components/HeroBackground";
 
 const ModelViewer = dynamic(
   () => import("@/components/ModelViewer3D"),
@@ -9,156 +11,265 @@ const ModelViewer = dynamic(
 );
 
 export default function HyperX3DOptimizationPage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = [
+    { type: "model", src: "/Cloud-3-S-7-17.glb", caption: "HyperX Cloud 3 - Optimized 3D Model" },
+    { type: "model", src: "/hx3d/beast.glb", caption: "HX3D Beast - Interactive 3D Model" },
+    { type: "model", src: "/hx3d/nature.glb", caption: "HX3D Nature - Interactive 3D Model" },
+    { type: "model", src: "/hx3d/valkyrie.glb", caption: "HX3D Valkyrie - Interactive 3D Model" },
+  ];
+
   return (
-    <>
-      <div className="h-32" />
-      <div
-        className="min-h-screen bg-black text-white py-12 mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: "auto", marginRight: "auto", marginBottom: "50px", maxWidth: "1400px" }}
-      >
-        {/* Main Content Section */}
-        <div className="w-full flex flex-col lg:flex-row gap-16 items-center justify-center mb-16" style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          {/* Left column: 3D Model Viewer */}
-          <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[320px] max-w-[700px]">
-            <ModelViewer
-              src="/Cloud-3-S-7-17.glb"
-              alt="HyperX Cloud 3 Optimized 3D Model"
-              ar
-              autoRotate
-              cameraControls
-              style={{ width: "100%", height: "500px", background: "#222", borderRadius: "1rem" }}
-            />
-            <p className="text-xs text-gray-400 mt-2">Interact with the 3D model above. Pinch/drag/zoom on mobile and desktop.</p>
-            <button
-              onClick={() => window.open('/work/hyperx-3d-optimization/viewer', '_blank')}
-              className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
+    <div className="h-screen overflow-hidden hero-gradient relative">
+      <HeroBackground />
+
+      <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
+        {/* Main container */}
+        <div className="w-full max-w-7xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
+
+          {/* Left Navigation Arrow - Previous Project */}
+          <Link
+            href="/work/quick-start-guide-ar-manual"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Open Full-Screen Viewer
-            </button>
-          </div>
-          {/* Right column: Content */}
-          <div className="flex flex-col items-center text-center space-y-6 flex-1 min-w-[320px] max-w-[520px]">
-            <div className="space-y-1">
-              <p className="text-sm text-gray-300">Summer 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">3D Model Optimization for XR</h1>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Link>
+
+          {/* Left side - Media slideshow */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Main media display */}
+            <div className="flex-1 rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-[#E5E5E5]/50 shadow-xl relative">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  {slide.type === "model" && (
+                    <ModelViewer
+                      src={slide.src}
+                      alt={slide.caption}
+                      ar
+                      autoRotate
+                      cameraControls
+                      style={{ width: "100%", height: "100%", background: "#FFFFFF" }}
+                    />
+                  )}
+                </div>
+              ))}
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
-            <p className="text-lg font-medium">
-              Developed a comprehensive guide and demonstration of 3D model optimization techniques for mobile, web, and AR/VR applications, using the HyperX Cloud 3 headset as a case study to show how complex 3D models can be made accessible across all devices.
+
+            {/* Caption */}
+            <p className="text-[13px] text-[#6E6E73] mt-3 text-center">
+              {slides[activeSlide].caption}
             </p>
-            <div className="space-y-10 text-left max-w-2xl w-full">
-              {/* Role & Objective */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as the<span className="font-semibold text-white">Augmented Reality Developer</span> to create a <span className="font-bold">streamlined pipeline for converting CAD product models to Web, mobile, VR, AR, and Game ready models</span></span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to <span className="font-bold">simplify complex 3D models</span> so they load quickly and run smoothly on phones, tablets, and computers.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Targeted creating a <span className="font-bold">universal 3D model format</span> that works across all devices and platforms.</span></li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
-              {/* Actions Taken */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Reduced the original CAD HyperX Cloud 3 S model from <span className="font-bold">millions of triangles to just 20,000</span> using <span className="font-bold">Blender</span> - think of triangles as the building blocks that make up a 3D model.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Converted the model to <span className="font-bold">GLB format</span> - a universal file type that works on phones, computers, and AR/VR headsets.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Optimized textures and materials to maintain visual quality while <span className="font-bold">reducing file size</span> for faster loading.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Tested the model across different devices to ensure <span className="font-bold">smooth interaction and fast loading times</span> on mobile and desktop.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created an interactive web viewer using <span className="font-bold">Google's Model Viewer</span> to demonstrate the optimized model in action.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Used <span className="font-bold">projected diffuse maps from high-poly models to low-poly models</span> to texture the HX3D models, maintaining visual quality while reducing geometry complexity.</span></li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
-              {/* Results & Impact */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><span className="font-bold">Successfully created a mobile-friendly 3D model</span> that loads in seconds instead of minutes.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Established a <span className="font-bold">standardized optimization process</span> that can be applied to any 3D model for web and mobile use.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated how <span className="font-bold">complex 3D assets can be made accessible</span> to users on any device, regardless of technical limitations.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a <span className="font-bold">reusable template and best practices guide</span> for future 3D optimization projects at HyperX.</span></li>
-                </ul>
-              </section>
+
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "bg-[#667eea] w-6"
+                      : "bg-[#D1D1D6] hover:bg-[#A1A1A6]"
+                  }`}
+                />
+              ))}
             </div>
           </div>
-        </div>
-        
-        {/* HX3D Models Section - Full Width Below Content */}
-        <div className="w-full" style={{ maxWidth: "1400px", margin: "0 auto" }}>
-          <h3 className="text-2xl font-bold text-center mb-6 text-blue-300">HX3D Model Collection</h3>
-          <p className="text-sm text-gray-300 text-center mb-8 max-w-2xl mx-auto">
-            Explore our collection of optimized 3D models showcasing different optimization techniques
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {/* Beast Model */}
-            <div className="flex flex-col items-center">
-              <h4 className="text-lg font-semibold mb-3 text-white">Beast</h4>
-              <ModelViewer
-                src="/hx3d/beast.glb"
-                alt="Beast 3D Model"
-                autoRotate
-                cameraControls
-                style={{ width: "100%", height: "300px", background: "#333", borderRadius: "1rem" }}
-              />
-              <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
-              <button
-                onClick={() => window.open('/work/hyperx-3d-optimization/beast-viewer', '_blank')}
-                className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
-              >
-                Open Full-Screen Viewer
-              </button>
+
+          {/* Right side - Text content */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0 mb-6">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Blender</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>3D</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>WebGL</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>AR/VR</span>
+              </div>
+
+              {/* Header */}
+              <h1 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight leading-tight mb-2">
+                3D Model Optimization for XR
+              </h1>
+              <p className="text-[14px] font-semibold text-[#667eea] mb-4">HP/HyperX · Summer 2025</p>
+
+              {/* Description */}
+              <p className="text-[15px] text-[#1D1D1F] leading-relaxed">
+                Developed a comprehensive guide and demonstration of 3D model optimization techniques for mobile, web, and AR/VR applications, using the HyperX Cloud 3 headset as a case study to show how complex 3D models can be made accessible across all devices.
+              </p>
             </div>
-            
-            {/* Nature Model */}
-            <div className="flex flex-col items-center">
-              <h4 className="text-lg font-semibold mb-3 text-white">Nature</h4>
-              <ModelViewer
-                src="/hx3d/nature.glb"
-                alt="Nature 3D Model"
-                autoRotate
-                cameraControls
-                style={{ width: "100%", height: "300px", background: "#333", borderRadius: "1rem" }}
-              />
-              <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
-              <button
-                onClick={() => window.open('/work/hyperx-3d-optimization/nature-viewer', '_blank')}
-                className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
-              >
-                Open Full-Screen Viewer
-              </button>
+
+            {/* Scrollable Highlights */}
+            <div className="flex-1 overflow-y-auto pr-2 space-y-1">
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </span>
+                  Role & Objective
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Served as the <strong>Augmented Reality Developer</strong> to create a streamlined pipeline for converting CAD product models to Web, mobile, VR, AR, and Game ready models.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Aimed to <strong>simplify complex 3D models</strong> so they load quickly and run smoothly on phones, tablets, and computers.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Targeted creating a <strong>universal 3D model format</strong> that works across all devices and platforms.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </span>
+                  Actions Taken
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Reduced the original CAD HyperX Cloud 3 S model from <strong>millions of triangles to just 20,000</strong> using Blender.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Converted the model to <strong>GLB format</strong> - a universal file type that works on phones, computers, and AR/VR headsets.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Optimized textures and materials to maintain visual quality while <strong>reducing file size</strong> for faster loading.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Tested the model across different devices to ensure <strong>smooth interaction and fast loading times</strong>.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Created an interactive web viewer using <strong>Google's Model Viewer</strong> to demonstrate the optimized model.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Used <strong>projected diffuse maps</strong> from high-poly to low-poly models to texture the HX3D models.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4facfe] to-[#00f2fe] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </span>
+                  Results & Impact
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span><strong>Successfully created a mobile-friendly 3D model</strong> that loads in seconds instead of minutes.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Established a <strong>standardized optimization process</strong> that can be applied to any 3D model for web and mobile use.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Demonstrated how <strong>complex 3D assets can be made accessible</strong> to users on any device, regardless of technical limitations.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Created a <strong>reusable template and best practices guide</strong> for future 3D optimization projects at HyperX.</span>
+                  </li>
+                </ul>
+              </div>
             </div>
-            
-            {/* Valkyrie Model */}
-            <div className="flex flex-col items-center">
-              <h4 className="text-lg font-semibold mb-3 text-white">Valkyrie</h4>
-              <ModelViewer
-                src="/hx3d/valkyrie.glb"
-                alt="Valkyrie 3D Model"
-                autoRotate
-                cameraControls
-                style={{ width: "100%", height: "300px", background: "#333", borderRadius: "1rem" }}
-              />
-              <p className="text-xs text-gray-400 mt-2 text-center">Interactive 3D model</p>
-              <button
-                onClick={() => window.open('/work/hyperx-3d-optimization/valkyrie-viewer', '_blank')}
-                className="mt-4 px-6 py-2 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200"
-              >
-                Open Full-Screen Viewer
-              </button>
-            </div>
+
           </div>
+
+          {/* Right Navigation Arrow - Next Project */}
+          <Link
+            href="/work/hyperx-unity-web-ar"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
-    </>
+
+      <style jsx global>{`
+        @keyframes bounce-right {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(4px);
+          }
+        }
+        .animate-bounce-right {
+          animation: bounce-right 1s ease-in-out infinite;
+        }
+        @keyframes bounce-left {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-4px);
+          }
+        }
+        .animate-bounce-left {
+          animation: bounce-left 1s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
-} 
+}

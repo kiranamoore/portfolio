@@ -1,107 +1,267 @@
 "use client";
 
-import ImageSlideshow from "@/components/core/ImageSlideshow";
-
-const images = [
-  "/helper1.png",
-  "/helper2.png",
-  "/helper3.png",
-  "/helper4.png",
-  "/helper5.png",
-  "/helper6.png",
-  "/helper7.png",
-  "/helper8.png",
-  "/helper9.png",
-  "/helper10.png",
-  "/helper11.png",
-  "/helper12.png",
-  "/helper13.png",
-];
-
-const artboards = [
-  {
-    src: "/plan-helper.png",
-    caption: "Waiting Room Floor Plan",
-  },
-  {
-    src: "/sensory-room.png",
-    caption: "Sensory Room Section",
-  },
-  {
-    src: "/reading-nook.png",
-    caption: "Reading Room Elevation",
-  },
-];
+import Link from "next/link";
+import { useState } from "react";
+import HeroBackground from "@/components/HeroBackground";
 
 export default function TheHelperPage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = [
+    { type: "image", src: "/helper1.png", caption: "The Helper Care Center" },
+    { type: "image", src: "/helper2.png", caption: "Interior Perspective" },
+    { type: "image", src: "/helper3.png", caption: "Space Planning" },
+    { type: "image", src: "/helper4.png", caption: "Design Details" },
+    { type: "image", src: "/helper5.png", caption: "Material Selections" },
+    { type: "image", src: "/helper6.png", caption: "Furniture Layout" },
+    { type: "image", src: "/helper7.png", caption: "Lighting Design" },
+    { type: "image", src: "/helper8.png", caption: "Color Palette" },
+    { type: "image", src: "/helper9.png", caption: "Safety Features" },
+    { type: "image", src: "/helper10.png", caption: "Play Area Design" },
+    { type: "image", src: "/helper11.png", caption: "Sensory Elements" },
+    { type: "image", src: "/helper12.png", caption: "Reading Space" },
+    { type: "image", src: "/helper13.png", caption: "Final Presentation" },
+    { type: "image", src: "/plan-helper.png", caption: "Waiting Room Floor Plan" },
+    { type: "image", src: "/sensory-room.png", caption: "Sensory Room Section" },
+    { type: "image", src: "/reading-nook.png", caption: "Reading Room Elevation" },
+  ];
+
   return (
-    <>
-      <div className="h-32" />
-      <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '40px', maxWidth: '1500px' }}
-      >
-        <div className="w-full flex flex-col lg:flex-row gap-10 items-start justify-center" style={{maxWidth: '1400px'}}>
-          {/* Left column: Slideshow */}
-          <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[400px] max-w-[700px]">
-            <ImageSlideshow images={images} altPrefix="The Helper project image" />
-          </div>
-          {/* Right column: Centered content */}
-          <div className="flex flex-col items-start text-left space-y-6 flex-1 min-w-[320px] max-w-[520px]">
-            <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">The Helper</h1>
-            </div>
-            <p className="text-lg text-gray-200 mt-2">
-              Designed a trauma-informed care center for young children in the foster system, creating a safe and supportive spatial concept that balances California courthouse requirements with emotional well-being through empathetic, user-centered design.
-            </p>
-            <div className="space-y-8 max-w-full w-full">
-              {/* Role & Objective */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
+    <div className="h-screen overflow-hidden hero-gradient relative">
+      <HeroBackground />
+
+      <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
+        {/* Main container */}
+        <div className="w-full max-w-7xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
+
+          {/* Left Navigation Arrow - Previous Project */}
+          <Link
+            href="/work/weaving-spaces"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Link>
+
+          {/* Left side - Media slideshow */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Main media display */}
+            <div className="flex-1 rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-[#E5E5E5]/50 shadow-xl relative">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  {slide.type === "image" && (
+                    <div className="w-full h-full flex items-center justify-center bg-white p-4">
+                      <img
+                        src={slide.src}
+                        alt={slide.caption}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  )}
                 </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span><span className="font-bold">Led spatial design</span> for The Helper, a trauma-informed temporary care center created to support young children in the foster system within the constraints of California courthouse regulations.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Tasked with developing a functional and emotionally supportive environment that prioritizes child safety, comfort, and well-being through user-centered, trauma-informed design principles.</span></li>
-                </ul>
-              </section>
-              <div className="flex items-center gap-3 mb-2 mt-6">
-                <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                <h3 className="text-xl font-bold text-blue-300 tracking-tight">Actions Taken</h3>
-              </div>
-              <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Designed the full spatial layout of the care center, including floor plan, section, and elevation drawings</span> using <span className="font-bold">Rhinoceros 3D</span>.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span><span className="font-bold">Created detailed architectural drawings and renderings</span> to visualize the design intent and communicate key programmatic zones.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Defined distinct spaces within the layout—including a play area, sensory room, reading nook, bonding room, and restorative restroom—each tailored to specific emotional and developmental needs.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Integrated trauma-informed elements such as curved, multipurpose furniture with no sharp edges, carpeted wooden floors for comfort and safety, and child-friendly aesthetics with privacy-aware window placements.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Collaborated with teammates to incorporate direct insights from interviews with former foster parent Lindsay Goodwin, ensuring that user needs directly shaped spatial and sensory decisions.</span></li>
-              </ul>
-              <div className="flex items-center gap-3 mb-2 mt-6">
-                <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                <h3 className="text-xl font-bold text-green-300 tracking-tight">Results & Impact</h3>
-              </div>
-              <ul className="space-y-2 pl-6 list-none">
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Delivered a comprehensive <span className="font-bold">spatial concept</span> that demonstrates the ability to balance strict regulatory requirements with the emotional, developmental, and safety needs of young children in foster care.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span><span className="font-bold">Showcased strong architectural design skills through technical drawings and environmental renderings</span> that support healing, play, and caregiver-child connection.</span></li>
-                <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Reinforced a trauma-informed design approach that transforms temporary institutional care into a space of comfort, agency, and emotional support.</span></li>
-              </ul>
+              ))}
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Caption */}
+            <p className="text-[13px] text-[#6E6E73] mt-3 text-center">
+              {slides[activeSlide].caption}
+            </p>
+
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "bg-[#667eea] w-6"
+                      : "bg-[#D1D1D6] hover:bg-[#A1A1A6]"
+                  }`}
+                />
+              ))}
             </div>
           </div>
-        </div>
-      </div>
-      {/* Artboards Section */}
-      <div className="w-full flex flex-col items-center justify-center mt-8 mb-12">
-        <div className="w-full flex flex-col md:flex-row gap-8 items-start justify-center" style={{ maxWidth: '1800px' }}>
-          {artboards.map((art, idx) => (
-            <div key={idx} className="flex flex-col items-center w-full md:w-1/3">
-              <img src={art.src} alt={art.caption} className="w-full object-contain" style={{ background: 'white', borderRadius: 8, border: '1px solid #e5e5e5', maxHeight: 400 }} />
-              <span className="text-base md:text-lg text-gray-400 mt-2" style={{ fontFamily: 'monospace', letterSpacing: 1 }}>{art.caption}</span>
+
+          {/* Right side - Text content */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0 mb-6">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Architecture</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Spatial Design</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Rhino 3D</span>
+              </div>
+
+              {/* Header */}
+              <h1 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight leading-tight mb-2">
+                The Helper
+              </h1>
+              <p className="text-[14px] font-semibold text-[#667eea] mb-4">Spring 2025</p>
+
+              {/* Description */}
+              <p className="text-[15px] text-[#1D1D1F] leading-relaxed">
+                Designed a trauma-informed care center for young children in the foster system, creating a safe and supportive spatial concept that balances California courthouse requirements with emotional well-being through empathetic, user-centered design.
+              </p>
             </div>
-          ))}
+
+            {/* Scrollable Highlights */}
+            <div className="flex-1 overflow-y-auto pr-2 space-y-1">
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </span>
+                  Role & Objective
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span><strong>Led spatial design</strong> for The Helper, a trauma-informed temporary care center created to support young children in the foster system within the constraints of California courthouse regulations.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Tasked with developing a functional and emotionally supportive environment that prioritizes child safety, comfort, and well-being through user-centered, trauma-informed design principles.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </span>
+                  Actions Taken
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span><strong>Designed the full spatial layout of the care center, including floor plan, section, and elevation drawings</strong> using <strong>Rhinoceros 3D</strong>.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span><strong>Created detailed architectural drawings and renderings</strong> to visualize the design intent and communicate key programmatic zones.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Defined distinct spaces within the layout—including a play area, sensory room, reading nook, bonding room, and restorative restroom—each tailored to specific emotional and developmental needs.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Integrated trauma-informed elements such as curved, multipurpose furniture with no sharp edges, carpeted wooden floors for comfort and safety, and child-friendly aesthetics with privacy-aware window placements.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Collaborated with teammates to incorporate direct insights from interviews with former foster parent Lindsay Goodwin, ensuring that user needs directly shaped spatial and sensory decisions.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4facfe] to-[#00f2fe] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </span>
+                  Results & Impact
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Delivered a comprehensive <strong>spatial concept</strong> that demonstrates the ability to balance strict regulatory requirements with the emotional, developmental, and safety needs of young children in foster care.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span><strong>Showcased strong architectural design skills through technical drawings and environmental renderings</strong> that support healing, play, and caregiver-child connection.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Reinforced a trauma-informed design approach that transforms temporary institutional care into a space of comfort, agency, and emotional support.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Navigation Arrow - Next Project */}
+          <Link
+            href="/work/the-traveler"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
-    </>
+
+      <style jsx global>{`
+        @keyframes bounce-right {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(4px);
+          }
+        }
+        .animate-bounce-right {
+          animation: bounce-right 1s ease-in-out infinite;
+        }
+        @keyframes bounce-left {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-4px);
+          }
+        }
+        .animate-bounce-left {
+          animation: bounce-left 1s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
-} 
+}

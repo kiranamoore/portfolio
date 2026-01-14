@@ -1,120 +1,273 @@
 "use client";
 
-import ImageSlideshow from "@/components/core/ImageSlideshow";
-
-const images = [
-  "/eclipse/1.png",
-  "/eclipse/2.png",
-  "/eclipse/3.png",
-  "/eclipse/4.png",
-  "/eclipse/5.png",
-  "/eclipse/6.png",
-  "/eclipse/7.png",
-  "/eclipse/8.png",
-  "/eclipse/9.png",
-  "/eclipse/10.png",
-  "/eclipse/11.png",
-  "/eclipse/12.png",
-  "/eclipse/13.png",
-  "/eclipse/14.png",
-  "/eclipse/15.png",
-  "/eclipse/16.png",
-  "/eclipse/17.png",
-];
-
-const renders = [
-  {
-    src: "/day_render.JPG",
-    caption: "Day Cafe Render",
-  },
-  {
-    src: "/night_render.JPG",
-    caption: "Night Cafe/Bar Render",
-  },
-  {
-    src: "/speakeasy.JPG",
-    caption: "Speakeasy Render",
-  },
-];
+import Link from "next/link";
+import { useState } from "react";
+import HeroBackground from "@/components/HeroBackground";
 
 export default function EclipsePage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = [
+    { type: "image", src: "/eclipse/1.png", caption: "Project Overview" },
+    { type: "image", src: "/eclipse/2.png", caption: "Design Development" },
+    { type: "image", src: "/eclipse/3.png", caption: "Spatial Layout" },
+    { type: "image", src: "/eclipse/4.png", caption: "Floor Plan" },
+    { type: "image", src: "/eclipse/5.png", caption: "Elevation Drawing" },
+    { type: "image", src: "/eclipse/6.png", caption: "Section View" },
+    { type: "image", src: "/eclipse/7.png", caption: "Interior Concept" },
+    { type: "image", src: "/eclipse/8.png", caption: "Material Study" },
+    { type: "image", src: "/eclipse/9.png", caption: "Lighting Design" },
+    { type: "image", src: "/eclipse/10.png", caption: "Atmosphere Study" },
+    { type: "image", src: "/eclipse/11.png", caption: "Furniture Layout" },
+    { type: "image", src: "/eclipse/12.png", caption: "Detail Drawing" },
+    { type: "image", src: "/eclipse/13.png", caption: "Perspective View" },
+    { type: "image", src: "/eclipse/14.png", caption: "Holographic Integration" },
+    { type: "image", src: "/eclipse/15.png", caption: "Multi-sensory Elements" },
+    { type: "image", src: "/eclipse/16.png", caption: "Adaptive Design" },
+    { type: "image", src: "/eclipse/17.png", caption: "Final Presentation" },
+    { type: "image", src: "/day_render.JPG", caption: "Day Cafe Render" },
+    { type: "image", src: "/night_render.JPG", caption: "Night Cafe/Bar Render" },
+    { type: "image", src: "/speakeasy.JPG", caption: "Speakeasy Render" },
+  ];
+
   return (
-    <>
-      <div className="h-32" />
-      <div
-        className="min-h-screen bg-black text-white py-12 flex justify-center items-center mt-16 md:mt-24 mb-12"
-        style={{ marginLeft: 'auto', marginRight: 'auto', marginBottom: '40px', maxWidth: '1500px' }}
-      >
-        <div className="w-full flex flex-col lg:flex-row gap-10 items-start justify-center" style={{maxWidth: '1400px'}}>
-          {/* Left column: Slideshow */}
-          <div className="flex flex-col items-center justify-center flex-1 w-full min-w-[400px] max-w-[700px]">
-            <ImageSlideshow images={images} altPrefix="Eclipse project image" />
-          </div>
-          {/* Right column: Centered content */}
-          <div className="flex flex-col items-start text-left space-y-6 flex-1 min-w-[320px] max-w-[520px]">
-            <div className="space-y-1">
-              <p className="text-sm text-gray-300">Spring 2025</p>
-              <h1 className="text-4xl md:text-6xl font-bold">Eclipse</h1>
+    <div className="h-screen overflow-hidden hero-gradient relative">
+      <HeroBackground />
+
+      <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
+        {/* Main container */}
+        <div className="w-full max-w-7xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
+
+          {/* Left Navigation Arrow - Previous Project */}
+          <Link
+            href="/work/catatonia"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Link>
+
+          {/* Left side - Media slideshow */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Main media display */}
+            <div className="flex-1 rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-[#E5E5E5]/50 shadow-xl relative">
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-500 ${
+                    activeSlide === index ? "opacity-100" : "opacity-0 pointer-events-none"
+                  }`}
+                >
+                  {slide.type === "image" && (
+                    <img
+                      src={slide.src}
+                      alt={slide.caption}
+                      className="w-full h-full object-contain bg-white"
+                    />
+                  )}
+                </div>
+              ))}
+
+              {/* Navigation Arrows */}
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
             </div>
-            <p className="text-lg text-gray-200 mt-2">
-              Developed the spatial layout, architectural drawings, and visual renders for Eclipse, a futuristic café and bar concept that fuses holographic storytelling, multi-sensory experiences, and adaptive design to create an immersive, narrative-driven environment.
+
+            {/* Caption */}
+            <p className="text-[13px] text-[#6E6E73] mt-3 text-center">
+              {slides[activeSlide].caption}
             </p>
-            <div className="space-y-10 max-w-full w-full">
-              {/* Role & Objective */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-pink-500 to-red-400" />
-                  <h2 className="text-2xl font-bold text-pink-400 tracking-tight">Role & Objective</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Served as <span className="font-bold">Lead Designer</span> for Eclipse, a futuristic café and bar concept focused on creating immersive, narrative-driven environments.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Aimed to develop an experiential space that pushes creative and technical boundaries through innovative design and advanced technology integration.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-pink-400">•</span><span>Focused on crafting transformative spaces that engage multiple senses and immerse users in unforgettable, story-driven experiences.</span></li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
-              {/* Actions Taken */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-blue-400 to-cyan-400" />
-                  <h2 className="text-2xl font-bold text-blue-300 tracking-tight">Actions Taken</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed the <span className="font-bold">floor plan</span>, <span className="font-bold">spatial layout</span>, <span className="font-bold">elevation drawings</span>, and produced all <span className="font-bold">visual renders</span> to communicate the concept's aesthetic and functional vision.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Created a <span className="font-bold">multi-sensory environment</span> blending soundscapes, immersive visuals, and innovative beverage experiences, including transforming tea-to-cocktail drinks.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Developed <span className="font-bold">intuitive access points</span> for personalized, AI-driven user interactions to enhance engagement throughout the space.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Designed <span className="font-bold">adaptable spaces</span> capable of shifting atmospheres and configurations to support different times of day and diverse user needs, utilizing morphing architectural elements.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-blue-300">•</span><span>Ensured a <span className="font-bold">seamless fusion of thematic ambiance and functional flow</span>, maintaining user comfort while heightening immersive impact.</span></li>
-                </ul>
-              </section>
-              <div className="border-t border-gray-700 my-6" />
-              {/* Results & Impact */}
-              <section>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="h-6 w-1 rounded bg-gradient-to-b from-green-400 to-emerald-500" />
-                  <h2 className="text-2xl font-bold text-green-300 tracking-tight">Results & Impact</h2>
-                </div>
-                <ul className="space-y-2 pl-6 list-none">
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Successfully delivered a <span className="font-bold">story-driven, sensory-rich concept</span> that elevates user engagement and immersion in hospitality environments.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Demonstrated the ability to <span className="font-bold">push creative and technical boundaries</span> in experiential spatial design.</span></li>
-                  <li className="flex items-start gap-2"><span className="mt-1 text-green-300">•</span><span>Created a strong <span className="font-bold">foundation for future immersive space design</span>, showcasing the power of narrative-driven architecture and multi-sensory environments.</span></li>
-                </ul>
-              </section>
+
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    activeSlide === index
+                      ? "bg-[#667eea] w-6"
+                      : "bg-[#D1D1D6] hover:bg-[#A1A1A6]"
+                  }`}
+                />
+              ))}
             </div>
           </div>
-        </div>
-      </div>
-      {/* Renders Section */}
-      <div className="w-full flex flex-col items-center justify-center mt-8 mb-12">
-        <div className="w-full flex flex-col md:flex-row gap-8 items-start justify-center" style={{ maxWidth: '1800px' }}>
-          {renders.map((render, idx) => (
-            <div key={idx} className="flex flex-col items-center w-full md:w-1/3">
-              <img src={render.src} alt={render.caption} className="w-full object-contain" style={{ background: 'white', borderRadius: 8, border: '1px solid #e5e5e5', maxHeight: 400 }} />
-              <span className="text-base md:text-lg text-gray-400 mt-2" style={{ fontFamily: 'monospace', letterSpacing: 1 }}>{render.caption}</span>
+
+          {/* Right side - Text content */}
+          <div className="flex-1 flex flex-col min-h-0">
+            {/* Fixed Header Section */}
+            <div className="flex-shrink-0 mb-6">
+              {/* Tags */}
+              <div className="flex flex-wrap gap-3 mb-8">
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Interior Design</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Spatial</span>
+                <span className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '12px' }}>Hospitality</span>
+              </div>
+
+              {/* Header */}
+              <h1 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight leading-tight mb-2">
+                Eclipse
+              </h1>
+              <p className="text-[14px] font-semibold text-[#667eea] mb-4">Spring 2025</p>
+
+              {/* Description */}
+              <p className="text-[15px] text-[#1D1D1F] leading-relaxed">
+                Developed the spatial layout, architectural drawings, and visual renders for Eclipse, a futuristic cafe and bar concept that fuses holographic storytelling, multi-sensory experiences, and adaptive design to create an immersive, narrative-driven environment.
+              </p>
             </div>
-          ))}
+
+            {/* Scrollable Highlights */}
+            <div className="flex-1 overflow-y-auto pr-2 space-y-1">
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </span>
+                  Role & Objective
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Served as <strong>Lead Designer</strong> for Eclipse, a futuristic cafe and bar concept focused on creating immersive, narrative-driven environments.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Aimed to develop an experiential space that pushes creative and technical boundaries through innovative design and advanced technology integration.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Focused on crafting transformative spaces that engage multiple senses and immerse users in unforgettable, story-driven experiences.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </span>
+                  Actions Taken
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Designed the <strong>floor plan</strong>, <strong>spatial layout</strong>, <strong>elevation drawings</strong>, and produced all <strong>visual renders</strong> to communicate the concept's aesthetic and functional vision.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Created a <strong>multi-sensory environment</strong> blending soundscapes, immersive visuals, and innovative beverage experiences, including transforming tea-to-cocktail drinks.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Developed <strong>intuitive access points</strong> for personalized, AI-driven user interactions to enhance engagement throughout the space.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Designed <strong>adaptable spaces</strong> capable of shifting atmospheres and configurations to support different times of day and diverse user needs, utilizing morphing architectural elements.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#f093fb] mt-1">•</span>
+                    <span>Ensured a <strong>seamless fusion of thematic ambiance and functional flow</strong>, maintaining user comfort while heightening immersive impact.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl" style={{ padding: '8px 0' }}>
+                <h3 className="text-[14px] font-semibold text-[#1D1D1F] mb-3 flex items-center gap-3">
+                  <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#4facfe] to-[#00f2fe] flex items-center justify-center shadow-md">
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </span>
+                  Results & Impact
+                </h3>
+                <ul className="text-[14px] text-[#1D1D1F] space-y-2 pl-11">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Successfully delivered a <strong>story-driven, sensory-rich concept</strong> that elevates user engagement and immersion in hospitality environments.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Demonstrated the ability to <strong>push creative and technical boundaries</strong> in experiential spatial design.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#4facfe] mt-1">•</span>
+                    <span>Created a strong <strong>foundation for future immersive space design</strong>, showcasing the power of narrative-driven architecture and multi-sensory environments.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Navigation Arrow - Next Project */}
+          <Link
+            href="/work/fading-memories"
+            className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
+          >
+            <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>
+            <svg
+              className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
       </div>
-    </>
+
+      <style jsx global>{`
+        @keyframes bounce-right {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(4px);
+          }
+        }
+        .animate-bounce-right {
+          animation: bounce-right 1s ease-in-out infinite;
+        }
+        @keyframes bounce-left {
+          0%, 100% {
+            transform: translateX(0);
+          }
+          50% {
+            transform: translateX(-4px);
+          }
+        }
+        .animate-bounce-left {
+          animation: bounce-left 1s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
   );
-} 
+}

@@ -6,10 +6,6 @@ export default function ResumePage() {
       <HeroBackground />
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
-        <h1 className="text-[32px] font-semibold text-[#1D1D1F] tracking-tight mb-8 text-center">
-          Resume
-        </h1>
-
         <div className="w-full max-w-4xl">
           <div className="rounded-xl border border-[#E5E5E5] overflow-hidden bg-white shadow-lg">
             <iframe

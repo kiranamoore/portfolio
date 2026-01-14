@@ -21,13 +21,31 @@ const featuredProjects = [
     tags: ["Lens Studio", "UX"],
   },
   {
+    title: "3D Model Optimization for XR",
+    company: "HP/HyperX",
+    year: 2025,
+    slug: "hyperx-3d-optimization",
+    thumbnail: "/HX3D_thumbnail.png",
+    description: "CAD to web/mobile/AR/VR optimization pipeline",
+    tags: ["Blender", "3D", "WebGL"],
+  },
+  {
+    title: "Marker-Based AR Development",
+    company: "HP/HyperX",
+    year: 2025,
+    slug: "hyperx-unity-web-ar",
+    thumbnail: "/hiro-marker-thumb.png",
+    description: "JavaScript Web AR with computer vision",
+    tags: ["JavaScript", "WebAR", "Three.js"],
+  },
+  {
     title: "Cloud 3D Connect",
     company: "HP/HyperX",
     year: 2025,
     slug: "cloud-3d-connect",
     thumbnail: "/18k tris.png",
     description: "Interactive in-store product showcase",
-    tags: ["Unity", "WebGL", "3D"],
+    tags: ["Unity", "AR", "3D"],
   },
   {
     title: "Meta Alchemy",
@@ -39,6 +57,15 @@ const featuredProjects = [
     tags: ["Unity", "MR", "Quest 3"],
   },
   {
+    title: "Cops and Robbers (VR)",
+    company: null,
+    year: 2025,
+    slug: "cops-and-robbers",
+    thumbnail: "/cops_robbers.png",
+    description: "Fast-paced VR heist experience",
+    tags: ["Unity", "VR", "Quest 3"],
+  },
+  {
     title: "Nike x LoL Zeri",
     company: null,
     year: 2021,
@@ -46,6 +73,105 @@ const featuredProjects = [
     thumbnail: "/zeri-thumbnail.png",
     description: "Cross-industry fashion gaming collaboration",
     tags: ["Blender", "Animation"],
+  },
+  {
+    title: "Angel Gundam Headset",
+    company: null,
+    year: 2025,
+    slug: "Angel-gundam",
+    thumbnail: "/gundam/gundam.png",
+    description: "DIY gaming headset with articulated wings",
+    tags: ["Product Design", "Hardware"],
+  },
+  {
+    title: "Pixel Headphones",
+    company: null,
+    year: 2024,
+    slug: "pixel-headphones",
+    thumbnail: "/pixel-snapcode.png",
+    description: "AR fashion accessory for Snapchat",
+    tags: ["AR", "Lens Studio"],
+  },
+  {
+    title: "Catatonia",
+    company: null,
+    year: 2024,
+    slug: "catatonia",
+    thumbnail: "/catatoniathumbnail.png",
+    description: "Neo-noir animated short film",
+    tags: ["Film", "Animation"],
+  },
+  {
+    title: "Eclipse",
+    company: null,
+    year: 2025,
+    slug: "eclipse",
+    thumbnail: "/day_render.JPG",
+    description: "Futuristic cafe and bar spatial design",
+    tags: ["Interior Design", "Spatial"],
+  },
+  {
+    title: "Fading Memories",
+    company: null,
+    year: 2024,
+    slug: "fading-memories",
+    thumbnail: "/fading-memories/1.JPG",
+    description: "Multi-sensory immersive installation",
+    tags: ["Installation", "Projection"],
+  },
+  {
+    title: "The Helper",
+    company: null,
+    year: 2025,
+    slug: "the-helper",
+    thumbnail: "/thumbnail-helper.png",
+    description: "Trauma-informed care center design",
+    tags: ["Architecture", "Spatial"],
+  },
+  {
+    title: "The Traveler",
+    company: null,
+    year: 2025,
+    slug: "the-traveler",
+    thumbnail: "/traveler/1.png",
+    description: "Whimsical living space concept",
+    tags: ["Rhino 3D", "Interior"],
+  },
+  {
+    title: "Arts District Library",
+    company: null,
+    year: 2023,
+    slug: "arts-district-library",
+    thumbnail: "/arch/0.jpg",
+    description: "Hybrid library and skatepark design",
+    tags: ["Architecture", "Urban Design"],
+  },
+  {
+    title: "Weaving Spaces",
+    company: null,
+    year: 2022,
+    slug: "weaving-spaces",
+    thumbnail: "/weaving/weaving-spaces-01.png",
+    description: "Architectural form-making through weaving",
+    tags: ["Architecture", "3D Modeling"],
+  },
+  {
+    title: "The Great Cow Invasion",
+    company: null,
+    year: 2024,
+    slug: "the-great-cow-invasion-of-los-angeles",
+    thumbnail: "/cow-invasion-thumbnail.png",
+    description: "Narrative art through metro reflections",
+    tags: ["Digital Art", "Illustration"],
+  },
+  {
+    title: "Magical Girl VS. Corporate Zombies",
+    company: null,
+    year: 2025,
+    slug: "magical-girl-vs-zombies",
+    thumbnail: "/magical-girl-vs-zombies-thumbnail.png",
+    description: "Digital self-portrait exploring dual identity",
+    tags: ["Digital Art", "Illustration"],
   },
 ];
 
@@ -71,26 +197,6 @@ export default function Home() {
               <span className="text-[#1D1D1F] font-medium">HP</span>, <span className="text-[#1D1D1F] font-medium">HyperX</span>, and other leading companies.
             </p>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link
-                href="/work"
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white text-[16px] font-medium rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#667eea]/30 hover:scale-105 active:scale-95"
-                style={{ padding: '20px 40px' }}
-              >
-                View my work
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link
-                href="/resume"
-                className="inline-flex items-center gap-3 bg-[#F5F5F7] text-[#1D1D1F] text-[16px] font-medium rounded-full hover:bg-[#E8E8ED] transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95"
-                style={{ padding: '20px 40px' }}
-              >
-                Resume
-              </Link>
-            </div>
           </div>
         </div>
 
