@@ -1,4 +1,5 @@
 import Link from "next/link";
+import HeroBackground from "@/components/HeroBackground";
 
 const featuredProjects = [
   {
@@ -52,28 +53,30 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="hero-gradient w-full">
-        <div className="min-h-[85vh] w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 pt-28">
+      <section className="hero-gradient w-full min-h-screen relative">
+        <HeroBackground />
+        <div className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10">
           <div className="w-full max-w-[800px] text-center mx-auto">
             {/* Main headline */}
-            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold text-[#1D1D1F] tracking-tight leading-[1.15] mb-8">
+            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold text-[#1D1D1F] tracking-tight leading-[1.15]" style={{ marginBottom: '40px' }}>
               Designing immersive{" "}
               <span className="accent-gradient">digital experiences</span>{" "}
               that bridge worlds
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed mb-14 w-full text-center">
+            <p className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center" style={{ marginBottom: '48px' }}>
               Product Designer specializing in AR/VR, 3D interactions, and spatial computing.<br />
-              Currently crafting the future of retail experiences at{" "}
-              <span className="text-[#1D1D1F] font-medium">HP/HyperX</span>.
+              Currently studying at <span className="text-[#1D1D1F] font-medium">USC Iovine and Young Academy</span> with previous product design experience at{" "}
+              <span className="text-[#1D1D1F] font-medium">HP</span>, <span className="text-[#1D1D1F] font-medium">HyperX</span>, and other leading companies.
             </p>
 
             {/* CTA buttons */}
             <div className="flex flex-wrap justify-center gap-6">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-[#1D1D1F] text-white text-[16px] font-medium rounded-full hover:bg-[#333] transition-all hover:shadow-lg"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white text-[16px] font-medium rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-[#667eea]/30 hover:scale-105 active:scale-95"
+                style={{ padding: '20px 40px' }}
               >
                 View my work
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,12 +85,21 @@ export default function Home() {
               </Link>
               <Link
                 href="/resume"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#1D1D1F] text-[16px] font-medium rounded-full border border-[#E5E5E5] hover:border-[#1D1D1F] hover:shadow-sm transition-all"
+                className="inline-flex items-center gap-3 bg-[#F5F5F7] text-[#1D1D1F] text-[16px] font-medium rounded-full hover:bg-[#E8E8ED] transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95"
+                style={{ padding: '20px 40px' }}
               >
                 Resume
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
+          <span className="text-[12px] text-[#86868B] uppercase tracking-widest">See projects</span>
+          <svg className="w-6 h-6 text-[#86868B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
+          </svg>
         </div>
       </section>
 
@@ -95,7 +107,7 @@ export default function Home() {
       <section className="py-24 md:py-32 bg-white w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
           {/* Section header */}
-          <div className="text-center mb-16 w-full">
+          <div className="text-center mb-16 w-full" style={{ paddingTop: '60px' }}>
             <p className="text-[13px] font-semibold text-[#667eea] uppercase tracking-wider mb-4">Portfolio</p>
             <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
               Selected Work
@@ -103,7 +115,7 @@ export default function Home() {
           </div>
 
           {/* Project Grid */}
-          <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+          <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10" style={{ paddingBottom: '60px' }}>
             {featuredProjects.map((project) => (
               <Link
                 key={project.slug}
@@ -126,11 +138,11 @@ export default function Home() {
                       </svg>
                     </div>
                   </div>
-                  <div className="p-8 md:p-10 text-center flex flex-col items-center">
+                  <div className="px-8 md:px-10 text-center flex flex-col items-center" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
                     {/* Tags */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-5">
+                    <div className="flex flex-wrap justify-center gap-3 mb-12">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-1.5 text-[11px] font-medium text-[#667eea] bg-[#667eea]/10 rounded-md">{tag}</span>
+                        <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
                       ))}
                     </div>
                     {/* Title */}
@@ -156,16 +168,15 @@ export default function Home() {
       {/* Skills/Expertise Section */}
       <section className="py-32 md:py-44 bg-[#FAFAFA] w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
-          <div className="text-center mb-20 w-full">
-            <p className="text-[13px] font-semibold text-[#667eea] uppercase tracking-wider mb-4">Expertise</p>
+          <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '60px' }}>
             <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
-              What I bring to the table
+              Expertise
             </h2>
           </div>
 
-          <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8" style={{ paddingBottom: '60px' }}>
             {/* Skill 1 */}
-            <div style={{ paddingTop: '80px', paddingBottom: '80px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#667eea]/30 transition-all flex flex-col items-center text-center">
+            <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#667eea]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-lg shadow-[#667eea]/20" style={{ marginBottom: '32px' }}>
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -178,7 +189,7 @@ export default function Home() {
             </div>
 
             {/* Skill 2 */}
-            <div style={{ paddingTop: '80px', paddingBottom: '80px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#f093fb]/30 transition-all flex flex-col items-center text-center">
+            <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#f093fb]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-lg shadow-[#f093fb]/20" style={{ marginBottom: '32px' }}>
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
@@ -191,7 +202,7 @@ export default function Home() {
             </div>
 
             {/* Skill 3 */}
-            <div style={{ paddingTop: '80px', paddingBottom: '80px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#4facfe]/30 transition-all flex flex-col items-center text-center">
+            <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#4facfe]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#4facfe] to-[#00f2fe] flex items-center justify-center shadow-lg shadow-[#4facfe]/20" style={{ marginBottom: '32px' }}>
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
@@ -214,13 +225,14 @@ export default function Home() {
               Let's build something{" "}
               <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">extraordinary</span>
             </h2>
-            <p className="text-[16px] text-white/70 mb-12 w-full text-center">
+            <p className="text-[16px] text-white/70 w-full text-center" style={{ marginBottom: '60px' }}>
               I'm always excited to collaborate on innovative projects that push the boundaries of digital experiences.
             </p>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="flex flex-wrap justify-center gap-6" style={{ marginTop: '20px' }}>
               <a
                 href="mailto:kiranaamoore@gmail.com"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#1D1D1F] text-[16px] font-semibold rounded-full hover:shadow-xl hover:shadow-white/20 transition-all"
+                className="inline-flex items-center gap-3 bg-white text-[#1D1D1F] text-[16px] font-semibold rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
+                style={{ padding: '20px 40px' }}
               >
                 Get in touch
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,7 +243,8 @@ export default function Home() {
                 href="https://www.linkedin.com/in/kirana-moore"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white/10 text-white text-[16px] font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all"
+                className="inline-flex items-center gap-3 bg-white/10 text-white text-[16px] font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-105 active:scale-95"
+                style={{ padding: '20px 40px' }}
               >
                 LinkedIn
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

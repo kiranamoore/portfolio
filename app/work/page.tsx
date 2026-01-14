@@ -50,9 +50,9 @@ const featuredProjects = [
 
 export default function WorkPage() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-[#FAFAFA]" style={{ paddingTop: '80px' }}>
       {/* Header Section */}
-      <section className="hero-gradient pt-32 pb-16 md:pt-40 md:pb-20">
+      <section className="hero-gradient pb-16 md:pb-20" style={{ paddingTop: '48px' }}>
         <div className="max-w-6xl mx-auto px-8 md:px-12">
           <p className="text-[13px] font-medium text-[#667eea] uppercase tracking-wider mb-3">Portfolio</p>
           <h1 className="text-[40px] md:text-[48px] font-bold text-[#1D1D1F] tracking-tight mb-4">
@@ -97,7 +97,7 @@ export default function WorkPage() {
                     {/* Tags */}
                     <div className="flex flex-wrap justify-center gap-3 mb-5">
                       {project.tags.map((tag) => (
-                        <span key={tag} className="px-4 py-1.5 text-[11px] font-medium text-[#667eea] bg-[#667eea]/10 rounded-md">{tag}</span>
+                        <span key={tag} className="px-5 py-2.5 text-[12px] font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg">{tag}</span>
                       ))}
                     </div>
                     {/* Title */}
