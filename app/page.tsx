@@ -48,7 +48,7 @@ export default function Home() {
                   lineHeight: '30px'
                 }}
               >
-                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\nAn Extended Reality Designer,\n3D Artist,\nExperience Designer,\nand Visual Storyteller"} />
+                <TextScramble text={"Hello, I'm a senior at the USC Iovine and Young Academy,\nA Product Designer,\nUX/UI Designer,\nCreative Technologist,\nand Visual Storyteller"} />
               </p>
             </div>
             <div className="absolute bottom-8 right-8 text-white mix-blend-difference text-sm z-40">
@@ -76,7 +76,7 @@ export default function Home() {
                 fontFamily: 'var(--font-lekton)' 
               }}
             >
-              I'm a multidisciplinary designer and Unity developer passionate about crafting immersive AR, VR, and architectural experiences. Skilled in Unity, 3D modeling, and spatial design, I create user-centered environments that captivate and connect. Let's build something extraordinary together!
+              I'm a multidisciplinary product designer passionate about crafting intuitive, user-centered experiences. Skilled in UX/UI design, prototyping, and creative problem-solving, I transform complex challenges into elegant solutions that delight users and drive results. Let's build something extraordinary together!
             </p>
           </div>
         </section>
