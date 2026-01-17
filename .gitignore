@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large video files (hosted externally)
+public/honda/*.mp4
+public/honda/*.pdf
+
+# playwright screenshots
+.playwright-mcp/

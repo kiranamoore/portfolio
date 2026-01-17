@@ -7,7 +7,7 @@ export default function HyperXPage() {
     <ProjectLayout
       title="XR/AR Product Showcase"
       company="HP/HyperX"
-      year="2025"
+      year="Spring 2025 – Summer 2025"
       description="Comprehensive XR and AR development work for HP/HyperX, including real-time 3D product customization, AR manuals, WebAR experiences, and 3D model optimization pipelines for retail and consumer applications."
       tags={["Unity", "AR", "3D", "WebXR", "Blender"]}
       orientation="landscape"
@@ -44,7 +44,7 @@ export default function HyperXPage() {
         },
       ]}
       prevProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}
-      nextProject={{ slug: "vape-reduction", title: "Vape Reduction Initiative" }}
+      nextProject={{ slug: "honda", title: "Future Mobility Concept" }}
       sections={[
         {
           title: "Role & Objective",

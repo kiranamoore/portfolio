@@ -4,7 +4,7 @@ export default function NogiNogiPage() {
   return (
     <ProjectLayout
       title="Nogi Nogi"
-      year="2025"
+      year="Sep 2025 – Dec 2025"
       description="Physical product design for a carabiner art pose doll - a unique collectible that combines functionality with artistic expression."
       tags={["Product Design", "Physical"]}
       orientation="portrait"
@@ -15,7 +15,7 @@ export default function NogiNogiPage() {
           caption: "Product showcase coming soon",
         },
       ]}
-      prevProject={{ slug: "honda", title: "Honda Innovation Project" }}
+      prevProject={{ slug: "vape-reduction", title: "Vape Reduction Initiative" }}
       nextProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
       sections={[
         {

@@ -5,7 +5,7 @@ export default function VapeReductionPage() {
     <ProjectLayout
       title="Vape Reduction Initiative"
       company="IYA"
-      year="2025"
+      year="Nov 2025 – Dec 2025"
       description="A health-focused behavioral design project exploring interventions to reduce vaping among young adults through user research, behavioral psychology, and design thinking methodologies."
       tags={["UX Research", "Behavior Design", "Health"]}
       orientation="landscape"
@@ -16,8 +16,8 @@ export default function VapeReductionPage() {
           caption: "Project research and design coming soon",
         },
       ]}
-      prevProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
-      nextProject={{ slug: "arup", title: "ARUP Sustainability" }}
+      prevProject={undefined}
+      nextProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}
       sections={[
         {
           title: "Role & Objective",

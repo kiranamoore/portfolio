@@ -7,19 +7,24 @@ export default function HondaPage() {
     <ProjectLayout
       title="Future Mobility Concept"
       company="IYA Academy"
-      year="2025"
+      year="Feb 2025 – Mar 2025"
       description="9-week design sprint contracted with a major automotive manufacturer. Our team tackled a key insight: Gen-Z is the loneliest generation. 61% of young adults report serious loneliness, yet no vehicle has been designed around enhancing human connection while respecting the need for privacy."
       tags={["UX Design", "Unity", "AR/MR", "Automotive"]}
       orientation="landscape"
       slides={[
         {
-          type: "image",
-          src: "/placeholder-honda.svg",
-          caption: "Final Interactive Demo — Video coming soon",
+          type: "youtube",
+          src: "JEkAEWwGEVs",
+          caption: "Final Interactive Demo — Immersive Gaming Experience",
+        },
+        {
+          type: "youtube",
+          src: "e8aMQo_JWRQ",
+          caption: "Storyboard Walkthrough — User Journey Design",
         },
       ]}
-      prevProject={undefined}
-      nextProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}
+      prevProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
+      nextProject={{ slug: "arup", title: "Sustainability & Community" }}
       sections={[
         {
           title: "Role & Objective",

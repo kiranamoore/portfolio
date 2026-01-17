@@ -10,9 +10,51 @@ const ModelViewer = dynamic(
   { ssr: false }
 );
 
+// YouTube Embed with thumbnail and play button
+function YouTubeEmbed({ videoId, title }: { videoId: string; title: string }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  if (isPlaying) {
+    return (
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        className="w-full h-full"
+        style={{ border: 'none' }}
+      />
+    );
+  }
+
+  return (
+    <div
+      className="w-full h-full relative cursor-pointer group"
+      onClick={() => setIsPlaying(true)}
+    >
+      {/* YouTube Thumbnail */}
+      <img
+        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        alt={title}
+        className="w-full h-full object-cover"
+      />
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+      {/* Play Button */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="w-20 h-20 bg-red-600 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+          <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Types
 export interface Slide {
-  type: "video" | "image" | "model";
+  type: "video" | "image" | "model" | "youtube";
   src: string;
   caption?: string;
 }
@@ -143,6 +185,9 @@ export default function ProjectLayout({
                 className="w-full h-full object-contain"
               />
             </div>
+          )}
+          {slide.type === "youtube" && (
+            <YouTubeEmbed videoId={slide.src} title={slide.caption || title} />
           )}
         </div>
       ))}

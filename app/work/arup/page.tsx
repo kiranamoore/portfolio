@@ -5,7 +5,7 @@ export default function ArupPage() {
     <ProjectLayout
       title="Sustainability & Community"
       company="ARUP"
-      year="2025"
+      year="Aug 2024 – Dec 2024"
       description="An IYA sustainability and community impact project in collaboration with ARUP, focusing on designing solutions that address environmental challenges while strengthening community bonds."
       tags={["Sustainability", "Community", "Design Research"]}
       orientation="landscape"
@@ -16,7 +16,7 @@ export default function ArupPage() {
           caption: "Project documentation coming soon",
         },
       ]}
-      prevProject={{ slug: "vape-reduction", title: "Vape Reduction Initiative" }}
+      prevProject={{ slug: "honda", title: "Future Mobility Concept" }}
       nextProject={undefined}
       sections={[
         {
