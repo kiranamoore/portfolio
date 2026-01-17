@@ -340,3 +340,40 @@ body {
   90% { opacity: 1; }
   100% { stroke-dashoffset: -800; opacity: 0; }
 }
+
+/* ===== Project Navigation Animations ===== */
+
+@keyframes bounce-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.animate-bounce-right {
+  animation: bounce-right 1s ease-in-out infinite;
+}
+
+@keyframes bounce-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+}
+
+.animate-bounce-left {
+  animation: bounce-left 1s ease-in-out infinite;
+}
+
+/* ===== Scroll Indicator Animation ===== */
+
+@keyframes scroll-down {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.5;
+  }
+}
+
+.animate-scroll-down {
+  animation: scroll-down 1.5s ease-in-out infinite;
+}
