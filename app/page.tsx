@@ -91,7 +91,7 @@ export default function Home() {
       <section className="py-24 md:py-32 bg-white w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
           {/* Section header */}
-          <div className="text-center mb-16 w-full" style={{ paddingTop: '60px' }}>
+          <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '80px' }}>
             <p className="text-[13px] font-semibold text-[#667eea] uppercase tracking-wider mb-4">Portfolio</p>
             <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
               Selected Work
