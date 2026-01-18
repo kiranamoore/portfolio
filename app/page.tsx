@@ -101,7 +101,7 @@ export default function Home() {
           {/* Spotlight Project - Full Width Hero */}
           <Link
             href={`/work/${spotlightProject.slug}`}
-            className="group block w-full max-w-[1100px] mb-16"
+            className="group block w-full max-w-[1100px] mb-24"
           >
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
 
                 {/* Content side */}
-                <div className="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
+                <div className="lg:w-1/2 py-10 lg:py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
                   {/* Tags - centered */}
                   <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {spotlightProject.tags.map((tag) => (
@@ -143,31 +143,29 @@ export default function Home() {
                     {spotlightProject.company} · {spotlightProject.year}
                   </p>
 
-                  {/* Description and highlights - centered with padding */}
-                  <div className="px-4 lg:px-8">
-                    <p className="text-[15px] text-white/80 leading-relaxed mb-6 text-center">
-                      {spotlightProject.description}
-                    </p>
+                  {/* Description */}
+                  <p className="text-[15px] text-white/80 leading-relaxed mb-6 text-center">
+                    {spotlightProject.description}
+                  </p>
 
-                    {/* Highlight pills */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-6">
-                      {spotlightProject.highlights.map((highlight) => (
-                        <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white bg-white/15 rounded-full px-3 py-1.5 border border-white/20">
-                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                          </svg>
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
+                  {/* Highlight pills */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-6">
+                    {spotlightProject.highlights.map((highlight) => (
+                      <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white bg-white/15 rounded-full px-3 py-1.5 border border-white/20">
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        {highlight}
+                      </span>
+                    ))}
+                  </div>
 
-                    {/* CTA */}
-                    <div className="flex items-center justify-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
-                      View case study
-                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </div>
+                  {/* CTA */}
+                  <div className="flex items-center justify-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
+                    View case study
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </div>
                 </div>
               </div>
