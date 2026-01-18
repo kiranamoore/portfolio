@@ -106,7 +106,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
               <div className="absolute top-8 left-8 z-10">
-                <span className="inline-flex items-center gap-4 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-8 py-4 shadow-lg">
+                <span className="inline-flex items-center bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full shadow-lg" style={{ padding: '8px 16px', gap: '8px' }}>
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
 
                 {/* Content side */}
-                <div className="lg:w-1/2 py-10 lg:py-16 px-8 md:px-12 lg:px-16 flex flex-col justify-center">
+                <div className="lg:w-1/2 flex flex-col justify-center" style={{ padding: '40px 32px 48px 32px' }}>
                   {/* Tags - centered */}
                   <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {spotlightProject.tags.map((tag) => (
@@ -139,30 +139,18 @@ export default function Home() {
                   </h3>
 
                   {/* Company & Year - centered */}
-                  <p className="text-[14px] font-semibold text-white/80 mb-6 text-center">
+                  <p className="text-[14px] font-semibold text-white/80 text-center" style={{ marginBottom: '40px' }}>
                     {spotlightProject.company} · {spotlightProject.year}
                   </p>
 
                   {/* Description */}
-                  <p className="text-[15px] text-white/80 leading-relaxed mb-6 text-center">
+                  <p className="text-white/80 leading-relaxed text-center" style={{ fontSize: '15px', marginBottom: '32px' }}>
                     {spotlightProject.description}
                   </p>
 
-                  {/* Highlight pills */}
-                  <div className="flex flex-wrap justify-center gap-3 mb-6">
-                    {spotlightProject.highlights.map((highlight) => (
-                      <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white bg-white/15 rounded-full px-3 py-1.5 border border-white/20">
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
-
                   {/* CTA */}
                   <div className="flex items-center justify-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
-                    View case study
+                    View project
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
@@ -173,7 +161,7 @@ export default function Home() {
           </Link>
 
           {/* Other Projects Grid */}
-          <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10" style={{ paddingBottom: '60px' }}>
+          <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10" style={{ marginTop: '60px', paddingBottom: '60px' }}>
             {featuredProjects.map((project) => (
               <Link
                 key={project.slug}
