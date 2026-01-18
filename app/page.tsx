@@ -101,12 +101,12 @@ export default function Home() {
           {/* Spotlight Project - Full Width Hero */}
           <Link
             href={`/work/${spotlightProject.slug}`}
-            className="group block w-full max-w-[1100px] mb-10"
+            className="group block w-full max-w-[1100px] mb-16"
           >
-            <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-[#667eea]/20 card-hover relative">
+            <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center gap-2 bg-gradient-to-r from-[#667eea] to-[#764ba2] text-white text-[11px] font-semibold uppercase tracking-wider rounded-full px-4 py-2 shadow-lg">
+                <span className="inline-flex items-center gap-2 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-4 py-2 shadow-lg">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
@@ -123,51 +123,53 @@ export default function Home() {
                     className="w-full h-full object-cover zoom-image"
                   />
                   {/* Gradient overlay for text readability on mobile */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#1a1a2e]/80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#667eea] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#764ba2]/90" />
                 </div>
 
                 {/* Content side */}
                 <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  {/* Tags - centered */}
+                  <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {spotlightProject.tags.map((tag) => (
-                      <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/20 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
+                      <span key={tag} className="inline-block font-medium text-white bg-white/20 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
                     ))}
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-[24px] lg:text-[32px] font-bold text-white mb-2 group-hover:text-[#667eea] transition-colors">
+                  {/* Title - centered */}
+                  <h3 className="text-[24px] lg:text-[32px] font-bold text-white mb-2 group-hover:text-white/90 transition-colors text-center">
                     {spotlightProject.title}
                   </h3>
 
-                  {/* Company & Year */}
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-4">
+                  {/* Company & Year - centered */}
+                  <p className="text-[14px] font-semibold text-white/80 mb-6 text-center">
                     {spotlightProject.company} · {spotlightProject.year}
                   </p>
 
-                  {/* Description */}
-                  <p className="text-[15px] text-white/70 leading-relaxed mb-6">
-                    {spotlightProject.description}
-                  </p>
+                  {/* Description - with horizontal padding */}
+                  <div className="px-4 lg:px-8">
+                    <p className="text-[15px] text-white/80 leading-relaxed mb-6">
+                      {spotlightProject.description}
+                    </p>
 
-                  {/* Highlight pills */}
-                  <div className="flex flex-wrap gap-3 mb-6">
-                    {spotlightProject.highlights.map((highlight) => (
-                      <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white/90 bg-white/10 rounded-full px-3 py-1.5 border border-white/10">
-                        <svg className="w-3 h-3 text-[#4facfe]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                        </svg>
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
+                    {/* Highlight pills */}
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      {spotlightProject.highlights.map((highlight) => (
+                        <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white bg-white/15 rounded-full px-3 py-1.5 border border-white/20">
+                          <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                          </svg>
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* CTA */}
-                  <div className="flex items-center gap-2 text-[14px] font-semibold text-white group-hover:text-[#667eea] transition-colors">
-                    View case study
-                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    {/* CTA */}
+                    <div className="flex items-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
+                      View case study
+                      <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
