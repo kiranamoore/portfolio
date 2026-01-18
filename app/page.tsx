@@ -105,8 +105,8 @@ export default function Home() {
           >
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
-              <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center gap-3 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-6 py-3 shadow-lg">
+              <div className="absolute top-8 left-8 z-10">
+                <span className="inline-flex items-center gap-4 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-8 py-4 shadow-lg">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
@@ -122,8 +122,6 @@ export default function Home() {
                     alt={spotlightProject.title}
                     className="w-full h-full object-cover zoom-image"
                   />
-                  {/* Gradient overlay for text readability on mobile */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#667eea] via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#764ba2]/90" />
                 </div>
 
                 {/* Content side */}
