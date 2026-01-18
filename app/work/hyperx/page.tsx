@@ -5,42 +5,47 @@ import ProjectLayout from "@/components/ProjectLayout";
 export default function HyperXPage() {
   return (
     <ProjectLayout
-      title="XR/AR Product Showcase"
+      title="AR Shopping Experience for Gaming Hardware"
       company="HP/HyperX"
-      year="Spring 2025 – Summer 2025"
-      description="Comprehensive XR and AR development work for HP/HyperX, including real-time 3D product customization, AR manuals, WebAR experiences, and 3D model optimization pipelines for retail and consumer applications."
-      tags={["Unity", "AR", "3D", "WebXR", "Blender"]}
+      year="May 2025 – August 2025"
+      description="Pioneered HyperX's first augmented reality e-commerce experience, positioning the brand ahead of competitors like Razer and Logitech in the gaming peripherals space. Presented directly to the HyperX CEO, earning executive buy-in and driving investment interest in AR for e-commerce and brand experiences."
+      tags={["Unity", "Blender", "Lens Studio", "WebAR", "Figma"]}
       orientation="landscape"
       slides={[
         {
-          type: "video",
-          src: "/Customizer_demo.MOV",
-          caption: "AR Product Customizer - Live Demo",
+          type: "youtube",
+          src: "JC9I14BEwaU",
+          caption: "AR Product Customizer → Checkout Flow",
+        },
+        {
+          type: "youtube",
+          src: "ws2YxYdNQK8",
+          caption: "Interactive Packaging – AR from Physical Box",
+        },
+        {
+          type: "youtube",
+          src: "k3CVoaWj0s0",
+          caption: "AR Try-On Experience",
+        },
+        {
+          type: "youtube",
+          src: "PVsy-VwZ9kM",
+          caption: "Keyboard & Mouse 3D Product Viewer",
+        },
+        {
+          type: "youtube",
+          src: "JQfUVj6Q5ak",
+          caption: "3D Viewer on Product Page",
         },
         {
           type: "image",
-          src: "/AR-PRODUCT-CUSTOMIZER-THUMBNAIL.png",
-          caption: "AR Product Customizer Interface",
+          src: "/hyperx-instore-mockup.png",
+          caption: "In-Store AR Display Concept",
         },
         {
           type: "image",
-          src: "/quick_start_guide_thumbnail.png",
-          caption: "Quick Start Guide AR Manual",
-        },
-        {
-          type: "image",
-          src: "/HX3D_thumbnail.png",
-          caption: "3D Model Optimization Pipeline",
-        },
-        {
-          type: "image",
-          src: "/hiro-marker-thumb.png",
-          caption: "Marker-Based WebAR Development",
-        },
-        {
-          type: "image",
-          src: "/18k tris.png",
-          caption: "Cloud 3D Connect - In-Store Display",
+          src: "/hyperx-ar-demo-qr.png",
+          caption: "Try It Yourself – Scan to Experience the AR Demo",
         },
       ]}
       prevProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}
@@ -51,22 +56,22 @@ export default function HyperXPage() {
           icon: "role",
           color: "#667eea",
           items: [
-            "Served as <strong>Augmented Reality Developer</strong> creating immersive retail and consumer experiences",
-            "Developed interactive tools to drive product engagement and accessory sales at point of sale",
-            "Built comprehensive XR solutions spanning Unity, WebAR, and mobile AR platforms",
-            "Optimized 3D assets for cross-platform deployment (web, mobile, AR, VR)",
+            "Served as <strong>Product Design Intern</strong> on the 3D and CGI Team, owning the end-to-end AR initiative",
+            "Identified market opportunity: <strong>61% of consumers prefer retailers with AR</strong>, yet no gaming peripheral brand offered it",
+            "Built business case and technical proof-of-concept to position HyperX as <strong>first-mover in gaming hardware AR</strong>",
+            "Collaborated cross-functionally with marketing and UI teams using Figma and Photoshop",
           ],
         },
         {
-          title: "Key Contributions",
+          title: "Technical Contributions",
           icon: "contributions",
           color: "#f093fb",
           items: [
-            "<strong>AR Product Customizer:</strong> Real-time 3D headset customization with feature callouts and AR integration",
-            "<strong>Quick Start Guide AR Manual:</strong> Paperless onboarding experience using Lens Studio",
-            "<strong>3D Optimization Pipeline:</strong> CAD to web/mobile/AR/VR workflow reducing model complexity while maintaining visual quality",
-            "<strong>Marker-Based WebAR:</strong> JavaScript-based AR using computer vision for in-browser experiences",
-            "<strong>Cloud 3D Connect:</strong> Interactive in-store product showcase with touch-based navigation",
+            "<strong>3D Asset Optimization:</strong> Reduced Cloud 3 headset mesh from <strong>6M+ to 15k triangles (99.7% reduction)</strong> via Blender, enabling real-time web/AR rendering",
+            "<strong>Accessory Asset Pipeline:</strong> Optimized 3 HyperX headset accessory sets from <strong>12M to 30k triangles</strong> using Quad Remesher, with baked normal and diffuse maps",
+            "<strong>AR Product Customizer:</strong> Built web-based real-time customization with HX3D accessories, integrating Unity and Lens Studio assets",
+            "<strong>Interactive Packaging:</strong> Developed AR experience triggered by physical product box using marker-based tracking",
+            "<strong>AR Quick Start Guide:</strong> Created paperless onboarding flow replacing printed manuals",
           ],
         },
         {
@@ -74,10 +79,11 @@ export default function HyperXPage() {
           icon: "results",
           color: "#4facfe",
           items: [
-            "Enabled customers to understand HyperX advantages over competitors directly in-store",
-            "Increased product engagement and HX3D accessory attachment rates",
-            "Delivered production-ready solutions deployed across retail locations",
-            "Created scalable, interactive retail tools that enhance the buying experience",
+            "<strong>Presented to HyperX CEO</strong> – received direct executive feedback and approval",
+            "<strong>Drove AR investment interest</strong> for e-commerce and brand experiences company-wide",
+            "Delivered production-ready assets: PBR texturing, lighting, and ray-traced rendering for web deployment",
+            "Created scalable AR shopping flow: Browse → Customize → Try-On → Checkout",
+            "Positioned HyperX ahead of Razer, Logitech, and SteelSeries in AR adoption",
           ],
         },
       ]}

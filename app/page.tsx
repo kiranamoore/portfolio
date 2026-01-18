@@ -21,13 +21,13 @@ const featuredProjects = [
     tags: ["Product Design", "Physical"],
   },
   {
-    title: "XR/AR Product Showcase",
+    title: "AR Shopping Experience",
     company: "HP/HyperX",
-    year: "Spring 2025 – Summer 2025",
+    year: "May 2025 – Aug 2025",
     slug: "hyperx",
     thumbnail: "/AR-PRODUCT-CUSTOMIZER-THUMBNAIL.png",
-    description: "Comprehensive XR/AR work showcase for retail and consumer experiences",
-    tags: ["Unity", "AR", "3D", "WebXR"],
+    description: "Pioneered HyperX's first AR e-commerce experience, presented to CEO",
+    tags: ["Unity", "Blender", "WebAR"],
   },
   {
     title: "Future Mobility Concept",
