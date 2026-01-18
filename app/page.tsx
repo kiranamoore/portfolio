@@ -106,7 +106,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center gap-2 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-4 py-2 shadow-lg">
+                <span className="inline-flex items-center gap-2.5 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-5 py-2.5 shadow-lg">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
@@ -145,14 +145,14 @@ export default function Home() {
                     {spotlightProject.company} · {spotlightProject.year}
                   </p>
 
-                  {/* Description - with horizontal padding */}
-                  <div className="px-4 lg:px-8">
-                    <p className="text-[15px] text-white/80 leading-relaxed mb-6">
+                  {/* Description and highlights - centered with padding */}
+                  <div className="px-6 lg:px-12">
+                    <p className="text-[15px] text-white/80 leading-relaxed mb-6 text-center">
                       {spotlightProject.description}
                     </p>
 
                     {/* Highlight pills */}
-                    <div className="flex flex-wrap gap-3 mb-6">
+                    <div className="flex flex-wrap justify-center gap-3 mb-6">
                       {spotlightProject.highlights.map((highlight) => (
                         <span key={highlight} className="inline-flex items-center gap-1.5 text-[12px] text-white bg-white/15 rounded-full px-3 py-1.5 border border-white/20">
                           <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -164,7 +164,7 @@ export default function Home() {
                     </div>
 
                     {/* CTA */}
-                    <div className="flex items-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
+                    <div className="flex items-center justify-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
                       View case study
                       <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
