@@ -106,7 +106,7 @@ export default function Home() {
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
               <div className="absolute top-6 left-6 z-10">
-                <span className="inline-flex items-center gap-2.5 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-5 py-2.5 shadow-lg">
+                <span className="inline-flex items-center gap-3 bg-white text-[#667eea] text-[11px] font-semibold uppercase tracking-wider rounded-full px-6 py-3 shadow-lg">
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
@@ -127,7 +127,7 @@ export default function Home() {
                 </div>
 
                 {/* Content side */}
-                <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
+                <div className="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
                   {/* Tags - centered */}
                   <div className="flex flex-wrap justify-center gap-2 mb-6">
                     {spotlightProject.tags.map((tag) => (
@@ -146,7 +146,7 @@ export default function Home() {
                   </p>
 
                   {/* Description and highlights - centered with padding */}
-                  <div className="px-6 lg:px-12">
+                  <div className="px-4 lg:px-8">
                     <p className="text-[15px] text-white/80 leading-relaxed mb-6 text-center">
                       {spotlightProject.description}
                     </p>
