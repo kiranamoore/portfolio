@@ -5,17 +5,17 @@ export default function NogiNogiPage() {
     <ProjectLayout
       title="Nogi Nogi"
       year="Sep 2025 – Dec 2025"
-      description="Physical product design for a carabiner art pose doll - a unique collectible that combines functionality with artistic expression."
-      tags={["Product Design", "Physical"]}
+      description="A utility collectible that transforms from a poseable action figure into a functional carabiner. Engineered a ball-jointed system with elastic-tension mechanics and magnetic locking, then used an AI-accelerated Blender-to-Vizcom pipeline to iterate on materials 70% faster than traditional workflows."
+      tags={["Product Design", "3D Modeling", "UX Research", "Blender"]}
       orientation="portrait"
       slides={[
         {
           type: "image",
-          src: "/placeholder-nogi.svg",
-          caption: "Product showcase coming soon",
+          src: "/nogi-nogi-product.png",
+          caption: "Nogi Nogi product in context",
         },
       ]}
-      prevProject={{ slug: "vape-reduction", title: "Vape Reduction Initiative" }}
+      prevProject={{ slug: "honda", title: "Future Mobility Concept" }}
       nextProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
       sections={[
         {
@@ -23,8 +23,9 @@ export default function NogiNogiPage() {
           icon: "role",
           color: "#667eea",
           items: [
-            "Designed a unique carabiner art pose doll combining functionality with artistic expression",
-            "Created a collectible product that appeals to both art enthusiasts and everyday users",
+            "Led product design and UX research for a 15-week capstone project targeting Gen Z consumers",
+            "Designed a dual-state object balancing the emotional appeal of a collectible with the utility of a carabiner",
+            "Created a modular mechanical platform that can be licensed across different fandoms and IPs",
           ],
         },
         {
@@ -32,9 +33,10 @@ export default function NogiNogiPage() {
           icon: "contributions",
           color: "#f093fb",
           items: [
-            "Product concept development and iteration",
-            "Material selection and manufacturing considerations",
-            "Packaging and brand identity design",
+            "Engineered a ball-jointed elastic-tension mechanism modeled on BJD physics for fluid movement and structural rigidity",
+            "Designed magnetic-locking system in hands and feet to secure the carabiner form for load-bearing utility",
+            "Built a Blender-to-Vizcom pipeline for rapid CMF (Color, Material, Finish) exploration, reducing iteration cycles by 70%",
+            "Conducted field research at Frank & Sons Collectible Show and consumer interviews to validate product-market fit",
           ],
         },
         {
@@ -42,7 +44,9 @@ export default function NogiNogiPage() {
           icon: "results",
           color: "#4facfe",
           items: [
-            "Details to be added",
+            "Developed a licensing-ready standardized skeleton capable of hosting characters from various global fandoms",
+            "Validated demand through consumer interviews and competitive analysis against Labubu, Sonny Angel, and traditional carabiners",
+            "Preparing Kickstarter campaign for early 2026 to bring product to market",
           ],
         },
       ]}

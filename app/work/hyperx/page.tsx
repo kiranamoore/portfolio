@@ -9,7 +9,7 @@ export default function HyperXPage() {
       company="HP/HyperX"
       year="May 2025 – August 2025"
       description="Pioneered HyperX's first augmented reality e-commerce experience, positioning the brand ahead of competitors like Razer and Logitech in the gaming peripherals space. Presented directly to the HyperX CEO, earning executive buy-in and driving investment interest in AR for e-commerce and brand experiences."
-      tags={["Unity", "Blender", "Lens Studio", "WebAR", "Figma"]}
+      tags={["Lens Studio", "Blender", "WebAR", "Figma"]}
       orientation="landscape"
       slides={[
         {
@@ -69,7 +69,7 @@ export default function HyperXPage() {
           items: [
             "<strong>3D Asset Optimization:</strong> Reduced Cloud 3 headset mesh from <strong>6M+ to 15k triangles (99.7% reduction)</strong> via Blender, enabling real-time web/AR rendering",
             "<strong>Accessory Asset Pipeline:</strong> Optimized 3 HyperX headset accessory sets from <strong>12M to 30k triangles</strong> using Quad Remesher, with baked normal and diffuse maps",
-            "<strong>AR Product Customizer:</strong> Built web-based real-time customization with HX3D accessories, integrating Unity and Lens Studio assets",
+            "<strong>AR Product Customizer:</strong> Built web-based real-time customization with HX3D accessories using Lens Studio",
             "<strong>Interactive Packaging:</strong> Developed AR experience triggered by physical product box using marker-based tracking",
             "<strong>AR Quick Start Guide:</strong> Created paperless onboarding flow replacing printed manuals",
           ],

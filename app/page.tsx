@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import HeroBackground from "@/components/HeroBackground";
 
@@ -8,48 +10,39 @@ const spotlightProject = {
   year: "May 2025 – Aug 2025",
   slug: "hyperx",
   thumbnail: "/AR-PRODUCT-CUSTOMIZER-THUMBNAIL.png",
-  description: "Pioneered HyperX's first augmented reality e-commerce experience, positioning the brand ahead of Razer and Logitech. Presented directly to the CEO, earning executive buy-in and driving company-wide AR investment.",
-  tags: ["Unity", "Blender", "Lens Studio", "WebAR"],
+  description: "Built HyperX's first AR shopping experience, letting customers visualize products before buying. Presented to the CEO and helped secure funding for future AR projects across the company.",
+  tags: ["Lens Studio", "Blender", "WebAR"],
   highlights: ["99.7% mesh optimization", "CEO presentation", "First in gaming hardware"],
 };
 
 // Other featured projects
 const featuredProjects = [
   {
-    title: "Vape Reduction Initiative",
-    company: "IYA",
-    year: "Nov 2025 – Dec 2025",
-    slug: "vape-reduction",
-    thumbnail: "/placeholder-vape.svg",
-    description: "Health-focused behavioral design project",
-    tags: ["UX Research", "Behavior Design"],
-  },
-  {
     title: "Nogi Nogi",
     company: null,
     year: "Sep 2025 – Dec 2025",
     slug: "nogi-nogi",
-    thumbnail: "/placeholder-nogi.svg",
-    description: "Physical product - carabiner art pose doll",
-    tags: ["Product Design", "Physical"],
+    thumbnail: "/nogi-nogi-thumbnail.png",
+    description: "Utility collectible transforming from action figure to carabiner",
+    tags: ["Product Design", "3D Modeling", "UX Research"],
   },
   {
     title: "Future Mobility Concept",
-    company: "IYA Academy",
-    year: "Feb 2025 – Mar 2025",
+    company: "IYA",
+    year: "Feb 2025 - Mar 2025",
     slug: "honda",
-    thumbnail: "/honda/thumbnail.png",
+    thumbnail: "https://placehold.co/1200x800/E5E5E5/86868B?text=Coming+Soon",
     description: "Designing a Gen-Z car experience centered on human connection",
     tags: ["UX Design", "Unity", "AR/MR"],
   },
   {
-    title: "Sustainability & Community",
+    title: "Downtown Revitalization",
     company: "ARUP",
     year: "Aug 2024 – Dec 2024",
     slug: "arup",
-    thumbnail: "/placeholder-arup.svg",
-    description: "IYA sustainability and community impact project",
-    tags: ["Sustainability", "Community"],
+    thumbnail: "/arup-thumbnail.png",
+    description: "Revitalizing urban downtowns through community-driven co-working spaces",
+    tags: ["Urban Design", "Sustainability", "Design Research"],
   },
 ];
 
@@ -79,16 +72,19 @@ export default function Home() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
+        <button
+          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce cursor-pointer hover:text-[#667eea] transition-colors"
+        >
           <span className="text-[12px] text-[#86868B] uppercase tracking-widest">See projects</span>
           <svg className="w-6 h-6 text-[#86868B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
           </svg>
-        </div>
+        </button>
       </section>
 
       {/* Selected Work Section */}
-      <section className="py-24 md:py-32 bg-white w-full">
+      <section id="projects" className="py-24 md:py-32 bg-white w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
           {/* Section header */}
           <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '40px' }}>
@@ -243,7 +239,7 @@ export default function Home() {
               </div>
               <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">3D Design & Animation</h3>
               <p className="text-[15px] text-[#6E6E73] leading-relaxed">
-                Creating optimized 3D assets, character animations, and real-time visuals using Blender and Unity.
+                Creating optimized 3D assets, product animations, and real-time visuals using Blender and Unity.
               </p>
             </div>
 
@@ -276,7 +272,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap justify-center gap-6" style={{ marginTop: '20px' }}>
               <a
-                href="mailto:kiranaamoore@gmail.com"
+                href="mailto:kiranamoore14@gmail.com"
                 className="inline-flex items-center gap-3 bg-white text-[#1D1D1F] text-[16px] font-semibold rounded-full transition-all duration-200 hover:scale-105 active:scale-95"
                 style={{ padding: '20px 40px' }}
               >

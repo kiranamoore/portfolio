@@ -146,7 +146,7 @@ export default function ProjectLayout({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [orientation]);
 
-  // Media display component (shared between orientations)
+  // Media display component (shared between orientations) - no arrows inside
   const MediaDisplay = ({ className = "" }: { className?: string }) => (
     <div className={`relative ${className}`}>
       {slides.map((slide, index) => (
@@ -182,7 +182,7 @@ export default function ProjectLayout({
               <img
                 src={slide.src}
                 alt={slide.caption || title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover"
               />
             </div>
           )}
@@ -191,29 +191,48 @@ export default function ProjectLayout({
           )}
         </div>
       ))}
-
-      {/* Navigation Arrows */}
-      {slides.length > 1 && (
-        <>
-          <button
-            onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </>
-      )}
     </div>
+  );
+
+  // Side navigation component - only for project navigation
+  const SideNavigation = () => (
+    <>
+      {/* Left Arrow - Prev Project */}
+      {prevProject && (
+        <Link
+          href={`/work/${prevProject.slug}`}
+          className="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
+        >
+          <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">Prev<br />Project</span>
+          <svg
+            className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+          </svg>
+        </Link>
+      )}
+
+      {/* Right Arrow - Next Project */}
+      {nextProject && (
+        <Link
+          href={`/work/${nextProject.slug}`}
+          className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
+        >
+          <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">Next<br />Project</span>
+          <svg
+            className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+      )}
+    </>
   );
 
   // Content section component
@@ -245,27 +264,10 @@ export default function ProjectLayout({
     return (
       <div className="h-screen overflow-hidden hero-gradient relative">
         <HeroBackground />
+        <SideNavigation />
 
         <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
-          <div className="w-full max-w-7xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
-
-            {/* Left Navigation Arrow */}
-            {prevProject && (
-              <Link
-                href={`/work/${prevProject.slug}`}
-                className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
-              >
-                <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
-                <svg
-                  className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-                </svg>
-              </Link>
-            )}
+          <div className="w-full max-w-5xl h-full max-h-[calc(100vh-8rem)] flex flex-col lg:flex-row gap-4 lg:gap-8">
 
             {/* Left side - Media slideshow */}
             <div className="flex-1 flex flex-col min-h-0">
@@ -327,23 +329,6 @@ export default function ProjectLayout({
               </div>
             </div>
 
-            {/* Right Navigation Arrow */}
-            {nextProject && (
-              <Link
-                href={`/work/${nextProject.slug}`}
-                className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
-              >
-                <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>
-                <svg
-                  className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            )}
           </div>
         </div>
 
@@ -371,6 +356,7 @@ export default function ProjectLayout({
   return (
     <div className="min-h-screen hero-gradient relative flex flex-col">
       <HeroBackground />
+      <SideNavigation />
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8 md:px-12 lg:px-16 py-12" style={{ paddingTop: '100px' }}>
         <div className="w-full max-w-5xl">
@@ -445,41 +431,6 @@ export default function ProjectLayout({
 
         </div>
       </div>
-
-      {/* Fixed Side Navigation Arrows */}
-      {prevProject && (
-        <Link
-          href={`/work/${prevProject.slug}`}
-          className="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
-        >
-          <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center">Prev<br />Project</span>
-          <svg
-            className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
-          </svg>
-        </Link>
-      )}
-
-      {nextProject && (
-        <Link
-          href={`/work/${nextProject.slug}`}
-          className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
-        >
-          <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center">Next<br />Project</span>
-          <svg
-            className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-          </svg>
-        </Link>
-      )}
     </div>
   );
 }
