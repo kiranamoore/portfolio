@@ -146,7 +146,7 @@ export default function ProjectLayout({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [orientation]);
 
-  // Media display component (shared between orientations) - no arrows inside
+  // Media display component (shared between orientations)
   const MediaDisplay = ({ className = "" }: { className?: string }) => (
     <div className={`relative ${className}`}>
       {slides.map((slide, index) => (
@@ -191,6 +191,28 @@ export default function ProjectLayout({
           )}
         </div>
       ))}
+
+      {/* Slide Navigation Arrows (only when multiple slides) */}
+      {slides.length > 1 && (
+        <>
+          <button
+            onClick={() => setActiveSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1))}
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => setActiveSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1))}
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm shadow-lg border border-[#E5E5E5]/50 flex items-center justify-center text-[#1D1D1F] hover:bg-white hover:scale-110 transition-all duration-200 z-10 cursor-pointer"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </>
+      )}
     </div>
   );
 
