@@ -11,13 +11,13 @@ const ModelViewer = dynamic(
 );
 
 // YouTube Embed with thumbnail and play button
-function YouTubeEmbed({ videoId, title }: { videoId: string; title: string }) {
+function YouTubeEmbed({ videoId, title, muted, thumbnail }: { videoId: string; title: string; muted?: boolean; thumbnail?: string }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   if (isPlaying) {
     return (
       <iframe
-        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`}
+        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1${muted ? "&mute=1" : ""}`}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
@@ -34,7 +34,7 @@ function YouTubeEmbed({ videoId, title }: { videoId: string; title: string }) {
     >
       {/* YouTube Thumbnail */}
       <img
-        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        src={thumbnail || `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
         alt={title}
         className="w-full h-full object-cover"
       />
@@ -57,6 +57,9 @@ export interface Slide {
   type: "video" | "image" | "model" | "youtube";
   src: string;
   caption?: string;
+  objectFit?: "cover" | "contain";
+  muted?: boolean;
+  thumbnail?: string;
 }
 
 export interface Section {
@@ -182,12 +185,12 @@ export default function ProjectLayout({
               <img
                 src={slide.src}
                 alt={slide.caption || title}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${slide.objectFit === "contain" ? "object-contain p-4" : "object-cover"}`}
               />
             </div>
           )}
           {slide.type === "youtube" && (
-            <YouTubeEmbed videoId={slide.src} title={slide.caption || title} />
+            <YouTubeEmbed videoId={slide.src} title={slide.caption || title} muted={slide.muted} thumbnail={slide.thumbnail} />
           )}
         </div>
       ))}

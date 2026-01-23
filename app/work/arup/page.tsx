@@ -6,13 +6,13 @@ export default function ArupPage() {
       title="Downtown Revitalization"
       company="ARUP"
       year="Aug 2024 – Dec 2024"
-      description="A collaborative project with ARUP exploring how to revitalize downtown urban areas facing office vacancies and declining foot traffic in post-work-from-home culture. Through stakeholder interviews, trend analysis, and design research, we proposed ReWork, a co-working concept that transforms underutilized office spaces into community-driven hubs for collaboration, events, and connection."
-      tags={["Urban Design", "Sustainability", "Design Research", "Co-working"]}
+      description="Led research and concept development for HiveSpace, a systems-thinking approach to urban revitalization. Originated the core idea of rotating pop-ups in vacant office buildings, transforming underutilized commercial real estate into modular, flexible community hubs. Created all 3D visualizations including multi-floor building concepts and retail floor renders."
+      tags={["Design Research", "3D Visualization", "Concept Development", "Urban Design"]}
       orientation="landscape"
       slides={[
         {
           type: "youtube",
-          src: "ZhWUannnzwI",
+          src: "VnuN3pWdzqE",
           caption: "ARUP Project Video",
         },
       ]}
@@ -20,34 +20,33 @@ export default function ArupPage() {
       nextProject={undefined}
       sections={[
         {
-          title: "Role & Objective",
+          title: "Role",
           icon: "role",
           color: "#667eea",
           items: [
-            "Partnered with ARUP to address urban sustainability and community challenges in downtown areas",
-            "Investigated how rising remote work and office vacancies impact city vibrancy and identity",
-            "Defined a problem statement: city residents lack compelling reasons to engage with downtowns post-WFH",
+            "<strong>Research Lead:</strong> Conducted the foundational research that informed the entire project direction",
+            "<strong>Concept Originator:</strong> Created the core idea of rotating pop-ups in vacant office buildings as urban revitalization",
+            "<strong>3D Visualization:</strong> Produced all visual assets communicating the HiveSpace vision",
           ],
         },
         {
-          title: "Key Contributions",
+          title: "Research & Process",
           icon: "contributions",
           color: "#f093fb",
           items: [
-            "Conducted stakeholder interviews with diverse urban dwellers across Toledo, NYC, and Los Angeles",
-            "Performed PESTLE analysis, S-curve trend mapping, and morphological analysis",
-            "Synthesized research into three key trends: changing work patterns, inward urban expansion, and push for green spaces",
-            "Led ideation sessions using 'How Might We' prompts to generate and refine solutions",
+            "Conducted user interviews, PESTLE analysis, S-curve analysis, and empathy mapping to define the problem space",
+            "Identified key insight: downtown areas lack compelling reasons for engagement post-WFH, while office vacancies create opportunity",
+            "Developed a systems-thinking approach, designing not just a space, but a mechanism for ongoing community benefit",
           ],
         },
         {
-          title: "Results & Impact",
+          title: "Visual Communication",
           icon: "results",
           color: "#4facfe",
           items: [
-            "Proposed ReWork: a co-working concept featuring collaboration spaces, flexible company partnerships, and community events",
-            "Addressed underutilized real estate while promoting sustainability and human connection",
-            "Presented findings and solution to ARUP stakeholders",
+            "Created multi-floor building visualization showing how different floors work together as a cohesive system",
+            "Designed retail floor concept renders illustrating the rotating pop-up model",
+            "Produced concept art communicating the overall HiveSpace vision to ARUP stakeholders",
           ],
         },
       ]}

@@ -19,13 +19,13 @@ export default function Footer() {
           {/* Links */}
           <div className="flex items-center gap-6">
             <a
-              href="mailto:kiranaamoore@gmail.com"
+              href="mailto:kiranamoore14@gmail.com"
               className="text-[13px] text-[#6E6E73] hover:text-[#667eea] transition-colors"
             >
               Email
             </a>
             <a
-              href="https://www.linkedin.com/in/kirana-moore"
+              href="https://www.linkedin.com/in/kirana-moore-228701276/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[13px] text-[#6E6E73] hover:text-[#667eea] transition-colors"

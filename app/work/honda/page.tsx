@@ -16,11 +16,7 @@ export default function HondaPage() {
           type: "youtube",
           src: "JEkAEWwGEVs",
           caption: "Final Interactive Demo — Immersive Gaming Experience",
-        },
-        {
-          type: "youtube",
-          src: "e8aMQo_JWRQ",
-          caption: "Storyboard Walkthrough — User Journey Design",
+          thumbnail: "/honda-thumbnail.png",
         },
       ]}
       prevProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
@@ -44,9 +40,9 @@ export default function HondaPage() {
           items: [
             "<strong>Immersive Gaming Mode:</strong> All surfaces (windows and walls) become screens, creating a 360° gaming environment—demonstrated through Space Invaders, Rocket League, and a D&D campaign scenario",
             "<strong>Zoning System:</strong> Privacy partitions divide the car into communal and private zones, with the center designated for group activities",
-            "<strong>Activity Modes:</strong> Play, Rest, and Dining programs that transform the interior experience based on the group's chosen activity",
-            "<strong>Floating AR UI:</strong> Hand-tracked interface projected in space, allowing passengers to opt-in or opt-out of group activities",
-            "<strong>Privacy Dividers:</strong> Noise-canceling partitions that rise when users choose isolation, with automatic seat recline and table retraction",
+            "<strong>Activity Modes:</strong> Individual and Communal programs that transform the interior, supporting activities like play, rest, and dining based on passengers' needs",
+            "<strong>Floating AR UI:</strong> Hand-tracked interface projected in space, allowing passengers to opt-in or opt-out of group activities or interact with the car",
+            "<strong>Privacy Dividers:</strong> Noise-canceling partitions that rise when users choose isolation",
             "<strong>Communal Table & Storage:</strong> Rising table with integrated storage for shared items users bring aboard (e.g., tabletop game accessories, dining supplies), supporting communal activities like gaming and family dinner",
           ],
         },

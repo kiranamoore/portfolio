@@ -28,6 +28,12 @@ export default function Header() {
         {/* Logo / Name */}
         <Link
           href="/"
+          onClick={(e) => {
+            if (pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className="text-[15px] font-semibold text-[#1D1D1F] hover:opacity-70 transition-opacity"
         >
           Kirana Moore
@@ -43,7 +49,7 @@ export default function Header() {
             Resume
           </Link>
           <a
-            href="mailto:kiranaamoore@gmail.com"
+            href="mailto:kiranamoore14@gmail.com"
             className="ml-2 text-[14px] font-medium text-white bg-gradient-to-r from-[#667eea] to-[#764ba2] transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-md hover:shadow-[#667eea]/25"
             style={{ padding: '6px 12px', borderRadius: '8px' }}
           >

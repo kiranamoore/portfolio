@@ -10,26 +10,27 @@ export default function HyperXPage() {
       year="May 2025 – August 2025"
       description="Pioneered HyperX's first augmented reality e-commerce experience, positioning the brand ahead of competitors like Razer and Logitech in the gaming peripherals space. Presented directly to the HyperX CEO, earning executive buy-in and driving investment interest in AR for e-commerce and brand experiences."
       tags={["Lens Studio", "Blender", "WebAR", "Figma"]}
-      orientation="landscape"
+      orientation="portrait"
       slides={[
         {
           type: "youtube",
-          src: "JC9I14BEwaU",
+          src: "Y9iAdqKr93U",
           caption: "AR Product Customizer → Checkout Flow",
         },
         {
           type: "youtube",
-          src: "ws2YxYdNQK8",
+          src: "AApNbHPmC9I",
           caption: "Interactive Packaging – AR from Physical Box",
+          muted: true,
         },
         {
           type: "youtube",
-          src: "k3CVoaWj0s0",
+          src: "ikBsQZAmAAE",
           caption: "AR Try-On Experience",
         },
         {
           type: "youtube",
-          src: "PVsy-VwZ9kM",
+          src: "Ao0wM8Of284",
           caption: "Keyboard & Mouse 3D Product Viewer",
         },
         {
@@ -39,13 +40,9 @@ export default function HyperXPage() {
         },
         {
           type: "image",
-          src: "/hyperx-instore-mockup.png",
-          caption: "In-Store AR Display Concept",
-        },
-        {
-          type: "image",
           src: "/hyperx-ar-demo-qr.png",
           caption: "Try It Yourself – Scan to Experience the AR Demo",
+          objectFit: "contain",
         },
       ]}
       prevProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}

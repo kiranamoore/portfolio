@@ -12,7 +12,18 @@ export default function NogiNogiPage() {
         {
           type: "image",
           src: "/nogi-nogi-product.png",
-          caption: "Nogi Nogi product in context",
+          caption: "Nogi Nogi on Handbag",
+        },
+        {
+          type: "image",
+          src: "/Nogi-Nogi-bent.png",
+          caption: "Nogi Nogi Bent",
+        },
+        {
+          type: "image",
+          src: "/Nogi-Nogi-standing.png",
+          caption: "Nogi Nogi Standing",
+          objectFit: "contain",
         },
       ]}
       prevProject={{ slug: "honda", title: "Future Mobility Concept" }}

@@ -31,7 +31,7 @@ const featuredProjects = [
     company: "IYA",
     year: "Feb 2025 - Mar 2025",
     slug: "honda",
-    thumbnail: "https://placehold.co/1200x800/E5E5E5/86868B?text=Coming+Soon",
+    thumbnail: "/honda-thumbnail.png",
     description: "Designing a Gen-Z car experience centered on human connection",
     tags: ["UX Design", "Unity", "AR/MR"],
   },
@@ -41,7 +41,7 @@ const featuredProjects = [
     year: "Aug 2024 – Dec 2024",
     slug: "arup",
     thumbnail: "/arup-thumbnail.png",
-    description: "Revitalizing urban downtowns through community-driven co-working spaces",
+    description: "Revitalizing urban downtowns through community-driven retail spaces",
     tags: ["Urban Design", "Sustainability", "Design Research"],
   },
 ];
@@ -63,7 +63,7 @@ export default function Home() {
 
             {/* Subheadline */}
             <p className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center" style={{ marginBottom: '48px' }}>
-              Product Designer specializing in AR/VR, 3D interactions, and spatial computing.<br />
+              Product Designer crafting interactive experiences across digital, physical, and spatial contexts.<br />
               Currently studying at <span className="text-[#1D1D1F] font-medium">USC Iovine and Young Academy</span> with previous product design experience at{" "}
               <span className="text-[#1D1D1F] font-medium">HP</span>, <span className="text-[#1D1D1F] font-medium">HyperX</span>, and other leading companies.
             </p>
@@ -158,11 +158,11 @@ export default function Home() {
 
           {/* Other Projects Grid */}
           <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10" style={{ marginTop: '60px', paddingBottom: '60px' }}>
-            {featuredProjects.map((project) => (
+            {featuredProjects.map((project, index) => (
               <Link
                 key={project.slug}
                 href={`/work/${project.slug}`}
-                className="group block"
+                className={`group block ${index === featuredProjects.length - 1 && featuredProjects.length % 2 === 1 ? 'md:col-span-2 md:w-[calc(50%_-_20px)] md:mx-auto' : ''}`}
               >
                 <div className="overflow-hidden rounded-2xl bg-white border border-[#E5E5E5] card-hover">
                   <div className="aspect-[16/10] relative overflow-hidden bg-[#F5F5F7]">
@@ -239,7 +239,7 @@ export default function Home() {
               </div>
               <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">3D Design & Animation</h3>
               <p className="text-[15px] text-[#6E6E73] leading-relaxed">
-                Creating optimized 3D assets, product animations, and real-time visuals using Blender and Unity.
+                Creating 3D models, product visualizations, and animations using Blender and Rhinoceros 3D.
               </p>
             </div>
 
@@ -282,7 +282,7 @@ export default function Home() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/kirana-moore"
+                href="https://www.linkedin.com/in/kirana-moore-228701276/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white/10 text-white text-[16px] font-semibold rounded-full border border-white/20 hover:bg-white/20 transition-all duration-200 hover:scale-105 active:scale-95"
