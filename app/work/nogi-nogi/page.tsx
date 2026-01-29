@@ -44,7 +44,7 @@ export default function NogiNogiPage() {
           icon: "contributions",
           color: "#f093fb",
           items: [
-            "Engineered a ball-jointed elastic-tension mechanism modeled on BJD physics for fluid movement and structural rigidity",
+            "Engineered a ball-jointed elastic-tension mechanism modeled on ball-jointed doll physics for fluid movement and structural rigidity",
             "Designed magnetic-locking system in hands and feet to secure the carabiner form for load-bearing utility",
             "Built a Blender-to-Vizcom AI pipeline for rapid CMF (Color, Material, Finish) exploration, reducing iteration cycles by 70%",
             "Conducted field research at Frank & Sons Collectible Show and consumer interviews to validate product-market fit",
