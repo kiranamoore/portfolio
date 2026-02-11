@@ -17,7 +17,7 @@ export default function ArupPage() {
         },
       ]}
       prevProject={{ slug: "honda", title: "Future Mobility Concept" }}
-      nextProject={undefined}
+      nextProject={{ slug: "meta-alchemy", title: "Meta Alchemy" }}
       sections={[
         {
           title: "Role",

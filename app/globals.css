@@ -199,23 +199,20 @@ body {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  pointer-events: none;
+  cursor: none;
+  pointer-events: auto;
   z-index: 0;
 }
 
-/* Animated waves - extra wide for ultrawide screens */
-.hero-waves {
+/* Connect the dots canvas */
+.dots-canvas {
   position: absolute;
-  bottom: 0;
-  left: -25%;
-  width: 150%;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  z-index: 0;
-}
-
-.wave {
-  will-change: transform;
-  transition: transform 0.1s ease-out;
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Morphing blobs */
@@ -278,67 +275,73 @@ body {
   }
 }
 
-/* Flowing lines */
-.flow-lines {
+/* Interactive dots */
+.connect-dot {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  cursor: none;
+  pointer-events: auto;
+  transition: all 0.2s;
 }
 
-.flow-line {
-  stroke-dasharray: 800;
-  stroke-dashoffset: 800;
-  will-change: stroke-dashoffset;
+.connect-dot::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  background: rgba(102, 126, 234, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  animation: dotPulse 2s ease-in-out infinite;
+  transition: all 0.2s;
 }
 
-.line-1 {
-  animation: flowDraw 8s ease-in-out infinite;
+.connect-dot:hover::before {
+  transform: translate(-50%, -50%) scale(1.3);
+  background: rgba(118, 75, 162, 0.9);
+  box-shadow: 0 0 30px rgba(118, 75, 162, 0.8);
 }
 
-.line-2 {
-  animation: flowDraw 10s ease-in-out infinite;
-  animation-delay: -2s;
+.connect-dot.active::before {
+  background: rgba(240, 147, 251, 0.95);
+  box-shadow: 0 0 40px rgba(240, 147, 251, 0.9);
+  transform: translate(-50%, -50%) scale(1.4);
+  animation: none;
 }
 
-.line-3 {
-  animation: flowDraw 9s ease-in-out infinite;
-  animation-delay: -4s;
+@keyframes dotPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
 }
 
-.line-4 {
-  animation: flowDraw 11s ease-in-out infinite;
-  animation-delay: -1s;
+/* Custom cursor */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(-10px, -10px);
 }
 
-.line-5 {
-  animation: flowDraw 7s ease-in-out infinite;
-  animation-delay: -5s;
-}
-
-.line-6 {
-  animation: flowDraw 12s ease-in-out infinite;
-  animation-delay: -3s;
-}
-
-.line-7 {
-  animation: flowDraw 9s ease-in-out infinite;
-  animation-delay: -7s;
-}
-
-.line-8 {
-  animation: flowDraw 10s ease-in-out infinite;
-  animation-delay: -4.5s;
-}
-
-@keyframes flowDraw {
-  0% { stroke-dashoffset: 800; opacity: 0; }
-  10% { opacity: 1; }
-  50% { stroke-dashoffset: 0; opacity: 1; }
-  90% { opacity: 1; }
-  100% { stroke-dashoffset: -800; opacity: 0; }
+.cursor-prompt {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 13px;
+  color: #667EEA;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* ===== Project Navigation Animations ===== */

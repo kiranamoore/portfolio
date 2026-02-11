@@ -58,7 +58,7 @@ export default function MetaAlchemyPage() {
 
           {/* Left Navigation Arrow - Previous Project */}
           <Link
-            href="/work/cloud-3d-connect"
+            href="/work/arup"
             className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
           >
             <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Prev</span>
@@ -248,7 +248,7 @@ export default function MetaAlchemyPage() {
 
           {/* Right Navigation Arrow - Next Project */}
           <Link
-            href="/work/nike-league-of-legends-zeri"
+            href="/work/hyperx"
             className="hidden lg:flex flex-col items-center justify-center gap-2 px-4 group self-center"
           >
             <span className="text-[11px] text-[#86868B] uppercase tracking-widest whitespace-nowrap">Next</span>

@@ -5,14 +5,14 @@ import HeroBackground from "@/components/HeroBackground";
 
 // Hero spotlight project
 const spotlightProject = {
-  title: "AR Shopping Experience",
-  company: "HP/HyperX",
-  year: "May 2025 – Aug 2025",
+  title: "HX3D AR Retail Experience",
+  company: "HyperX",
+  year: "13 weeks",
   slug: "hyperx",
-  thumbnail: "/AR-PRODUCT-CUSTOMIZER-THUMBNAIL.png",
-  description: "Built HyperX's first AR shopping experience, letting customers visualize products before buying. Presented to the CEO and helped secure funding for future AR projects across the company.",
-  tags: ["Lens Studio", "Blender", "WebAR"],
-  highlights: ["99.7% mesh optimization", "CEO presentation", "First in gaming hardware"],
+  thumbnail: "/hyperx/hero-ar-tryOn.png",
+  description: "Designed an AR retail experience that lets in-store shoppers scan QR codes to preview HX3D headset accessories in real time, making customization visible at the point of purchase. Presented to HyperX CEO and executive leadership.",
+  tags: ["Product Design", "AR Commerce", "Lens Studio"],
+  highlights: ["CEO Presentation", "End-to-end Design", "AR Prototyping"],
 };
 
 // Other featured projects
@@ -44,6 +44,15 @@ const featuredProjects = [
     description: "Revitalizing urban downtowns through community-driven retail spaces",
     tags: ["Urban Design", "Sustainability", "Design Research"],
   },
+  {
+    title: "Meta Alchemy",
+    company: null,
+    year: "Feb 2025",
+    slug: "meta-alchemy",
+    thumbnail: "/meta_alchemy.png",
+    description: "Mixed reality creative sandbox with drag-and-drop combinatorial gameplay for Quest 3",
+    tags: ["Unity", "MR", "Quest 3"],
+  },
 ];
 
 export default function Home() {
@@ -52,18 +61,17 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-gradient w-full min-h-screen relative">
         <HeroBackground />
-        <div className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10">
+        <div className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none" style={{ paddingTop: '25vh' }}>
           <div className="w-full max-w-[800px] text-center mx-auto">
             {/* Main headline */}
-            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-bold text-[#1D1D1F] tracking-tight leading-[1.15]" style={{ marginBottom: '40px' }}>
-              Designing immersive{" "}
-              <span className="accent-gradient">digital experiences</span>{" "}
-              that bridge worlds
+            <h1 className="font-bold text-[#1D1D1F] tracking-tight leading-[1.15]" style={{ marginBottom: '40px', marginTop: '60px' }}>
+              <span className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">I'm Kirana Moore</span><br />
+              <span className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">Product Designer, <span className="accent-gradient">connecting dots</span> to shape product strategy</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center" style={{ marginBottom: '48px' }}>
-              Product Designer crafting interactive experiences across digital, physical, and spatial contexts.<br />
+              Crafting interactive experiences across digital, physical, and spatial contexts.<br />
               Currently studying at <span className="text-[#1D1D1F] font-medium">USC Iovine and Young Academy</span> with previous product design experience at{" "}
               <span className="text-[#1D1D1F] font-medium">HP</span>, <span className="text-[#1D1D1F] font-medium">HyperX</span>, and other leading companies.
             </p>
@@ -74,7 +82,7 @@ export default function Home() {
         {/* Scroll indicator */}
         <button
           onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce cursor-pointer hover:text-[#667eea] transition-colors"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce cursor-pointer hover:text-[#667eea] transition-colors pointer-events-auto"
         >
           <span className="text-[12px] text-[#86868B] uppercase tracking-widest">See projects</span>
           <svg className="w-6 h-6 text-[#86868B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
