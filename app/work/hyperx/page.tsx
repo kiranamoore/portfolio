@@ -407,8 +407,17 @@ export default function HyperXPage() {
             {/* Mid-Fi Prototype */}
             <div className="style={{ marginBottom: '50px' }}">
               <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Mid-Fi Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }} bg-black">
-                <video src="/hyperx/midfi-mockup-4k.mp4" controls muted loop playsInline className="w-full" />
+              <div className="rounded-xl overflow-hidden shadow-xl bg-black" style={{ marginBottom: '40px' }}>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/k-q2NEEKSBY?rel=0"
+                    title="Mid-Fi Prototype"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-4">Validating Interaction, Ergonomics, and Conversion</h4>
               <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
@@ -442,8 +451,17 @@ export default function HyperXPage() {
             {/* High-Fi Prototype */}
             <div className="style={{ marginBottom: '50px' }}">
               <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">High-Fidelity Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }} bg-black">
-                <video src="/hyperx/hifi-mockup-4k.mp4" controls muted loop playsInline className="w-full" />
+              <div className="rounded-xl overflow-hidden shadow-xl bg-black" style={{ marginBottom: '40px' }}>
+                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                  <iframe
+                    className="absolute top-0 left-0 w-full h-full"
+                    src="https://www.youtube.com/embed/s4N8mFgTG1E?rel=0"
+                    title="High-Fidelity Prototype"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Refining Ergonomics & Brand System Integration</h4>
               <p className="text-[16px] text-[#1D1D1F] leading-relaxed mb-4">
