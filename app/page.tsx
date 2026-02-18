@@ -5,12 +5,12 @@ import HeroBackground from "@/components/HeroBackground";
 
 // Hero spotlight project
 const spotlightProject = {
-  title: "HX3D AR Retail Experience",
+  title: "HyperX AR Retail Experience",
   company: "HyperX",
-  year: "13 weeks",
   slug: "hyperx",
+  year: null,
   thumbnail: "/hyperx/hero-ar-tryOn.png",
-  description: "Designed an AR retail experience that lets in-store shoppers scan QR codes to preview HX3D headset accessories in real time, making customization visible at the point of purchase. Presented to HyperX CEO and executive leadership.",
+  description: "Activated QR-based real-time accessory previews for headset accessories, driving in-store discovery and online conversion.",
   tags: ["Product Design", "AR Commerce", "Lens Studio"],
   highlights: ["CEO Presentation", "End-to-end Design", "AR Prototyping"],
 };
@@ -18,19 +18,19 @@ const spotlightProject = {
 // Other featured projects
 const featuredProjects = [
   {
-    title: "Nogi Nogi",
-    company: null,
-    year: "Sep 2025 – Dec 2025",
+    title: "Character Carabiner Collectible",
+    company: "  ",
     slug: "nogi-nogi",
+    year: null,
     thumbnail: "/nogi-nogi-thumbnail.png",
     description: "Utility collectible transforming from action figure to carabiner",
     tags: ["Product Design", "3D Modeling", "UX Research"],
   },
   {
     title: "Future Mobility Concept",
-    company: "IYA",
-    year: "Feb 2025 - Mar 2025",
+    company: "Honda",
     slug: "honda",
+    year: null,
     thumbnail: "/honda-thumbnail.png",
     description: "Designing a Gen-Z car experience centered on human connection",
     tags: ["UX Design", "Unity", "AR/MR"],
@@ -38,21 +38,13 @@ const featuredProjects = [
   {
     title: "Downtown Revitalization",
     company: "ARUP",
-    year: "Aug 2024 – Dec 2024",
     slug: "arup",
+    year: null,
     thumbnail: "/arup-thumbnail.png",
     description: "Revitalizing urban downtowns through community-driven retail spaces",
     tags: ["Urban Design", "Sustainability", "Design Research"],
   },
-  {
-    title: "Meta Alchemy",
-    company: null,
-    year: "Feb 2025",
-    slug: "meta-alchemy",
-    thumbnail: "/meta_alchemy.png",
-    description: "Mixed reality creative sandbox with drag-and-drop combinatorial gameplay for Quest 3",
-    tags: ["Unity", "MR", "Quest 3"],
-  },
+ 
 ];
 
 export default function Home() {
@@ -61,27 +53,76 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-gradient w-full min-h-screen relative">
         <HeroBackground />
-        <div className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none" style={{ paddingTop: '25vh' }}>
+        <div
+          className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none"
+          style={{ paddingTop: "25vh" }}
+        >
           <div className="w-full max-w-[800px] text-center mx-auto">
             {/* Main headline */}
-            <h1 className="font-bold text-[#1D1D1F] tracking-tight leading-[1.15]" style={{ marginBottom: '40px', marginTop: '60px' }}>
-              <span className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">I'm Kirana Moore</span><br />
-              <span className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">Product Designer, <span className="accent-gradient">connecting dots</span> to shape product strategy</span>
+            <h1
+              className="font-bold text-[#1D1D1F] tracking-tight leading-[1.15]"
+              style={{ marginBottom: "40px", marginTop: "60px" }}
+            >
+              <span className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">
+                I'm Kirana Moore
+              </span>
+              <br />
+              <span className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">
+                Product Designer, <span className="accent-gradient">connecting dots</span> to shape product strategy
+              </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center" style={{ marginBottom: '48px' }}>
-              Crafting interactive experiences across digital, physical, and spatial contexts.<br />
-              Currently studying at <span className="text-[#1D1D1F] font-medium">USC Iovine and Young Academy</span> with previous product design experience at{" "}
-              <span className="text-[#1D1D1F] font-medium">HP</span>, <span className="text-[#1D1D1F] font-medium">HyperX</span>, and other leading companies.
+            <p
+              className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center"
+              style={{ marginBottom: "48px" }}
+            >
+              Crafting user experiences across digital, physical, and spatial contexts.
+              <br />
+             
             </p>
+
+            {/* — Logo row (Selected Professional Experience) — */}
+            <div className="w-full flex flex-col items-center justify-center pointer-events-auto" style={{ marginBottom: "24px" }}>
+              <div className="text-[12px] uppercase tracking-wider text-[#8E8E98] mb-4">I've worked with</div>
+
+              {/* Desktop: single row, Mobile: wraps into multiple rows */}
+              <div className="flex items-center justify-center gap-[40px] flex-wrap">
+                <img
+                  src="/logo/hp.png"
+                  alt="HP logo"
+                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ width: "auto" }}
+                />
+                <img
+                  src="/logo/hyperx.png"
+                  alt="HyperX logo"
+                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ width: "auto" }}
+                />
+                <img
+                  src="/logo/ey.png"
+                  alt="EY logo"
+                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ width: "auto" }}
+                />
+                <img
+                  src="/logo/honda.png"
+                  alt="Honda logo"
+                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
+                  style={{ width: "auto" }}
+                />
+               
+              </div>
+            </div>
+            {/* — end logo row */}
 
           </div>
         </div>
 
         {/* Scroll indicator */}
         <button
-          onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce cursor-pointer hover:text-[#667eea] transition-colors pointer-events-auto"
         >
           <span className="text-[12px] text-[#86868B] uppercase tracking-widest">See projects</span>
@@ -130,27 +171,27 @@ export default function Home() {
 
                 {/* Content side */}
                 <div className="lg:w-1/2 flex flex-col justify-center" style={{ padding: '40px 32px 48px 32px' }}>
-                  {/* Tags - centered */}
-                  <div className="flex flex-wrap justify-center gap-2 mb-6">
-                    {spotlightProject.tags.map((tag) => (
-                      <span key={tag} className="inline-block font-medium text-white bg-white/20 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
-                    ))}
-                  </div>
-
                   {/* Title - centered */}
                   <h3 className="text-[24px] lg:text-[32px] font-bold text-white mb-2 group-hover:text-white/90 transition-colors text-center">
                     {spotlightProject.title}
                   </h3>
 
-                  {/* Company & Year - centered */}
-                  <p className="text-[14px] font-semibold text-white/80 text-center" style={{ marginBottom: '40px' }}>
-                    {spotlightProject.company} · {spotlightProject.year}
+                  {/* Company & Year - centered (year omitted when null) */}
+                  <p className="text-[14px] font-semibold text-white/80 text-center" style={{ marginBottom: '35px' }}>
+                    {spotlightProject.company}{spotlightProject.year ? ` ${spotlightProject.year}` : ""}
                   </p>
 
-                  {/* Description */}
-                  <p className="text-white/80 leading-relaxed text-center" style={{ fontSize: '15px', marginBottom: '32px' }}>
+                  {/* Description - moved up 5px to fill space when year is null */}
+                  <p className="text-white/80 leading-relaxed text-center" style={{ fontSize: '15px', marginBottom: '32px', marginTop: '-5px' }}>
                     {spotlightProject.description}
                   </p>
+
+                  {/* Tags - spotlight project */}
+<div className="flex flex-wrap justify-center gap-2" style={{ marginTop: '0px', marginBottom: '24px' }}>
+  {spotlightProject.tags.map((tag) => (
+    <span key={tag} className="inline-block font-medium text-white bg-white/20 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
+  ))}
+</div>
 
                   {/* CTA */}
                   <div className="flex items-center justify-center gap-2 text-[14px] font-semibold text-white group-hover:text-white/80 transition-colors">
@@ -165,7 +206,7 @@ export default function Home() {
           </Link>
 
           {/* Other Projects Grid */}
-          <div className="w-full max-w-[1100px] grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10" style={{ marginTop: '60px', paddingBottom: '60px' }}>
+          <div className="w-full max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto" style={{ marginTop: '60px', paddingBottom: '60px' }}>
             {featuredProjects.map((project, index) => (
               <Link
                 key={project.slug}
@@ -189,12 +230,6 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="px-8 md:px-10 text-center flex flex-col items-center" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
-                    {/* Tags */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-12">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
-                      ))}
-                    </div>
                     {/* Title */}
                     <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-4 group-hover:text-[#667eea] transition-colors">
                       {project.title}
@@ -203,10 +238,16 @@ export default function Home() {
                     <p className="text-[16px] text-[#6E6E73] mb-4">
                       {project.description}
                     </p>
-                    {/* Meta */}
-                    <p className="text-[14px] text-[#86868B]">
-                      {project.company ? `${project.company} · ` : ""}{project.year}
+                    {/* Meta - min-height keeps Character Carabiner card same height as others when no company */}
+                    <p className={`text-[14px] text-[#86868B] mb-4 ${project.slug === "nogi-nogi" ? "min-h-[24px]" : ""}`}>
+                      {project.company ? `${project.company} ` : ""}{project.year}
                     </p>
+                    {/* Tags */}
+                    <div className="flex flex-wrap justify-center gap-3 "style={{ marginTop: '10px', marginBottom: '0px' }}>
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </Link>
