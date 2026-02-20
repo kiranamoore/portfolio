@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import HeroBackground from "@/components/HeroBackground";
 
 export default function HyperXPage() {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -12,26 +11,34 @@ export default function HyperXPage() {
   const sections = [
     { id: "overview", label: "Overview" },
     { id: "context", label: "Context" },
-    { id: "target-user", label: "Target User" },
+    { id: "problem", label: "Problem" },
     { id: "research", label: "Research" },
-    { id: "insights", label: "Insights" },
-    { id: "framing", label: "Framing" },
-    { id: "architecture", label: "Architecture" },
-    { id: "iteration", label: "Iteration" },
+    { id: "hmw", label: "H.M.W" },
+    { id: "framing", label: "Design" },
     { id: "impact", label: "Impact" },
     { id: "try-it", label: "Try It" },
     { id: "lessons", label: "Lessons" },
   ];
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 130;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) setHasScrolled(true);
 
       // Track active section
-      const sectionElements = sections.map(s => ({
-        id: s.id,
-        element: document.getElementById(s.id)
-      })).filter(s => s.element);
+      const sectionElements = sections
+        .map((s) => ({
+          id: s.id,
+          element: document.getElementById(s.id),
+        }))
+        .filter((s) => s.element);
 
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const section = sectionElements[i];
@@ -51,18 +58,41 @@ export default function HyperXPage() {
 
   return (
     <div className="min-h-screen hero-gradient relative flex flex-col">
-      {/* HeroBackground removed for project pages */}
-
-      {/* Side Navigation */}
-      <Link href="/work/meta-alchemy" className="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group">
-        <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">Prev<br />Project</span>
-        <svg className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {/* Side previous/next project links */}
+      <Link
+        href="/work/meta-alchemy"
+        className="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
+      >
+        <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">
+          Prev
+          <br />
+          Project
+        </span>
+        <svg
+          className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-left"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
         </svg>
       </Link>
-      <Link href="/work/nogi-nogi" className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group">
-        <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">Next<br />Project</span>
-        <svg className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      <Link
+        href="/work/nogi-nogi"
+        className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
+      >
+        <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">
+          Next
+          <br />
+          Project
+        </span>
+        <svg
+          className="w-6 h-6 text-[#86868B] group-hover:text-[#667eea] transition-colors animate-bounce-right"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
         </svg>
       </Link>
@@ -76,12 +106,10 @@ export default function HyperXPage() {
               href={`#${section.id}`}
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scrollToSection(section.id);
               }}
               className={`block text-[14px] transition-all duration-200 ${
-                activeSection === section.id
-                  ? 'text-[#667eea] font-medium'
-                  : 'text-[#86868B] hover:text-[#1D1D1F]'
+                activeSection === section.id ? "text-[#667eea] font-medium" : "text-[#86868B] hover:text-[#1D1D1F]"
               }`}
             >
               {activeSection === section.id && <span className="inline-block mr-2">←</span>}
@@ -91,216 +119,316 @@ export default function HyperXPage() {
         </div>
       </nav>
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8 md:px-12 lg:px-24 py-12" style={{ paddingTop: '100px' }}>
-        <div className="w-full max-w-4xl" style={{ display: 'flex', flexDirection: 'column', gap: '180px' }}>
-
+      <div className="relative z-10 flex-1 flex flex-col items-center px-6 md:px-10 lg:px-20 pt-32 pb-24">
+        <div className="w-full max-w-4xl flex flex-col gap-6">
           {/* 1. OVERVIEW */}
-          <section id="overview">
+          <section className="flex flex-col gap-0">
             {/* Title */}
-            <div className="text-center style={{ marginBottom: '50px' }}">
-              <h1 className="text-[42px] md:text-[52px] font-bold text-[#1D1D1F] tracking-tight leading-tight mb-3">
+            <div id="overview" className="text-center mb-0 px-4 md:px-8 scroll-mt-[130px]">
+              <h1 className="text-[36px] md:text-[44px] font-bold text-[#1D1D1F] tracking-tight leading-[1.1] mb-3">
                 HX3D AR Retail Experience
               </h1>
-              <p className="text-[18px] text-[#667eea] font-semibold">HyperX · Product Design · AR Commerce Case Study</p>
-            </div>
+              <p className="text-[18px] text-[#667eea] font-semibold">HyperX · Product Design · AR Commerce</p>
+              <p className="text-center text-[16px] text-[#6E6E73] py-4 px-4 md:px-8">Increase accessory attach rate by bringing digital-only HX3D products into the retail aisle via AR.</p>
+            
 
             {/* Hero Visual */}
-            <div className="style={{ marginBottom: '50px' }} rounded-2xl overflow-hidden shadow-2xl bg-white/80 backdrop-blur-sm border border-[#E5E5E5]/50">
+            <div className="rounded-2xl overflow-hidden mb-0">
               <img src="/hyperx/hero-ar-tryOn.png" alt="AR Try-On Experience" className="w-full" />
+              <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Preview. Customize. Purchase.</p>
             </div>
-            <p className="text-center text-[16px] text-[#6E6E73] italic style={{ marginBottom: '50px' }}">Preview. Customize. Purchase.</p>
-
             {/* Product Summary */}
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg p-12 style={{ marginBottom: '50px' }}">
-              <p className="text-[18px] text-[#1D1D1F] leading-relaxed">
-                To address the lack of in-store discovery for HyperX's HX3D headset accessories, I designed an AR retail experience that lets shoppers scan a QR code in-store, preview accessory sets on the headset in real time, and purchase them online.
-              </p>
+            <div id="context" className="mb-12 scroll-mt-[130px]">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
+              Retail shoppers were choosing headsets without visibility into HyperX’s strongest differentiator: customization. I designed an AR commerce bridge that surfaced digital-only HX3D accessories at the point of comparison, turning in-store evaluation into a revenue opportunity.              </p>
             </div>
+            </div>
+ {/* --- Three equal cards row --- */}
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+                {/* Card 1: Team */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">ROLE</p>
+                  <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
+                    <p>Product Design Intern</p>
+                  </div>
+                </div>
 
-            {/* Role & Responsibilities */}
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-              <h3 className="text-[24px] font-bold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Role & Responsibilities</h3>
-              <div className="grid md:grid-cols-3 gap-8 style={{ marginBottom: '40px' }}">
-                <div>
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-2">ROLE</p>
-                  <p className="text-[16px] text-[#1D1D1F]">Product Designer</p>
+                {/* Card 2: Project Type */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TEAM</p>
+                  <p className="text-[15px] text-[#1D1D1F]">solo project</p>
                 </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-2">SCOPE</p>
-                  <p className="text-[16px] text-[#1D1D1F]">End-to-end, solo project</p>
-                </div>
-                <div>
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-2">TIMELINE</p>
-                  <p className="text-[16px] text-[#1D1D1F]">13 weeks</p>
+
+                {/* Card 3: Timeline */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+                  <p className="text-[14px] font-semibold text-[#667eea] mb-3">TIMELINE</p>
+                  <p className="text-[15px] text-[#1D1D1F]">13 weeks</p>
                 </div>
               </div>
-              <div className="style={{ marginBottom: '40px' }}">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">RESPONSIBILITIES</p>
-                <ul className="space-y-2 text-[15px] text-[#1D1D1F]">
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Problem definition and opportunity framing</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>User and market research</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Experience and interaction design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>System and flow design</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>AR prototyping and technical implementation</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Executive presentation and stakeholder alignment</span></li>
+           
+            {/* Role & Responsibilities */}
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+
+             
+
+              {/* --- Responsibilities list (unchanged, but spacing normalized) --- */}
+              <div className="mb-10">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">WHAT I DID</p>
+                <ul className="space-y-2 text-[15px] text-[#1D1D1F] pl-4 pr-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Problem definition and opportunity framing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Market research and contextual inquiry</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Experience and interaction design</span>
+                  </li>
+                 
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>AR prototyping and technical implementation</span>
+                  </li>
+                
                 </ul>
               </div>
+
+              {/* Tools & Platform */}
               <div>
                 <p className="text-[14px] font-semibold text-[#667eea] mb-2">TOOLS & PLATFORM</p>
-                <p className="text-[15px] text-[#1D1D1F]">Figma, FigJam, Lens Studio, JavaScript, Blender, Photoshop · Mobile Web AR (QR-based)</p>
+                <p className="text-[15px] text-[#1D1D1F]">
+                  Figma, FigJam, Lens Studio, JavaScript, Blender, Photoshop · Mobile Web AR (QR-based)
+                </p>
               </div>
             </div>
-          </section>
-
-          {/* 2. CONTEXT & PROBLEM */}
-          <section id="context" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Context & Problem</h2>
-
-            {/* Context */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Context</h3>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-                HyperX headsets are primarily purchased in physical retail environments such as Best Buy, Target, and other major electronics stores. However, HX3D decorative accessories are sold exclusively online and have no physical or digital presence in retail. As a result, in-store shoppers evaluating HyperX headsets are unaware that customization options even exist.
-              </p>
-            </div>
-
-            {/* Before/After */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Before / After Snapshot</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
+ {/* Before/After */}
+ <div className="mb-12">
+              <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/before-after.png" alt="Before and after comparison" className="w-full" />
               </div>
               <div className="grid md:grid-cols-2 gap-8">
-                <div>
+                <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">Before:</p>
-                  <p className="text-[15px] text-[#6E6E73] leading-[1.6]">A HyperX retail section displaying headsets, keyboards, mice, and microphones, with no HX3D accessories shown and no indication that decorative customization options exist.</p>
+                  <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
+                  Accessory discovery relied entirely on post-purchase online traffic, leaving high-intent in-store shoppers disconnected from HyperX’s customization ecosystem.                  </p>
                 </div>
-                <div>
+                <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">After:</p>
-                  <p className="text-[15px] text-[#6E6E73] leading-[1.6]">A QR-initiated AR experience that allows shoppers to preview HX3D accessory sets directly on the headset in real time, making customization visible at the point of purchase.</p>
+                  <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
+                  A shelf-placed QR entry point launches AR try-on instantly, converting retail foot traffic into a measurable, direct-to-consumer accessory channel.                  </p>
                 </div>
               </div>
             </div>
+          </section>
 
-            {/* Problem Statement */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Problem Statement</h3>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-                In-store shoppers choosing between gaming headsets have no way to discover that HyperX offers customizable HX3D accessories, resulting in missed differentiation, missed accessory sales, and lost opportunities to influence purchase decisions at the shelf.
-              </p>
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+{/* Problem Statement */}
+<div id="problem" className="mb-0 scroll-mt-[130px]">
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">PROBLEM</p>
+              <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7]">
+              In-store shoppers evaluating HyperX headsets are unaware that customization options exist.           </p>
             </div>
+            {/* 3. TARGET USER */}
+<section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <h2 className="text-[22x] md:text-[30px] font-semibold text-[#1D1D1F] mb-10">Target User</h2>
+            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
+              <img src="/hyperx/persona.png" alt="User persona - Jordan Mitchell" className="w-full" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+                {/* Card 1: Team */}
+                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">GOALS</p>
+                  <div className="text-[16px] text-[#1D1D1F] leading-relaxed space-y-1">
+                    <p>Tech-savvy gamers and streamers (18–28) who <span className="font-semibold"> shop for peripherals in-store. </span></p>
+                  </div>
+                </div>
+
+                {/* Card 2: Project Type */}
+                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">MOTIVATIONS</p>
+                <p className="text-[16px] text-[#1D1D1F]">
+  <span className="font-semibold">Seeks personalized setups</span> that reflect their identity 
+</p>
+                </div>
+
+                {/* Card 3: Timeline */}
+                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                  <p className="text-[14px] font-semibold text-[#667eea] mb-3">PAINPOINTS</p>
+                  <p className="text-[16px] text-[#1D1D1F]">Shoppers <span className="font-semibold"> cannot discover HX3D customization </span> at the moment they are deciding which headset to buy.</p>
+                </div>
+              </div>
+           
+          </section>
+          {/* 2. CONTEXT & PROBLEM */}
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+           
+           
+
+
+            
 
             {/* Why This Matters */}
             <div>
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Why This Matters</h3>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
-                For users, the lack of visibility into HX3D accessories removes an opportunity for personalization and self-expression, especially for shoppers who value aesthetics and cohesive gaming setups.
-              </p>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] mb-4">For HyperX, this means:</p>
-              <ul className="space-y-3 text-[15px] text-[#1D1D1F] style={{ marginBottom: '40px' }}">
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Losing incremental accessory revenue</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Missing a chance to differentiate headsets from competitors on the shelf</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Failing to surface a unique product advantage at the moment of decision</span></li>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5"> 
+            <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What This Means for the User</h3>
+              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Unaware that customization options exist while shopping in-store</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Evaluates HyperX as functionally similar to competing brands</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-[#667eea] mt-1">•</span>
+                    <span>Misses the opportunity to personalize their setup</span>
+                  </li>
+                  </ul>
+                  </div>
+                  <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                  <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What This Means for HyperX</h3>
+              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
+                <li className="flex items-start gap-2">
+                  <span className="text-[#667eea] mt-1">•</span>
+                  <span>Loses accessory attach rate and downstream ecosystem revenue</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#667eea] mt-1">•</span>
+                  <span>Fails to differentiate at the most competitive decision point — the shelf</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-[#667eea] mt-1">•</span>
+                  <span>Risks losing headset purchases to brands perceived as equivalent</span>
+                </li>
               </ul>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
+              </div>
+              </div>
+                            <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7]">
                 Making HX3D visible in-store increases the likelihood that shoppers choose HyperX over competing brands and purchase accessories alongside or even before purchasing the headset itself.
               </p>
+              </div>
             </div>
           </section>
 
-          {/* 3. TARGET USER */}
-          <section id="target-user" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Target User</h2>
-            <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
-              <img src="/hyperx/persona.png" alt="User persona - Jordan Mitchell" className="w-full" />
-            </div>
-            <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-              The primary user is a style-conscious gamer shopping in-store who values personalization and wants to understand how a headset can reflect their aesthetic before committing to a purchase.
-            </p>
-          </section>
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
+          
+
+          
 
           {/* 4. RESEARCH */}
-          <section id="research" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Research</h2>
-
-            {/* Research Approach */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Research Approach</h3>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-                I combined competitive analysis, in-store contextual inquiry, and cross-industry research to understand how headset accessories are discovered today and where meaningful product opportunities exist.
+          <div id="research" className="scroll-mt-[130px]">
+          <p className="text-[14px] font-semibold text-[#667eea] mb-3">RESEARCH</p>
+            <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3" >
+            Differentiation Fails When It’s Invisible at the Moment of Decision     </p>
+            <p className="text-[16px] md:text-[16px] text-[#1D1D1F] leading-[1.7] mb-3">
+                I conducted market research, in-store contextual inquiry, and cross-industry research to understand how headset accessories are discovered today and where meaningful product opportunities exist.
               </p>
-            </div>
-
+          </div>
+              <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             {/* Competitive Landscape */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Competitive Landscape</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
+            <div className="mb-12">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Market Research</h3>
+              <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/competitive-analysis.png" alt="Competitive analysis" className="w-full" />
               </div>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
-                HyperX is the only major gaming brand offering a wide variety of decorative headset accessories with cross-headset compatibility. However, unlike other product categories, there is no way for users to preview or try these accessories digitally before purchase.
-              </p>
+              
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
-                <strong>Key Insight:</strong> HyperX has the strongest accessory offering in the category, but no mechanism to make that advantage visible or experiential.
+                <strong>Key Insight:</strong> HyperX owns the strongest customization ecosystem in the category, but without visibility or digital preview, that advantage cannot influence purchase decisions.
               </p>
             </div>
-
+            </section>
+            
             {/* Contextual Inquiry */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Contextual Inquiry</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
+            <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <div className="mb-12">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Contextual Inquiry</h3>
+              <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/contextual-analysis.png" alt="Contextual inquiry findings" className="w-full" />
               </div>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-                In-store observation revealed that HX3D accessories have zero physical presence. Shoppers comparing HyperX headsets with neighboring brands see no indication of customization options and no digital touchpoint to explore them online. This lack of visibility means HyperX's key differentiator is invisible at the shelf.
+              <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
+                <strong>Key Insight:</strong> In-store shoppers can evaluate the product — but not discover its customization potential.
               </p>
             </div>
-
+            </section>
+            
+            <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             {/* Cross-Industry Signals */}
             <div>
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Cross-Industry Signals</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Cross-Industry Pattern</h3>
+              <div className="rounded-xl overflow-hidden shadow-none mb-10">
                 <img src="/hyperx/ar-companies-logos.png" alt="AR precedents - Nike, Adidas, Gucci, Zara, Meta" className="w-full" />
               </div>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7]">
-                Across fashion, footwear, and wearables, brands use AR to surface customization, reduce hesitation, and help customers visualize products in context. These experiences bridge physical environments and digital catalogs, increasing confidence and conversion. This pattern validated AR as a proven approach for making visually driven options discoverable at the moment of decision.
+              {/* --- Three equal cards row --- */}
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+                {/* Card 1: Team */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+             
+                  <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
+                    <p>AR reduces hesitation in visually driven categories</p>
+                  </div>
+                </div>
+
+                {/* Card 2: Project Type */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+              
+                  <p className="text-[15px] text-[#1D1D1F]">AR increases confidence by previewing products in context</p>
+                </div>
+
+                {/* Card 3: Timeline */}
+                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+              
+                  <p className="text-[15px] text-[#1D1D1F]">AR bridges physical retail and digital catalog ecosystems</p>
+                </div>
+              </div>
+              <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
+                <strong>Key Insight:</strong> AR is not novelty — it is infrastructure for surfacing hidden customization.
               </p>
-            </div>
-          </section>
+           </div>
+            </section>
+
+        
 
           {/* 5. RESEARCH INSIGHTS */}
-          <section id="insights" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Research Insights</h2>
-            <ul className="space-y-6 text-[16px] text-[#1D1D1F] style={{ marginBottom: '50px' }}">
-              <li className="flex items-start gap-3">
+          <section id="insights" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Research Insights</h2>
+            <ul className="space-y-8 text-[16px] text-[#1D1D1F] mb-10">
+              <li className="flex items-start gap-3 pl-4">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <div>
+                <div className="pr-4">
                   <strong>Customization is a primary differentiator, but it is invisible in retail.</strong>
-                  <p className="text-[15px] text-[#6E6E73] mt-1">HX3D accessories differentiate HyperX from competitors, yet shoppers never see this advantage in-store.</p>
+                  <span className="block text-[15px] text-[#6E6E73] mt-1">HX3D accessories differentiate HyperX from competitors, yet shoppers never see this advantage in-store.</span>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 pl-4">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <div>
+                <div className="pr-4">
                   <strong>In-store shoppers are making decisions without full product awareness.</strong>
-                  <p className="text-[15px] text-[#6E6E73] mt-1">Without knowledge of HX3D, shoppers evaluate HyperX headsets as functionally similar to competing brands.</p>
+                  <span className="block text-[15px] text-[#6E6E73] mt-1">Without knowledge of HX3D, shoppers evaluate HyperX headsets as functionally similar to competing brands.</span>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 pl-4">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <div>
+                <div className="pr-4">
                   <strong>The highest-intent moment occurs before checkout, not after.</strong>
-                  <p className="text-[15px] text-[#6E6E73] mt-1">Shoppers are most open to accessories while comparing products on the shelf, not after leaving the store.</p>
+                  <span className="block text-[15px] text-[#6E6E73] mt-1">Shoppers are most open to accessories while comparing products on the shelf, not after leaving the store.</span>
                 </div>
               </li>
-              <li className="flex items-start gap-3">
+              <li className="flex items-start gap-3 pl-4">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <div>
+                <div className="pr-4">
                   <strong>AR can surface digital-only products without adding physical inventory.</strong>
-                  <p className="text-[15px] text-[#6E6E73] mt-1">Cross-industry examples show AR is effective at bringing online-only options into physical spaces.</p>
+                  <span className="block text-[15px] text-[#6E6E73] mt-1">Cross-industry examples show AR is effective at bringing online-only options into physical spaces.</span>
                 </div>
               </li>
             </ul>
+
             <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20">
               <h3 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Opportunity Statement</h3>
               <p className="text-[16px] text-[#1D1D1F] leading-relaxed">
@@ -309,35 +437,38 @@ export default function HyperXPage() {
             </div>
           </section>
 
-          {/* 6. DESIGN FRAMING */}
-          <section id="framing" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Design Framing</h2>
-
-            {/* How Might We */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">How Might We</h3>
-              <p className="text-[18px] text-[#1D1D1F] leading-[1.7] italic">
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+    {/* How Might We */}
+      <div id="hmw" className="mb-12 scroll-mt-[130px]">
+      <p className="text-[14px] font-semibold text-[#667eea] mb-3">HOW MIGHT WE</p>
+              <p className="text-[18px] md:text-[18px] text-[#1D1D1F] leading-[1.7] italic">
                 How might we help in-store shoppers discover and preview HX3D headset accessories while comparing products in major electronics retail stores?
               </p>
             </div>
+            <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+          {/* 6. DESIGN FRAMING */}
+          <section id="framing" className="bg-none backdrop-blur-sm rounded-2xl border border-none shadow-none p-10 px-8 md:px-12 scroll-mt-[130px]">
+          <p className="text-[14px] font-semibold text-[#667eea] mb-3">DESIGN</p>
+
+            
 
             {/* Design Principles */}
             <div>
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Design Principles</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
+              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What Are the Principles?</h3>
+              <div className="grid md:grid-cols-2 gap-6 ">
+                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30 shadow-sm">
                   <h4 className="font-semibold text-[#1D1D1F] mb-2">Make the Invisible Visible</h4>
                   <p className="text-[15px] text-[#6E6E73]">HX3D accessories must be discoverable in the retail aisle, not hidden online.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
+                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30 shadow-sm">
                   <h4 className="font-semibold text-[#1D1D1F] mb-2">Preview on the User, Not the Product Page</h4>
                   <p className="text-[15px] text-[#6E6E73]">Shoppers need to see accessories on themselves, not as isolated images.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
+                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30 shadow-sm">
                   <h4 className="font-semibold text-[#1D1D1F] mb-2">Support Fast, Confident Decisions</h4>
                   <p className="text-[15px] text-[#6E6E73]">The experience must work in seconds, not minutes, while standing in-store.</p>
                 </div>
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
+                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30 shadow-sm">
                   <h4 className="font-semibold text-[#1D1D1F] mb-2">Integrate with Existing Retail Reality</h4>
                   <p className="text-[15px] text-[#6E6E73]">The solution must require no additional shelf space, inventory, or store redesign.</p>
                 </div>
@@ -346,12 +477,12 @@ export default function HyperXPage() {
           </section>
 
           {/* 7. EXPERIENCE ARCHITECTURE */}
-          <section id="architecture" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Experience Architecture</h2>
-            <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '50px' }}">
+          <section id="architecture" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Experience Architecture</h2>
+            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
               <img src="/hyperx/experience-architecture.png" alt="Experience architecture and flow" className="w-full" />
             </div>
-            <div className="space-y-6 text-[16px] text-[#1D1D1F] leading-[1.7]">
+            <div className="space-y-6 text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] pl-2 pr-2 md:pl-4 md:pr-4">
               <p>
                 The experience is designed with in-store retail as the primary entry point, where shoppers are actively comparing headsets and making purchase decisions. QR codes placed on shelf talkers, header cards, or packaging labels act as a lightweight digital bridge between the physical retail environment and a Web-based AR experience.
               </p>
@@ -367,36 +498,38 @@ export default function HyperXPage() {
             </div>
           </section>
 
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 8. DESIGN ITERATION */}
-          <section id="iteration" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Design Iteration</h2>
+          <section id="iteration" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Design Iteration</h2>
 
             {/* Lo-Fi Exploration */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Lo-Fi Exploration</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl style={{ marginBottom: '40px' }}">
+            <div className="mb-12">
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Lo-Fi Exploration</h3>
+              <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/lofi-exploration.png" alt="Lo-fi exploration" className="w-full" />
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-4">Defining the Spatial Constraint</h4>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
                 <strong>Goal:</strong> Identify the optimal layout for a camera-first AR experience in a retail context.
               </p>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
                 Because the user's face and headset must remain centered and unobstructed, the core constraint was spatial: How much interface can be introduced without compromising AR visibility?
               </p>
-              <div className="style={{ marginBottom: '40px' }}">
+              <div className="mb-10">
                 <p className="font-semibold text-[#1D1D1F] mb-3">Layout Variations Explored:</p>
-                <ul className="space-y-3 text-[15px] text-[#1D1D1F]">
+                <ul className="space-y-3 text-[15px] text-[#1D1D1F] pl-4 pr-4">
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Bottom-anchored customization bar + top checkout</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Large bottom customization panel</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Top-anchored customization + bottom checkout</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Right-side vertical control panel</span></li>
                 </ul>
               </div>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
                 Through early reviews with managers and peers, larger panels were eliminated because they disrupted face framing and made the experience feel like browsing rather than try-on.
               </p>
-              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 style={{ marginBottom: '40px' }}">
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
                 <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Insight:</strong> Interface must support rapid visual comparison without competing with the user's face in AR.</p>
               </div>
               <p className="text-[15px] text-[#6E6E73] italic leading-[1.6]">
@@ -405,10 +538,10 @@ export default function HyperXPage() {
             </div>
 
             {/* Mid-Fi Prototype */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Mid-Fi Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl bg-black" style={{ marginBottom: '40px' }}>
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <div className="mb-12">
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Mid-Fi Prototype</h3>
+              <div className="rounded-xl overflow-hidden shadow-sm bg-black mb-10">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
                     src="https://www.youtube.com/embed/k-q2NEEKSBY?rel=0"
@@ -420,27 +553,27 @@ export default function HyperXPage() {
                 </div>
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-4">Validating Interaction, Ergonomics, and Conversion</h4>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-6">
                 The mid-fi interactive prototype focused on validating three things:
               </p>
-              <ul className="space-y-3 text-[15px] text-[#1D1D1F] style={{ marginBottom: '40px' }}">
+              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-8 pl-4 pr-4">
                 <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Speed of accessory toggling</span></li>
                 <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Thumb ergonomics in a natural phone grip</span></li>
                 <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Realistic e-commerce handoff</span></li>
               </ul>
-              <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '40px' }}">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-8">
                 Weekly testing sessions with managers, supervisors, and peers helped refine both interaction clarity and reachability.
               </p>
-              <div className="style={{ marginBottom: '40px' }}">
+              <div className="mb-8">
                 <p className="font-semibold text-[#1D1D1F] mb-3">Key Decisions in Mid-Fi:</p>
-                <ul className="space-y-3 text-[15px] text-[#1D1D1F]">
+                <ul className="space-y-3 text-[15px] text-[#1D1D1F] pl-4 pr-4">
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Committed to bottom-positioned controls</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Reduced UI chrome to emphasize AR</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Kept checkout inside the AR experience</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Implemented handoff to HyperX.com/cart with selected accessories preloaded</span></li>
                 </ul>
               </div>
-              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-4">
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-6">
                 <p className="text-[15px] text-[#1D1D1F]"><strong>Ergonomic Insight:</strong> Testing revealed that anchoring the customization bar flush to the bottom edge slightly strained thumb reach in a natural holding position. This informed the next refinement.</p>
               </div>
               <p className="text-[15px] text-[#6E6E73] italic">
@@ -449,10 +582,10 @@ export default function HyperXPage() {
             </div>
 
             {/* High-Fi Prototype */}
-            <div className="style={{ marginBottom: '50px' }}">
-              <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">High-Fidelity Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-xl bg-black" style={{ marginBottom: '40px' }}>
-                <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+            <div className="mb-12">
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">High-Fidelity Prototype</h3>
+              <div className="rounded-xl overflow-hidden shadow-sm bg-black mb-10">
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
                   <iframe
                     className="absolute top-0 left-0 w-full h-full"
                     src="https://www.youtube.com/embed/s4N8mFgTG1E?rel=0"
@@ -464,12 +597,12 @@ export default function HyperXPage() {
                 </div>
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Refining Ergonomics & Brand System Integration</h4>
-              <p className="text-[16px] text-[#1D1D1F] leading-relaxed mb-4">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
                 In the high-fidelity iteration, I raised the customization selector slightly above the bottom edge of the screen to align with the natural arc of the thumb when holding a phone one-handed.
               </p>
-              <div className="style={{ marginBottom: '40px' }}">
+              <div className="mb-8">
                 <p className="text-[15px] text-[#1D1D1F] mb-2">This subtle adjustment:</p>
-                <ul className="space-y-2 text-[15px] text-[#1D1D1F]">
+                <ul className="space-y-2 text-[15px] text-[#1D1D1F] pl-4 pr-4">
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Improved reachability</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Reduced edge mis-taps</span></li>
                   <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Maintained face centering</span></li>
@@ -477,10 +610,10 @@ export default function HyperXPage() {
                 </ul>
               </div>
               <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Brand & System Alignment</h4>
-              <p className="text-[16px] text-[#1D1D1F] leading-relaxed mb-4">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
                 The interface was refined to align with the visual language being developed for HyperX NGENUITY, HyperX's device customization platform. Refinements included typography alignment, color hierarchy adjustments, and button styling consistency.
               </p>
-              <p className="text-[16px] text-[#1D1D1F] leading-relaxed mb-4">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
                 The goal was to ensure the AR experience felt like an extension of HyperX's ecosystem rather than a standalone AR experiment.
               </p>
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20">
@@ -490,7 +623,7 @@ export default function HyperXPage() {
 
             {/* Technical Decisions */}
             <div>
-              <h3 className="text-[24px] font-semibold text-[#1D1D1F] style={{ marginBottom: '40px' }}">Technical Decisions as Product Design</h3>
+              <h3 className="text-[24px] font-semibold text-[#1D1D1F] mb-8">Technical Decisions as Product Design</h3>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
                   <h4 className="font-semibold text-[#1D1D1F] mb-3">Interaction Logic</h4>
@@ -508,24 +641,29 @@ export default function HyperXPage() {
             </div>
           </section>
 
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 9. IMPACT */}
-          <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg" style={{ padding: '60px' }}>
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Impact</h2>
-            <p className="text-[16px] text-[#1D1D1F] leading-[1.7] style={{ marginBottom: '50px' }}">
+          <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Impact</h2>
+            <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
               I independently presented this work during a one-hour session with HyperX and HP senior leadership, including executives and directors across product, design, strategy, brand, and 3D. The session required communicating both the user experience and underlying product strategy to stakeholders with varied backgrounds.
             </p>
-            <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20 style={{ marginBottom: '40px' }}">
+
+            <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20 mb-8">
               <p className="text-[14px] text-[#6E6E73] mb-3">Attendees included:</p>
               <p className="text-[15px] text-[#1D1D1F]">
                 Gagan Singh (VP & GM), Dan Kelley (VP Gaming Solutions), Mark Spijkers (Global Head of Design & UX), Sean Peralta (Director of Product), Kellie Steinman (Director of Strategic Planning / Chief of Staff), Brendan Nguyen (Director of 3D/CGI), Shawn Denison (Global Product Manager, Audio), Rodrigo Rangel (Global Brand Manager)
               </p>
             </div>
-            <div className="style={{ marginBottom: '40px' }}">
+
+            <div className="mb-8">
               <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-4">Technical Credibility</h3>
-              <p className="text-[16px] text-[#1D1D1F] leading-relaxed">
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
                 The quality and performance of the AR prototype reinforced confidence that this experience could scale, demonstrating that HX3D accessories could be realistically previewed in-store without compromising performance or brand quality.
               </p>
             </div>
+
             <div className="bg-white rounded-xl p-8 border-l-4 border-[#667eea] shadow-md">
               <p className="text-[16px] text-[#1D1D1F] leading-relaxed italic mb-3">
                 "Thank you so much for all the fantastic work you've shown us. I'm very motivated to get HyperX to invest in these capabilities, and when that becomes a reality, my first focus will be to find a way for you to continue this work with us."
@@ -534,21 +672,25 @@ export default function HyperXPage() {
             </div>
           </section>
 
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 10. TRY IT YOURSELF */}
-          <section id="try-it" className="bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-2xl shadow-2xl p-20 text-center text-white">
-            <h2 className="text-[36px] font-bold mb-4">Try It Yourself</h2>
+          <section id="try-it" className="bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-2xl shadow-sm p-12 md:p-16 text-center text-white scroll-mt-[130px]">
+            <h2 className="text-[30px] md:text-[32px] font-bold mb-4">Try It Yourself</h2>
             <p className="text-[18px] mb-3 opacity-90">Scan the QR code to experience the live AR prototype</p>
-            <p className="text-[14px] style={{ marginBottom: '40px' }} opacity-75">This demo focuses on in-store discovery and real-time accessory preview. Checkout is represented conceptually in the video.</p>
-            <div className="bg-white rounded-2xl p-8 inline-block shadow-xl style={{ marginBottom: '40px' }}">
+            <p className="text-[14px] mb-8 opacity-75">This demo focuses on in-store discovery and real-time accessory preview. Checkout is represented conceptually in the video.</p>
+            <div className="bg-white rounded-2xl p-8 inline-block shadow-sm mb-6">
               <img src="/hyperx/qr-code.png" alt="QR code to try AR experience" className="w-64 h-64 object-contain" />
             </div>
             <p className="text-[14px] opacity-75">Works on iOS and Android devices</p>
           </section>
 
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 11. LESSONS LEARNED */}
-          <section id="lessons" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-lg p-20 style={{ marginBottom: '50px' }}">
-            <h2 className="text-[32px] font-bold text-[#1D1D1F] style={{ marginBottom: '50px' }}">Lessons Learned</h2>
-            <ul className="space-y-6 text-[16px] text-[#1D1D1F]">
+          <section id="lessons" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-12">Lessons Learned</h2>
+            <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
                 <span>Making differentiation visible at the shelf can influence purchase decisions before checkout.</span>
@@ -567,7 +709,6 @@ export default function HyperXPage() {
               </li>
             </ul>
           </section>
-
         </div>
       </div>
 
