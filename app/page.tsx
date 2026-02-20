@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Selected Work Section */}
-      <section id="projects" className="py-24 md:py-32 bg-white w-full">
+      <section id="projects" className="py-24 md:py-0 bg-white w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
           {/* Section header */}
           <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '40px' }}>
@@ -146,7 +146,7 @@ export default function Home() {
           {/* Spotlight Project - Full Width Hero */}
           <Link
             href={`/work/${spotlightProject.slug}`}
-            className="group block w-full max-w-[1100px] mb-24"
+            className="group block w-full max-w-[1100px] mb-0"
           >
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
@@ -257,9 +257,9 @@ export default function Home() {
       </section>
 
       {/* Skills/Expertise Section */}
-      <section className="py-32 md:py-44 bg-[#FAFAFA] w-full">
-        <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
-          <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '60px' }}>
+      <section className="py-32 md:py-6 bg-[#FAFAFA] w-full">
+        <div className="w-full flex flex-col items-center px-8 md:px-0 lg:px-24">
+          <div className="text-center w-full" style={{ paddingTop: '0px', marginBottom: '60px' }}>
             <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
               Expertise
             </h2>
@@ -310,7 +310,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section style={{ paddingTop: '160px', paddingBottom: '160px' }} className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] w-full">
-        <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
+        <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-0">
           <div className="w-full max-w-[700px] text-center mx-auto">
             <h2 style={{ marginBottom: '40px' }} className="text-[28px] md:text-[40px] font-bold text-white tracking-tight">
               Let's build something{" "}
