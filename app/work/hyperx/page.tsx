@@ -15,8 +15,8 @@ export default function HyperXPage() {
     { id: "research", label: "Research" },
     { id: "hmw", label: "H.M.W" },
     { id: "framing", label: "Design" },
-    { id: "impact", label: "Impact" },
     { id: "try-it", label: "Try It" },
+    { id: "impact", label: "Impact" },
     { id: "lessons", label: "Lessons" },
   ];
 
@@ -643,9 +643,22 @@ export default function HyperXPage() {
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
+          {/* 10. TRY IT YOURSELF */}
+          <section id="try-it" className="bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-2xl shadow-sm p-12 md:p-16 text-center text-white scroll-mt-[130px]">
+            <h2 className="text-[30px] md:text-[32px] font-bold mb-4">Try It Yourself</h2>
+            <p className="text-[18px] mb-3 opacity-90">Scan the QR code to experience the live AR prototype</p>
+            <p className="text-[14px] mb-8 opacity-75">This demo focuses on in-store discovery and real-time accessory preview. Checkout is represented conceptually in the video.</p>
+            <div className="bg-white rounded-2xl p-8 inline-block shadow-sm mb-6">
+              <img src="/hyperx/qr-code.png" alt="QR code to try AR experience" className="w-64 h-64 object-contain" />
+            </div>
+            <p className="text-[14px] opacity-75">Works on iOS and Android devices</p>
+          </section>
+
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 9. IMPACT */}
           <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
-            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Impact</h2>
+          <p className="text-[14px] font-semibold text-[#667eea] mb-3">IMPACT</p>
             <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
               I independently presented this work during a one-hour session with HyperX and HP senior leadership, including executives and directors across product, design, strategy, brand, and 3D. The session required communicating both the user experience and underlying product strategy to stakeholders with varied backgrounds.
             </p>
@@ -674,22 +687,9 @@ export default function HyperXPage() {
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
-          {/* 10. TRY IT YOURSELF */}
-          <section id="try-it" className="bg-gradient-to-br from-[#667eea] to-[#764ba2] rounded-2xl shadow-sm p-12 md:p-16 text-center text-white scroll-mt-[130px]">
-            <h2 className="text-[30px] md:text-[32px] font-bold mb-4">Try It Yourself</h2>
-            <p className="text-[18px] mb-3 opacity-90">Scan the QR code to experience the live AR prototype</p>
-            <p className="text-[14px] mb-8 opacity-75">This demo focuses on in-store discovery and real-time accessory preview. Checkout is represented conceptually in the video.</p>
-            <div className="bg-white rounded-2xl p-8 inline-block shadow-sm mb-6">
-              <img src="/hyperx/qr-code.png" alt="QR code to try AR experience" className="w-64 h-64 object-contain" />
-            </div>
-            <p className="text-[14px] opacity-75">Works on iOS and Android devices</p>
-          </section>
-
-          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
-
           {/* 11. LESSONS LEARNED */}
           <section id="lessons" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
-            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-12">Lessons Learned</h2>
+          <p className="text-[14px] font-semibold text-[#667eea] mb-3">LESSONS LEARNED</p>
             <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
