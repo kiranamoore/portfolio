@@ -9,7 +9,7 @@ export default function ResumePage() {
         <div className="w-full max-w-4xl">
           <div className="rounded-xl border border-[#E5E5E5] overflow-hidden bg-white shadow-lg">
             <iframe
-              src="/INDUSTRY.pdf"
+              src="/Kirana_Moore_Resume_2025.pdf"
               className="w-full"
               style={{ height: "75vh", minHeight: "600px" }}
               title="Resume PDF"
