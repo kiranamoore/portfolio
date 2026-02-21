@@ -8,6 +8,9 @@ export default function HyperXPage() {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("overview");
 
+  // NEW: modal state for enlarged image
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
   const sections = [
     { id: "overview", label: "Overview" },
     { id: "context", label: "Context" },
@@ -55,6 +58,32 @@ export default function HyperXPage() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent body scroll while modal open + handle Escape key
+  useEffect(() => {
+    if (modalImage) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      const onKey = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setModalImage(null);
+      };
+      window.addEventListener("keydown", onKey);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener("keydown", onKey);
+      };
+    }
+  }, [modalImage]);
+
+  // helper to open modal
+  const openImage = (src: string) => {
+    setModalImage(src);
+  };
+
+  // helper to close modal
+  const closeModal = () => setModalImage(null);
 
   return (
     <div className="min-h-screen hero-gradient relative flex flex-col">
@@ -235,7 +264,9 @@ export default function HyperXPage() {
 <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             <h2 className="text-[22x] md:text-[30px] font-semibold text-[#1D1D1F] mb-10">Target User</h2>
             <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-              <img src="/hyperx/persona.png" alt="User persona - Jordan Mitchell" className="w-full" />
+              <img src="/hyperx/persona.png" alt="User persona - Jordan Mitchell" className="w-full" 
+              className="w-full cursor-zoom-in"
+              onClick={() => openImage("/hyperx/persona.png")}/>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
                 {/* Card 1: Team */}
@@ -320,7 +351,7 @@ export default function HyperXPage() {
 
           
 
-          
+
 
           {/* 4. RESEARCH */}
           <div id="research" className="scroll-mt-[130px]">
@@ -393,7 +424,7 @@ export default function HyperXPage() {
            </div>
             </section>
 
-        
+
 
           {/* 5. RESEARCH INSIGHTS */}
           <section id="insights" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
@@ -478,23 +509,39 @@ export default function HyperXPage() {
 
           {/* 7. EXPERIENCE ARCHITECTURE */}
           <section id="architecture" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
-            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">Experience Architecture</h2>
-            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-              <img src="/hyperx/experience-architecture.png" alt="Experience architecture and flow" className="w-full" />
+            <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">User Experience</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
+                {/* Card 1: flowchart */}
+                <div className="rounded-xl overflow-hidden shadow-none mb-10">
+              <img
+                src="/hyperx/experience flow.png"
+                alt="Experience architecture and flow"
+                className="w-full cursor-zoom-in"
+                onClick={() => openImage("/hyperx/experience flow.png")}
+              />
             </div>
+
+                {/* Card 2: Project Type */}
+                <div className="rounded-xl overflow-hidden shadow-none mb-10">
+              <img
+                src="/hyperx/User Experience.png"
+                alt="User Experience Comic"
+                className="w-full cursor-zoom-in"
+                onClick={() => openImage("/hyperx/User Experience.png")}
+              />
+            </div>
+
+               
+              </div>
+            
             <div className="space-y-6 text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] pl-2 pr-2 md:pl-4 md:pr-4">
               <p>
-                The experience is designed with in-store retail as the primary entry point, where shoppers are actively comparing headsets and making purchase decisions. QR codes placed on shelf talkers, header cards, or packaging labels act as a lightweight digital bridge between the physical retail environment and a Web-based AR experience.
+              The flow chart defines the system architecture; the comic validates the behavioral execution in a real retail context. Rather than building an AR feature,<strong> the experience was structured as a retail-to-DTC conversion funnel </strong> — entering at the shelf via QR, enabling immediate try-on, and exiting through a preloaded cart before checkout.
               </p>
-              <p>
-                Scanning the QR code launches the AR Try-On directly, allowing shoppers to preview HX3D decorative accessories on the headset in real time without navigating through intermediate pages. This ensures immediate access to the core value of the experience: visualizing customization before purchase.
-              </p>
-              <p>
-                Within the AR experience, users can tap a checkout call-to-action that redirects them to HyperX.com/cart with the selected HX3D accessories preloaded. From the cart, users can review accessory details if needed and complete their purchase through HyperX's existing e-commerce flow.
-              </p>
-              <p>
-                This architecture prioritizes fast, in-store discovery while integrating seamlessly with HyperX's current digital infrastructure, enabling accessory purchases to occur before shoppers even complete their in-store headset purchase.
-              </p>
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
+                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Takeaway:</strong> Transform retail foot traffic into a measurable accessory revenue channel without adding inventory, hardware, or operational complexity.</p>
+              </div>
             </div>
           </section>
 
@@ -711,6 +758,48 @@ export default function HyperXPage() {
           </section>
         </div>
       </div>
+
+      /* ----------------- Modal / Lightbox (fit + scroll, avoids cropping) ----------------- */
+{modalImage && (
+  <div
+    role="dialog"
+    aria-modal="true"
+    className="fixed inset-0 z-50 flex items-center justify-center"
+    onClick={closeModal}
+  >
+    {/* backdrop */}
+    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" />
+
+    {/* center area (clicking here won't close because of stopPropagation below) */}
+    <div
+      className="relative z-10 flex items-center justify-center p-6"
+      onClick={(e) => e.stopPropagation()}
+      style={{ width: "100%", height: "100%" }}
+    >
+      {/* close button */}
+      <button
+        onClick={closeModal}
+        aria-label="Close image"
+        className="absolute top-6 right-6 z-20 rounded-full bg-white/90 hover:bg-white p-2 shadow-md"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* container that limits size but allows scrolling if needed */}
+      <div className="max-w-[95vw] max-h-[95vh] w-full h-full overflow-auto flex items-center justify-center">
+        {/* image scales to fit, preserves aspect ratio (no cropping) */}
+        <img
+          src={modalImage}
+          alt="Enlarged view"
+          className="object-contain max-w-full max-h-full rounded-lg drop-shadow-2xl"
+          style={{ display: "block" }}
+        />
+      </div>
+    </div>
+  </div>
+)}
 
       <style jsx global>{`
         @keyframes bounce-right {
