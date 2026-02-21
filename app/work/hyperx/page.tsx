@@ -102,6 +102,7 @@ export default function HyperXPage() {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
         </svg>
@@ -121,6 +122,7 @@ export default function HyperXPage() {
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
         </svg>
@@ -159,47 +161,45 @@ export default function HyperXPage() {
               </h1>
               <p className="text-[18px] text-[#667eea] font-semibold">HyperX · Product Design · AR Commerce</p>
               <p className="text-center text-[16px] text-[#6E6E73] py-4 px-4 md:px-8">Increase accessory attach rate by bringing digital-only HX3D products into the retail aisle via AR.</p>
-            
 
-            {/* Hero Visual */}
-            <div className="rounded-2xl overflow-hidden mb-0">
-              <img src="/hyperx/hero-ar-tryOn.png" alt="AR Try-On Experience" className="w-full" />
-              <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Preview. Customize. Purchase.</p>
+              {/* Hero Visual */}
+              <div className="rounded-2xl overflow-hidden mb-0">
+                <img src="/hyperx/hero-ar-tryOn.png" alt="AR Try-On Experience" className="w-full" />
+                <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Preview. Customize. Purchase.</p>
+              </div>
+              {/* Product Summary */}
+              <div id="context" className="mb-12 scroll-mt-[130px]">
+                <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
+                  Retail shoppers were choosing headsets without visibility into HyperX’s strongest differentiator: customization. I designed an AR commerce bridge that surfaced digital-only HX3D accessories at the point of comparison, turning in-store evaluation into a revenue opportunity.
+                </p>
+              </div>
             </div>
-            {/* Product Summary */}
-            <div id="context" className="mb-12 scroll-mt-[130px]">
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
-              Retail shoppers were choosing headsets without visibility into HyperX’s strongest differentiator: customization. I designed an AR commerce bridge that surfaced digital-only HX3D accessories at the point of comparison, turning in-store evaluation into a revenue opportunity.              </p>
-            </div>
-            </div>
- {/* --- Three equal cards row --- */}
- <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
-                {/* Card 1: Team */}
-                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+
+            {/* --- Three equal cards row --- */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+              {/* Card 1: Team */}
+              <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
                 <p className="text-[14px] font-semibold text-[#667eea] mb-3">ROLE</p>
-                  <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
-                    <p>Product Design Intern</p>
-                  </div>
-                </div>
-
-                {/* Card 2: Project Type */}
-                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TEAM</p>
-                  <p className="text-[15px] text-[#1D1D1F]">solo project</p>
-                </div>
-
-                {/* Card 3: Timeline */}
-                <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-3">TIMELINE</p>
-                  <p className="text-[15px] text-[#1D1D1F]">13 weeks</p>
+                <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
+                  <p>Product Design Intern</p>
                 </div>
               </div>
-           
+
+              {/* Card 2: Project Type */}
+              <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TEAM</p>
+                <p className="text-[15px] text-[#1D1D1F]">solo project</p>
+              </div>
+
+              {/* Card 3: Timeline */}
+              <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TIMELINE</p>
+                <p className="text-[15px] text-[#1D1D1F]">13 weeks</p>
+              </div>
+            </div>
+
             {/* Role & Responsibilities */}
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
-
-             
-
               {/* --- Responsibilities list (unchanged, but spacing normalized) --- */}
               <div className="mb-10">
                 <p className="text-[14px] font-semibold text-[#667eea] mb-3">WHAT I DID</p>
@@ -216,12 +216,11 @@ export default function HyperXPage() {
                     <span className="text-[#667eea] mt-1">•</span>
                     <span>Experience and interaction design</span>
                   </li>
-                 
+
                   <li className="flex items-start gap-2">
                     <span className="text-[#667eea] mt-1">•</span>
                     <span>AR prototyping and technical implementation</span>
                   </li>
-                
                 </ul>
               </div>
 
@@ -233,8 +232,9 @@ export default function HyperXPage() {
                 </p>
               </div>
             </div>
- {/* Before/After */}
- <div className="mb-12">
+
+            {/* Before/After */}
+            <div className="mb-12">
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/before-after.png" alt="Before and after comparison" className="w-full" />
               </div>
@@ -242,142 +242,141 @@ export default function HyperXPage() {
                 <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">Before:</p>
                   <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
-                  Accessory discovery relied entirely on post-purchase online traffic, leaving high-intent in-store shoppers disconnected from HyperX’s customization ecosystem.                  </p>
+                    Accessory discovery relied entirely on post-purchase online traffic, leaving high-intent in-store shoppers disconnected from HyperX’s customization ecosystem.
+                  </p>
                 </div>
                 <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">After:</p>
                   <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
-                  A shelf-placed QR entry point launches AR try-on instantly, converting retail foot traffic into a measurable, direct-to-consumer accessory channel.                  </p>
+                    A shelf-placed QR entry point launches AR try-on instantly, converting retail foot traffic into a measurable, direct-to-consumer accessory channel.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
-{/* Problem Statement */}
-<div id="problem" className="mb-0 scroll-mt-[130px]">
+          {/* Problem Statement */}
+          <div id="problem" className="mb-0 scroll-mt-[130px]">
             <p className="text-[14px] font-semibold text-[#667eea] mb-3">PROBLEM</p>
-              <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7]">
-              In-store shoppers evaluating HyperX headsets are unaware that customization options exist.           </p>
-            </div>
-            {/* 3. TARGET USER */}
-<section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7]">
+              In-store shoppers evaluating HyperX headsets are unaware that customization options exist.
+            </p>
+          </div>
+
+          {/* 3. TARGET USER */}
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             <h2 className="text-[22x] md:text-[30px] font-semibold text-[#1D1D1F] mb-10">Target User</h2>
             <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-              <img src="/hyperx/persona.png" alt="User persona - Jordan Mitchell" className="w-full" 
-              className="w-full cursor-zoom-in"
-              onClick={() => openImage("/hyperx/persona.png")}/>
+              <img
+                src="/hyperx/persona.png"
+                alt="User persona - Jordan Mitchell"
+                className="w-full cursor-zoom-in"
+                onClick={() => openImage("/hyperx/persona.png")}
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
-                {/* Card 1: Team */}
-                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+              {/* Card 1: Team */}
+              <div className="bg-white rounded-xl p-6 border border-none shadow-none">
                 <p className="text-[14px] font-semibold text-[#667eea] mb-3">GOALS</p>
-                  <div className="text-[16px] text-[#1D1D1F] leading-relaxed space-y-1">
-                    <p>Tech-savvy gamers and streamers (18–28) who <span className="font-semibold"> shop for peripherals in-store. </span></p>
-                  </div>
+                <div className="text-[16px] text-[#1D1D1F] leading-relaxed space-y-1">
+                  <p>
+                    Tech-savvy gamers and streamers (18–28) who <span className="font-semibold"> shop for peripherals in-store. </span>
+                  </p>
                 </div>
+              </div>
 
-                {/* Card 2: Project Type */}
-                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+              {/* Card 2: Project Type */}
+              <div className="bg-white rounded-xl p-6 border border-none shadow-none">
                 <p className="text-[14px] font-semibold text-[#667eea] mb-3">MOTIVATIONS</p>
                 <p className="text-[16px] text-[#1D1D1F]">
-  <span className="font-semibold">Seeks personalized setups</span> that reflect their identity 
-</p>
-                </div>
-
-                {/* Card 3: Timeline */}
-                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
-                  <p className="text-[14px] font-semibold text-[#667eea] mb-3">PAINPOINTS</p>
-                  <p className="text-[16px] text-[#1D1D1F]">Shoppers <span className="font-semibold"> cannot discover HX3D customization </span> at the moment they are deciding which headset to buy.</p>
-                </div>
+                  <span className="font-semibold">Seeks personalized setups</span> that reflect their identity
+                </p>
               </div>
-           
+
+              {/* Card 3: Timeline */}
+              <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                <p className="text-[14px] font-semibold text-[#667eea] mb-3">PAINPOINTS</p>
+                <p className="text-[16px] text-[#1D1D1F]">Shoppers <span className="font-semibold"> cannot discover HX3D customization </span> at the moment they are deciding which headset to buy.</p>
+              </div>
+            </div>
           </section>
+
           {/* 2. CONTEXT & PROBLEM */}
           <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
-           
-           
-
-
-            
-
             {/* Why This Matters */}
             <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5"> 
-            <div className="bg-white rounded-xl p-6 border border-none shadow-none">
-              <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What This Means for the User</h3>
-              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#667eea] mt-1">•</span>
-                    <span>Unaware that customization options exist while shopping in-store</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#667eea] mt-1">•</span>
-                    <span>Evaluates HyperX as functionally similar to competing brands</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-[#667eea] mt-1">•</span>
-                    <span>Misses the opportunity to personalize their setup</span>
-                  </li>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
+                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                  <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What This Means for the User</h3>
+                  <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Unaware that customization options exist while shopping in-store</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Evaluates HyperX as functionally similar to competing brands</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Misses the opportunity to personalize their setup</span>
+                    </li>
                   </ul>
-                  </div>
-                  <div className="bg-white rounded-xl p-6 border border-none shadow-none">
+                </div>
+                <div className="bg-white rounded-xl p-6 border border-none shadow-none">
                   <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">What This Means for HyperX</h3>
-              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
-                <li className="flex items-start gap-2">
-                  <span className="text-[#667eea] mt-1">•</span>
-                  <span>Loses accessory attach rate and downstream ecosystem revenue</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#667eea] mt-1">•</span>
-                  <span>Fails to differentiate at the most competitive decision point — the shelf</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-[#667eea] mt-1">•</span>
-                  <span>Risks losing headset purchases to brands perceived as equivalent</span>
-                </li>
-              </ul>
+                  <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Loses accessory attach rate and downstream ecosystem revenue</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Fails to differentiate at the most competitive decision point — the shelf</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-[#667eea] mt-1">•</span>
+                      <span>Risks losing headset purchases to brands perceived as equivalent</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              </div>
-                            <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20">
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7]">
-                Making HX3D visible in-store increases the likelihood that shoppers choose HyperX over competing brands and purchase accessories alongside or even before purchasing the headset itself.
-              </p>
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20">
+                <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7]">
+                  Making HX3D visible in-store increases the likelihood that shoppers choose HyperX over competing brands and purchase accessories alongside or even before purchasing the headset itself.
+                </p>
               </div>
             </div>
           </section>
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
-
-          
-
-
 
           {/* 4. RESEARCH */}
           <div id="research" className="scroll-mt-[130px]">
-          <p className="text-[14px] font-semibold text-[#667eea] mb-3">RESEARCH</p>
-            <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3" >
-            Differentiation Fails When It’s Invisible at the Moment of Decision     </p>
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">RESEARCH</p>
+            <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3">Differentiation Fails When It’s Invisible at the Moment of Decision</p>
             <p className="text-[16px] md:text-[16px] text-[#1D1D1F] leading-[1.7] mb-3">
-                I conducted market research, in-store contextual inquiry, and cross-industry research to understand how headset accessories are discovered today and where meaningful product opportunities exist.
-              </p>
+              I conducted market research, in-store contextual inquiry, and cross-industry research to understand how headset accessories are discovered today and where meaningful product opportunities exist.
+            </p>
           </div>
-              <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             {/* Competitive Landscape */}
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Market Research</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
                 <img src="/hyperx/competitive-analysis.png" alt="Competitive analysis" className="w-full" />
               </div>
-              
+
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
                 <strong>Key Insight:</strong> HyperX owns the strongest customization ecosystem in the category, but without visibility or digital preview, that advantage cannot influence purchase decisions.
               </p>
             </div>
-            </section>
-            
-            {/* Contextual Inquiry */}
-            <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+          </section>
+
+          {/* Contextual Inquiry */}
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Contextual Inquiry</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
@@ -387,9 +386,9 @@ export default function HyperXPage() {
                 <strong>Key Insight:</strong> In-store shoppers can evaluate the product — but not discover its customization potential.
               </p>
             </div>
-            </section>
-            
-            <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+          </section>
+
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             {/* Cross-Industry Signals */}
             <div>
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Cross-Industry Pattern</h3>
@@ -397,10 +396,9 @@ export default function HyperXPage() {
                 <img src="/hyperx/ar-companies-logos.png" alt="AR precedents - Nike, Adidas, Gucci, Zara, Meta" className="w-full" />
               </div>
               {/* --- Three equal cards row --- */}
- <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
                 {/* Card 1: Team */}
                 <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-             
                   <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
                     <p>AR reduces hesitation in visually driven categories</p>
                   </div>
@@ -408,23 +406,19 @@ export default function HyperXPage() {
 
                 {/* Card 2: Project Type */}
                 <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-              
                   <p className="text-[15px] text-[#1D1D1F]">AR increases confidence by previewing products in context</p>
                 </div>
 
                 {/* Card 3: Timeline */}
                 <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-              
                   <p className="text-[15px] text-[#1D1D1F]">AR bridges physical retail and digital catalog ecosystems</p>
                 </div>
               </div>
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
                 <strong>Key Insight:</strong> AR is not novelty — it is infrastructure for surfacing hidden customization.
               </p>
-           </div>
-            </section>
-
-
+            </div>
+          </section>
 
           {/* 5. RESEARCH INSIGHTS */}
           <section id="insights" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
@@ -469,19 +463,18 @@ export default function HyperXPage() {
           </section>
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
-    {/* How Might We */}
-      <div id="hmw" className="mb-12 scroll-mt-[130px]">
-      <p className="text-[14px] font-semibold text-[#667eea] mb-3">HOW MIGHT WE</p>
-              <p className="text-[18px] md:text-[18px] text-[#1D1D1F] leading-[1.7] italic">
-                How might we help in-store shoppers discover and preview HX3D headset accessories while comparing products in major electronics retail stores?
-              </p>
-            </div>
-            <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+          {/* How Might We */}
+          <div id="hmw" className="mb-12 scroll-mt-[130px]">
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">HOW MIGHT WE</p>
+            <p className="text-[18px] md:text-[18px] text-[#1D1D1F] leading-[1.7] italic">
+              How might we help in-store shoppers discover and preview HX3D headset accessories while comparing products in major electronics retail stores?
+            </p>
+          </div>
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
           {/* 6. DESIGN FRAMING */}
           <section id="framing" className="bg-none backdrop-blur-sm rounded-2xl border border-none shadow-none p-10 px-8 md:px-12 scroll-mt-[130px]">
-          <p className="text-[14px] font-semibold text-[#667eea] mb-3">DESIGN</p>
-
-            
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">DESIGN</p>
 
             {/* Design Principles */}
             <div>
@@ -510,34 +503,32 @@ export default function HyperXPage() {
           {/* 7. EXPERIENCE ARCHITECTURE */}
           <section id="architecture" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             <h2 className="text-[28px] md:text-[30px] font-bold text-[#1D1D1F] mb-10">User Experience</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-5">
-                {/* Card 1: flowchart */}
-                <div className="rounded-xl overflow-hidden shadow-none mb-10">
-              <img
-                src="/hyperx/experience flow.png"
-                alt="Experience architecture and flow"
-                className="w-full cursor-zoom-in"
-                onClick={() => openImage("/hyperx/experience flow.png")}
-              />
-            </div>
-
-                {/* Card 2: Project Type */}
-                <div className="rounded-xl overflow-hidden shadow-none mb-10">
-              <img
-                src="/hyperx/User Experience.png"
-                alt="User Experience Comic"
-                className="w-full cursor-zoom-in"
-                onClick={() => openImage("/hyperx/User Experience.png")}
-              />
-            </div>
-
-               
+              {/* Card 1: flowchart */}
+              <div className="rounded-xl overflow-hidden shadow-none mb-10">
+                <img
+                  src="/hyperx/experience flow.png"
+                  alt="Experience architecture and flow"
+                  className="w-full cursor-zoom-in"
+                  onClick={() => openImage("/hyperx/experience flow.png")}
+                />
               </div>
-            
+
+              {/* Card 2: Project Type */}
+              <div className="rounded-xl overflow-hidden shadow-none mb-10">
+                <img
+                  src="/hyperx/User Experience.png"
+                  alt="User Experience Comic"
+                  className="w-full cursor-zoom-in"
+                  onClick={() => openImage("/hyperx/User Experience.png")}
+                />
+              </div>
+            </div>
+
             <div className="space-y-6 text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] pl-2 pr-2 md:pl-4 md:pr-4">
               <p>
-              The flow chart defines the system architecture; the comic validates the behavioral execution in a real retail context. Rather than building an AR feature,<strong> the experience was structured as a retail-to-DTC conversion funnel </strong> — entering at the shelf via QR, enabling immediate try-on, and exiting through a preloaded cart before checkout.
+                The flow chart defines the system architecture; the comic validates the behavioral execution in a real retail context. Rather than building an AR feature,<strong> the experience was structured as a retail-to-DTC conversion funnel </strong> — entering at the shelf via QR, enabling immediate try-on, and exiting through a preloaded cart before checkout.
               </p>
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
                 <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Takeaway:</strong> Transform retail foot traffic into a measurable accessory revenue channel without adding inventory, hardware, or operational complexity.</p>
@@ -705,7 +696,7 @@ export default function HyperXPage() {
 
           {/* 9. IMPACT */}
           <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
-          <p className="text-[14px] font-semibold text-[#667eea] mb-3">IMPACT</p>
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">IMPACT</p>
             <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
               I independently presented this work during a one-hour session with HyperX and HP senior leadership, including executives and directors across product, design, strategy, brand, and 3D. The session required communicating both the user experience and underlying product strategy to stakeholders with varied backgrounds.
             </p>
@@ -736,7 +727,7 @@ export default function HyperXPage() {
 
           {/* 11. LESSONS LEARNED */}
           <section id="lessons" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
-          <p className="text-[14px] font-semibold text-[#667eea] mb-3">LESSONS LEARNED</p>
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">LESSONS LEARNED</p>
             <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
@@ -759,47 +750,47 @@ export default function HyperXPage() {
         </div>
       </div>
 
-      /* ----------------- Modal / Lightbox (fit + scroll, avoids cropping) ----------------- */
-{modalImage && (
-  <div
-    role="dialog"
-    aria-modal="true"
-    className="fixed inset-0 z-50 flex items-center justify-center"
-    onClick={closeModal}
-  >
-    {/* backdrop */}
-    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" />
+      {/* ----------------- Modal / Lightbox (fit + scroll, avoids cropping) ----------------- */}
+      {modalImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          onClick={closeModal}
+        >
+          {/* backdrop */}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" />
 
-    {/* center area (clicking here won't close because of stopPropagation below) */}
-    <div
-      className="relative z-10 flex items-center justify-center p-6"
-      onClick={(e) => e.stopPropagation()}
-      style={{ width: "100%", height: "100%" }}
-    >
-      {/* close button */}
-      <button
-        onClick={closeModal}
-        aria-label="Close image"
-        className="absolute top-6 right-6 z-20 rounded-full bg-white/90 hover:bg-white p-2 shadow-md"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
+          {/* center area (clicking here won't close because of stopPropagation below) */}
+          <div
+            className="relative z-10 flex items-center justify-center p-6"
+            onClick={(e) => e.stopPropagation()}
+            style={{ width: "100%", height: "100%" }}
+          >
+            {/* close button */}
+            <button
+              onClick={closeModal}
+              aria-label="Close image"
+              className="absolute top-6 right-6 z-20 rounded-full bg-white/90 hover:bg-white p-2 shadow-md"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-[#1D1D1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-      {/* container that limits size but allows scrolling if needed */}
-      <div className="max-w-[95vw] max-h-[95vh] w-full h-full overflow-auto flex items-center justify-center">
-        {/* image scales to fit, preserves aspect ratio (no cropping) */}
-        <img
-          src={modalImage}
-          alt="Enlarged view"
-          className="object-contain max-w-full max-h-full rounded-lg drop-shadow-2xl"
-          style={{ display: "block" }}
-        />
-      </div>
-    </div>
-  </div>
-)}
+            {/* container that limits size but allows scrolling if needed */}
+            <div className="max-w-[95vw] max-h-[95vh] w-full h-full overflow-auto flex items-center justify-center">
+              {/* image scales to fit, preserves aspect ratio (no cropping) */}
+              <img
+                src={modalImage}
+                alt="Enlarged view"
+                className="object-contain max-w-full max-h-full rounded-lg drop-shadow-2xl"
+                style={{ display: "block" }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx global>{`
         @keyframes bounce-right {
