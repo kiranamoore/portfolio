@@ -43,6 +43,14 @@ next-env.d.ts
 # large video files (hosted externally)
 public/honda/*.mp4
 public/honda/*.pdf
+public/hyperx/*.mp4
 
 # playwright screenshots
 .playwright-mcp/
+
+# reference images and backups
+.reference-images/
+*.old.*
+*backup*
+reference-*.png
+hyperx-*.png
