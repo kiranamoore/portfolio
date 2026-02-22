@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import HeroBackground from "@/components/HeroBackground";
 
 const ModelViewer = dynamic(
   () => import("@/components/ModelViewer3D"),
@@ -288,7 +287,6 @@ export default function ProjectLayout({
   if (orientation === "portrait") {
     return (
       <div className="h-screen overflow-hidden hero-gradient relative">
-        <HeroBackground />
         <SideNavigation />
 
         <div className="relative z-10 h-full flex items-center justify-center px-8 md:px-12 lg:px-16" style={{ paddingTop: '100px', paddingBottom: '40px' }}>
@@ -380,7 +378,6 @@ export default function ProjectLayout({
   // Landscape Layout (stacked)
   return (
     <div className="min-h-screen hero-gradient relative flex flex-col">
-      <HeroBackground />
       <SideNavigation />
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-8 md:px-12 lg:px-16 py-12" style={{ paddingTop: '100px' }}>

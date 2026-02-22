@@ -33,6 +33,16 @@ body {
   background: linear-gradient(180deg, #FFFFFF 0%, #F5F5F7 100%);
 }
 
+/* HP Project - Blue tech gradient */
+.hero-gradient-hp {
+  background: linear-gradient(180deg, #F0F4FF 0%, #E8EFFF 100%);
+}
+
+/* EY Project - Warm professional gradient */
+.hero-gradient-ey {
+  background: linear-gradient(180deg, #FFFBF0 0%, #FFF8E8 100%);
+}
+
 /* Accent gradient for highlights */
 .accent-gradient {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
