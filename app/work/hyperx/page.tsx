@@ -546,76 +546,41 @@ export default function HyperXPage() {
             <div className="mb-12">
               <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Lo-Fi Exploration</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/hyperx/lofi-exploration.png" alt="Lo-fi exploration" className="w-full" />
+                <img src="/hyperx/lofi mockups good vs bad.png" alt="Lo-fi exploration" className="w-full" />
               </div>
-              <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-4">Defining the Spatial Constraint</h4>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
-                <strong>Goal:</strong> Identify the optimal layout for a camera-first AR experience in a retail context.
-              </p>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
-                Because the user's face and headset must remain centered and unobstructed, the core constraint was spatial: How much interface can be introduced without compromising AR visibility?
-              </p>
-              <div className="mb-10">
-                <p className="font-semibold text-[#1D1D1F] mb-3">Layout Variations Explored:</p>
-                <ul className="space-y-3 text-[15px] text-[#1D1D1F] pl-4 pr-4">
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Bottom-anchored customization bar + top checkout</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Large bottom customization panel</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Top-anchored customization + bottom checkout</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Right-side vertical control panel</span></li>
-                </ul>
-              </div>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
-                Through early reviews with managers and peers, larger panels were eliminated because they disrupted face framing and made the experience feel like browsing rather than try-on.
-              </p>
+              
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
-                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Insight:</strong> Interface must support rapid visual comparison without competing with the user's face in AR.</p>
+                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Iteration Insight:</strong> Lo-fi exploration revealed that persistent side controls introduced spatial competition and weakened AR as the primary interaction.</p>
               </div>
-              <p className="text-[15px] text-[#6E6E73] italic leading-[1.6]">
-                <strong>Decision → Moving to Mid-Fi:</strong> I selected a bottom-positioned customization selector paired with a lightweight checkout call-to-action to preserve face centering, enable one-handed use, and reinforce AR try-on as the primary behavior.
-              </p>
+              <p className="text-[15px] text-[#1D1D1F] ">
+                <strong>Decision → Moving to Mid-Fi:</strong> I transitioned to a bottom-anchored customization model with a visually lightweight checkout, preserving face centering, reinforcing try-on as the core behavior, and improving one-handed ergonomics.
+              </p>  
             </div>
 
             {/* Mid-Fi Prototype */}
             <div className="mb-12">
               <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Mid-Fi Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-sm bg-black mb-10">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/k-q2NEEKSBY?rel=0"
-                    title="Mid-Fi Prototype"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+              <div className="rounded-xl overflow-hidden shadow-none bg-white mb-0">
+                <img src="/hyperx/MidFi Select Accessories.gif" alt="MidFi Select Accessories" className="w-full" />
+                <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Accessory Selection  </p>
               </div>
-              <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-4">Validating Interaction, Ergonomics, and Conversion</h4>
+              
               <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-6">
-                The mid-fi interactive prototype focused on validating three things:
+              Users enter the AR experience, see themselves wearing HyperX headphones, and customize them in real time using popular HX3D accessories.
               </p>
-              <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-8 pl-4 pr-4">
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Speed of accessory toggling</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Thumb ergonomics in a natural phone grip</span></li>
-                <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Realistic e-commerce handoff</span></li>
-              </ul>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-8">
-                Weekly testing sessions with managers, supervisors, and peers helped refine both interaction clarity and reachability.
+              <div className="rounded-xl overflow-hidden shadow-none bg-white mb-0">
+                <img src="/hyperx/MidFi Checkout.gif" alt="MidFi Checkout" className="w-full" />
+                <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">AR-to-Web Checkout </p>
+              </div>
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-6">
+              Users complete checkout within the AR experience and are directed to HyperX.com/cart to review their selected accessories and finalize their purchase.
               </p>
-              <div className="mb-8">
-                <p className="font-semibold text-[#1D1D1F] mb-3">Key Decisions in Mid-Fi:</p>
-                <ul className="space-y-3 text-[15px] text-[#1D1D1F] pl-4 pr-4">
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Committed to bottom-positioned controls</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Reduced UI chrome to emphasize AR</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Kept checkout inside the AR experience</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Implemented handoff to HyperX.com/cart with selected accessories preloaded</span></li>
-                </ul>
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-6 mt-12">
+                <p className="text-[15px] text-[#1D1D1F]"><strong>Validation Insight:</strong> Interactive testing confirmed that bottom-positioned controls improved toggle speed and preserved AR focus, while the integrated checkout successfully maintained purchase continuity.</p>
+                <p className="text-[15px] text-[#1D1D1F] mt-3"><strong>Ergonomic Learning:</strong> However, anchoring the customization bar flush to the bottom edge introduced subtle thumb strain in a natural grip.</p>
               </div>
-              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-6">
-                <p className="text-[15px] text-[#1D1D1F]"><strong>Ergonomic Insight:</strong> Testing revealed that anchoring the customization bar flush to the bottom edge slightly strained thumb reach in a natural holding position. This informed the next refinement.</p>
-              </div>
-              <p className="text-[15px] text-[#6E6E73] italic">
-                <strong>Decision → Moving to High-Fi:</strong> With interaction flow and checkout integration validated, the next iteration focused on ergonomic refinement and system-level brand alignment.
+              <p className="text-[15px] text-[#1D1D1F]">
+                <strong>Decision → Moving to High-Fi:</strong> I refined vertical spacing and interaction zones to improve reach comfort while maintaining visual hierarchy and conversion flow.
               </p>
             </div>
 
