@@ -19,7 +19,7 @@ export default function HondaPage() {
           thumbnail: "/honda-thumbnail.png",
         },
       ]}
-      prevProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
+      prevProject={{ slug: "nogi-nogi", title: "Nogi Nogi" }}
       nextProject={{ slug: "arup", title: "Sustainability & Community" }}
       sections={[
         {

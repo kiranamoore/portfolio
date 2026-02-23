@@ -90,7 +90,7 @@ export default function HyperXPage() {
     <div className="min-h-screen hero-gradient relative flex flex-col">
       {/* Side previous/next project links */}
       <Link
-        href="/work/meta-alchemy"
+        href="/work/arup"
         className="fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
       >
         <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">

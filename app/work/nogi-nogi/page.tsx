@@ -26,8 +26,8 @@ export default function NogiNogiPage() {
           objectFit: "contain",
         },
       ]}
-      prevProject={{ slug: "honda", title: "Future Mobility Concept" }}
-      nextProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
+      prevProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
+      nextProject={{ slug: "honda", title: "Future Mobility Concept" }}
       sections={[
         {
           title: "Role & Objective",

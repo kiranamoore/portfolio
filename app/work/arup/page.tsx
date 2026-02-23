@@ -17,7 +17,7 @@ export default function ArupPage() {
         },
       ]}
       prevProject={{ slug: "honda", title: "Future Mobility Concept" }}
-      nextProject={{ slug: "meta-alchemy", title: "Meta Alchemy" }}
+      nextProject={{ slug: "hyperx", title: "XR/AR Product Showcase" }}
       sections={[
         {
           title: "Role",
