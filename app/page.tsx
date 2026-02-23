@@ -44,24 +44,24 @@ const featuredProjects = [
     description: "Revitalizing urban downtowns through community-driven retail spaces",
     tags: ["Urban Design", "Sustainability", "Design Research"],
   },
-  {
-    title: "HP Enterprise Project",
-    company: "  ",
-    slug: "hp",
-    year: null,
-    thumbnail: "/nogi-nogi-thumbnail.png",
-    description: "Enterprise design project placeholder description",
-    tags: ["Product Design", "3D Modeling", "UX Research"],
-  },
-  {
-    title: "EY Consulting Project",
-    company: "  ",
-    slug: "ey",
-    year: null,
-    thumbnail: "/nogi-nogi-thumbnail.png",
-    description: "Consulting project placeholder description",
-    tags: ["Product Design", "3D Modeling", "UX Research"],
-  },
+  // {
+  //   title: "HP Enterprise Project",
+  //   company: "  ",
+  //   slug: "hp",
+  //   year: null,
+  //   thumbnail: "/nogi-nogi-thumbnail.png",
+  //   description: "Enterprise design project placeholder description",
+  //   tags: ["Product Design", "3D Modeling", "UX Research"],
+  // },
+  // {
+  //   title: "EY Consulting Project",
+  //   company: "  ",
+  //   slug: "ey",
+  //   year: null,
+  //   thumbnail: "/nogi-nogi-thumbnail.png",
+  //   description: "Consulting project placeholder description",
+  //   tags: ["Product Design", "3D Modeling", "UX Research"],
+  // },
 
 ];
 

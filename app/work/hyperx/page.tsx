@@ -19,7 +19,8 @@ export default function HyperXPage() {
     { id: "hmw", label: "H.M.W" },
     { id: "framing", label: "Design" },
     { id: "try-it", label: "Try It" },
-    { id: "impact", label: "Impact" },
+    { id: "impact", label: "Outcome" },
+    { id: "testimonials", label: "Endorsements" },
     { id: "lessons", label: "Lessons" },
   ];
 
@@ -160,17 +161,17 @@ export default function HyperXPage() {
                 HX3D AR Retail Experience
               </h1>
               <p className="text-[18px] text-[#667eea] font-semibold">HyperX · Product Design · AR Commerce</p>
-              <p className="text-center text-[16px] text-[#6E6E73] py-4 px-4 md:px-8">Increase accessory attach rate by bringing digital-only HX3D products into the retail aisle via AR.</p>
+              <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">Increase accessory attach rate by bringing digital-only HX3D products into the retail aisle via AR.</p>
 
               {/* Hero Visual */}
               <div className="rounded-2xl overflow-hidden mb-0">
-                <img src="/hyperx/hero-ar-tryOn.png" alt="AR Try-On Experience" className="w-full" />
+                <img src="/hyperx/hero-ar-tryOn.png" alt="AR Try-On Experience" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/hero-ar-tryOn.png")} />
                 <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Preview. Customize. Purchase.</p>
               </div>
               {/* Product Summary */}
               <div id="context" className="mb-12 scroll-mt-[130px]">
                 <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
-                  Retail shoppers were choosing headsets without visibility into HyperX’s strongest differentiator: customization. I designed an AR commerce bridge that surfaced digital-only HX3D accessories at the point of comparison, turning in-store evaluation into a revenue opportunity.
+                  Retail shoppers were choosing headsets <strong>without visibility into HyperX’s strongest differentiator: customization.</strong> I designed an <strong>AR commerce bridge</strong> that surfaced digital-only HX3D accessories at the point of comparison, <strong>turning in-store evaluation into a revenue opportunity.</strong>
                 </p>
               </div>
             </div>
@@ -236,19 +237,19 @@ export default function HyperXPage() {
             {/* Before/After */}
             <div className="mb-12">
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/hyperx/before-after.png" alt="Before and after comparison" className="w-full" />
+                <img src="/hyperx/before-after.png" alt="Before and after comparison" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/before-after.png")} />
               </div>
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">Before:</p>
                   <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
-                    Accessory discovery relied entirely on post-purchase online traffic, leaving high-intent in-store shoppers disconnected from HyperX’s customization ecosystem.
+                    <strong>Accessory discovery relied entirely on post-purchase online traffic,</strong> leaving high-intent in-store shoppers disconnected from HyperX’s customization ecosystem.
                   </p>
                 </div>
                 <div className="px-4 md:px-6">
                   <p className="font-semibold text-[#1D1D1F] mb-3">After:</p>
                   <p className="text-[15px] text-[#6E6E73] leading-[1.6]">
-                    A shelf-placed QR entry point launches AR try-on instantly, converting retail foot traffic into a measurable, direct-to-consumer accessory channel.
+                    A shelf-placed QR entry point launches AR try-on instantly, <strong>converting retail foot traffic into a direct-to-consumer accessory channel.</strong>
                   </p>
                 </div>
               </div>
@@ -329,11 +330,11 @@ export default function HyperXPage() {
                   <ul className="space-y-3 text-[15px] text-[#1D1D1F] mb-10 pl-4 pr-4">
                     <li className="flex items-start gap-2">
                       <span className="text-[#667eea] mt-1">•</span>
-                      <span>Loses accessory attach rate and downstream ecosystem revenue</span>
+                      <span><strong>Loses accessory attach rate and downstream ecosystem revenue</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#667eea] mt-1">•</span>
-                      <span>Fails to differentiate at the most competitive decision point — the shelf</span>
+                      <span><strong>Fails to differentiate at the most competitive decision point — the shelf</strong></span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-[#667eea] mt-1">•</span>
@@ -366,11 +367,11 @@ export default function HyperXPage() {
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Market Research</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/hyperx/competitive-analysis.png" alt="Competitive analysis" className="w-full" />
+                <img src="/hyperx/competitive-analysis.png" alt="Competitive analysis" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/competitive-analysis.png")} />
               </div>
 
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
-                <strong>Key Insight:</strong> HyperX owns the strongest customization ecosystem in the category, but without visibility or digital preview, that advantage cannot influence purchase decisions.
+                <strong>Key Insight:</strong> HyperX <u>owns the strongest customization ecosystem</u> in the category, but without visibility or digital preview, that advantage <u>cannot influence purchase decisions</u>.
               </p>
             </div>
           </section>
@@ -380,10 +381,10 @@ export default function HyperXPage() {
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Contextual Inquiry</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/hyperx/contextual-analysis.png" alt="Contextual inquiry findings" className="w-full" />
+                <img src="/hyperx/contextual-analysis.png" alt="Contextual inquiry findings" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/contextual-analysis.png")} />
               </div>
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
-                <strong>Key Insight:</strong> In-store shoppers can evaluate the product — but not discover its customization potential.
+                <strong>Key Insight:</strong> In-store shoppers can <u>evaluate the product — but not discover its customization potential</u>.
               </p>
             </div>
           </section>
@@ -457,7 +458,7 @@ export default function HyperXPage() {
             <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20">
               <h3 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Opportunity Statement</h3>
               <p className="text-[16px] text-[#1D1D1F] leading-relaxed">
-                Together, these insights revealed an opportunity to use AR to bridge in-store headset shopping with HyperX's digital HX3D accessory catalog, making customization visible, experiential, and shoppable at the point of decision.
+                Together, these insights revealed an opportunity to use AR to <strong>bridge in-store headset shopping with HyperX's digital HX3D accessory catalog,</strong> <strong>making customization visible, experiential, and shoppable at the point of decision.</strong>
               </p>
             </div>
           </section>
@@ -531,12 +532,10 @@ export default function HyperXPage() {
                 The flow chart defines the system architecture; the comic validates the behavioral execution in a real retail context. Rather than building an AR feature,<strong> the experience was structured as a retail-to-DTC conversion funnel </strong> — entering at the shelf via QR, enabling immediate try-on, and exiting through a preloaded cart before checkout.
               </p>
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
-                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Takeaway:</strong> Transform retail foot traffic into a measurable accessory revenue channel without adding inventory, hardware, or operational complexity.</p>
+                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Key Takeaway:</strong> <u>Transform retail foot traffic into a measurable accessory revenue channel</u> without adding inventory, hardware, or operational complexity.</p>
               </div>
             </div>
           </section>
-
-          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
           {/* 8. DESIGN ITERATION */}
           <section id="iteration" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
@@ -544,24 +543,24 @@ export default function HyperXPage() {
 
             {/* Lo-Fi Exploration */}
             <div className="mb-12">
-              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Lo-Fi Exploration</h3>
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Low-Fidelity Exploration</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/hyperx/lofi mockups good vs bad.png" alt="Lo-fi exploration" className="w-full" />
+                <img src="/hyperx/lofi mockups good vs bad.png" alt="Lo-fi exploration" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/lofi mockups good vs bad.png")} />
               </div>
               
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-8">
-                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Iteration Insight:</strong> Lo-fi exploration revealed that persistent side controls introduced spatial competition and weakened AR as the primary interaction.</p>
+                <p className="text-[15px] text-[#1D1D1F] leading-[1.6]"><strong>Iteration Insight:</strong> Lo-fi exploration revealed that persistent side controls introduced <u>spatial competition</u> and <u>weakened AR as the primary interaction.</u></p>
               </div>
               <p className="text-[15px] text-[#1D1D1F] ">
-                <strong>Decision → Moving to Mid-Fi:</strong> I transitioned to a bottom-anchored customization model with a visually lightweight checkout, preserving face centering, reinforcing try-on as the core behavior, and improving one-handed ergonomics.
+                <strong>Decision → Moving to Mid-Fi:</strong> I transitioned to a <u>bottom-anchored customization model</u> with a visually lightweight checkout, preserving face centering, <u>reinforcing try-on as the core behavior,</u> and improving one-handed ergonomics.
               </p>  
             </div>
 
             {/* Mid-Fi Prototype */}
             <div className="mb-12">
-              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Mid-Fi Prototype</h3>
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">Mid-Fidelity Validation</h3>
               <div className="rounded-xl overflow-hidden shadow-none bg-white mb-0">
-                <img src="/hyperx/MidFi Select Accessories.gif" alt="MidFi Select Accessories" className="w-full" />
+                <img src="/hyperx/MidFi Select Accessories.gif" alt="MidFi Select Accessories" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/MidFi Select Accessories.gif")} />
                 <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Accessory Selection  </p>
               </div>
               
@@ -569,79 +568,92 @@ export default function HyperXPage() {
               Users enter the AR experience, see themselves wearing HyperX headphones, and customize them in real time using popular HX3D accessories.
               </p>
               <div className="rounded-xl overflow-hidden shadow-none bg-white mb-0">
-                <img src="/hyperx/MidFi Checkout.gif" alt="MidFi Checkout" className="w-full" />
+                <img src="/hyperx/MidFi Checkout.gif" alt="MidFi Checkout" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/MidFi Checkout.gif")} />
                 <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">AR-to-Web Checkout </p>
               </div>
               <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-6">
               Users complete checkout within the AR experience and are directed to HyperX.com/cart to review their selected accessories and finalize their purchase.
               </p>
               <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mb-6 mt-12">
-                <p className="text-[15px] text-[#1D1D1F]"><strong>Validation Insight:</strong> Interactive testing confirmed that bottom-positioned controls improved toggle speed and preserved AR focus, while the integrated checkout successfully maintained purchase continuity.</p>
-                <p className="text-[15px] text-[#1D1D1F] mt-3"><strong>Ergonomic Learning:</strong> However, anchoring the customization bar flush to the bottom edge introduced subtle thumb strain in a natural grip.</p>
+                <p className="text-[15px] text-[#1D1D1F]"><strong>Validation Insight:</strong> Interactive testing confirmed that bottom-positioned controls improved toggle speed and <u>preserved AR focus,</u> while the integrated checkout successfully <u>maintained purchase continuity.</u></p>
+                <p className="text-[15px] text-[#1D1D1F] mt-3"><strong>Ergonomic Learning:</strong> However, anchoring the customization bar flush to the bottom edge introduced <u>subtle thumb strain</u> in a natural grip.</p>
               </div>
               <p className="text-[15px] text-[#1D1D1F]">
-                <strong>Decision → Moving to High-Fi:</strong> I refined vertical spacing and interaction zones to improve reach comfort while maintaining visual hierarchy and conversion flow.
+                <strong>Decision → Moving to High-Fi:</strong> Transitioning from Mid-Fi to a functional Web AR prototype introduced an <u>8MB file-size constraint,</u> requiring careful <u>tradeoffs between interaction complexity and 3D asset fidelity.</u>
               </p>
+              <p className="text-[15px] text-[#1D1D1F] mt-2">To stay within performance limits while preserving product quality, I:</p>
+              <ul className="space-y-8 text-[14px] text-[#1D1D1F] pl-4 pr-4 mt-4">
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[14px]">•</span>
+                <span>Simplified and consolidated coded interaction states to <strong>reduce script weight</strong></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[14px]">•</span>
+                <span>Optimized 3D models for mobile rendering <strong>without compromising perceived premium quality</strong></span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[14px]">•</span>
+                <span>Prioritized only <strong>conversion-critical customization flows</strong></span>
+              </li>
+          
+            </ul>
+
             </div>
 
             {/* High-Fi Prototype */}
             <div className="mb-12">
-              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-8">High-Fidelity Prototype</h3>
-              <div className="rounded-xl overflow-hidden shadow-sm bg-black mb-10">
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  <iframe
-                    className="absolute top-0 left-0 w-full h-full"
-                    src="https://www.youtube.com/embed/s4N8mFgTG1E?rel=0"
-                    title="High-Fidelity Prototype"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+              <h3 className="text-[24px] md:text-[24px] font-semibold text-[#1D1D1F] mb-4">High-Fidelity Refinement</h3>
+              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-12">
+              To validate feasibility beyond static mockups, <strong>I translated the interface into a functional Web AR prototype </strong>in Lens Studio—integrating exported Figma UI, custom 3D assets, and real interaction logic to <strong>demonstrate production viability</strong> to executive stakeholders.              </p>
+              <div>
+              {/* --- Three equal cards row --- */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-5">
+              {/* Card 1: Team */}
+                <div className="bg-white rounded-xl  border border-none shadow-none">
+                <img src="/hyperx/Hifi enter with headset.gif" alt="Hifi enter with headset" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/Hifi enter with headset.gif")} />
                 </div>
-              </div>
-              <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Refining Ergonomics & Brand System Integration</h4>
+              {/* Card 2: Team */}
+                <div className="bg-white rounded-xl  border border-none shadow-none">
+                <img src="/hyperx/Hifi Nature.gif" alt="Hifi customization option 1" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/Hifi Nature.gif")} />
+                </div>
+               {/* Card 3: Team */}
+                <div className="bg-white rounded-xl  border border-none shadow-none">
+                <img src="/hyperx/Hifi Valkyrie.gif" alt="Hifi customization option 2" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/Hifi Valkyrie.gif")} />
+                </div>
+               {/* Card 3: Team */}
+               <div className="bg-white rounded-xl  border border-none shadow-none">
+                <img src="/hyperx/Hifi Beast.gif" alt="Hifi customization option 3" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/Hifi Beast.gif")} />
+                </div>
+             
+                </div>
+                <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">AR Try-On HX3D Best Sellers </p>
+                </div>
               <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
-                In the high-fidelity iteration, I raised the customization selector slightly above the bottom edge of the screen to align with the natural arc of the thumb when holding a phone one-handed.
+              User enters the AR experience, sees themselves wearing a headset, and tries on HX3D’s best-selling accessory sets in real time.
               </p>
-              <div className="mb-8">
-                <p className="text-[15px] text-[#1D1D1F] mb-2">This subtle adjustment:</p>
-                <ul className="space-y-2 text-[15px] text-[#1D1D1F] pl-4 pr-4">
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Improved reachability</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Reduced edge mis-taps</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Maintained face centering</span></li>
-                  <li className="flex items-start gap-2"><span className="text-[#667eea] mt-1">•</span><span>Preserved AR visibility</span></li>
-                </ul>
-              </div>
-              <h4 className="text-[18px] font-semibold text-[#1D1D1F] mb-3">Brand & System Alignment</h4>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
-                The interface was refined to align with the visual language being developed for HyperX NGENUITY, HyperX's device customization platform. Refinements included typography alignment, color hierarchy adjustments, and button styling consistency.
+             
+             
+                <div className="bg-white rounded-xl  border border-none shadow-none">
+                <img src="/hyperx/Hifi Checkout.gif" alt="Hifi Checkout" className="w-full cursor-zoom-in" onClick={() => openImage("/hyperx/Hifi Checkout.gif")} />
+                <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">AR-to-Web Checkout </p>
+                </div>
+              {/* Card 2: Team */}
+                
+                 
+                <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mt-4">
+                User selects a preferred HX3D accessory set in AR, proceeds to checkout, and is directed to HyperX.com/cart to review and complete their purchase.
               </p>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed mb-4">
-                The goal was to ensure the AR experience felt like an extension of HyperX's ecosystem rather than a standalone AR experiment.
-              </p>
-              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20">
-                <p className="text-[15px] text-[#1D1D1F]"><strong>Production-Ready Flow:</strong> The high-fidelity prototype maintained the validated cart redirect introduced in mid-fi, reinforcing that AR selection transitions directly into HyperX's existing e-commerce system.</p>
+               
+               
+                
+              <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-6 border border-[#667eea]/20 mt-12">
+              <p className="text-[15px] text-[#1D1D1F] mt-3"><strong>Ergonomic: Optimization:</strong>  Elevating the customization bar slightly above the screen edge <u>improved thumb reach,</u> <u>reduced edge mis-taps,</u> and preserved AR visibility without disrupting face centering.              </p>
+              <p className="text-[15px] text-[#1D1D1F] mt-3"><strong>System-Level Alignment:</strong> The interface was then refined to <u>align with HyperX NGENUITY’s visual system</u>— standardizing typography, color hierarchy, and button styling to ensure the AR experience felt like an <u>extension of the broader product ecosystem.</u>              </p>
+             
               </div>
             </div>
 
-            {/* Technical Decisions */}
-            <div>
-              <h3 className="text-[24px] font-semibold text-[#1D1D1F] mb-8">Technical Decisions as Product Design</h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
-                  <h4 className="font-semibold text-[#1D1D1F] mb-3">Interaction Logic</h4>
-                  <p className="text-[15px] text-[#6E6E73]">I taught myself JavaScript and implemented lightweight interaction logic in Lens Studio to manage accessory toggling and state changes.</p>
-                </div>
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
-                  <h4 className="font-semibold text-[#1D1D1F] mb-3">Performance Constraints</h4>
-                  <p className="text-[15px] text-[#6E6E73]">Lens Studio Web AR enforces an 8MB file size limit, requiring careful prioritization of interactions, assets, and visual fidelity to ensure fast load times in retail environments.</p>
-                </div>
-                <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30">
-                  <h4 className="font-semibold text-[#1D1D1F] mb-3">3D Asset Optimization</h4>
-                  <p className="text-[15px] text-[#6E6E73]">I optimized product CAD models in Blender, keeping each model under 60,000 triangles while preserving premium visual quality for smooth mobile AR rendering.</p>
-                </div>
-              </div>
-            </div>
+            
           </section>
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
@@ -659,34 +671,65 @@ export default function HyperXPage() {
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
-          {/* 9. IMPACT */}
-          <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">IMPACT</p>
-            <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-[1.7] mb-10">
-              I independently presented this work during a one-hour session with HyperX and HP senior leadership, including executives and directors across product, design, strategy, brand, and 3D. The session required communicating both the user experience and underlying product strategy to stakeholders with varied backgrounds.
-            </p>
-
-            <div className="bg-gradient-to-br from-[#667eea]/10 to-[#764ba2]/10 rounded-xl p-8 border border-[#667eea]/20 mb-8">
-              <p className="text-[14px] text-[#6E6E73] mb-3">Attendees included:</p>
-              <p className="text-[15px] text-[#1D1D1F]">
-                Gagan Singh (VP & GM), Dan Kelley (VP Gaming Solutions), Mark Spijkers (Global Head of Design & UX), Sean Peralta (Director of Product), Kellie Steinman (Director of Strategic Planning / Chief of Staff), Brendan Nguyen (Director of 3D/CGI), Shawn Denison (Global Product Manager, Audio), Rodrigo Rangel (Global Brand Manager)
-              </p>
-            </div>
-
-            <div className="mb-8">
-              <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-4">Technical Credibility</h3>
-              <p className="text-[16px] md:text-[17px] text-[#1D1D1F] leading-relaxed">
-                The quality and performance of the AR prototype reinforced confidence that this experience could scale, demonstrating that HX3D accessories could be realistically previewed in-store without compromising performance or brand quality.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl p-8 border-l-4 border-[#667eea] shadow-md">
-              <p className="text-[16px] text-[#1D1D1F] leading-relaxed italic mb-3">
-                "Thank you so much for all the fantastic work you've shown us. I'm very motivated to get HyperX to invest in these capabilities, and when that becomes a reality, my first focus will be to find a way for you to continue this work with us."
-              </p>
-              <p className="text-[14px] text-[#667eea] font-semibold">— Mark Spijkers, Global Head of Design and User Experience, HyperX</p>
-            </div>
+          {/* 9. OUTCOME & INFLUENCE */}
+          <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">OUTCOME & INFLUENCE</p>
+            <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[20px]">•</span>
+                <span><strong>Validated technical feasibility within an 8MB Web AR constraint,</strong> de-risking AR commerce as a viable retail channel for HyperX.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[20px]">•</span>
+                <span><strong>Clarified interaction and ergonomic direction</strong> through iterative prototyping — resolving thumb-reach and spatial hierarchy tradeoffs that informed the final interface model.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[20px]">•</span>
+                <span><strong>Aligned the AR experience with HyperX NGENUITY's visual system,</strong> reinforcing ecosystem coherence across digital and physical product touchpoints.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#667eea] mt-1 text-[20px]">•</span>
+                <span><strong>Independently presented to HyperX and HP senior leadership</strong> — including executives and directors across product, design, strategy, brand, and 3D — in a one-hour session covering both the user experience and underlying product strategy.</span>
+              </li>
+            </ul>
           </section>
+
+          <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
+
+          {/* 10.5 LEADERSHIP ENDORSEMENTS */}
+          <div id="testimonials" className="scroll-mt-[130px]">
+            <p className="text-[14px] font-semibold text-[#667eea] mb-3">LEADERSHIP ENDORSEMENTS</p>
+            <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3">Leadership & Mentor validation of execution, strategic thinking, and AR feasibility.</p>
+          <div className="flex flex-col gap-6">
+            {/* Testimonial 1 */}
+            <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm hover:shadow-md transition-shadow">
+              <blockquote className="text-[15px] text-[#1D1D1F] leading-[1.6]">
+                &ldquo;During your internship at HyperX, you <strong>operated with a level of ownership and strategic thinking well beyond your tenure</strong>. You not only led the HX3D AR try-on initiative, but also introduced us to the broader potential of AR technology within our ecosystem. The AR Quick Start Guide you developed brought clarity and structure to a complex workflow, and you presented both initiatives to the executive team and cross-functional stakeholders with confidence and polish. Your ability to <strong>connect emerging AR technology with real business impact and user experience</strong> truly sets you apart.&rdquo;
+              </blockquote>
+              <cite className="block text-[13px] text-[#6E6E73] mt-3 italic not-italic">— Brendan Nguyen, Manager, Product Visualization &amp; CGI</cite>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm hover:shadow-md transition-shadow">
+              <blockquote className="text-[15px] text-[#1D1D1F] leading-[1.6]">
+                &ldquo;Kirana brought an exceptional blend of creativity, technical curiosity, and business acumen to her internship with HyperX. She developed a series of forward-thinking AR concepts designed to elevate customer engagement and meaningfully impact sales conversion.
+                <br /><br />
+                Her ability to <strong>connect vision with value</strong> was evident as she <strong>presented her design and technology concepts to executive leadership with clarity and confidence, articulating ROI and strategic impact</strong>. Kirana demonstrated a strong ability to tailor her messaging based on the audience, showing empathy and insight into stakeholder priorities.
+                <br /><br />
+                She is a thoughtful designer, a strong communicator, and a strategic thinker with tremendous potential ahead of her.&rdquo;
+              </blockquote>
+              <cite className="block text-[13px] text-[#6E6E73] mt-3 italic not-italic">— Mark Spijkers, Head of Design and User Experience, HyperX</cite>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm hover:shadow-md transition-shadow">
+              <blockquote className="text-[15px] text-[#1D1D1F] leading-[1.6]">
+                &ldquo;I had the pleasure of working closely with Kirana during her internship at HyperX. She always showed a eager willingness to learn and was quick to adapt to new challenges. Whenever she faced a problem she didn&rsquo;t have an immediate answer for, she took the extra step to research and came back with a solution the next time we talked. <strong>Her curiosity, persistence, and problem-solving mindset</strong> truly made her a wonderful and valued member of our team.&rdquo;
+              </blockquote>
+              <cite className="block text-[13px] text-[#6E6E73] mt-3 italic not-italic">— Wesley Ihezue, 3D Designer, HyperX</cite>
+            </div>
+          </div>
+          </div>
 
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
@@ -696,19 +739,19 @@ export default function HyperXPage() {
             <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <span>Making differentiation visible at the shelf can influence purchase decisions before checkout.</span>
+                <span>In a future iteration, I would validate the <strong>shelf-to-scan journey in real retail environments</strong> to ensure discoverability and reduce friction before optimizing the AR interface itself.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <span>AR is most effective when framed as a product bridge, not a standalone experience.</span>
+                <span>With more time, I would <strong>instrument the AR-to-cart flow</strong> to measure point-of-scan conversion and collaborate with retail and e-commerce teams to pilot a production integration.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <span>Research and live demos are essential for aligning stakeholders on emerging technology.</span>
+                <span>This project reinforced that <strong>hard performance constraints sharpen product decisions</strong> — balancing interaction depth with 3D fidelity required disciplined prioritization.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
-                <span>Technical constraints can sharpen, not limit, product design decisions.</span>
+                <span>I'll carry forward the practice of <strong>building production-feasible prototypes early</strong> to align stakeholders, reduce ambiguity, and de-risk emerging technology initiatives.</span>
               </li>
             </ul>
           </section>
