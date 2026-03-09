@@ -207,13 +207,52 @@ body {
   position: relative;
 }
 
-.hero-bg-container {
+/* Mouse-reactive gradient blobs */
+.hero-gradients-container {
   position: absolute;
   inset: 0;
   overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  will-change: transform;
+}
+
+.hero-blob-1 {
+  width: 900px;
+  height: 900px;
+  top: -10%;
+  right: 5%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.35) 0%, rgba(118, 75, 162, 0.2) 50%, transparent 70%);
+}
+
+.hero-blob-2 {
+  width: 700px;
+  height: 700px;
+  bottom: 0%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(118, 75, 162, 0.25) 0%, rgba(240, 147, 251, 0.15) 50%, transparent 70%);
+}
+
+/* Drawing container in hero */
+.hero-drawing-container {
+  position: relative;
+}
+
+/* Dots overlay positioned over the drawing */
+.hero-dots-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
   cursor: none;
   pointer-events: auto;
-  z-index: 0;
+  z-index: 2;
 }
 
 /* Connect the dots canvas */

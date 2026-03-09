@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import HeroBackground from "@/components/HeroBackground";
+import HeroGradients from "@/components/HeroGradients";
+import HeroCursor from "@/components/HeroCursor";
 
 // Hero spotlight project
 const spotlightProject = {
@@ -69,72 +71,101 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="hero-gradient w-full min-h-screen relative">
-        <HeroBackground />
+      <section className="hero-gradient w-full min-h-screen relative overflow-hidden" style={{ cursor: "none" }}>
+        <HeroGradients />
+        <HeroCursor />
         <div
-          className="min-h-screen w-full flex flex-col items-center justify-center px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none"
-          style={{ paddingTop: "25vh" }}
+          className="min-h-screen w-full flex flex-col justify-start px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none"
+          style={{ paddingTop: "100px" }}
         >
-          <div className="w-full max-w-[800px] text-center mx-auto">
-            {/* Main headline */}
-            <h1
-              className="font-bold text-[#1D1D1F] tracking-tight leading-[1.15]"
-              style={{ marginBottom: "40px", marginTop: "60px" }}
-            >
-              <span className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px]">
-                I'm Kirana Moore
-              </span>
-              <br />
-              <span className="text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px]">
-                Product Designer, <span className="accent-gradient">connecting dots</span> to shape product strategy
-              </span>
-            </h1>
+          <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-0">
+            {/* Left column - Text */}
+            <div className="w-full lg:w-1/2 text-center" style={{ paddingBottom: "40px" }}>
+              {/* Main headline */}
+              <h1
+                className="font-bold text-[#1D1D1F] tracking-tight leading-[1.1]"
+                style={{ marginBottom: "16px" }}
+              >
+                <span className="text-[48px] sm:text-[60px] md:text-[72px] lg:text-[82px]">
+                  I'm Kirana Moore
+                </span>
+              </h1>
 
-            {/* Subheadline */}
-            <p
-              className="text-[16px] md:text-[18px] text-[#6E6E73] leading-relaxed w-full text-center"
-              style={{ marginBottom: "48px" }}
-            >
-              Crafting user experiences across digital, physical, and spatial contexts.
-              <br />
-             
-            </p>
+              <h2
+                className="font-bold text-[#1D1D1F] tracking-tight leading-[1.2]"
+                style={{ marginBottom: "10px" }}
+              >
+                <span className="text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px]">
+                  A Product Designer
+                </span>
+              </h2>
 
-            {/* — Logo row (Selected Professional Experience) — */}
-            <div className="w-full flex flex-col items-center justify-center pointer-events-auto" style={{ marginBottom: "24px" }}>
-              <div className="text-[12px] uppercase tracking-wider text-[#8E8E98] mb-4">I've worked with</div>
+              <h2
+                className="font-bold text-[#1D1D1F] tracking-tight leading-[1.2]"
+                style={{ marginBottom: "36px" }}
+              >
+                <span className="text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px]">
+                  <span className="accent-gradient">connecting dots</span> to{" "}
+                  <span className="font-bold"> shape product strategy</span>
+                </span>
+              </h2>
 
-              {/* Desktop: single row, Mobile: wraps into multiple rows */}
-              <div className="flex items-center justify-center gap-[40px] flex-wrap">
-                <img
-                  src="/logo/hp.png"
-                  alt="HP logo"
-                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
-                  style={{ width: "auto" }}
-                />
-                <img
-                  src="/logo/hyperx.png"
-                  alt="HyperX logo"
-                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
-                  style={{ width: "auto" }}
-                />
-                <img
-                  src="/logo/ey.png"
-                  alt="EY logo"
-                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
-                  style={{ width: "auto" }}
-                />
-                <img
-                  src="/logo/honda.png"
-                  alt="Honda logo"
-                  className="h-6 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
-                  style={{ width: "auto" }}
-                />
-               
+              {/* Subheadline */}
+              <p
+                className="text-[16px] md:text-[19px] text-[#6E6E73] leading-relaxed"
+                style={{ marginBottom: "48px" }}
+              >
+                Crafting user experiences across digital, physical, and spatial contexts.
+              </p>
+
+              {/* — Logo row — */}
+              <div className="flex flex-col items-center pointer-events-auto" style={{ marginBottom: "24px" }}>
+                <div className="text-[13px] uppercase tracking-wider text-[#8E8E98] mb-5">I've worked with</div>
+                <div className="flex items-center justify-center gap-[40px] flex-wrap">
+                  <img
+                    src="/logo/hp.png"
+                    alt="HP logo"
+                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ width: "auto" }}
+                  />
+                  <img
+                    src="/logo/hyperx.png"
+                    alt="HyperX logo"
+                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ width: "auto" }}
+                  />
+                  <img
+                    src="/logo/ey.png"
+                    alt="EY logo"
+                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ width: "auto" }}
+                  />
+                  <img
+                    src="/logo/honda.png"
+                    alt="Honda logo"
+                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ width: "auto" }}
+                  />
+                  <img
+                    src="/logo/arup.png"
+                    alt="ARUP logo"
+                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    style={{ width: "auto" }}
+                  />
+                </div>
               </div>
             </div>
-            {/* — end logo row */}
 
+            {/* Right column - Drawing image with connect-the-dots overlay */}
+            <div className="w-full lg:w-1/2 relative hero-drawing-container">
+              <img
+                src="/drawing-portfolio.png"
+                alt="Kirana Moore illustration"
+                className="w-full max-w-[600px] h-auto ml-auto block"
+                style={{ mixBlendMode: "multiply" }}
+              />
+              <HeroBackground />
+            </div>
           </div>
         </div>
 
@@ -154,9 +185,9 @@ export default function Home() {
       <section id="projects" className="py-24 md:py-0 bg-white w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-24">
           {/* Section header */}
-          <div className="text-center w-full" style={{ paddingTop: '60px', marginBottom: '40px' }}>
-            <p className="text-[13px] font-semibold text-[#667eea] uppercase tracking-wider mb-4">Portfolio</p>
-            <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
+          <div className="text-center w-full" style={{ paddingTop: '80px', marginBottom: '56px' }}>
+            <p className="text-[15px] font-semibold text-[#667eea] uppercase tracking-wider mb-5">Portfolio</p>
+            <h2 className="text-[32px] md:text-[42px] font-bold text-[#1D1D1F] tracking-tight">
               Selected Work
             </h2>
           </div>
@@ -164,7 +195,7 @@ export default function Home() {
           {/* Spotlight Project - Full Width Hero */}
           <Link
             href={`/work/${spotlightProject.slug}`}
-            className="group block w-full max-w-[1100px] mb-0"
+            className="group block w-full max-w-[1300px] mb-0"
           >
             <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-[#667eea]/95 to-[#764ba2] border border-[#667eea]/30 card-hover relative">
               {/* Featured badge */}
@@ -190,7 +221,7 @@ export default function Home() {
                 {/* Content side */}
                 <div className="lg:w-1/2 flex flex-col justify-center" style={{ padding: '40px 32px 48px 32px' }}>
                   {/* Title - centered */}
-                  <h3 className="text-[24px] lg:text-[32px] font-bold text-white mb-2 group-hover:text-white/90 transition-colors text-center">
+                  <h3 className="text-[28px] lg:text-[36px] font-bold text-white mb-2 group-hover:text-white/90 transition-colors text-center">
                     {spotlightProject.title}
                   </h3>
 
@@ -200,7 +231,7 @@ export default function Home() {
                   </p>
 
                   {/* Description - moved up 5px to fill space when year is null */}
-                  <p className="text-white/80 leading-relaxed text-center" style={{ fontSize: '15px', marginBottom: '32px', marginTop: '-5px' }}>
+                  <p className="text-white/80 leading-relaxed text-center" style={{ fontSize: '17px', marginBottom: '36px', marginTop: '-5px' }}>
                     {spotlightProject.description}
                   </p>
 
@@ -224,7 +255,7 @@ export default function Home() {
           </Link>
 
           {/* Other Projects Grid */}
-          <div className="w-full max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mx-auto" style={{ marginTop: '60px', paddingBottom: '60px' }}>
+          <div className="w-full max-w-[1300px] grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 mx-auto" style={{ marginTop: '72px', paddingBottom: '80px' }}>
             {featuredProjects.map((project, index) => (
               <Link
                 key={project.slug}
@@ -249,11 +280,11 @@ export default function Home() {
                   </div>
                   <div className="px-8 md:px-10 text-center flex flex-col items-center" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
                     {/* Title */}
-                    <h3 className="text-[20px] font-semibold text-[#1D1D1F] mb-4 group-hover:text-[#667eea] transition-colors">
+                    <h3 className="text-[22px] font-semibold text-[#1D1D1F] mb-4 group-hover:text-[#667eea] transition-colors">
                       {project.title}
                     </h3>
                     {/* Description */}
-                    <p className="text-[16px] text-[#6E6E73] mb-4">
+                    <p className="text-[17px] text-[#6E6E73] mb-4">
                       {project.description}
                     </p>
                     {/* Meta - min-height keeps Character Carabiner card same height as others when no company */}
@@ -277,13 +308,13 @@ export default function Home() {
       {/* Skills/Expertise Section */}
       <section className="py-32 md:py-6 bg-[#FAFAFA] w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-0 lg:px-24">
-          <div className="text-center w-full" style={{ paddingTop: '0px', marginBottom: '60px' }}>
-            <h2 className="text-[28px] md:text-[36px] font-bold text-[#1D1D1F] tracking-tight">
+          <div className="text-center w-full" style={{ paddingTop: '0px', marginBottom: '72px' }}>
+            <h2 className="text-[32px] md:text-[42px] font-bold text-[#1D1D1F] tracking-tight">
               Expertise
             </h2>
           </div>
 
-          <div className="w-full max-w-[1000px] grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8" style={{ paddingBottom: '60px' }}>
+          <div className="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10" style={{ paddingBottom: '80px' }}>
             {/* Skill 1 */}
             <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#667eea]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-lg shadow-[#667eea]/20" style={{ marginBottom: '32px' }}>
@@ -330,11 +361,11 @@ export default function Home() {
       <section style={{ paddingTop: '160px', paddingBottom: '160px' }} className="bg-gradient-to-br from-[#1a1a2e] to-[#16213e] w-full">
         <div className="w-full flex flex-col items-center px-8 md:px-16 lg:px-0">
           <div className="w-full max-w-[700px] text-center mx-auto">
-            <h2 style={{ marginBottom: '40px' }} className="text-[28px] md:text-[40px] font-bold text-white tracking-tight">
+            <h2 style={{ marginBottom: '48px' }} className="text-[32px] md:text-[46px] font-bold text-white tracking-tight">
               Let's build something{" "}
               <span className="bg-gradient-to-r from-[#667eea] to-[#764ba2] bg-clip-text text-transparent">extraordinary</span>
             </h2>
-            <p className="text-[16px] text-white/70 w-full text-center" style={{ marginBottom: '60px' }}>
+            <p className="text-[18px] text-white/70 w-full text-center" style={{ marginBottom: '68px' }}>
               I'm always excited to collaborate on innovative projects that push the boundaries of digital experiences.
             </p>
             <div className="flex flex-wrap justify-center gap-6" style={{ marginTop: '20px' }}>

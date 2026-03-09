@@ -5,20 +5,22 @@ import { useEffect, useRef, useState } from "react";
 export default function HeroBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
 
+  // Dots positioned to overlap with the drawing near pen/hand area (bottom-left of drawing)
   const [dots] = useState([
-    { id: 0, x: 42, y: 22 },
-    { id: 1, x: 58, y: 20 },
-    { id: 2, x: 50, y: 28 },
-    { id: 3, x: 44, y: 32 },
-    { id: 4, x: 56, y: 30 }
+    { id: 0, x: 20, y: 88 },
+    { id: 1, x: 30, y: 93 },
+    { id: 2, x: 38, y: 86 },
+    { id: 3, x: 52, y: 88 },
+    { id: 4, x: 68, y: 85 },
+    { id: 5, x: 80, y: 90 },
+    { id: 6, x: 62, y: 95 },
+    { id: 7, x: 75, y: 97 }
   ]);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStartDot, setDragStartDot] = useState<number | null>(null);
   const [connections, setConnections] = useState<Array<{from: number, to: number}>>([]);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [showCursor, setShowCursor] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -52,24 +54,11 @@ export default function HeroBackground() {
       return null;
     };
 
-    const handleMouseEnter = () => {
-      setShowCursor(true);
-    };
-
-    const handleMouseLeave = () => {
-      setShowCursor(false);
-    };
-
     const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       targetX = (e.clientX - rect.left) / rect.width;
       targetY = (e.clientY - rect.top) / rect.height;
       setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${e.clientX}px`;
-        cursorRef.current.style.top = `${e.clientY}px`;
-      }
     };
 
     const handleMouseUp = (e: MouseEvent) => {
@@ -87,10 +76,6 @@ export default function HeroBackground() {
       }
       setIsDragging(false);
       setDragStartDot(null);
-    };
-
-    const handleScroll = () => {
-      container.style.opacity = String(Math.max(0, 1 - window.scrollY / 600));
     };
 
     let animationId: number;
@@ -145,18 +130,12 @@ export default function HeroBackground() {
     };
 
     animate();
-    container.addEventListener("mouseenter", handleMouseEnter);
-    container.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      container.removeEventListener("mouseenter", handleMouseEnter);
-      container.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationId);
     };
@@ -168,7 +147,7 @@ export default function HeroBackground() {
   };
 
   return (
-    <div ref={containerRef} className="hero-bg-container">
+    <div ref={containerRef} className="hero-dots-overlay">
       {/* Canvas for connection lines */}
       <canvas ref={canvasRef} className="dots-canvas" />
 
@@ -182,17 +161,6 @@ export default function HeroBackground() {
         />
       ))}
 
-      {/* Morphing blobs */}
-      <div className="morph-blob blob-1" />
-      <div className="morph-blob blob-2" />
-
-      {/* Custom cursor */}
-      <div ref={cursorRef} className="custom-cursor">
-        <svg width="20" height="20" viewBox="0 0 24 24">
-          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#667EEA"/>
-        </svg>
-        {showCursor && <div className="cursor-prompt">Connect the dots</div>}
-      </div>
     </div>
   );
 }
