@@ -71,7 +71,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="hero-gradient w-full min-h-screen relative overflow-hidden" style={{ cursor: "none" }}>
+      <section className="hero-gradient w-full min-h-screen lg:min-h-screen relative overflow-hidden pb-32 lg:pb-0" style={{ cursor: "none" }}>
         <HeroGradients />
         <HeroCursor />
         <div
