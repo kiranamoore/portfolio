@@ -238,7 +238,7 @@ export default function Home() {
                   {/* Tags - spotlight project */}
 <div className="flex flex-wrap justify-center gap-2" style={{ marginTop: '0px', marginBottom: '24px' }}>
   {spotlightProject.tags.map((tag) => (
-    <span key={tag} className="inline-block font-medium text-white bg-white/20 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
+    <span key={tag} className="inline-block font-medium text-white bg-white/20 rounded-lg" style={{ padding: '6px 14px', fontSize: '14px' }}>{tag}</span>
   ))}
 </div>
 
@@ -294,7 +294,7 @@ export default function Home() {
                     {/* Tags */}
                     <div className="flex flex-wrap justify-center gap-3 "style={{ marginTop: '10px', marginBottom: '0px' }}>
                       {project.tags.map((tag) => (
-                        <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '5px 12px', fontSize: '11px' }}>{tag}</span>
+                        <span key={tag} className="inline-block font-medium text-[#667eea] bg-[#667eea]/10 rounded-lg" style={{ padding: '6px 14px', fontSize: '14px' }}>{tag}</span>
                       ))}
                     </div>
                   </div>

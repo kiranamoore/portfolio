@@ -1,9 +1,9 @@
-import HeroBackground from "@/components/HeroBackground";
+import HeroGradients from "@/components/HeroGradients";
 
 export default function ResumePage() {
   return (
-    <div className="min-h-screen hero-gradient relative">
-      <HeroBackground />
+    <div className="min-h-screen hero-gradient relative overflow-hidden">
+      <HeroGradients />
 
       <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 py-24">
         <div className="w-full max-w-4xl">

@@ -1,4 +1,3 @@
-@import url('https://rsms.me/inter/inter.css');
 @import "tailwindcss";
 
 *,
@@ -21,11 +20,16 @@ html {
 body {
   background-color: #FAFAFA;
   color: #1D1D1F;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-krub), -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 15px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
 }
 
 /* Subtle gradient background */
@@ -169,6 +173,15 @@ body {
 
 .group:hover .zoom-image {
   transform: scale(1.05);
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Custom scrollbar */

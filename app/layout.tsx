@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Krub } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const krub = Krub({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-krub" });
 
 export const metadata: Metadata = {
   title: "Kirana Moore - Product Designer",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${krub.variable}`}>
         <Header />
         <main>{children}</main>
       </body>

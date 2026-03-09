@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 export default function Header() {
   const pathname = usePathname();
@@ -25,7 +26,7 @@ export default function Header() {
       }`}
     >
       <div className="h-20 flex items-center justify-between w-full" style={{ paddingLeft: '24px', paddingRight: '24px' }}>
-        {/* Logo / Name */}
+        {/* Logo */}
         <Link
           href="/"
           onClick={(e) => {
@@ -34,9 +35,9 @@ export default function Header() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }
           }}
-          className="text-[15px] font-semibold text-[#1D1D1F] hover:opacity-70 transition-opacity"
+          className="hover:opacity-90 transition-opacity"
         >
-          Kirana Moore
+          <AnimatedLogo />
         </Link>
 
         {/* Navigation Links */}

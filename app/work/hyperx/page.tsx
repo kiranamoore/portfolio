@@ -129,8 +129,9 @@ export default function HyperXPage() {
         </svg>
       </Link>
 
-      {/* Sticky Section Navigation */}
-      <nav className="hidden lg:block fixed left-24 top-1/2 -translate-y-1/2 z-30">
+      {/* Sticky Sidebar Section Navigation — only on wide screens */}
+      {/* Centered between prev-project button (~60px) and content edge (calc based on max-w-4xl centered) */}
+      <nav className="hidden 2xl:block fixed top-1/2 -translate-y-1/2 z-30" style={{ left: "calc((50vw - 448px) / 2)" }}>
         <div className="space-y-2">
           {sections.map((section) => (
             <a
@@ -150,6 +151,26 @@ export default function HyperXPage() {
           ))}
         </div>
       </nav>
+
+      {/* Horizontal sticky sub-header nav — visible below 2xl */}
+      <div className="2xl:hidden sticky top-[80px] z-40 bg-white/95 backdrop-blur-xl border-b border-[#E5E5E5]/60">
+        <div className="flex items-center justify-center gap-2 px-4 py-3 overflow-x-auto scrollbar-hide">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              onClick={() => scrollToSection(section.id)}
+              className={`whitespace-nowrap text-[13px] font-medium rounded-full transition-all duration-200 flex-shrink-0 ${
+                activeSection === section.id
+                  ? "bg-[#667eea] text-white shadow-sm"
+                  : "text-[#86868B] hover:text-[#1D1D1F] hover:bg-[#F5F5F7]"
+              }`}
+              style={{ padding: "6px 16px" }}
+            >
+              {section.label}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-center px-6 md:px-10 lg:px-20 pt-32 pb-24">
         <div className="w-full max-w-4xl flex flex-col gap-6">
@@ -180,21 +201,25 @@ export default function HyperXPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
               {/* Card 1: Team */}
               <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">ROLE</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>ROLE</p>
                 <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
                   <p>Product Design Intern</p>
                 </div>
               </div>
 
-              {/* Card 2: Project Type */}
+              {/* Card 2: Team */}
               <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TEAM</p>
-                <p className="text-[15px] text-[#1D1D1F]">solo project</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>TEAM</p>
+                <div className="text-[15px] text-[#1D1D1F] leading-relaxed space-y-1">
+                  <p className="font-bold text-[#667eea]">1 Product Designer (Me)</p>
+                  <p>2 3D Designers</p>
+                  <p>1 Team Manager</p>
+                </div>
               </div>
 
               {/* Card 3: Timeline */}
               <div className="bg-white rounded-xl p-6 border border-[#F0EDE9] shadow-sm">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">TIMELINE</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>TIMELINE</p>
                 <p className="text-[15px] text-[#1D1D1F]">13 weeks</p>
               </div>
             </div>
@@ -203,7 +228,7 @@ export default function HyperXPage() {
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
               {/* --- Responsibilities list (unchanged, but spacing normalized) --- */}
               <div className="mb-10">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">WHAT I DID</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>WHAT I DID</p>
                 <ul className="space-y-2 text-[15px] text-[#1D1D1F] pl-4 pr-4">
                   <li className="flex items-start gap-2">
                     <span className="text-[#667eea] mt-1">•</span>
@@ -227,7 +252,7 @@ export default function HyperXPage() {
 
               {/* Tools & Platform */}
               <div>
-                <p className="text-[14px] font-semibold text-[#667eea] mb-2">TOOLS & PLATFORM</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-2" style={{ fontFamily: 'var(--font-inter)' }}>TOOLS & PLATFORM</p>
                 <p className="text-[15px] text-[#1D1D1F]">
                   Figma, FigJam, Lens Studio, JavaScript, Blender, Photoshop · Mobile Web AR (QR-based)
                 </p>
@@ -259,7 +284,7 @@ export default function HyperXPage() {
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
           {/* Problem Statement */}
           <div id="problem" className="mb-0 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">PROBLEM</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>PROBLEM</p>
             <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7]">
               In-store shoppers evaluating HyperX headsets are unaware that customization options exist.
             </p>
@@ -279,7 +304,7 @@ export default function HyperXPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-5">
               {/* Card 1: Team */}
               <div className="bg-white rounded-xl p-6 border border-none shadow-none">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">GOALS</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>GOALS</p>
                 <div className="text-[16px] text-[#1D1D1F] leading-relaxed space-y-1">
                   <p>
                     Tech-savvy gamers and streamers (18–28) who <span className="font-semibold"> shop for peripherals in-store. </span>
@@ -289,7 +314,7 @@ export default function HyperXPage() {
 
               {/* Card 2: Project Type */}
               <div className="bg-white rounded-xl p-6 border border-none shadow-none">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">MOTIVATIONS</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>MOTIVATIONS</p>
                 <p className="text-[16px] text-[#1D1D1F]">
                   <span className="font-semibold">Seeks personalized setups</span> that reflect their identity
                 </p>
@@ -297,7 +322,7 @@ export default function HyperXPage() {
 
               {/* Card 3: Timeline */}
               <div className="bg-white rounded-xl p-6 border border-none shadow-none">
-                <p className="text-[14px] font-semibold text-[#667eea] mb-3">PAINPOINTS</p>
+                <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>PAINPOINTS</p>
                 <p className="text-[16px] text-[#1D1D1F]">Shoppers <span className="font-semibold"> cannot discover HX3D customization </span> at the moment they are deciding which headset to buy.</p>
               </div>
             </div>
@@ -355,7 +380,7 @@ export default function HyperXPage() {
 
           {/* 4. RESEARCH */}
           <div id="research" className="scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">RESEARCH</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>RESEARCH</p>
             <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3">Differentiation Fails When It’s Invisible at the Moment of Decision</p>
             <p className="text-[16px] md:text-[16px] text-[#1D1D1F] leading-[1.7] mb-3">
               I conducted market research, in-store contextual inquiry, and cross-industry research to understand how headset accessories are discovered today and where meaningful product opportunities exist.
@@ -466,7 +491,7 @@ export default function HyperXPage() {
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
           {/* How Might We */}
           <div id="hmw" className="mb-12 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">HOW MIGHT WE</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>HOW MIGHT WE</p>
             <p className="text-[18px] md:text-[18px] text-[#1D1D1F] leading-[1.7] italic">
               How might we help in-store shoppers discover and preview HX3D headset accessories while comparing products in major electronics retail stores?
             </p>
@@ -475,7 +500,7 @@ export default function HyperXPage() {
 
           {/* 6. DESIGN FRAMING */}
           <section id="framing" className="bg-none backdrop-blur-sm rounded-2xl border border-none shadow-none p-10 px-8 md:px-12 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">DESIGN</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>DESIGN</p>
 
             {/* Design Principles */}
             <div>
@@ -673,7 +698,7 @@ export default function HyperXPage() {
 
           {/* 9. OUTCOME & INFLUENCE */}
           <section id="impact" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">OUTCOME & INFLUENCE</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>OUTCOME & INFLUENCE</p>
             <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
@@ -698,7 +723,7 @@ export default function HyperXPage() {
 
           {/* 10.5 LEADERSHIP ENDORSEMENTS */}
           <div id="testimonials" className="scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">LEADERSHIP ENDORSEMENTS</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>LEADERSHIP ENDORSEMENTS</p>
             <p className="text-[16px] md:text-[22px] text-[#1D1D1F] leading-[1.7] mb-3">Leadership & Mentor validation of execution, strategic thinking, and AR feasibility.</p>
           <div className="flex flex-col gap-6">
             {/* Testimonial 1 */}
@@ -735,7 +760,7 @@ export default function HyperXPage() {
 
           {/* 11. LESSONS LEARNED */}
           <section id="lessons" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-12 px-8 md:px-12 scroll-mt-[130px]">
-            <p className="text-[14px] font-semibold text-[#667eea] mb-3">LESSONS LEARNED</p>
+            <p className="text-[14px] font-bold text-[#667eea] mb-3" style={{ fontFamily: 'var(--font-inter)' }}>LESSONS LEARNED</p>
             <ul className="space-y-8 text-[16px] text-[#1D1D1F] pl-4 pr-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#667eea] mt-1 text-[20px]">•</span>
