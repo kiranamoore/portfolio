@@ -1,3 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="28" fill="#667eea">K</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(118,75,162,0.6)" />
+      <stop offset="100%" stop-color="rgba(102,126,234,0.6)" />
+    </linearGradient>
+  </defs>
+  <!-- Lines forming K -->
+  <line x1="18" y1="55" x2="72" y2="95" stroke="url(#g)" stroke-width="5" stroke-linecap="round" />
+  <line x1="18" y1="55" x2="72" y2="15" stroke="url(#g)" stroke-width="5" stroke-linecap="round" />
+  <line x1="18" y1="15" x2="18" y2="55" stroke="url(#g)" stroke-width="5" stroke-linecap="round" />
+  <line x1="18" y1="55" x2="18" y2="95" stroke="url(#g)" stroke-width="5" stroke-linecap="round" />
+  <!-- Dots -->
+  <circle cx="18" cy="15" r="10" fill="rgba(102,126,234,0.8)" />
+  <circle cx="72" cy="15" r="10" fill="rgba(102,126,234,0.8)" />
+  <circle cx="18" cy="55" r="10" fill="rgba(102,126,234,0.8)" />
+  <circle cx="18" cy="95" r="10" fill="rgba(102,126,234,0.8)" />
+  <circle cx="72" cy="95" r="10" fill="rgba(102,126,234,0.8)" />
 </svg>

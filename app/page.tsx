@@ -125,31 +125,31 @@ export default function Home() {
                   <img
                     src="/logo/hp.png"
                     alt="HP logo"
-                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-5 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
                     style={{ width: "auto" }}
                   />
                   <img
                     src="/logo/hyperx.png"
                     alt="HyperX logo"
-                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-5 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
                     style={{ width: "auto" }}
                   />
                   <img
                     src="/logo/ey.png"
                     alt="EY logo"
-                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-5 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
                     style={{ width: "auto" }}
                   />
                   <img
                     src="/logo/honda.png"
                     alt="Honda logo"
-                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-5 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
                     style={{ width: "auto" }}
                   />
                   <img
                     src="/logo/arup.png"
                     alt="ARUP logo"
-                    className="h-7 sm:h-8 opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-5 sm:h-6 opacity-80 hover:opacity-100 transition-opacity"
                     style={{ width: "auto" }}
                   />
                 </div>
