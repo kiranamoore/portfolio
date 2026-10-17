@@ -20,6 +20,15 @@ const spotlightProject = {
 // Other featured projects
 const featuredProjects = [
   {
+    title: "ZuZu Design System & Brand Identity",
+    company: "ZuZu",
+    slug: "zuzu",
+    year: null,
+    thumbnail: "/zuzu-thumbnail.png",
+    description: "Built the complete visual identity and design system from zero: brand, 16+ component library, and theming for a superfan platform",
+    tags: ["Visual Design", "Design Systems", "Brand Identity"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",

@@ -110,7 +110,7 @@ export default function HyperXPage() {
       </Link>
 
       <Link
-        href="/work/nogi-nogi"
+        href="/work/zuzu"
         className="fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center justify-center gap-2 group"
       >
         <span className="text-[11px] text-[#86868B] uppercase tracking-widest text-center group-hover:text-[#667eea] transition-colors">
