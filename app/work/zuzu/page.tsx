@@ -578,13 +578,13 @@ export default function ZuZuPage() {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="rounded-xl overflow-hidden shadow-sm">
-                <img src="/zuzu/social-geordie-greep.png" alt="ZuZu social media graphic featuring Geordie Greep" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-geordie-greep.png")} />
+                <img src="/zuzu/ZuZu%20Social%20Media%20Geordie%20Greep.png" alt="ZuZu social media graphic featuring Geordie Greep" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/ZuZu%20Social%20Media%20Geordie%20Greep.png")} />
               </div>
               <div className="rounded-xl overflow-hidden shadow-sm">
-                <img src="/zuzu/social-graphic-2.png" alt="ZuZu social media graphic" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-graphic-2.png")} />
+                <img src="/zuzu/ZuZu%20Social%20Media%20News%20Graphic%204_5.png" alt="ZuZu social media news graphic" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/ZuZu%20Social%20Media%20News%20Graphic%204_5.png")} />
               </div>
               <div className="rounded-xl overflow-hidden shadow-sm">
-                <img src="/zuzu/social-graphic-signature.png" alt="ZuZu social media graphic with signature palette" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-graphic-signature.png")} />
+                <img src="/zuzu/ZuZu%20Social%20Media%20Graphic%20with%20signature%20palette.png" alt="ZuZu social media graphic with signature palette" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/ZuZu%20Social%20Media%20Graphic%20with%20signature%20palette.png")} />
               </div>
             </div>
           </section>
