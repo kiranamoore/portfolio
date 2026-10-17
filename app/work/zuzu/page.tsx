@@ -549,28 +549,6 @@ export default function ZuZuPage() {
             </div>
           </section>
 
-          {/* Iconography */}
-          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
-            <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Iconography</h3>
-            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-              <img src="/zuzu/iconography.png" alt="ZuZu custom iconography suite" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/iconography.png")} />
-            </div>
-            <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
-              A complete custom icon suite designed specifically for ZuZu&apos;s interaction patterns, <strong>not pulled from a generic icon library.</strong> Each icon carries the system&apos;s visual personality while maintaining the legibility standards required for UI-scale rendering.
-            </p>
-          </section>
-
-          {/* Brand Application */}
-          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
-            <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Brand Application</h3>
-            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-              <img src="/zuzu/brand-application.png" alt="ZuZu brand application templates" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/brand-application.png")} />
-            </div>
-            <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
-              Social media templates demonstrating how the brand identity system extends <strong>beyond the product UI</strong> to marketing and community-facing touchpoints, ensuring visual coherence everywhere a potential superfan might encounter ZuZu.
-            </p>
-          </section>
-
           {/* Social Media Presence */}
           <section id="digital-marketing" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
             <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Social Media Presence</h3>
