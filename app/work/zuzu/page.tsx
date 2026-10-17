@@ -570,6 +570,25 @@ export default function ZuZuPage() {
             </p>
           </section>
 
+          {/* Social Media Presence */}
+          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+            <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Social Media Presence</h3>
+            <p className="text-[15px] text-[#1D1D1F] leading-[1.7] mb-10">
+              A strong social media presence was core to the brand strategy. ZuZu lives or dies on superfans discovering artists, so the brand needed a <strong>distinct visual style:</strong> when someone sees a graphic or promotional post for ZuZu and its artists, they should <strong>recognize the brand immediately,</strong> without reading a word. The nostalgic, personality-driven visual language from the design system carries directly into every social touchpoint.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="rounded-xl overflow-hidden shadow-sm">
+                <img src="/zuzu/social-geordie-greep.png" alt="ZuZu social media graphic featuring Geordie Greep" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-geordie-greep.png")} />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-sm">
+                <img src="/zuzu/social-graphic-2.png" alt="ZuZu social media graphic" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-graphic-2.png")} />
+              </div>
+              <div className="rounded-xl overflow-hidden shadow-sm">
+                <img src="/zuzu/social-graphic-signature.png" alt="ZuZu social media graphic with signature palette" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/social-graphic-signature.png")} />
+              </div>
+            </div>
+          </section>
+
           <hr className="border-0 border-t border-[#D1D1D6] w-full my-0" />
 
           {/* 9. OUTCOME & INFLUENCE */}
