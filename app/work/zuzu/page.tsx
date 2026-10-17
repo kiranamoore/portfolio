@@ -17,6 +17,7 @@ export default function ZuZuPage() {
     { id: "research", label: "Research" },
     { id: "hmw", label: "H.M.W" },
     { id: "design", label: "Design" },
+    { id: "digital-marketing", label: "Digital Marketing" },
     { id: "impact", label: "Outcome" },
     { id: "testimonials", label: "Endorsements" },
     { id: "lessons", label: "Lessons" },
@@ -571,7 +572,7 @@ export default function ZuZuPage() {
           </section>
 
           {/* Social Media Presence */}
-          <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
+          <section id="digital-marketing" className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12 scroll-mt-[130px]">
             <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Social Media Presence</h3>
             <p className="text-[15px] text-[#1D1D1F] leading-[1.7] mb-10">
               A strong social media presence was core to the brand strategy. ZuZu lives or dies on superfans discovering artists, so the brand needed a <strong>distinct visual style:</strong> when someone sees a graphic or promotional post for ZuZu and its artists, they should <strong>recognize the brand immediately,</strong> without reading a word. The nostalgic, personality-driven visual language from the design system carries directly into every social touchpoint.
