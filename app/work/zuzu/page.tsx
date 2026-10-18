@@ -346,7 +346,7 @@ export default function ZuZuPage() {
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Visual Direction</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/zuzu/visual-direction.png" alt="Visual direction moodboards" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/visual-direction.png")} />
+                <img src="/zuzu/moodboard%20zuzu.png" alt="Visual direction moodboards" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/moodboard%20zuzu.png")} />
               </div>
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
                 Through moodboarding and visual exploration, I developed a direction that had to reconcile <strong>two opposing aesthetics:</strong> the clean efficiency of contemporary product UI with the warmth and personality of early-2000s desktop software. The founder&apos;s creative direction was intentional: <u>ZuZu should feel like a personal digital space, not a content consumption feed.</u>
