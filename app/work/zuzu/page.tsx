@@ -333,9 +333,6 @@ export default function ZuZuPage() {
           <section className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[#E5E5E5]/50 shadow-sm p-10 px-8 md:px-12">
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Competitive Audit</h3>
-              <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/zuzu/competitive-audit.png" alt="Competitive audit of artist-fan platforms" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/competitive-audit.png")} />
-              </div>
               <p className="text-[15px] text-[#1D1D1F] leading-[1.7]">
                 I analyzed the visual identity and UI patterns of <strong>seven platforms</strong> in the artist-fan ecosystem to identify where their design languages succeeded and where they failed to communicate a direct, intimate relationship.
               </p>
