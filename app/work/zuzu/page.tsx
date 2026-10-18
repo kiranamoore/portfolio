@@ -426,7 +426,7 @@ export default function ZuZuPage() {
             <div className="mb-12">
               <h3 className="text-[20px] md:text-[22px] font-semibold text-[#1D1D1F] mb-8">Brand Identity</h3>
               <div className="rounded-xl overflow-hidden shadow-sm mb-10">
-                <img src="/zuzu/logo-suite.png" alt="ZuZu logo suite and monogram" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/logo-suite.png")} />
+                <img src="/zuzu/logo%20development.png" alt="ZuZu logo development" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/logo%20development.png")} />
               </div>
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-white rounded-xl p-6 border border-[#E5E5E5]/30 shadow-sm">
