@@ -9,11 +9,13 @@ function OvalHoverButton({
   children,
   href,
   isExternal = false,
+  newTab = false,
   className = "",
 }: {
   children: React.ReactNode;
   href: string;
   isExternal?: boolean;
+  newTab?: boolean;
   className?: string;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -71,7 +73,7 @@ function OvalHoverButton({
   );
 
   if (isExternal) {
-    return <a href={href}>{content}</a>;
+    return <a href={href} {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})}>{content}</a>;
   }
 
   return <Link href={href}>{content}</Link>;
@@ -114,6 +116,9 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="flex items-center gap-8">
+          <OvalHoverButton href="https://www.instagram.com/kiranaillustrates/" isExternal newTab>
+            Art
+          </OvalHoverButton>
           <OvalHoverButton href="/resume">
             Resume
           </OvalHoverButton>
