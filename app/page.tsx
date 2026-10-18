@@ -328,12 +328,12 @@ export default function Home() {
             <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#667eea]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#667eea] to-[#764ba2] flex items-center justify-center shadow-lg shadow-[#667eea]/20" style={{ marginBottom: '32px' }}>
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-2-2m0 0l-2-2m2 2l-2 2m2-2l2 2" />
                 </svg>
               </div>
-              <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">Spatial Computing</h3>
+              <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">Brand Design</h3>
               <p className="text-[15px] text-[#6E6E73] leading-relaxed">
-                Designing immersive AR/VR experiences for Meta Quest, mobile AR, and WebXR platforms.
+                Building distinctive brand identities and design systems, from logo suites to full visual languages that carry across every touchpoint.
               </p>
             </div>
 
@@ -341,12 +341,12 @@ export default function Home() {
             <div style={{ paddingTop: '48px', paddingBottom: '48px' }} className="px-8 bg-white rounded-2xl border border-[#E5E5E5] hover:shadow-lg hover:border-[#f093fb]/30 transition-all flex flex-col items-center text-center">
               <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#f093fb] to-[#f5576c] flex items-center justify-center shadow-lg shadow-[#f093fb]/20" style={{ marginBottom: '32px' }}>
                 <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
                 </svg>
               </div>
-              <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">3D Design & Animation</h3>
+              <h3 style={{ marginBottom: '24px' }} className="text-[18px] font-semibold text-[#1D1D1F]">Web Design</h3>
               <p className="text-[15px] text-[#6E6E73] leading-relaxed">
-                Creating 3D models, product visualizations, and animations using Blender and Rhinoceros 3D.
+                Designing and shipping responsive websites and interactive experiences, from wireframes to polished, production-ready pages.
               </p>
             </div>
 
