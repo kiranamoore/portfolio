@@ -182,7 +182,7 @@ export default function ZuZuPage() {
 
               {/* Hero Visual */}
               <div className="rounded-2xl overflow-hidden mb-0">
-                <img src="/zuzu/Hero%20Image%20ZuZu.png" alt="ZuZu brand identity and design system overview" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/Hero%20Image%20ZuZu.png")} />
+                <video src="/zuzu/ZuZu_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="ZuZu brand identity and design system overview" />
                 <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">Define. Systematize. Scale.</p>
               </div>
               {/* Product Summary */}

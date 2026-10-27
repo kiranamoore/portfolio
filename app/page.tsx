@@ -24,7 +24,7 @@ const featuredProjects = [
     company: "ZuZu",
     slug: "zuzu",
     year: null,
-    thumbnail: "/zuzu/ZuZu%20thumbnail.png",
+    thumbnail: "/zuzu/ZuZu_Hero.mp4",
     description: "Built the complete visual identity and design system from zero: brand, 16+ component library, and theming for a superfan platform",
     tags: ["Visual Design", "Design Systems", "Brand Identity"],
   },
