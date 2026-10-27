@@ -29,6 +29,15 @@ const featuredProjects = [
     tags: ["Visual Design", "Design Systems", "Brand Identity"],
   },
   {
+    title: "Instagram Website Redesign",
+    company: "Meta",
+    slug: "instagram",
+    year: null,
+    thumbnail: "/instagram/Instagram_Thumbnail.gif",
+    description: "Turning a static screenshot into a scroll driven experience you can interact with, built in code in 2 days",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
