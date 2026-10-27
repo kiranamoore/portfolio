@@ -169,7 +169,7 @@ export default function InstagramPage() {
 
               {/* Hero Visual */}
               <div className="rounded-2xl overflow-hidden mb-12">
-                <img src="/Redesigns/Instagram/Instagram_Hero.gif" alt="Scroll driven Instagram redesign, showing the feed, carousel, comments and share sheet inside a phone" className="w-full cursor-zoom-in" onClick={() => openImage("/Redesigns/Instagram/Instagram_Hero.gif")} />
+                <video src="/Redesigns/Instagram/Instagram_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="Scroll driven Instagram redesign, showing the feed, carousel, comments and share sheet inside a phone" />
               </div>
             </div>
 
@@ -228,7 +228,7 @@ export default function InstagramPage() {
             {/* Before/After */}
             <div id="before-after" className="mb-12 scroll-mt-[130px]">
               <div className="rounded-xl overflow-hidden shadow-sm mb-4">
-                <img src="/Redesigns/Instagram/Before_After.gif" alt="Before and after comparison of the Instagram section on Meta's website" className="w-full cursor-zoom-in" onClick={() => openImage("/Redesigns/Instagram/Before_After.gif")} />
+                <video src="/Redesigns/Instagram/Before_After.mp4" autoPlay muted loop playsInline className="w-full" aria-label="Before and after comparison of the Instagram section on Meta's website" />
               </div>
               <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">
                 Left, Meta&apos;s current section. Right, the redesigned section, live at{" "}

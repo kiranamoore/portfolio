@@ -33,7 +33,7 @@ const featuredProjects = [
     company: "Meta",
     slug: "instagram",
     year: null,
-    thumbnail: "/Redesigns/Instagram/Instagram_Thumbnail.gif",
+    thumbnail: "/Redesigns/Instagram/Instagram_Thumbnail.mp4",
     description: "Turning a static screenshot into a scroll driven experience you can interact with, built in code in 2 days",
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
@@ -282,11 +282,22 @@ export default function Home() {
               >
                 <div className="overflow-hidden rounded-2xl bg-white border border-[#E5E5E5] card-hover">
                   <div className="aspect-[16/10] relative overflow-hidden bg-[#F5F5F7]">
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover zoom-image"
-                    />
+                    {project.thumbnail.endsWith(".mp4") ? (
+                      <video
+                        src={project.thumbnail}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover zoom-image"
+                      />
+                    ) : (
+                      <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover zoom-image"
+                      />
+                    )}
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {/* Arrow indicator */}
