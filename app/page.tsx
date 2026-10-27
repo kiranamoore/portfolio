@@ -33,7 +33,7 @@ const featuredProjects = [
     company: "Meta",
     slug: "instagram",
     year: null,
-    thumbnail: "/instagram/Instagram_Thumbnail.gif",
+    thumbnail: "/Redesigns/Instagram/Instagram_Thumbnail.gif",
     description: "Turning a static screenshot into a scroll driven experience you can interact with, built in code in 2 days",
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
