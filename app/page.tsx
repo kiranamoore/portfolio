@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import HeroBackground from "@/components/HeroBackground";
 import HeroGradients from "@/components/HeroGradients";
-import HeroCursor from "@/components/HeroCursor";
+import HeroWater from "@/components/HeroWater";
 
 // Hero spotlight project
 const spotlightProject = {
@@ -89,14 +88,13 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="hero-gradient w-full min-h-screen lg:min-h-screen relative overflow-hidden pb-32 lg:pb-0" style={{ cursor: "none" }}>
+      <section className="hero-gradient w-full min-h-screen lg:min-h-screen relative overflow-hidden pb-32 lg:pb-0">
         <HeroGradients />
-        <HeroCursor />
         <div
-          className="min-h-screen w-full flex flex-col justify-start px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none"
+          className="min-h-screen w-full flex flex-col justify-center px-8 md:px-16 lg:px-24 relative z-10 pointer-events-none"
           style={{ paddingTop: "100px" }}
         >
-          <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center lg:items-end gap-8 lg:gap-0">
+          <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
             {/* Left column - Text */}
             <div className="w-full lg:w-1/2 text-center" style={{ paddingBottom: "40px" }}>
               {/* Main headline */}
@@ -123,18 +121,9 @@ export default function Home() {
                 style={{ marginBottom: "36px" }}
               >
                 <span className="text-[24px] sm:text-[28px] md:text-[34px] lg:text-[38px]">
-                  <span className="accent-gradient">connecting dots</span> to{" "}
-                  <span className="font-bold"> shape product strategy</span>
+                  <span className="accent-gradient">shipping products</span>, designs, and experiences
                 </span>
               </h2>
-
-              {/* Subheadline */}
-              <p
-                className="text-[16px] md:text-[19px] text-[#6E6E73] leading-relaxed"
-                style={{ marginBottom: "48px" }}
-              >
-                Crafting user experiences across digital, physical, and spatial contexts.
-              </p>
 
               {/* — Logo row — */}
               <div className="flex flex-col items-center pointer-events-auto" style={{ marginBottom: "24px" }}>
@@ -174,16 +163,7 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right column - Drawing image with connect-the-dots overlay */}
-            <div className="w-full lg:w-1/2 relative hero-drawing-container">
-              <img
-                src="/drawing-portfolio.png"
-                alt="Kirana Moore illustration"
-                className="w-full max-w-[600px] h-auto ml-auto block"
-                style={{ mixBlendMode: "multiply" }}
-              />
-              <HeroBackground />
-            </div>
+            <HeroWater />
           </div>
         </div>
 

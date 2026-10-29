@@ -258,6 +258,56 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
+/* Homepage hero water. Sits in the column on small screens, and fills the right side of the hero on large screens. */
+.hero-water {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 420px;
+  pointer-events: none;
+}
+
+.hero-water canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.hero-water-hint {
+  position: absolute;
+  left: 8%;
+  bottom: 12%;
+  max-width: 220px;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: #8e8e98;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.hero-water-hint.gone {
+  opacity: 0;
+}
+
+@media (min-width: 1024px) {
+  .hero-water {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    width: min(56vw, 820px);
+  }
+
+  .hero-water-hint {
+    left: 22%;
+    bottom: 16%;
+  }
+}
+
 /* Dots overlay positioned over the drawing */
 .hero-dots-overlay {
   position: absolute;

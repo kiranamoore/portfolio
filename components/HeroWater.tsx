@@ -1,0 +1,389 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+
+type Ripple = {
+  x: number;
+  y: number;
+  born: number;
+  amp: number;
+  vx: number;
+  vy: number;
+};
+
+export default function HeroWater() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const hintRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const hint = hintRef.current;
+    if (!canvas || !hint) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const water = document.createElement("canvas");
+    const wctx = water.getContext("2d", { willReadFrequently: true });
+    if (!wctx) return;
+
+    const ripples: Ripple[] = [];
+    const boat = { x: 0, y: 0, vx: 0, vy: 0, ox: 0, oy: 0, angle: 0 };
+    let cssW = 1;
+    let cssH = 1;
+    let bw = 1;
+    let bh = 1;
+    let time = 0;
+    let ready = false;
+    let lastMove = 0;
+    let lastPointerX: number | null = null;
+    let lastPointerY: number | null = null;
+    let lastDropX: number | null = null;
+    let lastDropY: number | null = null;
+    let lastIdle = 0;
+    let hintGone = false;
+    let heights = new Float32Array(1);
+    let lastFrame = 0;
+    let frame = 0;
+    let stopped = false;
+
+    const clamp = (v: number, a: number, b: number) => Math.max(a, Math.min(b, v));
+
+    const smoothstep = (edge0: number, edge1: number, x: number) => {
+      const t = clamp((x - edge0) / (edge1 - edge0), 0, 1);
+      return t * t * (3 - 2 * t);
+    };
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cssW = Math.max(1, rect.width);
+      cssH = Math.max(1, rect.height);
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      bw = Math.max(90, Math.round(cssW / 3));
+      bh = Math.max(90, Math.round(cssH / 3));
+      water.width = bw;
+      water.height = bh;
+      heights = new Float32Array(bw * bh);
+      if (!ready) {
+        boat.x = cssW * 0.62;
+        boat.y = cssH * 0.58;
+        ready = true;
+      }
+    };
+
+    const spawnRipple = (x: number, y: number, amp: number, vx: number, vy: number) => {
+      ripples.push({ x, y, born: time, amp, vx, vy });
+      if (ripples.length > 16) ripples.shift();
+    };
+
+    const heightAt = (x: number, y: number) => {
+      let h = 0.7 * Math.sin(x * 0.012 + time * 0.0007) * Math.sin(y * 0.01 - time * 0.0005);
+      for (let i = 0; i < ripples.length; i++) {
+        const r = ripples[i];
+        const age = time - r.born;
+        if (age < 0 || age > 2600) continue;
+        const radius = age * 0.14;
+        const dx = x - r.x;
+        const dy = y - r.y;
+        const dist = Math.hypot(dx, dy);
+        const ring = dist - radius;
+        const width = 34 + age * 0.016;
+        const decay = Math.exp(-age / 1100);
+        h += r.amp * decay * Math.exp(-(ring * ring) / (2 * width * width)) * Math.cos(ring * 0.08);
+      }
+      return h;
+    };
+
+    const paintWater = () => {
+      const img = wctx.createImageData(bw, bh);
+      const data = img.data;
+      for (let y = 0; y < bh; y++) {
+        const sy = ((y + 0.5) / bh) * cssH;
+        for (let x = 0; x < bw; x++) {
+          const sx = ((x + 0.5) / bw) * cssW;
+          heights[y * bw + x] = heightAt(sx, sy);
+        }
+      }
+
+      for (let y = 0; y < bh; y++) {
+        const sy = y / bh;
+        for (let x = 0; x < bw; x++) {
+          const i = y * bw + x;
+          const sx = x / bw;
+          const left = heights[i - (x > 0 ? 1 : 0)];
+          const right = heights[i + (x < bw - 1 ? 1 : 0)];
+          const up = heights[i - (y > 0 ? bw : 0)];
+          const down = heights[i + (y < bh - 1 ? bw : 0)];
+          const nx = (left - right) * 1.15;
+          const ny = (up - down) * 1.15;
+          const h = heights[i];
+          const light = clamp(0.5 + nx * 0.9 + ny * 0.35 + h * 0.045, 0, 1);
+          const spec = Math.pow(clamp(0.65 + nx * 1.4 + ny * 0.4, 0, 1), 10);
+          const depth = smoothstep(0.15, 0.95, sy);
+          const shade = clamp(depth * 0.92 + (1 - light) * 0.22, 0, 1);
+          let r = 214 + (124 - 214) * shade;
+          let g = 236 + (104 - 236) * shade;
+          let b = 255 + (198 - 255) * shade;
+          r += spec * 18;
+          g += spec * 24;
+          b += spec * 16;
+          const fade = smoothstep(0.02, 0.4, sx) * smoothstep(0.0, 0.12, sy);
+          const p = i * 4;
+          data[p] = clamp(r, 0, 255);
+          data[p + 1] = clamp(g, 0, 255);
+          data[p + 2] = clamp(b, 0, 255);
+          data[p + 3] = fade * 255;
+        }
+      }
+      wctx.putImageData(img, 0, 0);
+    };
+
+    const outerHull = () => {
+      ctx.beginPath();
+      ctx.moveTo(0, -88);
+      ctx.bezierCurveTo(24, -76, 38, -46, 42, -8);
+      ctx.bezierCurveTo(45, 28, 40, 58, 32, 74);
+      ctx.quadraticCurveTo(18, 88, 0, 88);
+      ctx.quadraticCurveTo(-18, 88, -32, 74);
+      ctx.bezierCurveTo(-40, 58, -45, 28, -42, -8);
+      ctx.bezierCurveTo(-38, -46, -24, -76, 0, -88);
+      ctx.closePath();
+    };
+
+    const innerHull = () => {
+      ctx.beginPath();
+      ctx.moveTo(0, -74);
+      ctx.bezierCurveTo(16, -64, 26, -40, 28, -6);
+      ctx.bezierCurveTo(30, 24, 26, 50, 20, 64);
+      ctx.quadraticCurveTo(10, 74, 0, 74);
+      ctx.quadraticCurveTo(-10, 74, -20, 64);
+      ctx.bezierCurveTo(-26, 50, -30, 24, -28, -6);
+      ctx.bezierCurveTo(-26, -40, -16, -64, 0, -74);
+      ctx.closePath();
+    };
+
+    const oar = (x1: number, y1: number, x2: number, y2: number) => {
+      const ang = Math.atan2(y2 - y1, x2 - x1);
+      const len = Math.hypot(x2 - x1, y2 - y1);
+      ctx.save();
+      ctx.translate(x1, y1);
+      ctx.rotate(ang);
+      ctx.fillStyle = "#d9c6f3";
+      ctx.beginPath();
+      ctx.roundRect(0, -4, len - 16, 8, 4);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(len - 20, -5);
+      ctx.lineTo(len + 2, -11);
+      ctx.quadraticCurveTo(len + 12, 0, len + 2, 11);
+      ctx.lineTo(len - 20, 5);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.roundRect(1, -2.4, len - 22, 3.4, 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(len - 16, -3);
+      ctx.lineTo(len, -6);
+      ctx.quadraticCurveTo(len + 6, 0, len, 6);
+      ctx.lineTo(len - 16, 3);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    };
+
+    const drawBoat = () => {
+      ctx.save();
+      ctx.translate(boat.x, boat.y);
+      ctx.rotate(boat.angle);
+      ctx.scale(0.75, 0.75);
+
+      ctx.fillStyle = "rgba(186, 156, 224, 0.28)";
+      ctx.beginPath();
+      ctx.ellipse(0, 18, 48, 78, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      const shell = ctx.createLinearGradient(-20, -80, 24, 80);
+      shell.addColorStop(0, "#ffffff");
+      shell.addColorStop(0.55, "#fbf8ff");
+      shell.addColorStop(1, "#f3e9ff");
+      ctx.fillStyle = shell;
+      outerHull();
+      ctx.fill();
+
+      const cavity = ctx.createLinearGradient(0, -70, 0, 74);
+      cavity.addColorStop(0, "#efe4fb");
+      cavity.addColorStop(0.5, "#e4d2f6");
+      cavity.addColorStop(1, "#d8c4f0");
+      ctx.fillStyle = cavity;
+      innerHull();
+      ctx.fill();
+
+      ctx.save();
+      innerHull();
+      ctx.clip();
+      const floor = ctx.createLinearGradient(0, -60, 0, 70);
+      floor.addColorStop(0, "#ffffff");
+      floor.addColorStop(1, "#f7f1ff");
+      ctx.fillStyle = floor;
+      ctx.fillRect(-26, -60, 52, 128);
+      ctx.fillStyle = "#e5d4f6";
+      const seats: [number, number, number, number][] = [
+        [-18, -46, 36, 7],
+        [-24, -18, 48, 8],
+        [-26, 12, 52, 8],
+        [-24, 40, 48, 8],
+        [-18, 62, 36, 7],
+      ];
+      seats.forEach(([x, y, w, h]) => {
+        ctx.beginPath();
+        ctx.roundRect(x, y, w, h, 3);
+        ctx.fill();
+      });
+      ctx.restore();
+
+      oar(12, -20, -78, 34);
+      oar(-8, -8, 80, 28);
+      ctx.restore();
+    };
+
+    const pushBoat = () => {
+      for (let i = 0; i < ripples.length; i++) {
+        const r = ripples[i];
+        const age = time - r.born;
+        if (age < 0 || age > 2600) continue;
+        const radius = age * 0.14;
+        const dx = boat.x - r.x;
+        const dy = boat.y - r.y;
+        const dist = Math.hypot(dx, dy) || 1;
+        const ring = dist - radius;
+        const influence = Math.exp(-(ring * ring) / (2 * 48 * 48)) * Math.exp(-age / 1100) * r.amp;
+        boat.vx += (dx / dist) * influence * 0.022;
+        boat.vy += (dy / dist) * influence * 0.022;
+        const speed = Math.hypot(r.vx, r.vy) || 1;
+        boat.vx += (r.vx / speed) * influence * 0.015;
+        boat.vy += (r.vy / speed) * influence * 0.015;
+      }
+
+      boat.vx *= 0.96;
+      boat.vy *= 0.96;
+      boat.ox += boat.vx;
+      boat.oy += boat.vy;
+      boat.vx -= boat.ox * 0.01;
+      boat.vy -= boat.oy * 0.01;
+
+      const theta = time * 0.00015;
+      const cx = cssW * 0.58;
+      const cy = cssH * 0.56;
+      const rx = Math.min(72, cssW * 0.09);
+      const ry = Math.min(54, cssH * 0.07);
+      boat.x = cx + Math.cos(theta) * rx + boat.ox;
+      boat.y = cy + Math.sin(theta) * ry + boat.oy;
+      const tx = -Math.sin(theta);
+      const ty = Math.cos(theta);
+      boat.angle = Math.atan2(tx, -ty);
+    };
+
+    const draw = () => {
+      ctx.clearRect(0, 0, cssW, cssH);
+      paintWater();
+      ctx.save();
+      ctx.filter = "blur(10px)";
+      ctx.imageSmoothingEnabled = true;
+      ctx.drawImage(water, 0, 0, cssW, cssH);
+      ctx.restore();
+      drawBoat();
+    };
+
+    const step = (now: number) => {
+      if (stopped) return;
+      frame = requestAnimationFrame(step);
+      if (document.hidden) return;
+      const dt = Math.min(34, now - (lastFrame || now));
+      lastFrame = now;
+      time += reduce ? 0 : dt;
+
+      if (!reduce) {
+        for (let i = ripples.length - 1; i >= 0; i--) {
+          if (time - ripples[i].born > 2600) ripples.splice(i, 1);
+        }
+        if (time - lastIdle > 1700) {
+          lastIdle = time;
+          spawnRipple(
+            cssW * (0.42 + Math.random() * 0.4),
+            cssH * (0.34 + Math.random() * 0.36),
+            2.4,
+            (Math.random() - 0.5) * 80,
+            (Math.random() - 0.5) * 80
+          );
+        }
+        pushBoat();
+      }
+
+      draw();
+    };
+
+    const onPointer = (e: PointerEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const now = performance.now();
+      if (lastPointerX !== null && lastPointerY !== null) {
+        const dt = now - lastMove;
+        if (dt > 0 && dt < 80) {
+          const ivx = ((e.clientX - lastPointerX) / dt) * 1000;
+          const ivy = ((e.clientY - lastPointerY) / dt) * 1000;
+          const speed = Math.hypot(ivx, ivy);
+          const moved = lastDropX === null || lastDropY === null ? 99 : Math.hypot(x - lastDropX, y - lastDropY);
+          if (speed > 80 && moved > 28 && x > -40 && x < cssW + 40 && y > -40 && y < cssH + 40) {
+            const amp = 1.3 + Math.min(speed / 1400, 1) * 3.4;
+            spawnRipple(x, y, amp, ivx, ivy);
+            lastDropX = x;
+            lastDropY = y;
+            if (!hintGone && speed > 500) {
+              hintGone = true;
+              hint.classList.add("gone");
+            }
+          }
+        }
+      }
+      lastPointerX = e.clientX;
+      lastPointerY = e.clientY;
+      lastMove = now;
+    };
+
+    const onVisible = () => {
+      if (!document.hidden) lastFrame = performance.now();
+    };
+
+    window.addEventListener("pointermove", onPointer, { passive: true });
+    window.addEventListener("resize", resize);
+    document.addEventListener("visibilitychange", onVisible);
+    resize();
+    frame = requestAnimationFrame(step);
+
+    return () => {
+      stopped = true;
+      cancelAnimationFrame(frame);
+      window.removeEventListener("pointermove", onPointer);
+      window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisible);
+    };
+  }, []);
+
+  return (
+    <div className="hero-water">
+      <canvas
+        ref={canvasRef}
+        aria-label="Top-down water. Move the cursor to send ripples that push the boat. Faster movement makes a stronger ripple. At rest, small ripples keep the boat drifting."
+      />
+      <p ref={hintRef} className="hero-water-hint">
+        Move your cursor. Ripples push the boat.
+      </p>
+    </div>
+  );
+}
