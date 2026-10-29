@@ -43,9 +43,14 @@ function BeforeAfterCompare() {
         onPointerUp={tapSide("after")}
         aria-pressed={front === "after"}
       >
-        <img
-          src="/Redesigns/Instagram/after.jpg"
-          alt="After: the redesigned Instagram section, with a scrollable feed inside the phone"
+        <video
+          src="/Redesigns/Instagram/Instagram_Hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-label="After: the redesigned Instagram section, with a scrollable feed inside the phone"
         />
         <span className="ba-label">After</span>
       </button>
@@ -218,9 +223,16 @@ export default function InstagramPage() {
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">turning a static screenshot into an experience you can scroll through.</p>
 
               {/* Hero Visual */}
-              <div className="rounded-2xl overflow-hidden mb-12">
+              <div className="rounded-2xl overflow-hidden">
                 <video src="/Redesigns/Instagram/Instagram_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="Scroll driven Instagram redesign, showing the feed, carousel, comments and share sheet inside a phone" />
               </div>
+              <a
+                href="/Redesigns/Instagram/"
+                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
+                style={{ marginTop: "20px", marginBottom: "48px" }}
+              >
+                View the redesign
+              </a>
             </div>
 
             {/* --- Three equal cards row --- */}
@@ -279,10 +291,7 @@ export default function InstagramPage() {
             <div id="before-after" className="mb-12 scroll-mt-[130px]">
               <BeforeAfterCompare />
               <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">
-                Left, Meta&apos;s current section. Right, the redesigned section, live at{" "}
-                <a href="/Redesigns/Instagram/" className="text-[15px] font-medium text-[#0071E3] hover:underline not-italic">
-                  View the redesign
-                </a>
+                Left, Meta&apos;s current section. Right, the redesigned section.
               </p>
             </div>
           </section>
@@ -375,7 +384,7 @@ export default function InstagramPage() {
 
         .ba-stage {
           --rest: 0.62;
-          --cover: 0.94;
+          --cover: 0.727;
           position: relative;
           height: 0;
           margin-bottom: 16px;
@@ -410,12 +419,14 @@ export default function InstagramPage() {
             z-index 0s linear 0.7s;
         }
 
-        .ba-card img {
+        .ba-card img,
+        .ba-card video {
           display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
           object-position: center top;
+          pointer-events: none;
         }
 
         .ba-before {
@@ -433,7 +444,7 @@ export default function InstagramPage() {
         .ba-stage.is-after .ba-after {
           width: calc(var(--cover) * 100%);
           z-index: 4;
-          transform: translateY(-6px);
+          transform: translateY(-2px);
           transition:
             width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
             box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
