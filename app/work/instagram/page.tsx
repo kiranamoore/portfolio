@@ -1,7 +1,57 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type PointerEvent as ReactPointerEvent } from "react";
+
+function BeforeAfterCompare() {
+  const [front, setFront] = useState<"before" | "after" | null>(null);
+
+  const hoverSide = (side: "before" | "after") => (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType === "mouse") setFront(side);
+  };
+
+  const tapSide = (side: "before" | "after") => (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (event.pointerType !== "mouse") {
+      setFront((current) => (current === side ? null : side));
+    }
+  };
+
+  return (
+    <div
+      className={`ba-stage${front ? ` is-${front}` : ""}`}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") setFront(null);
+      }}
+    >
+      <button
+        type="button"
+        className="ba-card ba-before"
+        onPointerEnter={hoverSide("before")}
+        onPointerUp={tapSide("before")}
+        aria-pressed={front === "before"}
+      >
+        <img
+          src="/Redesigns/Instagram/before.jpg"
+          alt="Before: Meta's Instagram section, with a static Story inside the phone"
+        />
+        <span className="ba-label">Before</span>
+      </button>
+      <button
+        type="button"
+        className="ba-card ba-after"
+        onPointerEnter={hoverSide("after")}
+        onPointerUp={tapSide("after")}
+        aria-pressed={front === "after"}
+      >
+        <img
+          src="/Redesigns/Instagram/after.jpg"
+          alt="After: the redesigned Instagram section, with a scrollable feed inside the phone"
+        />
+        <span className="ba-label">After</span>
+      </button>
+    </div>
+  );
+}
 
 export default function InstagramPage() {
   const [activeSection, setActiveSection] = useState("overview");
@@ -227,9 +277,7 @@ export default function InstagramPage() {
 
             {/* Before/After */}
             <div id="before-after" className="mb-12 scroll-mt-[130px]">
-              <div className="rounded-xl overflow-hidden shadow-sm mb-4">
-                <video src="/Redesigns/Instagram/Before_After.mp4" autoPlay muted loop playsInline className="w-full" aria-label="Before and after comparison of the Instagram section on Meta's website" />
-              </div>
+              <BeforeAfterCompare />
               <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8">
                 Left, Meta&apos;s current section. Right, the redesigned section, live at{" "}
                 <a href="/Redesigns/Instagram/" className="text-[15px] font-medium text-[#0071E3] hover:underline not-italic">
@@ -323,6 +371,113 @@ export default function InstagramPage() {
         }
         .animate-bounce-left {
           animation: bounce-left 1s ease-in-out infinite;
+        }
+
+        .ba-stage {
+          --rest: 0.62;
+          --cover: 0.94;
+          position: relative;
+          height: 0;
+          margin-bottom: 16px;
+          padding-bottom: calc(var(--rest) * 553 / 1024 * 100%);
+          transition: padding-bottom 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .ba-stage.is-before,
+        .ba-stage.is-after {
+          padding-bottom: calc(var(--cover) * 553 / 1024 * 100% + 18px);
+        }
+
+        .ba-card {
+          position: absolute;
+          top: 0;
+          width: calc(var(--rest) * 100%);
+          aspect-ratio: 1024 / 553;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          border-radius: 14px;
+          overflow: hidden;
+          background: #fff;
+          cursor: pointer;
+          display: block;
+          text-align: left;
+          box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+          transition:
+            width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            z-index 0s linear 0.7s;
+        }
+
+        .ba-card img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+        }
+
+        .ba-before {
+          left: 0;
+          z-index: 1;
+        }
+
+        .ba-after {
+          right: 0;
+          z-index: 2;
+          box-shadow: -14px 10px 28px rgba(0, 0, 0, 0.16);
+        }
+
+        .ba-stage.is-before .ba-before,
+        .ba-stage.is-after .ba-after {
+          width: calc(var(--cover) * 100%);
+          z-index: 4;
+          transform: translateY(-6px);
+          transition:
+            width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            box-shadow 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+            z-index 0s linear 0s;
+        }
+
+        .ba-stage.is-before .ba-before {
+          box-shadow: 22px 16px 44px rgba(0, 0, 0, 0.32);
+        }
+
+        .ba-stage.is-after .ba-after {
+          box-shadow: -22px 16px 44px rgba(0, 0, 0, 0.32);
+        }
+
+        .ba-label {
+          position: absolute;
+          top: 12px;
+          z-index: 2;
+          padding: 5px 12px;
+          border-radius: 999px;
+          background: rgba(29, 29, 31, 0.82);
+          color: #fff;
+          font-family: var(--font-inter), sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          line-height: 1.2;
+          pointer-events: none;
+        }
+
+        .ba-before .ba-label {
+          left: 12px;
+        }
+
+        .ba-after .ba-label {
+          right: 12px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .ba-stage,
+          .ba-card {
+            transition: none;
+          }
         }
       `}</style>
     </div>
