@@ -277,13 +277,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-water-hint {
   position: absolute;
-  left: 8%;
+  right: 8%;
   bottom: 12%;
-  max-width: 220px;
-  text-align: left;
+  max-width: 200px;
+  text-align: right;
   font-size: 13px;
   letter-spacing: 0.04em;
-  color: #8e8e98;
+  color: #ffffff;
   transition: opacity 0.6s ease;
   pointer-events: none;
 }
@@ -303,7 +303,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-water-hint {
-    left: 22%;
+    right: 8%;
     bottom: 16%;
   }
 }
