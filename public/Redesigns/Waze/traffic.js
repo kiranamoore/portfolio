@@ -350,7 +350,7 @@
     const start = sample(route, dist);
     const el = document.createElement("img");
     el.className = "car";
-    el.src = "car.png";
+    el.src = "/Redesigns/Waze/car.png";
     el.alt = "";
     el.draggable = false;
     const shade = nextShade();
