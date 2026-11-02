@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workday — Put AI agents to work</title>
+  <meta name="description" content="A study of the Workday homepage agents section, with a mock chatbot you can actually talk to." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 132 36" aria-hidden="true">
+        <path d="M22 16c10-11 78-11 88 0" fill="none" stroke="#ff7a18" stroke-width="3" stroke-linecap="round" />
+        <text x="66" y="30" text-anchor="middle">workday</text>
+      </svg>
+      <span class="sr">Workday home</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#agents">Agents</a>
+      <a href="#platform">Platform</a>
+      <a href="#products">Products</a>
+      <a href="#customers">Customers</a>
+    </nav>
+    <a class="nav-demo" href="#agents">Request a Demo</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">The trusted agentic platform</p>
+        <h1>AI that gets work done right.</h1>
+        <p class="lede">For HR, finance, and IT, almost right isn’t good enough. Scroll on to meet the agents — then talk to one.</p>
+        <a class="scroll-cue" href="#agents">
+          <span>Put agents to work</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="agents" id="agents" aria-labelledby="agents-title">
+      <div class="agents-inner">
+        <h2 id="agents-title">Put AI agents to work for you, and your people.</h2>
+
+        <div class="tablist" role="tablist" aria-label="Choose a team">
+          <button type="button" role="tab" id="tab-hr" aria-selected="true" aria-controls="agent-panel" data-persona="hr">HR</button>
+          <button type="button" role="tab" id="tab-finance" aria-selected="false" aria-controls="agent-panel" data-persona="finance">Finance</button>
+          <button type="button" role="tab" id="tab-it" aria-selected="false" aria-controls="agent-panel" data-persona="it">IT &amp; Developers</button>
+          <button type="button" role="tab" id="tab-everyone" aria-selected="false" aria-controls="agent-panel" data-persona="everyone">Everyone</button>
+        </div>
+
+        <div class="stage" id="agent-panel">
+          <article class="chat" id="chat">
+            <img class="chat-bg" alt="" src="assets/office.jpg" />
+            <div class="chat-shade"></div>
+            <div class="chat-ui">
+              <header class="chat-head">
+                <span class="spark" aria-hidden="true">
+                  <svg viewBox="0 0 16 16"><path fill="currentColor" d="M8 .4l1.1 4.7 4.7 1.1-4.7 1.2L8 12.1 6.9 7.4 2.2 6.2l4.7-1.1z"/></svg>
+                </span>
+                <div>
+                  <strong>Sana</strong>
+                  <em id="agent-label">HR agent</em>
+                  <p id="agent-blurb">Empower HR to make better people decisions, accelerate hiring, and free up teams from routine work.</p>
+                </div>
+                <span class="live" id="live-pill">Listening</span>
+              </header>
+
+              <div class="log" id="log" role="log" aria-relevant="additions" aria-label="Conversation with Sana">
+                <p class="hint" id="hint">Sana starts when this section is on screen. Choose a team to send a prompt, then ask anything you want.</p>
+              </div>
+
+              <div class="chips" id="chips" aria-label="Suggested prompts"></div>
+
+              <form class="composer" id="composer" method="post" action="#" onsubmit="event.preventDefault()">
+                <label class="sr" for="prompt">Message Sana</label>
+                <input id="prompt" name="prompt" type="text" maxlength="400" autocomplete="off" placeholder="Ask Sana anything" />
+                <button type="submit" id="send" aria-label="Send message">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18V6M6.5 11.5 12 6l5.5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </form>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <button type="button" class="reset" id="reset" aria-label="Replay the conversation">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.2-5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </section>
+
+    <section class="closer" aria-label="More of the platform">
+      <div id="platform">
+        <h3>Platform</h3>
+        <p>One foundation for people, finance, and the work that runs between them.</p>
+      </div>
+      <div id="products">
+        <h3>Products</h3>
+        <p>Human capital, financials, and planning — with agents inside the tools teams already trust.</p>
+      </div>
+      <div id="customers">
+        <h3>Customers</h3>
+        <p>From lean teams to global enterprises, the same system of record stands behind the answer.</p>
+      </div>
+    </section>
+  </main>
+
+  <p class="colophon">A design study of the Workday agents section. Portraits from Unsplash. This chatbot is a demo — it doesn’t connect to Workday.</p>
+  <div class="sr" id="announce" aria-live="polite"></div>
+  <script src="app.js?v=8" defer></script>
+</body>
+</html>

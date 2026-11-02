@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>San Jose Museum of Quilts &amp; Textiles</title>
+  <meta name="description" content="The San Jose Museum of Quilts &amp; Textiles preserves, celebrates, and promotes quilts and textiles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Zilla+Slab:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=12">
+</head>
+<body id="top">
+  <div class="scrim" id="scrim" hidden></div>
+
+  <header class="site-header">
+    <div class="bar">
+      <a class="logo-link" href="#top" aria-label="San Jose Museum of Quilts &amp; Textiles, home">
+        <img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1535397761046-VFLJPDH0NDSHLL4TUQKB/logotext2.png?format=500w" alt="San Jose Museum of Quilts &amp; Textiles">
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="weave-stage">
+        <span class="menu-loom" aria-hidden="true">
+          <span class="loom-ribbon h from-left" style="--i:0;--lag:0.40;--cloth:#e86b2c"><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span></span>
+          <span class="loom-ribbon h from-right" style="--i:1;--lag:0.23;--cloth:#f0c431"><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span></span>
+          <span class="loom-ribbon h from-left" style="--i:2;--lag:0.06;--cloth:#3a78c2"><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span></span>
+          <span class="loom-ribbon v from-top" style="--i:0;--lag:0.95;--cloth:#1a9aaa"><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span></span>
+          <span class="loom-ribbon v from-bottom" style="--i:1;--lag:0.78;--cloth:#6d3f96"><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span></span>
+          <span class="loom-ribbon v from-top" style="--i:2;--lag:0.61;--cloth:#c4253c"><span class="loom-seg under"></span><span class="loom-seg gap"></span><span class="loom-seg over"></span><span class="loom-seg gap"></span><span class="loom-seg under"></span></span>
+        </span>
+        <span class="menu-toggle-label">Menu</span>
+      </button>
+    </div>
+
+    <div class="weave-stage" id="weave-stage" hidden>
+      <div class="weave-toolbar">
+        <button class="weave-back" id="weave-back" type="button" hidden>All sections</button>
+        <p class="weave-status" id="menu-status" aria-live="polite"></p>
+      </div>
+      <div class="weave" id="weave" role="list"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Featured quilt">
+      <img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/fd7a3206-eff4-4158-9160-404ef98d4106/COL-2476.jpg?format=2000w" alt="Close-up of a quilt with curved bands of orange, blue, yellow, and black stitching.">
+    </section>
+
+    <section class="band hours-band">
+      <p class="eyebrow">Hours:</p>
+      <p>Thursdays, Fridays | 1pm to 5pm</p>
+      <p>Saturdays, Sundays | 11am to 5pm</p>
+    </section>
+
+    <hr class="rule">
+
+    <section class="band narrow">
+      <h1>Open Call for Bay Area Artists</h1>
+      <p>To celebrate our Golden Anniversary, the Museum invites artists from across the wider Bay Area to submit work for <strong>The Next 50: A Bay Area Textile Open</strong>, a juried open call exhibition celebrating the breadth, innovation, and vitality of textile art today. Click the button below to learn more about how to submit YOUR textile art for our juried exhibition.</p>
+      <p class="cta"><a class="btn" href="https://sj-mqt.org/50th-call-for-art">Learn More</a></p>
+    </section>
+
+    <hr class="rule">
+
+    <section class="band narrow on-view">
+      <h2>On View at the Museum:</h2>
+      <h2 class="exhibit-title">Soft Structures: The Female Body as Labor and Resistance</h2>
+      <p class="exhibit-dates">October 1st, 2026 — January 10th, 2027</p>
+      <img class="exhibit-art" src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/b6126aa7-fd9f-4c08-8a9b-87fb4068aad8/Bring+your+attention.jpg?format=1200w" alt="Tall figurative textile from Soft Structures, with a heart, drawings, and an orange hand sewn into the quilt.">
+    </section>
+
+    <hr class="rule">
+
+    <section class="band narrow">
+      <h2>The SJMQT is your go-to for all things textile!</h2>
+      <p>The mission of the San Jose Museum of Quilts &amp; Textiles is to preserve, celebrate, and promote knowledge about quilts and textiles, their creation, their beauty, and their relationship to human culture and expression.</p>
+    </section>
+
+    <section class="gallery" aria-roledescription="carousel" aria-label="Museum photographs">
+      <div class="gallery-frame">
+        <button class="gallery-arrow prev" type="button" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5 8 12l6.5 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <img id="gallery-main" alt="">
+        <button class="gallery-arrow next" type="button" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5 16 12l-6.5 7" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="thumbs" id="thumbs" role="tablist" aria-label="Slides"></div>
+    </section>
+
+    <hr class="rule">
+
+    <section class="band narrow">
+      <h2>Keep our Mission Alive: Donate</h2>
+      <p>Only with the support of our community are we able to preserve, celebrate, and promote knowledge about quilts and textiles, their creation, their beauty, and their relationship to human culture and expression. The Museum thanks everyone who has supported through the years, and with your continued support, we may provide community enrichment for many years to come.</p>
+      <p class="cta"><a class="btn" href="https://sjquiltmuseum.app.neoncrm.com/forms/donate">Donate to Our Museum</a></p>
+    </section>
+
+    <section class="sponsors" aria-label="Supporters">
+      <a href="https://www.sanjoseca.gov/" aria-label="City of San Jose"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918152006-MDR6I1L5KDS52TVSMVMB/City-San-Jose.png?format=300w" alt=""></a>
+      <a href="https://www.sanjoseca.gov/your-government/departments-offices/office-of-cultural-affairs" aria-label="City of San Jose Office of Cultural Affairs"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918178813-AWB7TX7I71QGEI2858TW/Office-Cultural-Affairs.png?format=300w" alt=""></a>
+      <a href="https://svcreates.org/" aria-label="SVCreates"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918162178-AFP4Z4MFAMDSHFSSYBWF/SVCreates.png?format=300w" alt=""></a>
+      <a href="https://www.neh.gov/" aria-label="National Endowment for the Humanities"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918158232-USJJ3KQJU74IEQ7PFCBZ/National-Endowment-Humanities.png?format=300w" alt=""></a>
+      <a href="https://www.packard.org/" aria-label="The David and Lucile Packard Foundation"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918154831-GQMIHFWVDIH5F6QVVS6E/David-Lucile-Packard.png?format=300w" alt=""></a>
+      <a href="https://www.appliedmaterials.com/us/en/community.html" aria-label="Applied Materials Foundation"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918146539-DUTPU6WVP93FH1TOIA6F/Applied-Materials-Foundation.png?format=300w" alt=""></a>
+      <a href="https://calhum.org/" aria-label="California Humanities"><img src="https://images.squarespace-cdn.com/content/v1/561ee3d0e4b0f64d49ce3405/1696918149104-4YJ0XZ4NZHLZMVIFRE3G/California-Humanities.png?format=300w" alt=""></a>
+    </section>
+
+    <section class="subscribe">
+      <h2>Subscribe</h2>
+      <p>Sign up with your email address to receive news and updates.</p>
+      <form id="subscribe-form" novalidate>
+        <label class="sr-only" for="email">Email Address</label>
+        <input id="email" name="email" type="email" placeholder="Email Address" autocomplete="email" required>
+        <button type="submit">Sign Up</button>
+      </form>
+      <p class="form-note" id="form-note">We respect your privacy.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <h3>Questions? <a href="mailto:development@sj-mqt.org">Email us</a></h3>
+        <h3>Hours and Admission</h3>
+        <ul>
+          <li>Thursday - Friday, 1:00pm - 5:00pm</li>
+          <li>Saturday - Sunday, 11:00 am - 5:00 pm</li>
+          <li>Every First Friday, 6:00 pm - 9:00 pm</li>
+          <li>Members, NARM, EBT, Active Military: Free</li>
+          <li>Non-members: $10</li>
+          <li>Seniors/students/teachers: $8</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Come visit us!</h3>
+        <p>520 S. First Street<br>San Jose, CA 95113</p>
+        <h3 class="phone">Phone <a href="tel:+14083848382">(408)384-8382</a></h3>
+      </div>
+    </div>
+    <div class="social">
+      <a href="https://www.facebook.com/SJQuiltMuseum/" aria-label="San Jose Museum of Quilts &amp; Textiles on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14.5 8.5V6.8c0-.7.5-1 1.1-1H17V3h-2.2C12.2 3 11 4.4 11 6.6v1.9H9v2.8h2V21h3.5v-9.7h2.3l.4-2.8h-2.7z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/user/sjquiltmuseum/videos" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 12.2s0-3.2-.4-4.6c-.2-.9-.9-1.6-1.8-1.8C19.2 5.4 12 5.4 12 5.4s-7.2 0-8.8.4c-.9.2-1.6.9-1.8 1.8C1 9 1 12.2 1 12.2s0 3.2.4 4.6c.2.9.9 1.6 1.8 1.8 1.6.4 8.8.4 8.8.4s7.2 0 8.8-.4c.9-.2 1.6-.9 1.8-1.8.4-1.4.4-4.6.4-4.6zM9.8 15.5v-6.6l6.2 3.3-6.2 3.3z"/></svg>
+      </a>
+      <a href="https://instagram.com/sjmqt" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7.4A4.6 4.6 0 1 0 12 16.6 4.6 4.6 0 0 0 12 7.4zm0 7.6a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm5.9-8.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM12 4.6c1.5 0 1.7 0 2.3.1.6 0 1 .1 1.3.3.4.1.6.3.9.6.3.3.5.5.6.9.2.3.3.7.3 1.3.1.6.1.8.1 2.3s0 1.7-.1 2.3c0 .6-.1 1-.3 1.3-.1.4-.3.6-.6.9-.3.3-.5.5-.9.6-.3.2-.7.3-1.3.3-.6.1-.8.1-2.3.1s-1.7 0-2.3-.1c-.6 0-1-.1-1.3-.3-.4-.1-.6-.3-.9-.6-.3-.3-.5-.5-.6-.9-.2-.3-.3-.7-.3-1.3-.1-.6-.1-.8-.1-2.3s0-1.7.1-2.3c0-.6.1-1 .3-1.3.1-.4.3-.6.6-.9.3-.3.5-.5.9-.6.3-.2.7-.3 1.3-.3.6-.1.8-.1 2.3-.1zm0-1.6c-1.5 0-1.7 0-2.4.1-.6 0-1.1.1-1.5.3-.4.2-.8.4-1.1.7-.3.3-.5.7-.7 1.1-.2.4-.3.9-.3 1.5-.1.7-.1.9-.1 2.4s0 1.7.1 2.4c0 .6.1 1.1.3 1.5.2.4.4.8.7 1.1.3.3.7.5 1.1.7.4.2.9.3 1.5.3.7.1.9.1 2.4.1s1.7 0 2.4-.1c.6 0 1.1-.1 1.5-.3.4-.2.8-.4 1.1-.7.3-.3.5-.7.7-1.1.2-.4.3-.9.3-1.5.1-.7.1-.9.1-2.4s0-1.7-.1-2.4c0-.6-.1-1.1-.3-1.5-.2-.4-.4-.8-.7-1.1-.3-.3-.7-.5-1.1-.7-.4-.2-.9-.3-1.5-.3-.7-.1-.9-.1-2.4-.1z"/></svg>
+      </a>
+    </div>
+    <p class="copyright">© San Jose Museum of Quilts &amp; Textiles, EIN 77-0123939 &nbsp;|&nbsp; website by <a href="http://www.rasteroids.com/">rasteroids</a></p>
+  </footer>
+
+  <script src="script.js?v=13"></script>
+</body>
+</html>

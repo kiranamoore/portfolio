@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Driving Directions & Traffic Reports by Waze</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2333ccff'/%3E%3Ccircle cx='24' cy='28' r='3' fill='%23111'/%3E%3Ccircle cx='40' cy='28' r='3' fill='%23111'/%3E%3Cpath d='M22 36c3 7 17 7 20 0' fill='none' stroke='%23111' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="city">
+    <div class="lot side park" aria-hidden="true"><em>Rosewood Park</em></div>
+    <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+    <header class="lot nav span-main">
+    <div class="nav-left">
+      <a class="brand" href="#top" aria-label="Waze home">
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+          <path fill="#fff" stroke="#111" stroke-width="3" d="M32 6c14 0 24 10 24 24 0 9-3 15-7 19-1 7-5 10-9 8 0-4-3-6-8-6s-8 2-8 6c-4 2-8-1-9-8-4-4-7-10-7-19C8 16 18 6 32 6z"/>
+          <circle cx="24" cy="30" r="3" fill="#111"/>
+          <circle cx="40" cy="30" r="3" fill="#111"/>
+          <path d="M23 38c3 6 15 6 18 0" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a class="nav-link is-current" href="#top">Waze</a>
+      <div class="menu">
+        <a class="nav-link" href="#cities">Waze for Cities</a>
+        <ul class="menu-panel">
+          <li><a href="#cities">Map editors community</a></li>
+          <li><a href="#cities">Case Studies</a></li>
+          <li><a href="#cities">Traffic Events</a></li>
+          <li><a href="#cities">Waze Beacons</a></li>
+        </ul>
+      </div>
+      <div class="menu">
+        <a class="nav-link" href="#partners">Partners</a>
+        <ul class="menu-panel">
+          <li><a href="#partners">Product Partners</a></li>
+          <li><a href="#partners">Transport SDK</a></li>
+          <li><a href="#partners">Developers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-right">
+      <a class="nav-link" href="#schedule">Live Map</a>
+      <a class="nav-link" href="#download">Download</a>
+      <button class="ghost-btn" type="button">Log In</button>
+    </div>
+    </header>
+    <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+    <div class="lot side" aria-hidden="true"><em>Civic Center</em></div>
+
+    <div class="road h orange span-all" aria-hidden="true"><span>Harbor Ave</span></div>
+
+  <main id="top">
+    <section class="band" aria-label="Introduction">
+      <div class="lot side park" aria-hidden="true"><em>Grand Park</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <div class="panel card lot">
+        <h1 class="wordmark">waze</h1>
+        <p class="headline">That way looks awesome today</p>
+        <p class="lede">Get real-time traffic alerts from fellow drivers and riders.</p>
+        <div class="stores">
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.waze" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#34a853" d="M3 20.5l10.2-8.5L3 3.4v17.1z"/>
+              <path fill="#fbbc04" d="M16.7 12.2L3 20.5l11.2-1.2 2.5-7.1z"/>
+              <path fill="#4285f4" d="M3 3.4l13.7 8.8L14.2 4.6 3 3.4z"/>
+              <path fill="#ea4335" d="M16.7 12.2l3.6 2.1c.8.5.8 1.6 0 2.1l-3.6 2.1-2.5-4.2 2.5-2.1z"/>
+            </svg>
+            <span><small>GET IT ON</small><strong>Google Play</strong></span>
+          </a>
+          <a class="store" href="https://apps.apple.com/app/waze-navigation-live-traffic/id323229106" target="_blank" rel="noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="#fff" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.9-0.8-3.1-.8c-1.6 0-3.1 1-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.6.8 1.1 1.7 2.4 3 2.4 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8 2.1-1.2 2.9-2.4c.9-1.3 1.3-2.6 1.3-2.6s-2.6-1-2.7-4.1zM14.6 6.5c.6-.8 1.1-1.9.9-3-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-.9 2.9 1.1.1 2.1-.5 2.8-1.4z"/>
+            </svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+        </div>
+        <svg class="mood corner-right" viewBox="0 0 120 120" aria-hidden="true">
+          <ellipse cx="60" cy="108" rx="28" ry="6" fill="rgba(0,0,0,.15)"/>
+          <circle cx="60" cy="70" r="34" fill="#7ad7ff" stroke="#111" stroke-width="3"/>
+          <path d="M30 64c2-30 58-34 64-4-12-16-24-18-34-16-14 2-24 8-30 20z" fill="#ffe14a" stroke="#111" stroke-width="3"/>
+          <path d="M54 30l6 12h-7l8 14" fill="none" stroke="#ff3b30" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="38" y="66" width="44" height="14" rx="7" fill="#111"/>
+          <circle cx="50" cy="73" r="3" fill="#9ad8ff"/>
+          <circle cx="70" cy="73" r="3" fill="#9ad8ff"/>
+          <path d="M48 90c4 6 20 6 24 0" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="road v local" aria-hidden="true"><span>Maple Ave</span></div>
+      <div class="panel lot scene beach" aria-label="Coastal road with traffic alerts">
+        <svg class="scene" viewBox="0 0 640 500" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#7ec8ee"/>
+              <stop offset="1" stop-color="#d5f0fb"/>
+            </linearGradient>
+            <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3eadd4"/>
+              <stop offset="1" stop-color="#1c7396"/>
+            </linearGradient>
+          </defs>
+          <rect width="640" height="500" fill="url(#sky)"/>
+          <path d="M470 40c40 50 70 90 60 150-30-10-70 10-110 0-20-40-10-100 50-150z" fill="#6f8f62"/>
+          <path d="M500 70c28 40 48 78 36 120-28-6-52 8-78-4 4-46 10-86 42-116z" fill="#8aaa78"/>
+          <path d="M0 168c90-28 150 16 250-8 110-26 180 24 250 4 70-16 110 8 140-6v150H0z" fill="url(#sea)"/>
+          <path d="M40 210c40 8 70-8 110 0" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
+          <path d="M180 250c50 10 80-12 130 0" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="3"/>
+          <path d="M0 300c120-24 200 20 320 0 110-18 200 16 320-8v70c-120 20-200-10-320 8C200 386 120 340 0 360z" fill="#f0ddb4"/>
+          <path d="M0 318c120-20 200 16 320-2 110-16 200 14 320-10v28c-120 18-210-8-320 8-120 16-200-22-320-10z" fill="#e2c890"/>
+          <g fill="#f4f0e8" stroke="#e4d8c4" stroke-width="1">
+            <rect x="430" y="196" width="28" height="78" rx="2"/>
+            <rect x="462" y="168" width="36" height="106" rx="2"/>
+            <rect x="502" y="184" width="24" height="90" rx="2"/>
+            <rect x="530" y="150" width="40" height="124" rx="2"/>
+            <rect x="574" y="176" width="30" height="98" rx="2"/>
+            <rect x="390" y="214" width="34" height="64" rx="2"/>
+          </g>
+          <g fill="#c9d7e4">
+            <rect x="438" y="208" width="8" height="10"/>
+            <rect x="470" y="180" width="8" height="10"/>
+            <rect x="484" y="180" width="8" height="10"/>
+            <rect x="470" y="198" width="8" height="10"/>
+            <rect x="538" y="164" width="10" height="12"/>
+            <rect x="554" y="164" width="10" height="12"/>
+            <rect x="538" y="184" width="10" height="12"/>
+            <rect x="398" y="226" width="8" height="10"/>
+          </g>
+          <path d="M0 392c140-18 240 16 360 0 100-14 180 10 280-6v36c-100 14-180-8-280 6-120 16-220-16-360 0z" fill="#3c3c3c"/>
+          <path d="M20 408c140-16 240 14 360 0 100-12 180 8 250-4" fill="none" stroke="#f2d15a" stroke-width="3" stroke-dasharray="14 12"/>
+          <g fill="#2a2a2a">
+            <rect x="70" y="392" width="28" height="12" rx="3"/>
+            <rect x="210" y="386" width="34" height="12" rx="3"/>
+            <rect x="420" y="396" width="26" height="12" rx="3"/>
+          </g>
+          <g fill="#6ea85a">
+            <circle cx="120" cy="360" r="16"/>
+            <circle cx="168" cy="368" r="12"/>
+            <circle cx="250" cy="352" r="18"/>
+            <rect x="116" y="360" width="4" height="22"/>
+            <rect x="248" y="352" width="4" height="26"/>
+          </g>
+        </svg>
+        <div class="bubbles">
+          <div class="bubble warn" aria-hidden="true">
+            <svg width="42" height="42" viewBox="0 0 42 42">
+              <path d="M21 4l17 30H4z" fill="#fff"/>
+              <path d="M21 16v10" stroke="#e23b3b" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="21" cy="30" r="2" fill="#e23b3b"/>
+            </svg>
+          </div>
+          <div class="bubble" aria-hidden="true">
+            <svg width="46" height="36" viewBox="0 0 46 36">
+              <path d="M6 22l6-8h8l3 5h10l4 6" fill="none" stroke="#3a7bd5" stroke-width="2.4"/>
+              <circle cx="16" cy="24" r="3" fill="#333"/>
+              <circle cx="32" cy="24" r="3" fill="#333"/>
+              <path d="M30 10l4 4M38 8l-3 5" stroke="#e23b3b" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 14c4-6 10-6 12 0" fill="none" stroke="#49a85a" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side" aria-hidden="true"><em>North Block</em></div>
+    </section>
+
+    <div class="road h green span-all" aria-hidden="true"><span>Ocean Ave</span></div>
+
+    <section class="band" aria-roledescription="carousel" aria-label="How Waze helps">
+      <div class="lot side" aria-hidden="true"><em>Depot</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <div class="lot phone-lot">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="screen is-active" data-slide="0">
+            <div class="later-head"><span>‹</span><div><strong>Drive later</strong><span>Melchet 34, Tel Aviv</span></div></div>
+            <div class="row"><span>From</span><em>Current location</em></div>
+            <div class="row"><span>Day</span><em>Today</em></div>
+            <div class="row"><span>Arrive at</span><span>Traffic</span></div>
+            <div class="times">
+              <div class="time"><span>14:15</span></div>
+              <div class="time"><span>14:30</span></div>
+              <div class="time"><span>14:45</span></div>
+              <div class="time pick"><span>15:00</span><span>22 Min<br><small>Leave by 14:34</small></span></div>
+            </div>
+            <div class="graph"></div>
+          </div>
+          <div class="screen" data-slide="1">
+            <div class="mini">
+              <div class="blk" style="left:8%;top:18%;width:34%;height:28%"></div>
+              <div class="blk" style="left:58%;top:40%;width:30%;height:24%"></div>
+              <div class="park" style="left:10%;top:58%;width:28%;height:22%"></div>
+              <div class="rd" style="left:46%;top:0;width:14px;height:100%"></div>
+              <div class="rd orange" style="top:46%;left:0;height:12px;width:100%"></div>
+              <div class="pin" style="left:58%;top:30%">!</div>
+              <div class="me" style="left:46%;top:62%"></div>
+            </div>
+            <div class="turn-card"><b>↗ Turn right</b><span>Ocean Ave · 0.2 mi</span></div>
+          </div>
+          <div class="screen" data-slide="2">
+            <div class="nav-head"><span class="arrow">↰</span><div><div class="dist">4 mi</div><div class="road">405 Freeway</div></div></div>
+            <div class="mini" style="top:72px">
+              <div class="blk" style="left:6%;top:10%;width:30%;height:34%"></div>
+              <div class="park" style="right:8%;top:18%;width:28%;height:40%"></div>
+              <div class="rd blue" style="left:42%;top:0;width:16px;height:100%"></div>
+              <div class="rd red" style="left:54%;top:0;width:10px;height:70%"></div>
+              <div class="pin" style="left:62%;top:28%">🚗</div>
+              <div class="speed" style="left:12%;bottom:18%">7<br>mph</div>
+              <div class="me" style="left:40%;top:64%"></div>
+            </div>
+          </div>
+          <div class="screen" data-slide="3">
+            <div class="nav-head"><span class="arrow">⛽</span><div><div class="dist">Pit stop</div><div class="road">On your route</div></div></div>
+            <div class="mini" style="top:72px;bottom:0">
+              <div class="rd" style="left:18%;top:0;width:12px;height:100%"></div>
+              <div class="rd orange" style="top:40%;left:0;height:12px;width:70%"></div>
+            </div>
+            <div class="gas-list" style="position:absolute;left:0;right:0;top:78px">
+              <div class="gas"><i>G</i><div><b>Harbor Fuel</b><span>0.4 mi · +2 min</span></div><strong>$4.59</strong></div>
+              <div class="gas"><i>G</i><div><b>Maple Gas</b><span>1.1 mi · +4 min</span></div><strong>$4.49</strong></div>
+              <div class="gas"><i>G</i><div><b>Coast Stop</b><span>2.0 mi · +6 min</span></div><strong>$4.79</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="road v local" aria-hidden="true"><span>Maple Ave</span></div>
+      <div class="lot step-lot">
+      <div class="carousel-copy">
+        <div class="dots" role="tablist" aria-label="Steps">
+          <button class="dot" type="button" data-index="0" aria-label="Step 1"></button>
+          <button class="dot" type="button" data-index="1" aria-label="Step 2"></button>
+          <button class="dot" type="button" data-index="2" aria-label="Step 3"></button>
+          <button class="dot" type="button" data-index="3" aria-label="Step 4"></button>
+        </div>
+        <div class="slide-copy is-active">
+          <p class="kicker">Step 1</p>
+          <h2>Get told when to leave</h2>
+          <p>Waze knows it’s easier to plan your trip than your excuse for being late.</p>
+        </div>
+        <div class="slide-copy">
+          <p class="kicker">Step 2</p>
+          <h2>Start driving</h2>
+          <p>Waze knows what’s around that corner. And that corner.</p>
+        </div>
+        <div class="slide-copy">
+          <p class="kicker">Step 3</p>
+          <h2>Get rerouted in real-time</h2>
+          <p>Waze knows that route is sooo three minutes ago.</p>
+        </div>
+        <div class="slide-copy">
+          <p class="kicker">Step 4</p>
+          <h2>Need a pit stop?</h2>
+          <p>Wondering if getting gas will make you late? Waze knows.</p>
+        </div>
+      </div>
+      </div>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side park" aria-hidden="true"><em>Wells Park</em></div>
+    </section>
+
+    <div class="road h red span-all" aria-hidden="true"><span>Market St</span></div>
+
+    <section class="band" aria-label="Maps and apps">
+      <div class="lot side park" aria-hidden="true"><em>Cedar Green</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <div class="panel card lot apps-copy">
+        <p class="kicker">Maps + Apps</p>
+        <h2>Listen to two things at once</h2>
+        <p class="body">Pair with your favorite music app, voice assistance feature, or even your car itself.</p>
+        <svg class="mood corner-left" viewBox="0 0 100 90" aria-hidden="true">
+          <circle cx="50" cy="48" r="28" fill="#8ee06a"/>
+          <path d="M18 46c0-16 8-28 18-28M82 46c0-16-8-28-18-28" fill="none" stroke="#222" stroke-width="6" stroke-linecap="round"/>
+          <rect x="10" y="40" width="14" height="20" rx="6" fill="#222"/>
+          <rect x="76" y="40" width="14" height="20" rx="6" fill="#222"/>
+          <rect x="34" y="44" width="32" height="12" rx="6" fill="#222"/>
+          <path d="M42 66c3 5 13 5 16 0" fill="none" stroke="#145c22" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="road v local" aria-hidden="true"><span>Maple Ave</span></div>
+      <div class="panel lot scene apps-visual">
+        <div class="player">
+          <div class="album">LILT</div>
+          <div class="track"><b>Wait No More</b><span>Lilt</span></div>
+          <div class="controls">
+            <button type="button" aria-label="Save">＋</button>
+            <button type="button" aria-label="Previous">⏮</button>
+            <button class="play" type="button" aria-pressed="true" aria-label="Pause">❚❚</button>
+            <button type="button" aria-label="Next">⏭</button>
+          </div>
+        </div>
+        <div class="school-map" aria-hidden="true">
+          <svg viewBox="0 0 640 300" preserveAspectRatio="xMidYMid slice">
+            <rect width="640" height="300" fill="#efe8dc"/>
+            <rect x="0" y="0" width="250" height="300" fill="#e4ddd0"/>
+            <rect x="430" y="0" width="210" height="300" fill="#c9dba8"/>
+            <rect x="292" y="0" width="46" height="300" fill="#6a4fd8"/>
+            <rect x="304" y="0" width="18" height="300" fill="#8d78ee"/>
+            <text x="36" y="70" fill="#6e695f" font-family="Rubik, sans-serif" font-size="18" font-weight="600">Jacobs</text>
+            <text x="36" y="94" fill="#6e695f" font-family="Rubik, sans-serif" font-size="18" font-weight="600">Middle</text>
+            <text x="36" y="118" fill="#6e695f" font-family="Rubik, sans-serif" font-size="18" font-weight="600">School</text>
+            <text x="470" y="78" fill="#5d6a48" font-family="Rubik, sans-serif" font-size="18" font-weight="600">Wells</text>
+            <text x="470" y="102" fill="#5d6a48" font-family="Rubik, sans-serif" font-size="18" font-weight="600">Park</text>
+            <text x="360" y="250" fill="#6e695f" font-family="Rubik, sans-serif" font-size="14" transform="rotate(-72 360 250)">Harvest Ave</text>
+            <polygon points="300,150 330,150 315,118" fill="#2f9bff" stroke="#fff" stroke-width="3"/>
+          </svg>
+        </div>
+      </div>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side" aria-hidden="true"><em>School Block</em></div>
+    </section>
+
+    <div class="road h orange span-all" aria-hidden="true"><span>Cedar St</span></div>
+
+    <section class="band" id="schedule" aria-label="Schedule">
+      <div class="lot side" aria-hidden="true"><em>Lots</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <div class="lot schedule-copy">
+        <h2>Schedule your drive around traffic</h2>
+        <p>Once your trip is saved, sit back and relax. We’ll notify you when it’s time to leave.</p>
+        <button class="linkish" id="plan" type="button">Plan + Go</button>
+      </div>
+      <div class="road v local" aria-hidden="true"><span>Maple Ave</span></div>
+      <div class="planner lot scene">
+        <svg class="basemap" viewBox="0 0 760 520" preserveAspectRatio="xMidYMid slice">
+          <g id="planner-map">
+            <rect width="760" height="520" fill="#f4efe6"/>
+            <rect x="40" y="40" width="180" height="120" rx="8" fill="#d5e4b8"/>
+            <rect x="480" y="300" width="220" height="150" rx="10" fill="#cfe3b0"/>
+            <rect x="300" y="80" width="160" height="90" rx="6" fill="#e7e1d4"/>
+            <g stroke="#fff" stroke-width="10" fill="none">
+              <path d="M0 160 H760 M0 300 H760 M0 430 H760 M160 0 V520 M340 0 V520 M520 0 V520 M660 0 V520"/>
+            </g>
+            <g fill="none" stroke-linecap="round">
+              <path d="M0 160 H760" stroke="#2fcb5a" stroke-width="6"/>
+              <path d="M0 300 H340" stroke="#e10600" stroke-width="7"/>
+              <path d="M340 300 H760" stroke="#f0a000" stroke-width="7"/>
+              <path d="M0 430 H760" stroke="#2fcb5a" stroke-width="5"/>
+              <path d="M160 0 V520" stroke="#2fcb5a" stroke-width="6"/>
+              <path d="M340 0 V200" stroke="#e10600" stroke-width="7"/>
+              <path d="M340 200 V520" stroke="#f0a000" stroke-width="6"/>
+              <path d="M520 0 V520" stroke="#2fcb5a" stroke-width="6"/>
+              <path d="M660 0 V520" stroke="#e10600" stroke-width="5"/>
+            </g>
+            <path id="route" d="M180 430 C 180 300, 300 300, 360 220 S 560 120, 640 90" fill="none" stroke="#2f6bff" stroke-width="0" stroke-linecap="round"/>
+            <text x="70" y="100" fill="#5e684c" font-family="Rubik,sans-serif" font-size="14">Grand Park</text>
+            <text x="520" y="370" fill="#5e684c" font-family="Rubik,sans-serif" font-size="14">Wells Park</text>
+            <text x="360" y="150" fill="#6e695f" font-family="Rubik,sans-serif" font-size="13">Civic Center</text>
+          </g>
+        </svg>
+        <form class="planner-card" action="#" onsubmit="return false;">
+          <label class="field">
+            <span class="dot-start"></span>
+            <input id="start" type="text" placeholder="Choose starting point" autocomplete="off" aria-label="Choose starting point">
+            <button class="swap" type="button" aria-label="Swap start and destination">↕</button>
+          </label>
+          <label class="field">
+            <span class="dot-end"></span>
+            <input id="end" type="text" placeholder="Choose destination" autocomplete="off">
+            <span></span>
+          </label>
+        </form>
+        <p class="route-note" role="status"></p>
+        <div class="zoom">
+          <button type="button" data-zoom="in" aria-label="Zoom in">+</button>
+          <button type="button" data-zoom="out" aria-label="Zoom out">−</button>
+        </div>
+      </div>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side park" aria-hidden="true"><em>East Park</em></div>
+    </section>
+
+    <div class="road h green span-all" aria-hidden="true"><span>Sunset Blvd</span></div>
+
+    <section class="band" aria-label="Community">
+      <div class="lot side park" aria-hidden="true"><em>Hill Park</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <div class="panel card lot quote-copy">
+        <blockquote>“Because of so many people contributing, it feels like I’m part of something bigger than the navigation app alone.”</blockquote>
+        <p class="byline">Bionca Smith, Wazer, Los Angeles</p>
+      </div>
+      <div class="road v local" aria-hidden="true"><span>Maple Ave</span></div>
+      <div class="panel lot scene roadtrip" aria-hidden="true">
+        <svg viewBox="0 0 640 500" preserveAspectRatio="xMidYMid slice">
+          <rect width="640" height="280" fill="#8ec6ea"/>
+          <circle cx="520" cy="80" r="36" fill="#ffe58a"/>
+          <path d="M0 240c80-50 140-20 220-40 100-24 160 30 260-10 70-18 110 10 160-16v80H0z" fill="#6e9a52"/>
+          <path d="M0 300c100-30 180 10 280-16 120-30 180 20 360-10v210H0z" fill="#87b56a"/>
+          <rect y="390" width="640" height="70" fill="#5c5c5c"/>
+          <path d="M0 424h640" stroke="#f2d15a" stroke-width="4" stroke-dasharray="18 16"/>
+          <g transform="translate(250 300)">
+            <rect x="20" y="40" width="230" height="78" rx="16" fill="#f4f1ea"/>
+            <rect x="40" y="22" width="150" height="40" rx="10" fill="#f7f4ee"/>
+            <rect x="55" y="30" width="48" height="22" rx="3" fill="#b9dff2"/>
+            <rect x="112" y="30" width="48" height="22" rx="3" fill="#b9dff2"/>
+            <path d="M20 70h230" stroke="#e07a3d" stroke-width="8"/>
+            <circle cx="70" cy="122" r="22" fill="#333"/>
+            <circle cx="200" cy="122" r="22" fill="#333"/>
+            <circle cx="70" cy="122" r="10" fill="#cfcfcf"/>
+            <circle cx="200" cy="122" r="10" fill="#cfcfcf"/>
+          </g>
+          <g transform="translate(300 250)">
+            <circle cx="70" cy="78" r="28" fill="#3d2a22"/>
+            <circle cx="70" cy="58" r="16" fill="#f1c6a8"/>
+            <path d="M48 92c4 28 40 28 44 0" fill="#222"/>
+            <circle cx="118" cy="48" r="14" fill="#f1c6a8"/>
+            <path d="M100 70c6 20 30 18 34-2" fill="#c4554a"/>
+            <path d="M104 86c8 16 22 16 28 2" fill="#3a6ea5"/>
+          </g>
+        </svg>
+      </div>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side" aria-hidden="true"><em>South Block</em></div>
+    </section>
+
+    <div class="road h red span-all" aria-hidden="true"><span>Park Rd</span></div>
+
+    <section class="band" aria-label="Download">
+      <div class="lot side" aria-hidden="true"><em>Plaza</em></div>
+      <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+      <section class="panel card lot cta span-main" id="download">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <path fill="#fff" stroke="#111" stroke-width="3" d="M32 6c14 0 24 10 24 24 0 9-3 15-7 19-1 7-5 10-9 8 0-4-3-6-8-6s-8 2-8 6c-4 2-8-1-9-8-4-4-7-10-7-19C8 16 18 6 32 6z"/>
+        <circle cx="24" cy="30" r="3" fill="#111"/>
+        <circle cx="40" cy="30" r="3" fill="#111"/>
+        <path d="M23 38c3 6 15 6 18 0" fill="none" stroke="#111" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+      <h2>Ready to hit the road?</h2>
+      <div class="stores">
+        <a class="store" href="https://play.google.com/store/apps/details?id=com.waze" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#34a853" d="M3 20.5l10.2-8.5L3 3.4v17.1z"/>
+            <path fill="#fbbc04" d="M16.7 12.2L3 20.5l11.2-1.2 2.5-7.1z"/>
+            <path fill="#4285f4" d="M3 3.4l13.7 8.8L14.2 4.6 3 3.4z"/>
+            <path fill="#ea4335" d="M16.7 12.2l3.6 2.1c.8.5.8 1.6 0 2.1l-3.6 2.1-2.5-4.2 2.5-2.1z"/>
+          </svg>
+          <span><small>GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+        <a class="store" href="https://apps.apple.com/app/waze-navigation-live-traffic/id323229106" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#fff" d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.9-0.8-3.1-.8c-1.6 0-3.1 1-3.9 2.4-1.7 2.9-.4 7.2 1.2 9.6.8 1.1 1.7 2.4 3 2.4 1.2 0 1.6-.8 3.1-.8s1.8.8 3.1.8 2.1-1.2 2.9-2.4c.9-1.3 1.3-2.6 1.3-2.6s-2.6-1-2.7-4.1zM14.6 6.5c.6-.8 1.1-1.9.9-3-1 .1-2.1.7-2.8 1.5-.6.7-1.2 1.8-.9 2.9 1.1.1 2.1-.5 2.8-1.4z"/>
+          </svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+      </div>
+    </section>
+      <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+      <div class="lot side park" aria-hidden="true"><em>Lake Park</em></div>
+    </section>
+  </main>
+
+    <div class="road h orange span-all" aria-hidden="true"><span>Lake St</span></div>
+
+    <div class="lot side" aria-hidden="true"><em>Yard</em></div>
+    <div class="road v avenue green" aria-hidden="true"><span>3rd St</span></div>
+    <footer class="lot footer span-main" id="partners">
+    <div class="footer-grid">
+      <div>
+        <strong style="font-size:28px;letter-spacing:-.04em">waze</strong>
+        <p class="tag">Where drivers help drivers</p>
+        <div class="socials">
+          <a href="https://twitter.com/waze" aria-label="Twitter" target="_blank" rel="noreferrer">𝕏</a>
+          <a href="https://www.facebook.com/Waze" aria-label="Facebook" target="_blank" rel="noreferrer">f</a>
+          <a href="https://www.instagram.com/waze" aria-label="Instagram" target="_blank" rel="noreferrer">◎</a>
+          <a href="https://www.youtube.com/user/Waze" aria-label="YouTube" target="_blank" rel="noreferrer">▶</a>
+        </div>
+      </div>
+      <div id="cities">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="https://support.google.com/waze" target="_blank" rel="noreferrer">Help Center</a></li>
+          <li><a href="https://www.waze.com/live-map" target="_blank" rel="noreferrer">Fix a map issue</a></li>
+          <li><a href="https://www.waze.com/forum/" target="_blank" rel="noreferrer">Community forums</a></li>
+          <li><a href="https://www.waze.com/wiki" target="_blank" rel="noreferrer">Community wiki</a></li>
+          <li><a href="https://www.waze.com" target="_blank" rel="noreferrer">Waze Academy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Live Map</h3>
+        <ul>
+          <li><a href="#schedule">Plan a drive</a></li>
+          <li><a href="#schedule">Major events</a></li>
+          <li><a href="#schedule">Edit the map</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>About</h3>
+        <ul>
+          <li><a href="https://www.waze.com/company" target="_blank" rel="noreferrer">About us</a></li>
+          <li><a href="https://www.waze.com/company" target="_blank" rel="noreferrer">Contact Us</a></li>
+          <li><a href="https://medium.com/waze" target="_blank" rel="noreferrer">Waze blog</a></li>
+          <li><a href="https://www.waze.com/forum/" target="_blank" rel="noreferrer">Communities</a></li>
+          <li><a href="https://www.waze.com/company" target="_blank" rel="noreferrer">Press</a></li>
+          <li><a href="https://www.waze.com" target="_blank" rel="noreferrer">Suggestion Box</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Partners</h3>
+        <ul>
+          <li><a href="https://www.waze.com/wazeforcities" target="_blank" rel="noreferrer">Waze for Cities</a></li>
+          <li><a href="https://www.waze.com" target="_blank" rel="noreferrer">Transport SDK</a></li>
+          <li><a href="https://developers.google.com/waze" target="_blank" rel="noreferrer">Developers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <a href="https://www.waze.com/legal/tos" target="_blank" rel="noreferrer">Terms of Use</a>
+      <a href="https://www.waze.com/legal/privacy" target="_blank" rel="noreferrer">Privacy Policy</a>
+      <a href="https://www.waze.com/legal/copyright" target="_blank" rel="noreferrer">Copyright Notice</a>
+      <span>© 2006 - 2026 Waze Mobile. All Rights Reserved.</span>
+    </div>
+  </footer>
+    <div class="road v avenue red" aria-hidden="true"><span>Broadway</span></div>
+    <div class="lot side" aria-hidden="true"><em>Terminal</em></div>
+    <div class="road h green span-all" aria-hidden="true"><span>Coast Hwy</span></div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="traffic.js"></script>
+</body>
+</html>
