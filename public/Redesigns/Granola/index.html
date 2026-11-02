@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog — News and product insights from Granola HQ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="#top" aria-label="Granola home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path
+            d="M16.2 4.2c5.6.2 10 4.7 9.8 10.4-.2 5.5-4.7 9.9-10.3 10.1-5.7.2-10.4-4.2-10.6-9.9C4.9 8.8 9.6 4 15.4 4.1"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.15"
+            stroke-linecap="round"
+          />
+          <path
+            d="M16.4 10.2c2.7.15 4.7 2.2 4.6 4.8-.1 2.5-2.1 4.5-4.7 4.6-1.5 0-2.6-.5-3.4-1.4"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.15"
+            stroke-linecap="round"
+          />
+        </svg>
+        <span>granola</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#enterprise">Enterprise</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#blog" aria-current="page">Blog</a>
+        <a href="#careers">Careers</a>
+      </nav>
+      <div class="actions">
+        <a class="sales" href="#sales">Talk to sales</a>
+        <a class="download" href="#download">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M11.2 1.2c.1 1-.3 2-.9 2.7-.6.7-1.6 1.3-2.6 1.2-.1-1 .4-2 .9-2.6.6-.7 1.7-1.2 2.6-1.3zM13.6 11.5c-.3.7-.6 1.3-1 1.8-.5.7-1.1 1.4-1.9 1.4s-1.1-.4-2.1-.4-1.3.4-2.1.5-1.4-.7-1.9-1.4c-1.1-1.5-1.9-4.2-.8-6 .5-.9 1.4-1.5 2.4-1.5.9 0 1.5.5 2.2.5s1.3-.6 2.3-.5c.6 0 1.6.2 2.3 1.1-2 .1-2.6 1.6-2.6 1.6s1.5.9 1.5 2.4c0 0 .1.4-.3.5z"
+              fill="currentColor"
+            />
+          </svg>
+          Download
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <h1 id="blog">Blog</h1>
+      <div class="filters" role="tablist" aria-label="Filter notes">
+        <button class="chip" role="tab" id="tab-all" aria-selected="true" data-filter="all">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3" />
+            <rect x="9.5" y="1.5" width="5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3" />
+            <rect x="1.5" y="9.5" width="5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3" />
+            <rect x="9.5" y="9.5" width="5" height="5" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.3" />
+          </svg>
+          All
+        </button>
+        <button class="chip" role="tab" id="tab-blog" aria-selected="false" data-filter="blog">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M4 2.2h5.2L12.8 6v7.6a1.2 1.2 0 0 1-1.2 1.2H4.4A1.2 1.2 0 0 1 3.2 13.6V3.4A1.2 1.2 0 0 1 4.4 2.2z" fill="#d7e36a" stroke="#6d7a16" stroke-width="1" />
+            <path d="M9 2.4V6h3.6" fill="none" stroke="#6d7a16" stroke-width="1" />
+          </svg>
+          Blog
+        </button>
+        <button class="chip" role="tab" id="tab-announcements" aria-selected="false" data-filter="announcements">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M3 6.2h2.2l5.2-2.6v8.8L5.2 9.8H3a1 1 0 0 1-1-1V7.2a1 1 0 0 1 1-1z" fill="#d7ccfb" stroke="#6d5cae" stroke-width="1" />
+            <path d="M5.2 10.1v2.4a1 1 0 0 0 1.6.8l1.2-1" fill="none" stroke="#6d5cae" stroke-width="1" stroke-linecap="round" />
+          </svg>
+          Announcements
+        </button>
+        <button class="chip" role="tab" id="tab-press" aria-selected="false" data-filter="press">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="5.2" fill="#d5e7fb" stroke="#4d74a8" stroke-width="1" />
+            <ellipse cx="8" cy="8" rx="2.3" ry="5.2" fill="none" stroke="#4d74a8" stroke-width="1" />
+            <path d="M3 8h10M3.8 5.6h8.4M3.8 10.4h8.4" fill="none" stroke="#4d74a8" stroke-width="0.8" />
+          </svg>
+          Press
+        </button>
+      </div>
+
+      <p class="sr-only" id="deck-help">
+        Swipe a note left for the next post, or right for the previous one. Arrow keys work too.
+      </p>
+
+      <section class="deck" aria-labelledby="blog" aria-describedby="deck-help">
+        <div class="stack-scene">
+          <div class="stack" id="stack"></div>
+        </div>
+        <div class="deck-ui">
+          <button class="round" id="prev" type="button" aria-label="Previous note">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M10.2 3.2 5.4 8l4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <p class="count" id="count" aria-live="polite"></p>
+          <button class="round" id="next" type="button" aria-label="Next note">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M5.8 3.2 10.6 8l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+        <p class="hint">Swipe the stack, or use the arrows</p>
+      </section>
+    </main>
+
+    <section class="cta" id="download">
+      <h2>Ready for <span class="mark">calmer</span>, more productive meetings?</h2>
+      <p>Try Granola for a few meetings today. It's free to get started.</p>
+      <div class="cta-actions">
+        <a class="download download-lg" href="#download">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path
+              d="M11.2 1.2c.1 1-.3 2-.9 2.7-.6.7-1.6 1.3-2.6 1.2-.1-1 .4-2 .9-2.6.6-.7 1.7-1.2 2.6-1.3zM13.6 11.5c-.3.7-.6 1.3-1 1.8-.5.7-1.1 1.4-1.9 1.4s-1.1-.4-2.1-.4-1.3.4-2.1.5-1.4-.7-1.9-1.4c-1.1-1.5-1.9-4.2-.8-6 .5-.9 1.4-1.5 2.4-1.5.9 0 1.5.5 2.2.5s1.3-.6 2.3-.5c.6 0 1.6.2 2.3 1.1-2 .1-2.6 1.6-2.6 1.6s1.5.9 1.5 2.4c0 0 .1.4-.3.5z"
+              fill="currentColor"
+            />
+          </svg>
+          Download for Mac
+        </a>
+        <a class="sales sales-lg" href="#download">Download for Mobile</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="foot-grid">
+        <div>
+          <p class="foot-label">Product</p>
+          <a href="#features">Notepad</a>
+          <a href="#features">Chat</a>
+          <a href="#features">Mobile</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#enterprise">Enterprise</a>
+        </div>
+        <div>
+          <p class="foot-label">Company</p>
+          <a href="#careers">Careers</a>
+          <a href="#blog">Blog</a>
+          <a href="#blog">Press</a>
+          <a href="#sales">Contact</a>
+        </div>
+        <div>
+          <p class="foot-label">Resources</p>
+          <a href="#features">Security</a>
+          <a href="#features">Help Center</a>
+          <a href="#features">Privacy</a>
+          <a href="#features">Terms</a>
+        </div>
+      </div>
+      <p class="legal">© Granola. A notepad recreation — posts are a swipeable stack of notes.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

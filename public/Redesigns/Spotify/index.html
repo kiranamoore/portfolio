@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listen to Spotify anywhere</title>
+    <style>
+      :root {
+        --green: #169544;
+        --white: #ffffff;
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--green);
+        color: var(--white);
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .anywhere {
+        min-height: 100vh;
+        padding: 56px 11vw 88px;
+      }
+
+      .anywhere-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .page-chrome {
+        position: relative;
+      }
+
+      .anywhere h1 {
+        text-align: center;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        font-weight: 900;
+        letter-spacing: -0.055em;
+        line-height: 0.92;
+      }
+
+      .lede {
+        max-width: 52rem;
+        margin: 1.15rem auto 4.75rem;
+        text-align: center;
+        font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+        font-weight: 400;
+        line-height: 1.4;
+      }
+
+      .collage {
+        display: grid;
+        grid-template-columns: 1.12fr 0.88fr 1.22fr;
+        column-gap: 2.85rem;
+        align-items: start;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.15rem;
+        z-index: 0;
+      }
+
+      .frame {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius);
+        isolation: isolate;
+      }
+
+      .card-road {
+        margin-top: 0;
+      }
+
+      .card-home {
+        margin-top: 8.25rem;
+      }
+
+      .card-go {
+        margin-top: 2.1rem;
+      }
+
+      .media-sizer {
+        width: 100%;
+        display: block;
+      }
+
+      .card-road .media-sizer {
+        aspect-ratio: 1.38 / 1;
+      }
+
+      .card-home .media-sizer {
+        aspect-ratio: 1.05 / 1;
+      }
+
+      .card-go .media-sizer {
+        aspect-ratio: 1.72 / 1;
+      }
+
+      .media {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+
+      .media img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100vw;
+        height: 100vh;
+        max-width: none;
+        object-fit: cover;
+        object-position: center center;
+        display: block;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(1.18);
+      }
+
+      .hit {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        cursor: zoom-in;
+        border-radius: var(--radius);
+      }
+
+      .caption {
+        position: relative;
+        z-index: 0;
+        max-width: 23rem;
+      }
+
+      .card h2 {
+        font-size: 1.38rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+        margin-bottom: 0.28rem;
+      }
+
+      .card p {
+        font-size: 1.02rem;
+        line-height: 1.35;
+        font-weight: 400;
+      }
+
+      .card.is-expanded,
+      .card.is-collapsing {
+        z-index: 30;
+      }
+
+      .card.is-expanded .media,
+      .card.is-collapsing .media {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        overflow: hidden;
+      }
+
+      .card.is-expanded .hit {
+        cursor: zoom-out;
+      }
+
+      .card.is-expanded .caption {
+        position: fixed;
+        z-index: 32;
+        max-width: min(28rem, 42vw);
+        background: rgba(22, 149, 68, 0.1);
+        padding: 1.5rem;
+        border-radius: var(--radius);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+
+      .card-road.is-expanded .caption {
+        left: auto;
+        right: 8vw;
+        bottom: 12vh;
+        top: auto;
+      }
+
+      .card-home.is-expanded .caption {
+        left: 8vw;
+        bottom: 11vh;
+        right: auto;
+        top: auto;
+      }
+
+      .card-go.is-expanded .caption {
+        left: 8vw;
+        bottom: 12vh;
+        right: auto;
+        top: auto;
+      }
+
+      body.is-expanded .page-chrome,
+      body.is-expanded .card:not(.is-expanded):not(.is-collapsing) {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      body.is-ready .is-animating .media {
+        transition: clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      body.is-ready .is-animating img {
+        transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      body.is-ready .caption {
+        transition:
+          max-width 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+          background 0.5s ease;
+      }
+
+      body.is-ready .page-chrome,
+      body.is-ready .card:not(.is-expanded):not(.is-collapsing) {
+        transition: opacity 0.35s ease;
+      }
+
+      @media (max-width: 960px) {
+        .anywhere {
+          padding: 56px 8vw 72px;
+        }
+
+        .collage {
+          grid-template-columns: 1fr;
+          row-gap: 2.5rem;
+        }
+
+        .card-home,
+        .card-go {
+          margin-top: 0;
+        }
+
+        .media-sizer {
+          aspect-ratio: 16 / 10;
+        }
+
+        .card.is-expanded .caption {
+          left: 7vw;
+          right: 7vw;
+          bottom: 8vh;
+          max-width: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        body.is-ready .is-animating .media,
+        body.is-ready .is-animating img,
+        body.is-ready .caption,
+        body.is-ready .page-chrome,
+        body.is-ready .card:not(.is-expanded):not(.is-collapsing) {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="anywhere">
+      <div class="anywhere-inner">
+        <div class="page-chrome">
+          <h1>Listen to Spotify anywhere</h1>
+          <p class="lede">
+            Spotify is compatible with over 2,000 devices. So wherever you
+            listen, your music is right there.
+          </p>
+        </div>
+
+        <div class="collage">
+          <article class="card card-road">
+            <div class="frame">
+              <div class="media-sizer"></div>
+              <div class="media">
+                <img
+                  src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2000&q=80"
+                  alt="Road trip through the desert"
+                />
+              </div>
+              <div class="hit" tabindex="0" aria-label="Expand On the road"></div>
+            </div>
+            <div class="caption">
+              <h2>On the road</h2>
+              <p>
+                Connect Spotify to Apple CarPlay, Android Auto, or your car's
+                built-in system and listen hands-free.
+              </p>
+            </div>
+          </article>
+
+          <article class="card card-home">
+            <div class="frame">
+              <div class="media-sizer"></div>
+              <div class="media">
+                <img
+                  src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=80"
+                  alt="Arcade and games at home"
+                />
+              </div>
+              <div class="hit" tabindex="0" aria-label="Expand At home"></div>
+            </div>
+            <div class="caption">
+              <h2>At home</h2>
+              <p>
+                Listen on smart speakers, your TV, game console, and more. Plus
+                switch between devices without missing a beat.
+              </p>
+            </div>
+          </article>
+
+          <article class="card card-go">
+            <div class="frame">
+              <div class="media-sizer"></div>
+              <div class="media">
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
+                  alt="Ocean shoreline on the go"
+                />
+              </div>
+              <div class="hit" tabindex="0" aria-label="Expand On the go"></div>
+            </div>
+            <div class="caption">
+              <h2>On the go</h2>
+              <p>
+                Spotify runs on smartwatches and wearables, so your music comes
+                with you without your phone having to.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const cards = [...document.querySelectorAll(".card")];
+      let active = null;
+      let collapseTimer = null;
+
+      function clipValue(rect, expanded) {
+        if (expanded) return "inset(0px round 0px)";
+        const right = Math.max(0, window.innerWidth - rect.right);
+        const bottom = Math.max(0, window.innerHeight - rect.bottom);
+        const left = Math.max(0, rect.left);
+        const top = Math.max(0, rect.top);
+        return `inset(${top}px ${right}px ${bottom}px ${left}px round 16px)`;
+      }
+
+      function sizerRect(card) {
+        return card.querySelector(".media-sizer").getBoundingClientRect();
+      }
+
+      function pinImageToCard(card, scale) {
+        const img = card.querySelector("img");
+        const rect = sizerRect(card);
+        img.style.left = `${rect.left + rect.width / 2}px`;
+        img.style.top = `${rect.top + rect.height / 2}px`;
+        img.style.transform = `translate(-50%, -50%) scale(${scale})`;
+      }
+
+      function clearPin(card) {
+        const media = card.querySelector(".media");
+        const img = card.querySelector("img");
+        media.style.clipPath = "";
+        media.style.transition = "";
+        img.style.left = "";
+        img.style.top = "";
+        img.style.transform = "";
+      }
+
+      function flipCaption(card, afterLayout) {
+        const caption = card.querySelector(".caption");
+        const start = caption.getBoundingClientRect();
+        afterLayout();
+        const end = caption.getBoundingClientRect();
+        caption.style.transition = "none";
+        caption.style.transform = `translate(${start.left - end.left}px, ${start.top - end.top}px)`;
+        caption.offsetHeight;
+        caption.style.transition =
+          "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)";
+        caption.style.transform = "translate(0, 0)";
+      }
+
+      function resetAllCards() {
+        if (collapseTimer) clearTimeout(collapseTimer);
+        cards.forEach((c) => {
+          c.classList.remove("is-expanded", "is-collapsing", "is-animating");
+          const caption = c.querySelector(".caption");
+          caption.style.transform = "";
+          caption.style.transition = "";
+          clearPin(c);
+        });
+        document.body.classList.remove("is-expanded");
+      }
+
+      function expand(card) {
+        if (active === card) return;
+        
+        resetAllCards();
+
+        const media = card.querySelector(".media");
+        const img = card.querySelector("img");
+        const rect = sizerRect(card);
+
+        active = card;
+        document.body.classList.add("is-expanded");
+
+        flipCaption(card, () => {
+          card.classList.add("is-expanded");
+        });
+
+        pinImageToCard(card, 1.18);
+        media.style.transition = "none";
+        media.style.clipPath = clipValue(rect, false);
+        img.style.transform = "translate(-50%, -50%) scale(1.18)";
+        media.offsetHeight;
+
+        card.classList.add("is-animating");
+        media.style.transition = "";
+        media.style.clipPath = clipValue(rect, true);
+        img.style.transform = "translate(-50%, -50%) scale(1.52)";
+      }
+
+      function collapse(targetCard, immediate) {
+        if (!active || active !== targetCard) return;
+        const card = active;
+        active = null;
+        if (collapseTimer) clearTimeout(collapseTimer);
+
+        document.body.classList.remove("is-expanded");
+
+        if (immediate) {
+          card.classList.remove("is-expanded", "is-collapsing", "is-animating");
+          card.querySelector(".caption").style.transform = "";
+          card.querySelector(".caption").style.transition = "";
+          clearPin(card);
+          return;
+        }
+
+        const media = card.querySelector(".media");
+        const img = card.querySelector("img");
+        const rect = sizerRect(card);
+
+        card.classList.remove("is-expanded");
+        card.classList.add("is-collapsing", "is-animating");
+        pinImageToCard(card, 1.52);
+
+        flipCaption(card, () => {});
+
+        media.style.clipPath = clipValue(rect, false);
+        img.style.transform = "translate(-50%, -50%) scale(1.18)";
+
+        collapseTimer = setTimeout(() => {
+          card.classList.remove("is-expanded", "is-collapsing", "is-animating");
+          card.querySelector(".caption").style.transform = "";
+          card.querySelector(".caption").style.transition = "";
+          clearPin(card);
+        }, 720);
+      }
+
+      cards.forEach((card) => {
+        const hit = card.querySelector(".hit");
+        hit.addEventListener("mouseenter", () => expand(card));
+        hit.addEventListener("mouseleave", () => collapse(card, false));
+        hit.addEventListener("focus", () => expand(card));
+        hit.addEventListener("blur", () => collapse(card, false));
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && active) collapse(active, true);
+      });
+
+      window.addEventListener("scroll", () => {
+        if (active) {
+          resetAllCards();
+          active = null;
+        }
+      }, { passive: true });
+
+      requestAnimationFrame(() => document.body.classList.add("is-ready"));
+    </script>
+  </body>
+</html>
