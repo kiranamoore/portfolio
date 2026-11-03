@@ -315,7 +315,7 @@ function tapedMarkup(post, size) {
     <figure class="taped taped-${size}" style="--tilt:${tilt}deg">
       <span class="tape" aria-hidden="true"></span>
       <div class="print">
-        <img src="images/${post.image}" alt="${post.imageAlt || ""}" draggable="false" />
+        <img src="/Redesigns/Granola/images/${post.image}" alt="${post.imageAlt || ""}" draggable="false" />
       </div>
       <figcaption>${post.caption || ""}</figcaption>
     </figure>
