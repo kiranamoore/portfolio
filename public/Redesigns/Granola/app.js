@@ -4,6 +4,10 @@ const POSTS = [
     title: "How sales teams use Granola",
     authors: ["Bardia Shahali", "Camilla Bier"],
     date: "August 17",
+    image: "sales-note.jpg",
+    imageAlt: "A notebook, pen, laptop, and coffee on a meeting table",
+    caption: "the desk, before the call",
+    tilt: -2.1,
     body: "The best sales notes are not a transcript. Reps jot the objection, the next step, and the name that actually decides. Granola keeps that scratch pad in the meeting, then turns it into a follow-up you would send yourself.",
   },
   {
@@ -11,6 +15,10 @@ const POSTS = [
     title: "Granola for Apple Watch",
     authors: ["Jack"],
     date: "July 28",
+    image: "watch-note.jpg",
+    imageAlt: "A round smartwatch on a wrist in a navy sleeve",
+    caption: "on the wrist",
+    tilt: 1.7,
     body: "A meeting on your wrist. Peek the brief before you walk in, catch the last decision on the way out, and leave the laptop in the bag. Same notes, smaller glass, still yours.",
   },
   {
@@ -18,6 +26,10 @@ const POSTS = [
     title: "Granola for Android is here!",
     authors: ["Jack"],
     date: "July 1",
+    image: "phone-note.jpg",
+    imageAlt: "A phone and a blue pen on lined notebook paper",
+    caption: "the android one",
+    tilt: 2.2,
     body: "Phone calls, hallway chats, the meeting that started in a car. Android gets the notepad too, so the note follows you off the desktop and onto the device already in your hand.",
   },
   {
@@ -53,6 +65,10 @@ const POSTS = [
     title: "How I shipped Granola's San Francisco office in one 14-day trip",
     authors: ["Ursula Wild"],
     date: "April 27",
+    image: "office-note.jpg",
+    imageAlt: "A sunny office with a wood table, chairs, and moving boxes",
+    caption: "day three, still boxes",
+    tilt: -1.4,
     body: "Fourteen days, one lease, a pile of chairs, and a city that does not wait. Ursula's note from the road: pick the room for the conversations you want, then make it feel lived-in before the first all-hands.",
   },
   {
@@ -292,10 +308,24 @@ function topTilt() {
   return tilts[Math.abs(index) % tilts.length];
 }
 
+function tapedMarkup(post, size) {
+  if (!post.image) return "";
+  const tilt = post.tilt ?? -1.6;
+  return `
+    <figure class="taped taped-${size}" style="--tilt:${tilt}deg">
+      <span class="tape" aria-hidden="true"></span>
+      <div class="print">
+        <img src="images/${post.image}" alt="${post.imageAlt || ""}" draggable="false" />
+      </div>
+      <figcaption>${post.caption || ""}</figcaption>
+    </figure>
+  `;
+}
+
 function noteMarkup(post, depth) {
   const hidden = depth === 0 ? "false" : "true";
   return `
-    <article class="note" data-depth="${depth}" aria-hidden="${hidden}" style="z-index:${10 - depth}; transform:${rest(depth, depth === 0 ? topTilt() : 0)}">
+    <article class="note${post.image ? " has-photo" : ""}" data-depth="${depth}" aria-hidden="${hidden}" style="z-index:${10 - depth}; transform:${rest(depth, depth === 0 ? topTilt() : 0)}">
       <div class="paper">
         <span class="hole hole-a"></span>
         <span class="hole hole-b"></span>
@@ -304,10 +334,12 @@ function noteMarkup(post, depth) {
         <div class="writing">
           <p class="kicker">${ICONS[post.category]} ${LABELS[post.category]}  ·  ${post.date}</p>
           <h2 class="title">${post.title}</h2>
-          <p class="gap" aria-hidden="true">&nbsp;</p>
+          ${tapedMarkup(post, "card")}
+          ${post.image ? "" : `<p class="gap" aria-hidden="true">&nbsp;</p>`}
           <p class="body">${post.body}</p>
           <p class="gap" aria-hidden="true">&nbsp;</p>
           <p class="byline">${authorsOf(post)}</p>
+          <p><button class="read-more" type="button">read more →</button></p>
         </div>
       </div>
     </article>
@@ -376,7 +408,7 @@ function finish(dir) {
 }
 
 function fly(sign) {
-  if (animating) return;
+  if (animating || readerOpen) return;
   const top = topCard();
   if (!top) return;
   animating = true;
@@ -413,15 +445,17 @@ function track(event) {
 function release(event) {
   if (!drag || (event && drag.id !== event.pointerId)) return;
   if (event) track(event);
-  const { x, vx } = drag;
+  const { x, y, vx } = drag;
   drag = null;
   window.removeEventListener("pointermove", track);
   window.removeEventListener("pointerup", release);
   window.removeEventListener("pointercancel", release);
   const throwLeft = x < -110 || vx < -0.55;
   const throwRight = x > 110 || vx > 0.55;
+  const tapped = Math.abs(x) < 8 && Math.abs(y) < 8;
   if (throwLeft) fly(-1);
   else if (throwRight) fly(1);
+  else if (tapped) openReader();
   else {
     const top = topCard();
     if (!top) return;
@@ -437,9 +471,10 @@ function release(event) {
 }
 
 stackEl.addEventListener("pointerdown", (event) => {
-  if (animating || event.button !== 0) return;
+  if (animating || readerOpen || event.button !== 0) return;
   const top = topCard();
   if (!top || !top.contains(event.target)) return;
+  if (event.target.closest(".read-more")) return;
   drag = {
     id: event.pointerId,
     x0: event.clientX,
@@ -461,6 +496,7 @@ nextBtn.addEventListener("click", () => fly(-1));
 
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
+    if (readerOpen) closeReader();
     if (chip.dataset.filter === filter) return;
     filter = chip.dataset.filter;
     index = 0;
@@ -475,8 +511,296 @@ document.querySelectorAll(".chip").forEach((chip) => {
 });
 
 document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && readerOpen) {
+    closeReader();
+    return;
+  }
+  if (readerOpen) return;
   if (event.key === "ArrowRight") fly(-1);
   if (event.key === "ArrowLeft") fly(1);
 });
+
+stackEl.addEventListener("click", (event) => {
+  if (!event.target.closest(".read-more")) return;
+  event.preventDefault();
+  openReader();
+});
+
+let readerOpen = false;
+let readerEl = null;
+let scrimEl = null;
+
+const EXTRAS = {
+  "How sales teams use Granola": [
+    "The best sales calls are conversations. The moment a rep starts typing, the call changes: eye contact breaks, follow-ups get shallower, and the prospect can feel the attention split. The notepad is there so the person can stay in the room.",
+    "What changes afterward is the follow-up. The quote, the number, and the hesitation are already on the page, so the work becomes judgment instead of archaeology. Which thread to pull. Which champion to arm. Which risk to name early.",
+    "Managers notice a second effect. Reviews stop being about reconstructing what was said and start being about what to do next, because the record is shared instead of trapped in one person's notebook.",
+  ],
+  "Granola for Apple Watch": [
+    "Not every important meeting happens on a call. They happen in hallways, over coffee, and in the five minutes after standup when someone says the thing that actually matters.",
+    "The watch has a narrow job: start reliably, stay out of the way, and hand the conversation back to the same workspace as your calls. The thinking happens later, on the bigger screen, with the full context.",
+    "Tap, talk, and the note is waiting when you sit down. Same pile. Smaller glass.",
+  ],
+  "Granola for Android is here!": [
+    "Phone calls, hallway chats, the meeting that started in a car. The desktop was never where all of the work happened, and the notes should not pretend otherwise.",
+    "Android gets the same notepad: a page you can open with one hand, a capture that does not ask you to join a bot, and a handoff back to the meetings you already have.",
+    "The point of a second device is not a second product. It is the same memory, closer to where the conversation actually was.",
+  ],
+  "Why Granola doesn't use a bot": [
+    "Every meeting note-taker has to answer one question: how does the audio get captured? The industry default is a bot that joins, announces itself, and records. We chose the other path, and it shapes the whole product.",
+    "A bot changes the room. People perform for it, legal teams ask about it, and guests wonder who invited it. A meeting is a social situation before it is a data source.",
+    "Bot-free capture is harder to build and gives us fewer shortcuts. We take that cost because the alternative makes every meeting slightly worse in a way people can feel but rarely name.",
+  ],
+  "New: Briefs prepare you for your next meeting as you join": [
+    "You should not have to hunt for the last thread while the waiting room spins. The brief is the page you would have scribbled if you had five quiet minutes: who you owe, what you promised, the question still open.",
+    "It shows up as you arrive, not as a recap after you have already improvised. The meeting can start on the second sentence instead of the first apology.",
+    "A brief is only useful if it is short enough to read while the other person says hello. Everything else can wait on the full note.",
+  ],
+  "--dangerously-skip-permissions is the only safe mode": [
+    "A scary flag is a kindness. It tells you the power you are about to grant, in the same breath as the command. Soft prompts train the opposite habit: click through, then wonder later what was allowed.",
+    "The post is a plea for names that match the risk. If the safe path is the one a person can read, then the dangerous path should look dangerous on purpose.",
+    "Permissions you hide do not become safer. They become folklore. The sharp name is the documentation.",
+  ],
+  "How Granola thinks about designing agents": [
+    "There is a version of the future where software books, writes, and decides while you watch a dashboard. We are designing for a different one, where the agent's job is to make your judgment faster.",
+    "A generic agent with a clever prompt knows nothing about your quarter, your customer, or the thing your manager said on Tuesday. An agent grounded in your meetings starts already oriented.",
+    "Trust is the real interface. Every suggestion shows its source, every draft sits one glance from the underlying words, and every action is easy to undo. We would rather ship three things you can inspect than thirty you cannot.",
+  ],
+  "How I shipped Granola's San Francisco office in one 14-day trip": [
+    "Fourteen days is not a construction schedule. It is a constraint that forces every choice into the open: the lease, the chairs, the first wall someone will stand in front of.",
+    "The useful question was not how an office should look. It was which conversations it should make easier. Desks follow from that, not the other way around.",
+    "By the time the first all-hands happened, the room had to feel lived in. A new office that still smells like a rendering is a room people perform in. This one needed to be a room people could interrupt.",
+  ],
+  "Granola Chat just got smarter": [
+    "Asking inside one meeting is useful. Asking across the month is the thing people actually mean when they say they cannot remember where a decision was made.",
+    "Chat can now pull the decision from March and the aside from yesterday, and answer in the margin as if it had been on the page the whole time. The source stays attached, so you can check the line instead of trusting the summary.",
+    "Smarter, here, does not mean longer. It means the answer knows which meeting you meant.",
+  ],
+  "Granola raises $125M to put your company's context to work": [
+    "A company's real knowledge does not live in its documents. It lives in the customer call where the roadmap changed, the standup where the risk was named, the interview where the pattern showed up first.",
+    "The raise is for making that context usable. Deeper history, stronger search, and agents that start from what the company already knows instead of a blank page.",
+    "The notes were always the beginning. The product is what a team can do the morning after, without asking the one person who was in the room.",
+  ],
+  "How to Take Good Meeting Notes: 7 Strategies That Work": [
+    "Good notes are not a transcript. A transcript tells you everything that was said. Notes tell you what it meant. The skill is deciding which few things deserve to survive.",
+    "Write the decision before the discussion. Capture the exact phrase when someone names a risk, a number, or a promise, because paraphrase quietly edits the truth. Leave blanks you can fill once the room is quiet.",
+    "Separate capture from cleanup. During the meeting, mark what matters. Within the hour, organize it for a reader who was not there. That single standard fixes most note-taking problems.",
+    "Whether a person or a tool does the capturing, the test is the same: could someone act on this tomorrow without asking you what you meant?",
+  ],
+  "So, you think it's easy to change an app icon?": [
+    "A tiny square, a dozen platforms, and a week of almosts. The pixels are the part you can see. The hard part is every place the old mark still hides: a notification, a document, a dock that cached the previous glyph.",
+    "Changing an icon is a migration, not a drawing. You have to decide what the mark is allowed to mean, then go find the copies that did not get the memo.",
+    "The postmortem is affectionate. The icon did change. It just refused to change all at once.",
+  ],
+  "Granola MCP: Connect your meeting notes to Claude, ChatGPT, and Cursor": [
+    "The notes are only stuck if the only way out of them is a copy and a paste. MCP lets the tools you already ask questions read the meeting without that detour.",
+    "Claude, ChatGPT, and Cursor can sit next to the same context: the decision, the owner, the open loop. The notepad stays the source. The other tools borrow it.",
+    "A connection is useful when you can still see where an answer came from. The meeting does not disappear into the chat. It stays a note you can open.",
+  ],
+  "Meet the new look Granola": [
+    "Same product, a face that finally matches it. The old look was fine. It just looked like software. The new one looks a little more like the page you are already writing on.",
+    "A hand-drawn mark, a serif with some nerve, and a green that feels like a highlighter. Calm, with energy underneath. Not a costume for a serious tool. The tool, dressed like itself.",
+    "Visual systems are product decisions. If the page feels hurried, the notes will too. This one is trying to feel like you have a minute.",
+  ],
+  "I Spent 10 Years Taking Bad Notes. This AI Changed Everything": [
+    "A decade of notebooks that went stale by Thursday. The problem was not effort. It was that the page stopped knowing what the meeting had been for.",
+    "The useful change was not more text. It was a note that still held the decision after the conversation had left the room, and that you could find without rereading the whole hour.",
+    "Ten years of bad notes is a high bar. The test is smaller: did Friday's you thank Thursday's you.",
+  ],
+  "How we wrote the prompts behind Granola's Crunched 2025": [
+    "Crunched had to sound like a person who was in the room, not a recap bot clearing its throat. That constraint threw out a lot of clever instructions.",
+    "Shorter prompts. Meaner examples. A rule that the note may leave things out. A summary that includes everything is not a summary. It is a transcript wearing a hat.",
+    "The prompts got better when we started grading them the way we grade our own notes: would you send this to someone who missed the meeting.",
+  ],
+  "Introducing Recipes, in the all-new Granola Chat": [
+    "A recipe is a habit you only have to write once. A sales debrief. A research sweep. A Monday digest. The question stays. The week changes.",
+    "Instead of re-explaining what you want from the notes, you run the recipe on whatever the meetings just handed you. The shape of the answer is familiar. The facts are new.",
+    "Recipes are how a team keeps a point of view. The model brings the context. The recipe brings the standard.",
+  ],
+  "When back becomes broken: how we found a tiny navigation bug": [
+    "Back should mean back. For a while, on one path through the app, it meant sideways. Small enough that people blamed themselves and hit the button again.",
+    "The bug lived in a piece of state that looked correct if you only checked the happy path. The wrong assumption was old. The screen that exposed it was new.",
+    "The fix was small. The lesson was not: if a control has a meaning in the platform, do not borrow the word for a different trip.",
+  ],
+  "Granola 2.0: A second brain for your team": [
+    "Your margin notes can stay personal. The decisions, the owners, the open loops can belong to the team without turning the page into a wiki nobody updates.",
+    "2.0 is the notepad growing a shared memory. Not a second app. The same notes, readable by the people who need the outcome and not the whole hour.",
+    "A second brain is a risky phrase. The modest version is enough: the team can find the sentence without asking the person who wrote it down.",
+  ],
+  "Start with a dot-plot": [
+    "Before the dashboard, draw the dots. An average is a story someone already decided to tell. The plot is the pile of meetings before that story.",
+    "Jim's argument is to look at the shape first, so a tidy number does not talk you out of what the week was actually doing. Clusters, gaps, the one point sitting alone.",
+    "Once you can see the dots, the chart you build afterward has to answer to them. That is the whole method.",
+  ],
+  "Can Granola's AI meeting notes eat bigger apps for breakfast?": [
+    "The piece asks whether a notepad can unsettle the big meeting suites. The bet is that people do not want another destination. They want the notes they were already going to take.",
+    "Big apps win by being the place you have to go. A notepad wins by being the place you already are. Those are different kinds of appetite.",
+    "Breakfast, if it happens, will not look like a feature checklist. It will look like a habit that stopped opening the other tab.",
+  ],
+  "Sam Stephenson – the journey of designing an AI startup": [
+    "Designing an AI product that still looks like stationery is a product decision, not a coat of paint. The page should feel calm even when the model is not.",
+    "Sam's through-line is taste as a constraint. What the product refuses to show matters as much as what it can generate. A note with too much on it is a note you will not read.",
+    "The journey in the interview is less about a rebrand and more about keeping the tool on the side of the person in the meeting.",
+  ],
+  "Chris Pedregal — building Granola": [
+    "Start from the meeting you wish you had handled better. Stay allergic to bots. Let the company remember without making everyone perform for a recorder.",
+    "Building Granola the long way means the notepad comes first and the intelligence has to earn its place on the page. If it cannot help you leave with the decision, it does not ship.",
+    "The conversation is about patience. A useful product is allowed to be quiet. The meetings are loud enough.",
+  ],
+  "Don't animate height!": [
+    "Height animations lie to the layout engine and jank everything that has to reflow around them. The page stutters, and the thing you meant to reveal arrives late.",
+    "If it has to move, move transform and opacity. Leave height alone unless you enjoy chasing bugs that only show up for one frame, on one machine, when the font is slightly different.",
+    "The plea is practical. Users do not applaud a smooth height. They notice the hitch. Take the hitch away.",
+  ],
+  "How to build a truly useful AI product": [
+    "Usefulness is a smaller claim than a demo. A demo can do a surprising thing once. A useful product finishes a job a person already has, in the place they already work.",
+    "The correction loop matters more than the first draft. If you cannot fix the output with something as simple as a pen, the product is asking you to trust it more than you should.",
+    "Start from the job. Then ask what the model is allowed to touch. The products that last are the ones a person can still steer.",
+  ],
+  "Our biggest stories and favorite things of 2024": [
+    "Year-end lists are usually about launches. The more interesting entries are the tools people actually kept open in December, when the novelty had worn off.",
+    "Granola shows up here as a habit story. Not the loudest announcement of the year. The tab that was still there when the year ended.",
+    "Favorite things, at their best, are evidence. Someone used it on a Tuesday. That is the whole review.",
+  ],
+  "A recipe for everyday AI": [
+    "Everyday is the hard adjective. A recipe that only works for a demo day is a poster. A recipe for Tuesday has one job, a surface you trust, and an output you can edit before anyone else sees it.",
+    "The piece looks for AI that fits the hour you already have, not an hour you are supposed to invent. Open, do the thing, close.",
+    "If it needs a tour, it is not everyday yet.",
+  ],
+  "Using AI to be more present and effective in your meetings": [
+    "Looking up is the feature. When the page catches the thread, you can stay in the conversation instead of splitting yourself between listening and transcribing.",
+    "Presence is not the opposite of a good note. It is what a good note is for. The record exists so your attention does not have to be the record.",
+    "Effective, afterward, is the follow-up you send because you heard the sentence, not because you were busy writing it down.",
+  ],
+  "Granola raises $20M to build the AI notepad that makes you smarter": [
+    "Twenty million to build the notepad, not a meeting robot. The distinction is the company. A robot attends. A notepad helps the person who was already going to be there.",
+    "Smarter, in this sentence, means you leave with the decision and the owner, and you can find them on Friday. It does not mean the software had the idea.",
+    "The round is a vote for that modesty. The margin of the page, taken seriously, is a product.",
+  ],
+  "VCs love using the AI meeting notepad Granola, so they gave it $20M": [
+    "The unusual order is the story. Investors met the product as users, in their own meetings, and the check followed the notepad rather than the other way around.",
+    "That is a specific kind of conviction. It is harder to be theoretical about a tool you used this morning. The note is either there or it is not.",
+    "The piece is a funding story that keeps circling back to the habit. People kept it open. Then they funded it.",
+  ],
+  "Chris Pedregal: Revolutionizing meetings with AI": [
+    "Fewer status theaters. More of the sentence you meant to write down. The portrait is less about disruption and more about giving the meeting back to the people in it.",
+    "AI, in this telling, is a quiet second pen. It does not run the room. It keeps the thread so the humans can stay in the conversation.",
+    "Revolution is a large word for a notepad. The smaller claim is the one that holds: the meeting gets calmer, and the note gets better.",
+  ],
+  "How to evolve a product": [
+    "Evolution is a sequence of small kept promises. Change the page only when the last change has been lived in. A product grows by subtraction as often as by shipping.",
+    "The field note is against the roadmap as a pile of intentions. Ship the thing, watch people use it, then earn the next change. Unlived features are just weight.",
+    "If you cannot say what the last release taught you, you are not evolving. You are accumulating.",
+  ],
+  "The best AI note-taking tools for meetings": [
+    "The useful split in a roundup like this is simple. Some tools record the room. Some tools help you write. They look similar in a list and feel different in a meeting.",
+    "Granola sits on the writing side. The page is still yours. The model helps you leave with the decision instead of replacing the act of noting it.",
+    "Best, in a list, usually means most features. In a meeting it means the one you forget is there until you need the note.",
+  ],
+  "How to Get the Best Out of Granola: Your Ultimate Guide": [
+    "Title the note before you join. Scribble the question you came in with. Those two lines do more than any setting, because they tell the rest of the page what the meeting was for.",
+    "Let the model fill in the middle, then delete anything you would not say out loud. A guide that skips the deleting step is only half a guide.",
+    "The best outcome is a note you would have been proud to take by hand, written in less time than the hand would have needed.",
+  ],
+  "Introducing Granola: the AI-powered notepad for meetings": [
+    "The first page. A notepad that listens with you and helps you leave with the decision, the owner, and the sentence you would have forgotten in the hallway.",
+    "It is not a bot in the call and it is not a transcript you will never read. It is the margin you meant to keep, with a little help holding the thread.",
+    "Everything later, the watch, the chat, the shared memory, starts from this idea: the meeting stays a meeting, and the note is waiting when it ends.",
+  ],
+};
+
+function articleOf(post) {
+  const more = EXTRAS[post.title] || [
+    "The short note on the card is the part you would jot before the meeting ends. The rest is what you would write once you had a minute to yourself.",
+    "Kept here, on the same paper, so the longer version still feels like something you took down rather than something a page designed for you.",
+  ];
+  return [post.body, ...more];
+}
+
+function openReader() {
+  if (readerOpen || animating) return;
+  const post = visible()[index];
+  const card = topCard();
+  const paper = card && card.querySelector(".paper");
+  if (!post || !paper) return;
+  readerOpen = true;
+  const rect = paper.getBoundingClientRect();
+  scrimEl = document.createElement("div");
+  scrimEl.className = "scrim";
+  document.body.appendChild(scrimEl);
+
+  readerEl = document.createElement("div");
+  readerEl.className = "reader";
+  readerEl.style.left = `${rect.left}px`;
+  readerEl.style.top = `${rect.top}px`;
+  readerEl.style.width = `${rect.width}px`;
+  readerEl.style.height = `${rect.height}px`;
+  const parts = articleOf(post);
+  const photo = tapedMarkup(post, "full");
+  const paragraphs = photo
+    ? `<p class="body">${parts[0]}</p><p class="gap" aria-hidden="true">&nbsp;</p>${photo}${parts.slice(1).map((paragraph) => `<p class="body">${paragraph}</p><p class="gap" aria-hidden="true">&nbsp;</p>`).join("")}`
+    : parts.map((paragraph) => `<p class="body">${paragraph}</p><p class="gap" aria-hidden="true">&nbsp;</p>`).join("");
+  readerEl.innerHTML = `
+    <div class="paper">
+      <button class="closex" type="button" aria-label="Close note">×</button>
+      <span class="hole hole-a"></span>
+      <span class="hole hole-b"></span>
+      <span class="hole hole-c"></span>
+      <span class="margin"></span>
+      <div class="writing reader-scroll">
+        <p class="kicker">${ICONS[post.category]} ${LABELS[post.category]}  ·  ${post.date}</p>
+        <h2 class="title">${post.title}</h2>
+        <p class="gap" aria-hidden="true">&nbsp;</p>
+        ${paragraphs}
+        <p class="gap" aria-hidden="true">&nbsp;</p>
+        <p class="byline">${authorsOf(post)}</p>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(readerEl);
+  document.body.style.overflow = "hidden";
+  document.querySelector(".stack-scene").classList.add("dimmed");
+  readerEl.querySelector(".closex").addEventListener("click", closeReader);
+  scrimEl.addEventListener("click", closeReader);
+
+  const width = Math.min(720, window.innerWidth * 0.94);
+  const height = Math.min(window.innerHeight * 0.9, 860);
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      if (!readerEl) return;
+      readerEl.style.left = `${(window.innerWidth - width) / 2}px`;
+      readerEl.style.top = `${Math.max(18, (window.innerHeight - height) / 2)}px`;
+      readerEl.style.width = `${width}px`;
+      readerEl.style.height = `${height}px`;
+      readerEl.classList.add("open");
+      scrimEl.classList.add("on");
+    });
+  });
+}
+
+function closeReader() {
+  if (!readerEl) return;
+  const paper = topCard() && topCard().querySelector(".paper");
+  const rect = paper
+    ? paper.getBoundingClientRect()
+    : { left: window.innerWidth / 2 - 40, top: window.innerHeight / 2 - 40, width: 80, height: 80 };
+  readerEl.classList.remove("open");
+  readerEl.style.left = `${rect.left}px`;
+  readerEl.style.top = `${rect.top}px`;
+  readerEl.style.width = `${rect.width}px`;
+  readerEl.style.height = `${rect.height}px`;
+  if (scrimEl) scrimEl.classList.remove("on");
+  document.querySelector(".stack-scene").classList.remove("dimmed");
+  document.body.style.overflow = "";
+  const sheet = readerEl;
+  const scrim = scrimEl;
+  readerEl = null;
+  scrimEl = null;
+  window.setTimeout(() => {
+    sheet.remove();
+    if (scrim) scrim.remove();
+    readerOpen = false;
+  }, 620);
+}
 
 render();
