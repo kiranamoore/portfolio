@@ -55,6 +55,15 @@ const featuredProjects = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "A Stack of Notes",
+    company: "Granola",
+    slug: "granola",
+    year: null,
+    thumbnail: "/Redesigns/Granola/Granola_Hero.mp4",
+    description: "Rebuilding Granola's blog as a stack of meeting notes you flip through and open to read, built in code in 2 days",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
