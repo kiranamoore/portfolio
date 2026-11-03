@@ -64,6 +64,15 @@ const featuredProjects = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Scroll Through a Passport",
+    company: "Veeza AI",
+    slug: "veeza",
+    year: null,
+    thumbnail: "/Redesigns/Veeza/Veeza_Hero.mp4",
+    description: "Rebuilding a visa service's homepage as a passport you flip through, stamps and all, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
