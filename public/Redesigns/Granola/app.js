@@ -284,6 +284,7 @@ let index = 0;
 let animating = false;
 let generation = 0;
 let drag = null;
+let prevPreview = null;
 
 function visible() {
   return POSTS.filter((post) => filter === "all" || post.category === filter);
@@ -303,9 +304,49 @@ function rest(depth, tilt = 0) {
   return `translate(${pose.x}px, ${pose.y}px) rotate(${pose.r}deg) scale(${pose.s})`;
 }
 
-function topTilt() {
+function tiltAt(i) {
   const tilts = [-0.6, 0.45, -0.25, 0.7, -0.9];
-  return tilts[Math.abs(index) % tilts.length];
+  const n = Math.max(1, visible().length);
+  const idx = ((i % n) + n) % n;
+  return tilts[idx % tilts.length];
+}
+
+function topTilt() {
+  return tiltAt(index);
+}
+
+function clearPrevPreview() {
+  if (!prevPreview) return;
+  prevPreview.remove();
+  prevPreview = null;
+}
+
+function ensurePrevPreview() {
+  if (prevPreview && prevPreview.isConnected) return prevPreview;
+  const items = visible();
+  if (items.length < 2) return null;
+  const post = items[(index - 1 + items.length) % items.length];
+  const wrap = document.createElement("div");
+  wrap.innerHTML = noteMarkup(post, 0).trim();
+  prevPreview = wrap.firstElementChild;
+  prevPreview.dataset.depth = "-1";
+  prevPreview.classList.add("note-preview");
+  prevPreview.setAttribute("aria-hidden", "true");
+  prevPreview.style.zIndex = "20";
+  prevPreview.style.pointerEvents = "none";
+  prevPreview.style.transition = "none";
+  stackEl.appendChild(prevPreview);
+  return prevPreview;
+}
+
+function placePrevPreview(progress) {
+  const card = ensurePrevPreview();
+  if (!card) return;
+  const tilt = tiltAt(index - 1);
+  const x = -720 + 720 * progress;
+  const y = 36 * (1 - progress);
+  const r = -16 + (tilt + 16) * progress;
+  card.style.transform = `translate(${x}px, ${y}px) rotate(${r}deg)`;
 }
 
 function tapedMarkup(post, size) {
@@ -371,10 +412,10 @@ function topCard() {
 function settleBacks(progress) {
   stackEl.querySelectorAll(".note").forEach((card) => {
     const depth = Number(card.dataset.depth);
-    if (depth === 0) return;
+    if (depth <= 0) return;
     const from = depth;
     const to = depth - 1;
-    const tilt = to === 0 ? topTilt() : 0;
+    const tilt = to === 0 ? tiltAt(index + 1) : 0;
     const a = rest(from).match(/-?\d+\.?\d*/g).map(Number);
     const b = rest(to, tilt).match(/-?\d+\.?\d*/g).map(Number);
     const mix = a.map((value, i) => value + (b[i] - value) * progress);
@@ -385,47 +426,56 @@ function settleBacks(progress) {
 function applyDrag(x, y) {
   const top = topCard();
   if (!top) return;
-  const rot = topTilt() + x / 18;
+  const rot = topTilt() + x / 22;
   top.style.transform = `translate(${x}px, ${y}px) rotate(${rot}deg)`;
-  settleBacks(Math.min(1, Math.abs(x) / 180));
+  if (x >= 0) {
+    clearPrevPreview();
+    settleBacks(Math.min(1, x / 180));
+  } else {
+    settleBacks(0);
+    placePrevPreview(Math.min(1, -x / 180));
+  }
 }
 
 function finish(dir) {
   const items = visible();
+  animating = false;
+  clearPrevPreview();
   if (!items.length) return;
   index = (index + dir + items.length) % items.length;
-  animating = false;
   render();
-  const top = topCard();
-  if (!top) return;
-  const sign = dir > 0 ? -1 : 1;
-  top.style.transition = "none";
-  top.style.transform = `translate(${sign * -40}px, 10px) rotate(${sign * -4}deg)`;
-  requestAnimationFrame(() => {
-    top.style.transition = "transform .45s cubic-bezier(.18,.84,.24,1)";
-    top.style.transform = rest(0, topTilt());
-  });
 }
 
-function fly(sign) {
-  if (animating || readerOpen) return;
+function fly(dir) {
+  if (!dir || animating || readerOpen) return;
   const top = topCard();
   if (!top) return;
   animating = true;
   const gen = ++generation;
-  const dir = sign < 0 ? 1 : -1;
-  top.style.transition = "transform .42s cubic-bezier(.2,.75,.2,1)";
-  top.style.transform = `translate(${sign * 880}px, 48px) rotate(${sign * 18}deg)`;
-  stackEl.querySelectorAll(".note").forEach((card) => {
-    const depth = Number(card.dataset.depth);
-    if (depth === 0) return;
-    card.style.transition = "transform .42s cubic-bezier(.18,.84,.24,1)";
-    card.style.transform = rest(depth - 1, depth - 1 === 0 ? topTilt() : 0);
-  });
+  const ease = "transform .42s cubic-bezier(.2,.75,.2,1)";
+  top.style.transition = ease;
+  if (dir > 0) {
+    clearPrevPreview();
+    top.style.transform = "translate(880px, 48px) rotate(18deg)";
+    stackEl.querySelectorAll(".note").forEach((card) => {
+      const depth = Number(card.dataset.depth);
+      if (depth <= 0) return;
+      card.style.transition = "transform .42s cubic-bezier(.18,.84,.24,1)";
+      card.style.transform = rest(depth - 1, depth - 1 === 0 ? tiltAt(index + 1) : 0);
+    });
+  } else {
+    top.style.transform = "translate(-880px, 36px) rotate(-16deg)";
+    settleBacks(0);
+    const preview = ensurePrevPreview();
+    if (preview) {
+      preview.style.transition = "transform .42s cubic-bezier(.18,.84,.24,1)";
+      preview.style.transform = rest(0, tiltAt(index - 1));
+    }
+  }
   window.setTimeout(() => {
     if (gen !== generation) return;
     finish(dir);
-  }, 400);
+  }, 420);
 }
 
 function track(event) {
@@ -450,23 +500,36 @@ function release(event) {
   window.removeEventListener("pointermove", track);
   window.removeEventListener("pointerup", release);
   window.removeEventListener("pointercancel", release);
-  const throwLeft = x < -110 || vx < -0.55;
-  const throwRight = x > 110 || vx > 0.55;
+  const past = Math.abs(x) >= 110;
+  const flicked = Math.abs(vx) >= 0.55;
   const tapped = Math.abs(x) < 8 && Math.abs(y) < 8;
-  if (throwLeft) fly(-1);
-  else if (throwRight) fly(1);
-  else if (tapped) openReader();
-  else {
-    const top = topCard();
-    if (!top) return;
+  if (past || flicked) {
+    const nextward = past ? x > 0 : vx > 0;
+    fly(nextward ? 1 : -1);
+    return;
+  }
+  if (tapped) {
+    clearPrevPreview();
+    openReader();
+    return;
+  }
+  const top = topCard();
+  if (top) {
     top.style.transition = "transform .45s cubic-bezier(.18,.84,.24,1)";
     top.style.transform = rest(0, topTilt());
-    stackEl.querySelectorAll(".note").forEach((card) => {
-      const depth = Number(card.dataset.depth);
-      card.style.transition = "transform .45s cubic-bezier(.18,.84,.24,1)";
-      if (depth === 0) return;
-      card.style.transform = rest(depth);
-    });
+  }
+  stackEl.querySelectorAll(".note").forEach((card) => {
+    const depth = Number(card.dataset.depth);
+    if (depth <= 0) return;
+    card.style.transition = "transform .45s cubic-bezier(.18,.84,.24,1)";
+    card.style.transform = rest(depth);
+  });
+  if (prevPreview) {
+    const node = prevPreview;
+    prevPreview = null;
+    node.style.transition = "transform .35s ease";
+    node.style.transform = "translate(-760px, 36px) rotate(-16deg)";
+    window.setTimeout(() => node.remove(), 360);
   }
 }
 
@@ -491,8 +554,8 @@ stackEl.addEventListener("pointerdown", (event) => {
   window.addEventListener("pointercancel", release);
 });
 
-prevBtn.addEventListener("click", () => fly(1));
-nextBtn.addEventListener("click", () => fly(-1));
+prevBtn.addEventListener("click", () => fly(-1));
+nextBtn.addEventListener("click", () => fly(1));
 
 document.querySelectorAll(".chip").forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -503,6 +566,7 @@ document.querySelectorAll(".chip").forEach((chip) => {
     animating = false;
     generation += 1;
     drag = null;
+    clearPrevPreview();
     document.querySelectorAll(".chip").forEach((other) => {
       other.setAttribute("aria-selected", other === chip ? "true" : "false");
     });
@@ -516,8 +580,8 @@ document.addEventListener("keydown", (event) => {
     return;
   }
   if (readerOpen) return;
-  if (event.key === "ArrowRight") fly(-1);
-  if (event.key === "ArrowLeft") fly(1);
+  if (event.key === "ArrowRight") fly(1);
+  if (event.key === "ArrowLeft") fly(-1);
 });
 
 stackEl.addEventListener("click", (event) => {
