@@ -37,6 +37,15 @@ const featuredProjects = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "The Loom Menu",
+    company: "SJMQT",
+    slug: "sj-quilts",
+    year: null,
+    thumbnail: "/Redesigns/SJ-Quilts/SJ_Quits_Hero.mp4",
+    description: "Rebuilding a quilt museum's menu as a working loom of interlacing cloth ribbons, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
