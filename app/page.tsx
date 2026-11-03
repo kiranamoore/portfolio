@@ -46,6 +46,15 @@ const featuredProjects = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Interactive IBM Product Cards",
+    company: "IBM",
+    slug: "ibm",
+    year: null,
+    thumbnail: "/Redesigns/IBM/IBM_Hero.mp4",
+    description: "Rebuilding IBM's product boxes as cards that ripple on hover, with customer proof up front, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
