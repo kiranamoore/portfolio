@@ -73,6 +73,15 @@ const featuredProjects = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Try the Agent",
+    company: "Workday",
+    slug: "workday",
+    year: null,
+    thumbnail: "/Redesigns/Workday/Workday_Hero.mp4",
+    description: "Rebuilding Workday's agent animation as a working chat demo you can run yourself, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "Character Carabiner Collectible",
     company: "  ",
     slug: "nogi-nogi",
