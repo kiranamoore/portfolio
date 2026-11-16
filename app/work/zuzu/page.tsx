@@ -451,13 +451,9 @@ export default function ZuZuPage() {
             <p className="text-[15px] text-[#1D1D1F] leading-[1.7] mb-10">
               <strong>16 component types,</strong> each designed with documented states, variants, and interaction specifications.
             </p>
-            <div className="rounded-xl overflow-hidden shadow-sm mb-6 bg-white">
-              <iframe src="/zuzu/ZuZu%20Brand%20Guide%20-%20V1.pdf" title="ZuZu Brand Guide V1" className="w-full h-[600px]" />
-            </div>
-            <div className="mb-10 text-center">
-              <a href="/zuzu/ZuZu%20Brand%20Guide%20-%20V1.pdf" target="_blank" rel="noopener noreferrer" className="text-[15px] font-medium text-[#0071E3] hover:underline">
-                Open the full brand guide
-              </a>
+            <div className="rounded-xl overflow-hidden shadow-sm mb-10">
+              <img src="/zuzu/Hero%20Image%20ZuZu.png" alt="ZuZu hero image" className="w-full cursor-zoom-in" onClick={() => openImage("/zuzu/Hero%20Image%20ZuZu.png")} />
+              <p className="text-center text-[14px] text-[#6E6E73] italic py-4 px-4 md:px-8 bg-white">From brand guideline to refined prototype</p>
             </div>
 
             {/* Core Interaction */}
