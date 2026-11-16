@@ -19,6 +19,21 @@ const spotlightProject = {
 // Other featured projects
 const featuredProjects = [
   {
+    title: "25 Websites, Reimagined",
+    company: "Directed Research",
+    slug: "website-redesigns",
+    year: null,
+    thumbnail: "/Redesigns/Instagram/Instagram_Thumbnail.mp4",
+    thumbnails: [
+      "/Redesigns/Instagram/Instagram_Thumbnail.mp4",
+      "/Redesigns/SJ-Quilts/SJ_Quits_Hero.mp4",
+      "/Redesigns/Granola/Granola_Hero.mp4",
+      "/Redesigns/Veeza/Veeza_Hero.mp4",
+    ],
+    description: "Featured redesigns from a directed research series of 25 websites: one focused interaction per site, designed with intention and built in real code",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "ZuZu Design System & Brand Identity",
     company: "ZuZu",
     slug: "zuzu",
@@ -26,60 +41,6 @@ const featuredProjects = [
     thumbnail: "/zuzu/ZuZu_Hero.mp4",
     description: "Built the complete visual identity and design system from zero: brand, 16+ component library, and theming for a superfan platform",
     tags: ["Visual Design", "Design Systems", "Brand Identity"],
-  },
-  {
-    title: "Instagram Website Redesign",
-    company: "Meta",
-    slug: "instagram",
-    year: null,
-    thumbnail: "/Redesigns/Instagram/Instagram_Thumbnail.mp4",
-    description: "Turning a static screenshot into a scroll driven experience you can interact with, built in code in 2 days",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
-  },
-  {
-    title: "The Loom Menu",
-    company: "SJMQT",
-    slug: "sj-quilts",
-    year: null,
-    thumbnail: "/Redesigns/SJ-Quilts/SJ_Quits_Hero.mp4",
-    description: "Rebuilding a quilt museum's menu as a working loom of interlacing cloth ribbons, built in code in 1 day",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
-  },
-  {
-    title: "Interactive IBM Product Cards",
-    company: "IBM",
-    slug: "ibm",
-    year: null,
-    thumbnail: "/Redesigns/IBM/IBM_Hero.mp4",
-    description: "Rebuilding IBM's product boxes as cards that ripple on hover, with customer proof up front, built in code in 1 day",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
-  },
-  {
-    title: "A Stack of Notes",
-    company: "Granola",
-    slug: "granola",
-    year: null,
-    thumbnail: "/Redesigns/Granola/Granola_Hero.mp4",
-    description: "Rebuilding Granola's blog as a stack of meeting notes you flip through and open to read, built in code in 2 days",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
-  },
-  {
-    title: "Scroll Through a Passport",
-    company: "Veeza AI",
-    slug: "veeza",
-    year: null,
-    thumbnail: "/Redesigns/Veeza/Veeza_Hero.mp4",
-    description: "Rebuilding a visa service's homepage as a passport you flip through, stamps and all, built in code in 1 day",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
-  },
-  {
-    title: "Try the Agent",
-    company: "Workday",
-    slug: "workday",
-    year: null,
-    thumbnail: "/Redesigns/Workday/Workday_Hero.mp4",
-    description: "Rebuilding Workday's agent animation as a working chat demo you can run yourself, built in code in 1 day",
-    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
     title: "Character Carabiner Collectible",
@@ -307,7 +268,22 @@ export default function Home() {
               >
                 <div className="overflow-hidden rounded-2xl bg-white border border-[#E5E5E5] card-hover">
                   <div className="aspect-[16/10] relative overflow-hidden bg-[#F5F5F7]">
-                    {project.thumbnail.endsWith(".mp4") ? (
+                    {"thumbnails" in project && project.thumbnails ? (
+                      <div className="grid grid-cols-2 grid-rows-2 w-full h-full">
+                        {project.thumbnails.map((thumb) => (
+                          <div key={thumb} className="relative overflow-hidden">
+                            <video
+                              src={thumb}
+                              autoPlay
+                              muted
+                              loop
+                              playsInline
+                              className="w-full h-full object-cover zoom-image"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    ) : project.thumbnail.endsWith(".mp4") ? (
                       <video
                         src={project.thumbnail}
                         autoPlay
