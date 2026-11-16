@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Google products — Chat with Gemini</title>
+  <meta name="description" content="A study of the Gemini section on Google’s products page, with a chat you can actually use." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@17..18,400..700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/Redesigns/Gemini/styles.css?v=4" />
+</head>
+<body>
+  <svg width="0" height="0" aria-hidden="true" style="position:absolute">
+    <defs>
+      <linearGradient id="spark-fill" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#4c8df6" />
+        <stop offset="0.42" stop-color="#7b61ff" />
+        <stop offset="0.7" stop-color="#e15b64" />
+        <stop offset="1" stop-color="#f2c14e" />
+      </linearGradient>
+      <symbol id="spark" viewBox="0 0 24 24">
+        <path fill="url(#spark-fill)" d="M12 .4c.25 5.1 2.3 7.9 6.7 9.6-4.4 1.7-6.45 4.5-6.7 9.6-.25-5.1-2.3-7.9-6.7-9.6C9.7 8.3 11.75 5.5 12 .4z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <a class="wordmark" href="#top" aria-label="Google">
+      <span class="c-blue">G</span><span class="c-red">o</span><span class="c-yellow">o</span><span class="c-blue">g</span><span class="c-green">l</span><span class="c-red">e</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#top">About</a>
+      <a href="#top" aria-current="page">Products</a>
+      <a href="#colophon">Company Info</a>
+      <a href="#colophon">News</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marquee"></div>
+      </div>
+      <h1>Helpful products, built with you in mind</h1>
+      <div class="jump" role="tablist" aria-label="Product sections">
+        <button type="button" role="tab" id="tab-search" aria-selected="false" aria-controls="panel-search" data-section="search">Search in new ways</button>
+        <button type="button" role="tab" id="tab-gemini" aria-selected="true" aria-controls="panel-gemini" data-section="gemini">Chat with Gemini</button>
+        <button type="button" role="tab" id="tab-tools" aria-selected="false" aria-controls="panel-tools" data-section="tools">Try AI tools</button>
+        <button type="button" role="tab" id="tab-products" aria-selected="false" aria-controls="panel-products" data-section="products">Explore more products</button>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-search" role="tabpanel" aria-labelledby="tab-search" hidden>
+      <h2>Search in new ways</h2>
+      <div class="tiles">
+        <article class="tile tile-pink">
+          <b>AI Mode</b>
+          <p>Ask anything and get an AI-powered response. Then, keep exploring with follow-up questions and web links.</p>
+        </article>
+        <article class="tile tile-green">
+          <b>How Search Works</b>
+          <p>Get the details on how Search works — from the approach we take, to the technology behind it.</p>
+        </article>
+        <article class="tile tile-yellow">
+          <b>Lens</b>
+          <p>Go beyond words: Search with your camera, an image or whatever’s on your screen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-gemini" role="tabpanel" aria-labelledby="tab-gemini">
+      <div class="gemini-intro">
+        <svg class="sparkle sparkle-lg" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" /></svg>
+        <h2>Chat with Gemini, your personal AI assistant</h2>
+      </div>
+
+      <div class="app" id="app">
+        <aside class="rail" aria-label="Gemini">
+          <svg class="sparkle sparkle-rail" viewBox="0 0 24 24" aria-hidden="true"><use href="#spark" /></svg>
+          <button type="button" class="rail-btn" id="rail-new" aria-label="New chat">
+            <svg viewBox="0 0 24 24"><path d="M4 20h4l10.2-10.2a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0L4 16v4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 6.5l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <button type="button" class="rail-btn" data-pop="search" aria-label="Search chats">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 16.5 20 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <button type="button" class="rail-btn" data-pop="prompts" aria-label="Things to ask">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <button type="button" class="rail-btn" data-ask="Design a poster based on my taste" aria-label="Image generation">
+            <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="9" cy="10" r="1.4" fill="currentColor"/><path d="M5 16.5 9.2 12l3 2.6 2.2-2.1L19 16.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="rail-btn" data-pop="history" aria-label="Recent chats">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 8.5V12l2.5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <span class="rail-gap"></span>
+          <button type="button" class="rail-btn" data-pop="about" aria-label="About this study">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 4.5v2M12 17.5v2M4.5 12h2M17.5 12h2M6.4 6.4l1.4 1.4M16.2 16.2l1.4 1.4M17.6 6.4l-1.4 1.4M7.8 16.2l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <span class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.2" fill="currentColor"/><path d="M5.5 19.2c1.4-2.6 3.6-3.8 6.5-3.8s5.1 1.2 6.5 3.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+        </aside>
+
+        <div class="maincol">
+          <div class="appbar">
+            <button type="button" class="get-app" id="get-app" data-pop="app">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 10.5 12 14.5 16 10.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 18.5h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              Get app
+            </button>
+            <button type="button" class="icon-btn" id="bar-new" aria-label="New chat">
+              <svg viewBox="0 0 24 24"><path d="M4 20h4l10.2-10.2a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0L4 16v4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13 6.5l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+            <button type="button" class="icon-btn" id="bar-more" aria-label="New chat" hidden>
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="6" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="18" r="1.3" fill="currentColor"/></svg>
+            </button>
+          </div>
+
+          <div class="thread" id="thread">
+            <div class="empty" id="empty">
+              <h3 class="start">Where should we start?</h3>
+              <form class="composer" id="form-empty" action="#" method="post">
+                <button type="button" class="plus" data-pop="plus" aria-label="Add files">
+                  <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                </button>
+                <label class="sr" for="prompt-empty">Ask Gemini</label>
+                <input class="prompt" id="prompt-empty" name="prompt" type="text" maxlength="400" autocomplete="off" placeholder="Ask Gemini" />
+                <button type="button" class="model-btn" data-pop="model" aria-haspopup="listbox" aria-expanded="false">
+                  <span class="dot" aria-hidden="true"></span>
+                  <span class="model-label">Flash-Lite</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <button type="button" class="mic" data-pop="mic" aria-label="Use microphone">
+                  <svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 11a5 5 0 0 0 10 0M12 16v4M9 20h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                </button>
+                <button type="submit" class="send" aria-label="Send" hidden>
+                  <svg viewBox="0 0 24 24"><path d="M12 18V6M7 11l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </form>
+              <div class="modes" role="tablist" aria-label="Mode">
+                <button type="button" role="tab" id="mode-chat" aria-selected="true">Chat</button>
+                <button type="button" role="tab" id="mode-task" aria-selected="false">Task</button>
+              </div>
+              <div class="suggestions" id="suggestions"></div>
+            </div>
+            <div class="log" id="log" role="log" aria-live="polite" aria-relevant="additions" aria-label="Conversation with Gemini"></div>
+          </div>
+
+          <form class="composer dock" id="form-dock" action="#" method="post" hidden>
+            <button type="button" class="plus" data-pop="plus" aria-label="Add files">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </button>
+            <label class="sr" for="prompt-dock">Ask Gemini</label>
+            <input class="prompt" id="prompt-dock" name="prompt" type="text" maxlength="400" autocomplete="off" placeholder="Ask Gemini" />
+            <button type="button" class="model-btn" data-pop="model" aria-haspopup="listbox" aria-expanded="false">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="model-label">Flash-Lite</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="mic" data-pop="mic" aria-label="Use microphone">
+              <svg viewBox="0 0 24 24"><rect x="9" y="3.5" width="6" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7 11a5 5 0 0 0 10 0M12 16v4M9 20h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </button>
+            <button type="submit" class="send" aria-label="Send" hidden>
+              <svg viewBox="0 0 24 24"><path d="M12 18V6M7 11l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </form>
+          <p class="disclaimer" id="disclaimer" hidden>Gemini is AI and can make mistakes.</p>
+        </div>
+        <div class="popover" id="popover" hidden></div>
+      </div>
+
+      <div class="feature-band">
+        <div class="feature-stage">
+          <div class="feature-copy">
+            <h3 id="feature-title">Gemini Live</h3>
+            <p id="feature-body">Have a conversation about anything around you or on your screen.</p>
+            <button type="button" class="cta" id="feature-cta">Talk it out</button>
+          </div>
+          <div class="phones" id="phones" data-preview="live">
+            <div class="phone phone-side" aria-hidden="true"><div class="screen"></div></div>
+            <div class="phone phone-main">
+              <div class="screen">
+                <div class="scene">
+                  <div class="sun"></div>
+                  <div class="ridge ridge-a"></div>
+                  <div class="ridge ridge-b"></div>
+                </div>
+                <p class="phone-bubble">How were these mountains formed</p>
+                <div class="phone-poster" aria-hidden="true">
+                  <span>Field<br>notes</span>
+                </div>
+                <div class="phone-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+                <div class="phone-play" aria-hidden="true"></div>
+              </div>
+            </div>
+            <div class="phone phone-side" aria-hidden="true"><div class="screen"></div></div>
+          </div>
+        </div>
+        <div class="feature-tabs" role="tablist" aria-label="Gemini features">
+          <button type="button" role="tab" data-feature="0" aria-selected="true">Gemini Live</button>
+          <button type="button" role="tab" data-feature="1" aria-selected="false">Canvas</button>
+          <button type="button" role="tab" data-feature="2" aria-selected="false">Image generation</button>
+          <button type="button" role="tab" data-feature="3" aria-selected="false">Video generation</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" hidden>
+      <h2>Try new AI products and experiments</h2>
+      <div class="tiles">
+        <article class="tile tile-blue">
+          <b>Flow</b>
+          <p>Create cinematic clips, scenes and stories with our AI filmmaking tool.</p>
+        </article>
+        <article class="tile tile-pink">
+          <b>Gemini Notebook</b>
+          <p>Your personalized AI research assistant, right at your fingertips.</p>
+        </article>
+        <article class="tile tile-green">
+          <b>Google Labs</b>
+          <p>Explore AI experiments from across the company.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-products" role="tabpanel" aria-labelledby="tab-products" hidden>
+      <h2>Google products</h2>
+      <div class="filters" role="tablist" aria-label="Filter products">
+        <button type="button" role="tab" data-filter="featured" aria-selected="true">Featured</button>
+        <button type="button" role="tab" data-filter="all" aria-selected="false">For all</button>
+        <button type="button" role="tab" data-filter="business" aria-selected="false">For business</button>
+        <button type="button" role="tab" data-filter="developers" aria-selected="false">For developers</button>
+      </div>
+      <ul class="catalog" id="catalog"></ul>
+    </section>
+  </main>
+
+  <p class="colophon" id="colophon">A design study of the Gemini section on Google’s products page. This chat is a demo — it doesn’t connect to Gemini, and the forecast is a sample.</p>
+  <div class="sr" id="announce" aria-live="polite"></div>
+  <script src="/Redesigns/Gemini/app.js?v=4"></script>
+</body>
+</html>
