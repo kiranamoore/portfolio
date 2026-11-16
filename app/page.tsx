@@ -19,7 +19,7 @@ const spotlightProject = {
 // Other featured projects
 const featuredProjects = [
   {
-    title: "25 Websites, Reimagined",
+    title: "Interactive by Design: A Website Redesign Series",
     company: "Directed Research",
     slug: "website-redesigns",
     year: null,

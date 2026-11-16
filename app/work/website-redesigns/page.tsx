@@ -101,16 +101,38 @@ export default function WebsiteRedesignsPage() {
         <div className="text-center w-full max-w-[900px]">
           <p className="text-[15px] font-semibold text-[#667eea] uppercase tracking-wider mb-5">Directed Research</p>
           <h1 className="text-[36px] md:text-[48px] font-bold text-[#1D1D1F] tracking-tight" style={{ marginBottom: "28px" }}>
-            25 Websites, Reimagined
+            Interactive by Design: A Website Redesign Series
           </h1>
 
           {/* Blurb */}
-          <p className="text-[17px] md:text-[18px] text-[#3A3A3C] leading-relaxed text-left md:text-center">
-            For my directed research at USC&apos;s Iovine and Young Academy, I redesigned 25 websites in one semester, taking on one focused interaction per site. I chose 25 because it was achievable in a semester while still forcing me to iterate quickly: enough time to give each interaction real design attention, and enough volume to learn speed. The sites span large tech companies, mid-size and startup products, and a few wildcard non-tech brands, so each redesign demanded a different range, audience, and set of constraints.{" "}
-            <strong className="text-[#1D1D1F]">The problem: as AI-generated websites become the default, especially for startups, product sites are starting to look template-driven and generic, flattening the very products they are meant to sell.</strong>{" "}
-            <strong className="text-[#1D1D1F]">The solution: treat AI as a multiplier, not the designer. When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human, which is how you get interactions that feel novel, specific, and memorable.</strong>{" "}
-            Every redesign below was designed and built in real code, not mocked up. The six featured here are the highlights of the set of 25.
-          </p>
+          <div className="text-left max-w-[760px] mx-auto">
+            <p className="text-[18px] md:text-[19px] text-[#1D1D1F] leading-relaxed font-medium" style={{ marginBottom: "28px" }}>
+              For my directed research at USC&apos;s Iovine and Young Academy, I redesigned 25 websites in one semester, taking on one focused interaction per site, designed and built in real code.
+            </p>
+
+            <div className="flex flex-col gap-3 text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed" style={{ marginBottom: "28px" }}>
+              <p>
+                <strong className="text-[#1D1D1F]">Scope:</strong> 25 sites in one semester, a pace that forced fast iteration while still giving each interaction real design attention.
+              </p>
+              <p>
+                <strong className="text-[#1D1D1F]">Selection:</strong> Large tech companies, mid-size and startup products, and a few wildcard non-tech brands, each with a different audience, range, and set of constraints.
+              </p>
+              <p>
+                <strong className="text-[#1D1D1F]">Method:</strong> One focused interaction per site, prototyped and shipped in HTML, CSS, and JavaScript, never just mocked up.
+              </p>
+            </div>
+
+            <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "16px" }}>
+              <strong className="text-[#1D1D1F]">The problem: as AI-generated websites become the default, especially for startups, product sites are starting to look template-driven and generic, flattening the very products they are meant to sell.</strong>
+            </p>
+            <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "28px" }}>
+              <strong className="text-[#1D1D1F]">The solution: treat AI as a multiplier, not the designer. When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human, which is how you get interactions that feel novel, specific, and memorable.</strong>
+            </p>
+
+            <p className="text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed">
+              The six redesigns below are the featured highlights of the set of 25.
+            </p>
+          </div>
         </div>
 
         {/* Redesigns grid, same card style as the homepage work grid */}
