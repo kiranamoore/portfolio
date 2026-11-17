@@ -227,17 +227,22 @@ export default function IbmPage() {
               <p className="text-[18px] text-[#667eea] font-semibold">IBM · Web Design · Interaction Design</p>
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">A product grid that ripples back when you hover it.</p>
 
-              {/* Hero Visual */}
-              <div className="rounded-2xl overflow-hidden">
-                <video src="/Redesigns/IBM/IBM_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="The redesigned IBM product cards, showing the wave hover and animated icons" />
+              {/* Hero Visual: the live redesign, embedded and interactive */}
+              <div className="rounded-2xl overflow-hidden border border-[#E5E5E5] bg-white">
+                <iframe
+                  src="/Redesigns/IBM/"
+                  title="Live redesign: Interactive IBM Product Cards, embedded from the redesign site"
+                  className="w-full block"
+                  style={{ height: "clamp(520px, 78vh, 760px)", border: "0" }}
+                  loading="lazy"
+                />
               </div>
-              <a
-                href="/Redesigns/IBM/"
-                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
-                style={{ marginTop: "20px", marginBottom: "48px" }}
+              <p
+                className="text-[14px] text-[#86868B]"
+                style={{ marginTop: "14px", marginBottom: "48px" }}
               >
-                View the redesign
-              </a>
+                Live and interactive: hover the product cards right here on this page.
+              </p>
             </div>
 
             {/* --- Three equal cards row --- */}

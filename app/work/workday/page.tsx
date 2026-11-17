@@ -227,17 +227,22 @@ export default function WorkdayPage() {
               <p className="text-[18px] text-[#667eea] font-semibold">Workday · Web Design · Interaction Design</p>
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">Workday says its agents get work done. This version lets you run one and see.</p>
 
-              {/* Hero Visual */}
-              <div className="rounded-2xl overflow-hidden">
-                <video src="/Redesigns/Workday/Workday_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="The redesigned Workday agents section: running the agent across HR, Finance, IT, and Everyone" />
+              {/* Hero Visual: the live redesign, embedded and interactive */}
+              <div className="rounded-2xl overflow-hidden border border-[#E5E5E5] bg-white">
+                <iframe
+                  src="/Redesigns/Workday/"
+                  title="Live redesign: the Workday agent chat demo, embedded from the redesign site"
+                  className="w-full block"
+                  style={{ height: "clamp(520px, 78vh, 760px)", border: "0" }}
+                  loading="lazy"
+                />
               </div>
-              <a
-                href="/Redesigns/Workday/"
-                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
-                style={{ marginTop: "20px", marginBottom: "48px" }}
+              <p
+                className="text-[14px] text-[#86868B]"
+                style={{ marginTop: "14px", marginBottom: "48px" }}
               >
-                View the redesign
-              </a>
+                Live and interactive: run the agent chat right here on this page.
+              </p>
             </div>
 
             {/* --- Three equal cards row --- */}

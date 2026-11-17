@@ -28,7 +28,7 @@ const featuredProjects = [
       "/Redesigns/Instagram/Instagram_Thumbnail.mp4",
       "/Redesigns/SJ-Quilts/SJ_Quits_Hero.mp4",
       "/Redesigns/Granola/Granola_Hero.mp4",
-      "/Redesigns/Veeza/Veeza_Hero.mp4",
+      "/Redesigns/Gemini/Gemini_Thumb.mov",
     ],
     description: "Featured redesigns from a directed research series of 25 websites: one focused interaction per site, designed with intention and built in real code",
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],

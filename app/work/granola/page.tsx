@@ -227,17 +227,22 @@ export default function GranolaPage() {
               <p className="text-[18px] text-[#667eea] font-semibold">Granola · Web Design · Interaction Design</p>
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">Granola's blog, rebuilt as a pile of meeting notes you flip through.</p>
 
-              {/* Hero Visual */}
-              <div className="rounded-2xl overflow-hidden">
-                <video src="/Redesigns/Granola/Granola_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="The redesigned Granola blog: flipping through a stack of notes and opening one to read" />
+              {/* Hero Visual: the live redesign, embedded and interactive */}
+              <div className="rounded-2xl overflow-hidden border border-[#E5E5E5] bg-white">
+                <iframe
+                  src="/Redesigns/Granola/"
+                  title="Live redesign: Granola's blog as a stack of notes, embedded from the redesign site"
+                  className="w-full block"
+                  style={{ height: "clamp(520px, 78vh, 760px)", border: "0" }}
+                  loading="lazy"
+                />
               </div>
-              <a
-                href="/Redesigns/Granola/"
-                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
-                style={{ marginTop: "20px", marginBottom: "48px" }}
+              <p
+                className="text-[14px] text-[#86868B]"
+                style={{ marginTop: "14px", marginBottom: "48px" }}
               >
-                View the redesign
-              </a>
+                Live and interactive: flip through the stack of notes right here on this page.
+              </p>
             </div>
 
             {/* --- Three equal cards row --- */}
