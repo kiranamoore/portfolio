@@ -222,22 +222,17 @@ export default function InstagramPage() {
               <p className="text-[18px] text-[#667eea] font-semibold">Meta · Web Design · Interaction Design</p>
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">turning a static screenshot into an experience you can scroll through.</p>
 
-              {/* Hero Visual: the live redesign, embedded and interactive */}
-              <div className="rounded-2xl overflow-hidden border border-[#E5E5E5] bg-white">
-                <iframe
-                  src="/Redesigns/Instagram/"
-                  title="Live redesign: the Instagram section from Meta's page, embedded from the redesign site"
-                  className="w-full block"
-                  style={{ height: "clamp(520px, 78vh, 760px)", border: "0" }}
-                  loading="lazy"
-                />
+              {/* Hero Visual */}
+              <div className="rounded-2xl overflow-hidden">
+                <video src="/Redesigns/Instagram/Instagram_Hero.mp4" autoPlay muted loop playsInline className="w-full" aria-label="Scroll driven Instagram redesign, showing the feed, carousel, comments and share sheet inside a phone" />
               </div>
-              <p
-                className="text-[14px] text-[#86868B]"
-                style={{ marginTop: "14px", marginBottom: "48px" }}
+              <a
+                href="/Redesigns/Instagram/"
+                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
+                style={{ marginTop: "20px", marginBottom: "48px" }}
               >
-                Live and interactive: scroll the phone feed right here on this page.
-              </p>
+                View the redesign
+              </a>
             </div>
 
             {/* --- Three equal cards row --- */}
