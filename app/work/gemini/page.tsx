@@ -227,17 +227,22 @@ export default function GeminiPage() {
               <p className="text-[18px] text-[#667eea] font-semibold">Google · Web Design · Interaction Design</p>
               <p className="text-center text-[16px] text-[#1D1D1F] py-4 px-4 md:px-8">Google&apos;s products page tells you Gemini can chat. This version lets you actually have the conversation.</p>
 
-              {/* Hero Visual */}
-              <div className="rounded-2xl overflow-hidden">
-                <video src="/Redesigns/Gemini/GEMINI_Hero.mov" autoPlay muted loop playsInline className="w-full" aria-label="The redesigned Gemini section: a working chat with Gemini on Google's products page" />
+              {/* Hero Visual: the live redesign, embedded and interactive */}
+              <div className="rounded-2xl overflow-hidden border border-[#E5E5E5] bg-white">
+                <iframe
+                  src="/Redesigns/Gemini/"
+                  title="Live redesign: Chat with Gemini, embedded from the redesign site"
+                  className="w-full block"
+                  style={{ height: "clamp(520px, 78vh, 760px)", border: "0" }}
+                  loading="lazy"
+                />
               </div>
-              <a
-                href="/Redesigns/Gemini/"
-                className="inline-block text-[18px] font-semibold text-[#0071E3] hover:underline"
-                style={{ marginTop: "20px", marginBottom: "48px" }}
+              <p
+                className="text-[14px] text-[#86868B]"
+                style={{ marginTop: "14px", marginBottom: "48px" }}
               >
-                View the redesign
-              </a>
+                Live and interactive: use the Chat with Gemini tab above and try the chat right here on this page.
+              </p>
             </div>
 
             {/* --- Three equal cards row --- */}

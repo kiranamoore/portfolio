@@ -119,10 +119,10 @@ export default function WebsiteRedesignsPage() {
             </p>
 
             <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "16px" }}>
-              <strong className="text-[#1D1D1F]">The problem: as AI-generated websites become the default, especially for startups, product sites are starting to look template-driven and generic, flattening the very products they are meant to sell.</strong>
+              <strong className="text-[#667eea]">The problem:</strong> as AI-generated websites become the default, especially for startups, <strong className="text-[#667eea]">product sites are starting to look template-driven and generic</strong>, flattening the very products they are meant to sell.
             </p>
             <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "28px" }}>
-              <strong className="text-[#1D1D1F]">The solution: treat AI as a multiplier, not the designer. When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human, which is how you get interactions that feel novel, specific, and memorable.</strong>
+              <strong className="text-[#667eea]">The solution:</strong> treat AI as a multiplier, not the designer. <strong className="text-[#667eea]">When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human</strong>, which is how you get interactions that feel novel, specific, and memorable.
             </p>
 
             <p className="text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed">
