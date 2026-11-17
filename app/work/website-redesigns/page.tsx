@@ -11,6 +11,14 @@ const redesigns = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Chat with Gemini",
+    company: "Google",
+    slug: "gemini",
+    thumbnail: "/Redesigns/Gemini/Gemini_Thumb.mov",
+    description: "Rebuilding Google's Gemini section as a working chat you can actually try, instead of a static pitch, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "The Loom Menu",
     company: "SJMQT",
     slug: "sj-quilts",
@@ -118,7 +126,7 @@ export default function WebsiteRedesignsPage() {
             </p>
 
             <p className="text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed">
-              The six redesigns below are the featured highlights of the set of 25.
+              The seven redesigns below are the featured highlights of the set of 25.
             </p>
           </div>
         </div>
