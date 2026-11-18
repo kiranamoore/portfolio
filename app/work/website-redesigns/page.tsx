@@ -19,6 +19,14 @@ const redesigns = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Scroll the Shot",
+    company: "Los Gatos Coffee Roasting Co.",
+    slug: "lgcrc",
+    thumbnail: "/Redesigns/LGCRC/photos/roaster.jpg",
+    description: "Rebuilding a Los Gatos coffeehouse as a scroll through one shot of espresso, from the bean to the cup",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "The Loom Menu",
     company: "SJMQT",
     slug: "sj-quilts",
@@ -126,7 +134,7 @@ export default function WebsiteRedesignsPage() {
             </p>
 
             <p className="text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed">
-              The seven redesigns below are the featured highlights of the set of 25.
+              The eight redesigns below are the featured highlights of the set of 25.
             </p>
           </div>
         </div>
@@ -137,14 +145,22 @@ export default function WebsiteRedesignsPage() {
             <Link key={project.slug} href={`/work/${project.slug}`} className="group block">
               <div className="overflow-hidden rounded-2xl bg-white border border-[#E5E5E5] card-hover">
                 <div className="aspect-[16/10] relative overflow-hidden bg-[#F5F5F7]">
-                  <video
-                    src={project.thumbnail}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover zoom-image"
-                  />
+                  {/\.(mp4|mov|webm)$/i.test(project.thumbnail) ? (
+                    <video
+                      src={project.thumbnail}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover zoom-image"
+                    />
+                  ) : (
+                    <img
+                      src={project.thumbnail}
+                      alt=""
+                      className="w-full h-full object-cover zoom-image"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 shadow-lg">
                     <svg className="w-5 h-5 text-[#1D1D1F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
