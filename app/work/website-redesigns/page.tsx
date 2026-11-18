@@ -11,6 +11,14 @@ const redesigns = [
     tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
   },
   {
+    title: "Chat with Gemini",
+    company: "Google",
+    slug: "gemini",
+    thumbnail: "/Redesigns/Gemini/Gemini_Thumb.mov",
+    description: "Rebuilding Google's Gemini section as a working chat you can actually try, instead of a static pitch, built in code in 1 day",
+    tags: ["Web Design", "Interaction Design", "HTML/CSS/JS"],
+  },
+  {
     title: "The Loom Menu",
     company: "SJMQT",
     slug: "sj-quilts",
@@ -110,27 +118,15 @@ export default function WebsiteRedesignsPage() {
               For my directed research at USC&apos;s Iovine and Young Academy, I redesigned 25 websites in one semester, taking on one focused interaction per site, designed and built in real code.
             </p>
 
-            <div className="flex flex-col gap-3 text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed" style={{ marginBottom: "28px" }}>
-              <p>
-                <strong className="text-[#1D1D1F]">Scope:</strong> 25 sites in one semester, a pace that forced fast iteration while still giving each interaction real design attention.
-              </p>
-              <p>
-                <strong className="text-[#1D1D1F]">Selection:</strong> Large tech companies, mid-size and startup products, and a few wildcard non-tech brands, each with a different audience, range, and set of constraints.
-              </p>
-              <p>
-                <strong className="text-[#1D1D1F]">Method:</strong> One focused interaction per site, prototyped and shipped in HTML, CSS, and JavaScript, never just mocked up.
-              </p>
-            </div>
-
             <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "16px" }}>
-              <strong className="text-[#1D1D1F]">The problem: as AI-generated websites become the default, especially for startups, product sites are starting to look template-driven and generic, flattening the very products they are meant to sell.</strong>
+              <strong className="text-[#667eea]">The problem:</strong> as AI-generated websites become the default, especially for startups, <strong className="text-[#667eea]">product sites are starting to look template-driven and generic</strong>, flattening the very products they are meant to sell.
             </p>
             <p className="text-[16px] md:text-[17px] leading-relaxed" style={{ marginBottom: "28px" }}>
-              <strong className="text-[#1D1D1F]">The solution: treat AI as a multiplier, not the designer. When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human, which is how you get interactions that feel novel, specific, and memorable.</strong>
+              <strong className="text-[#667eea]">The solution:</strong> treat AI as a multiplier, not the designer. <strong className="text-[#667eea]">When every prompt carries clear design intention, AI accelerates iteration and shipping while the creative decisions stay human</strong>, which is how you get interactions that feel novel, specific, and memorable.
             </p>
 
             <p className="text-[16px] md:text-[17px] text-[#3A3A3C] leading-relaxed">
-              The six redesigns below are the featured highlights of the set of 25.
+              The seven redesigns below are the featured highlights of the set of 25.
             </p>
           </div>
         </div>
